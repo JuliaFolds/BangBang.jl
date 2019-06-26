@@ -5,8 +5,8 @@ may(mutate, args...) =
         pure(mutate)(args...)
     end
 
-pure(::typeof(push!)) = push
-pure(::typeof(append!)) = append
+pure(::typeof(push!)) = NoBang.push
+pure(::typeof(append!)) = NoBang.append
 
 ismutable(x) = ismutable(typeof(x))
 ismutable(T::Type) = error("mutability unknown for type $T")  # maybe `false`?
