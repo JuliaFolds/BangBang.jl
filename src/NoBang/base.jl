@@ -1,4 +1,5 @@
 const ImmutableContainer = Union{
+    ImmutableDict,
     NamedTuple,
     Tuple,
 }
@@ -32,6 +33,8 @@ push(::NamedTuple, x) =
     error("`push(::NamedTuple, x::$(typeof(x)))` is not supported.\n",
           "Use `push(::NamedTuple, :NAME => x)` or ",
           "`push(::NamedTuple, Val(:NAME) => x)`.")
+
+push(xs::ImmutableDict, x::Pair) = ImmutableDict(xs, x)
 
 append(xs, ys) = _append(xs, ys)
 _append(xs, ys) = append!(copy(xs), ys)
