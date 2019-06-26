@@ -1,3 +1,8 @@
+const ImmutableContainer = Union{
+    NamedTuple,
+    Tuple,
+}
+
 push(xs, i1, i2, items...) =
     foldl(push, items, init=push(push(xs, i1), i2))
 
@@ -33,5 +38,4 @@ _append(xs, ys) = append!(copy(xs), ys)
 _append(xs, ys::Tuple) = push(xs, ys...)
 _append(xs, ys::Pairs{Symbol, <:Any, <:Any, <:NamedTuple}) = push(xs, ys...)
 
-append(xs::Tuple, ys) = push(xs, ys...)
-append(xs::NamedTuple, ys) = push(xs, ys...)
+append(xs::ImmutableContainer, ys) = push(xs, ys...)

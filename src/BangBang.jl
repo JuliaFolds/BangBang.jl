@@ -5,7 +5,7 @@ export push!!, append!!
 using Requires
 
 include("NoBang/NoBang.jl")
-using .NoBang: push, append
+using .NoBang: ImmutableContainer, push, append
 
 include("core.jl")
 include("base.jl")

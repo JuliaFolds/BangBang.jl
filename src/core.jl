@@ -8,11 +8,6 @@ may(mutate, args...) =
 pure(::typeof(push!)) = push
 pure(::typeof(append!)) = append
 
-ImmutableContainer = Union{
-    NamedTuple,
-    Tuple,
-}
-
 ismutable(x) = ismutable(typeof(x))
 ismutable(T::Type) = error("mutability unknown for type $T")  # maybe `false`?
 ismutable(::Type{<:ImmutableContainer}) = false
