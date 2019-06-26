@@ -1,4 +1,5 @@
-push(xs, items...) = foldl(push, items, init=xs)
+push(xs, i1, i2, items...) =
+    foldl(push, items, init=push(push(xs, i1), i2))
 
 # A helper type for implementing `push`
 struct SingletonVector{T} <: AbstractVector{T}

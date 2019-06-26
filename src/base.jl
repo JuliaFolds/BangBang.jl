@@ -3,7 +3,8 @@ ImmutableContainer = Union{
     Tuple,
 }
 
-push!!(xs, items...) = foldl(push!!, items, init=xs)
+push!!(xs, i1, i2, items...) =
+    foldl(push!!, items, init=push!!(push!!(xs, i1), i2))
 
 push!!(xs::AbstractVector{T}, x::S) where {T, S} =
     if promote_type(T, S) <: T
