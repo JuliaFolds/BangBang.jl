@@ -3,6 +3,7 @@ module NoBang
 using Base.Iterators: Pairs
 using Base: ImmutableDict
 using Requires
+using Setfield: setproperties
 
 include("base.jl")
 

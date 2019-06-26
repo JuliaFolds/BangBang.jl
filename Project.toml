@@ -5,6 +5,7 @@ version = "0.1.0"
 
 [deps]
 Requires = "ae029012-a4dd-5104-9daa-d747884805df"
+Setfield = "efcf1570-3423-57d1-acb7-fd33fddbac46"
 
 [compat]
 julia = "1.1"

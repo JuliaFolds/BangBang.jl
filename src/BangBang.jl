@@ -1,6 +1,6 @@
 module BangBang
 
-export push!!, append!!
+export push!!, append!!, setproperty!!
 
 using Requires
 
