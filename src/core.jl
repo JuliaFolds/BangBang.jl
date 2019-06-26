@@ -16,13 +16,12 @@ pure(::typeof(_setproperty!)) = NoBang.setproperty
 pure(::typeof(mul!)) = NoBang.mul
 
 ismutable(x) = ismutable(typeof(x))
-ismutable(T::Type) = error("mutability unknown for type $T")  # maybe `false`?
+ismutable(::Type) = false
 ismutable(::Type{<:ImmutableContainer}) = false
 ismutable(::Type{<:AbstractArray}) = true
 ismutable(::Type{<:AbstractDict}) = true
 ismutable(::Type{<:AbstractSet}) = true
 ismutable(::Type{<:AbstractString}) = false
-ismutable(::Type{<:Number}) = false
 
 ismutablestruct(x) = ismutablestruct(typeof(x))
 Base.@pure ismutablestruct(T::DataType) = T.mutable
