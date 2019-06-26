@@ -1,7 +1,8 @@
 module BangBang
 
-export push!!, append!!, setproperty!!
+export push!!, append!!, setproperty!!, mul!!
 
+using LinearAlgebra
 using Requires
 
 include("NoBang/NoBang.jl")
@@ -9,6 +10,7 @@ using .NoBang: ImmutableContainer
 
 include("core.jl")
 include("base.jl")
+include("linearalgebra.jl")
 
 function __init__()
     @require StaticArrays="90137ffa-7385-5640-81b9-e52037218182" begin
