@@ -21,3 +21,16 @@ push(xs::NamedTuple{names}, x::Pair{Symbol}) where {names} =
 
 push(xs::NamedTuple{names}, x::Pair{Val{name}}) where {names, name} =
     NamedTuple{(names..., name)}((xs..., x.second))
+
+push(::NamedTuple, x) =
+    error("`push(::NamedTuple, x::$(typeof(x)))` is not supported.\n",
+          "Use `push(::NamedTuple, :NAME => x)` or ",
+          "`push(::NamedTuple, Val(:NAME) => x)`.")
+
+append(xs, ys) = _append(xs, ys)
+_append(xs, ys) = append!(copy(xs), ys)
+_append(xs, ys::Tuple) = push(xs, ys...)
+_append(xs, ys::Pairs{Symbol, <:Any, <:Any, <:NamedTuple}) = push(xs, ys...)
+
+append(xs::Tuple, ys) = push(xs, ys...)
+append(xs::NamedTuple, ys) = push(xs, ys...)

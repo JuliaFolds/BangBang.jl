@@ -1,9 +1,9 @@
 module BangBang
 
-export push!!
+export push!!, append!!
 
 include("NoBang/NoBang.jl")
-using .NoBang: push
+using .NoBang: push, append
 
 include("base.jl")
 
