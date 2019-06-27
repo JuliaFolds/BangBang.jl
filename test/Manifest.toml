@@ -1,5 +1,13 @@
 # This file is machine-generated - editing it directly is not advised
 
+[[Aqua]]
+deps = ["Test"]
+git-tree-sha1 = "3f64ef101feed310f3d6228a9ec5f1c1931934eb"
+repo-rev = "master"
+repo-url = "https://github.com/tkf/Aqua.jl"
+uuid = "4c88cf16-eb10-579e-8560-4a9242c79595"
+version = "0.3.0"
+
 [[BangBang]]
 deps = ["LinearAlgebra", "Requires", "Setfield"]
 path = ".."
