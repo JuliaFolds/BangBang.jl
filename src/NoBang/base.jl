@@ -22,6 +22,21 @@ end
 push(xs::AbstractVector, x) = vcat(xs, SingletonVector(x))
 push(xs::AbstractSet, x) = union(xs, SingletonVector(x))
 
+struct SingletonDict{K, V} <: AbstractDict{K, V}
+    key::K
+    value::V
+end
+
+Base.iterate(d::SingletonDict) = (d.key => d.value, nothing)
+Base.iterate(d::SingletonDict, ::Nothing) = nothing
+
+function Base.getindex(d::SingletonDict{K}, key::K) where K
+    @boundscheck d.key == key || throw(BoundsError(d, key))
+    return d.value
+end
+
+push(xs::AbstractDict, x::Pair) = merge(xs, SingletonDict(x[1], x[2]))
+
 push(xs::Tuple, items...) = (xs..., items...)
 
 push(xs::NamedTuple{names}, x::Pair{Symbol}) where {names} =
