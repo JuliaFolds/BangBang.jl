@@ -9,7 +9,6 @@ makedocs(;
     repo="https://github.com/tkf/BangBang.jl/blob/{commit}{path}#L{line}",
     sitename="BangBang.jl",
     authors="Takafumi Arakaki <aka.tkf@gmail.com>",
-    assets=String[],
 )
 
 deploydocs(;
