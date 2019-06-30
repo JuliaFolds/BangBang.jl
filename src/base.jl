@@ -91,6 +91,54 @@ possible(::typeof(pushfirst!), ::C, ys...) where {C <: AbstractVector} =
     ismutable(C) && promote_type(eltype(C), map(typeof, ys)...) <: eltype(C)
 
 """
+    pop!!(sequence) -> (sequence′, value)
+    pop!!(assoc, key) -> (assoc′, value)
+    pop!!(assoc, key, default) -> (assoc′, value)
+
+# Examples
+```jldoctest
+julia> using BangBang
+
+julia> pop!!([0, 1])
+([0], 1)
+
+julia> pop!!((0, 1))
+((0,), 1)
+
+julia> pop!!(Dict(:a => 1), :a)
+(Dict{Symbol,Int64}(), 1)
+
+julia> pop!!((a=1,), :a)
+(NamedTuple(), 1)
+```
+"""
+pop!!(xs, args...) = may(_pop!, xs, args...)
+_pop!(xs, args...) = xs, pop!(xs, args...)
+
+pure(::typeof(_pop!)) = NoBang.pop
+possible(::typeof(_pop!), ::C, ::Vararg) where C = ismutable(C)
+
+"""
+    popfirst!!(sequence) -> (sequence′, value)
+
+# Examples
+```jldoctest
+julia> using BangBang
+
+julia> popfirst!!([0, 1])
+([1], 0)
+
+julia> popfirst!!((0, 1))
+((1,), 0)
+```
+"""
+popfirst!!(xs) = may(_popfirst!, xs)
+_popfirst!(xs) = xs, popfirst!(xs)
+
+pure(::typeof(_popfirst!)) = NoBang.popfirst
+possible(::typeof(_popfirst!), ::C,) where C = ismutable(C)
+
+"""
     setproperty!!(value, name, x)
 
 # Examples

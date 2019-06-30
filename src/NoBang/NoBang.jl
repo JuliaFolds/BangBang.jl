@@ -6,6 +6,7 @@ using Requires
 using Setfield: setproperties
 
 include("singletoncontainers.jl")
+include("core.jl")
 include("base.jl")
 include("linearalgebra.jl")
 
