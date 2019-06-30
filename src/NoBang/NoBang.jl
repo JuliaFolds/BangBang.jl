@@ -5,6 +5,7 @@ using Base: ImmutableDict
 using Requires
 using Setfield: setproperties
 
+include("singletoncontainers.jl")
 include("base.jl")
 include("linearalgebra.jl")
 

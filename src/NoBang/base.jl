@@ -7,34 +7,8 @@ const ImmutableContainer = Union{
 push(xs, i1, i2, items...) =
     foldl(push, items, init=push(push(xs, i1), i2))
 
-# A helper type for implementing `push`
-struct SingletonVector{T} <: AbstractVector{T}
-    value::T
-end
-
-Base.size(::SingletonVector) = (1,)
-
-function Base.getindex(v::SingletonVector, i::Integer)
-    @boundscheck i == 1 || throw(BoundsError(v, i))
-    return v.value
-end
-
 push(xs::AbstractVector, x) = vcat(xs, SingletonVector(x))
 push(xs::AbstractSet, x) = union(xs, SingletonVector(x))
-
-struct SingletonDict{K, V} <: AbstractDict{K, V}
-    key::K
-    value::V
-end
-
-Base.iterate(d::SingletonDict) = (d.key => d.value, nothing)
-Base.iterate(d::SingletonDict, ::Nothing) = nothing
-
-function Base.getindex(d::SingletonDict{K}, key::K) where K
-    @boundscheck d.key == key || throw(BoundsError(d, key))
-    return d.value
-end
-
 push(xs::AbstractDict, x::Pair) = merge(xs, SingletonDict(x[1], x[2]))
 
 push(xs::Tuple, items...) = (xs..., items...)
