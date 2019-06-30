@@ -60,6 +60,37 @@ possible(::typeof(append!), ::C, ys) where {C <: MaybeMutableContainer} =
     ismutable(C) && promote_type(eltype(C), eltype(ys)) <: eltype(C)
 
 """
+    pushfirst!!(collection, items...)
+
+# Examples
+```jldoctest
+julia> using BangBang
+
+julia> pushfirst!!((1, 2), 3, 4)
+(3, 4, 1, 2)
+
+julia> pushfirst!!([1, 2], 3, 4)
+4-element Array{Int64,1}:
+ 3
+ 4
+ 1
+ 2
+
+julia> pushfirst!!([1, 2], 3, 4.0)
+4-element Array{Float64,1}:
+ 3.0
+ 4.0
+ 1.0
+ 2.0
+```
+"""
+pushfirst!!(xs, ys...) = may(pushfirst!, xs, ys...)
+
+possible(::typeof(pushfirst!), ::Tuple, ::Vararg) = false
+possible(::typeof(pushfirst!), ::C, ys...) where {C <: AbstractVector} =
+    ismutable(C) && promote_type(eltype(C), map(typeof, ys)...) <: eltype(C)
+
+"""
     setproperty!!(value, name, x)
 
 # Examples

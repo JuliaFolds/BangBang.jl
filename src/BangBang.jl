@@ -1,6 +1,6 @@
 module BangBang
 
-export push!!, append!!, setproperty!!, mul!!
+export push!!, append!!, pushfirst!!, setproperty!!, mul!!
 
 using LinearAlgebra
 using Requires
