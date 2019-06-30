@@ -29,8 +29,8 @@ push!!(xs, i1, i2, items...) =
 push!!(xs, x) = may(push!, xs, x)
 
 possible(::typeof(push!), x, ::Any) = ismutable(x)
-possible(::typeof(push!), ::A, ::S) where {T, A <: AbstractVector{T}, S} =
-    ismutable(A) && promote_type(T, S) <: T
+possible(::typeof(push!), ::C, ::S) where {C <: MaybeMutableContainer, S} =
+    ismutable(C) && promote_type(eltype(C), S) <: eltype(C)
 
 """
     append!!(dest, src)
@@ -56,8 +56,8 @@ julia> append!!([1, 2], (3, 4))
 append!!(xs, ys) = may(append!, xs, ys)
 
 possible(::typeof(append!), x, ::Any) = ismutable(x)
-possible(::typeof(append!), ::A, ys) where {T, A <: AbstractVector{T}} =
-    ismutable(A) && promote_type(T, eltype(ys)) <: T
+possible(::typeof(append!), ::C, ys) where {C <: MaybeMutableContainer} =
+    ismutable(C) && promote_type(eltype(C), eltype(ys)) <: eltype(C)
 
 """
     setproperty!!(value, name, x)

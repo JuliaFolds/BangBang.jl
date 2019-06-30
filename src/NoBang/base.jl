@@ -20,6 +20,7 @@ function Base.getindex(v::SingletonVector, i::Integer)
 end
 
 push(xs::AbstractVector, x) = vcat(xs, SingletonVector(x))
+push(xs::AbstractSet, x) = union(xs, SingletonVector(x))
 
 push(xs::Tuple, items...) = (xs..., items...)
 
