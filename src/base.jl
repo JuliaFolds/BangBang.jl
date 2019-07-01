@@ -166,6 +166,17 @@ pure(::typeof(empty!)) = NoBang._empty
 possible(::typeof(empty!), ::C) where C = ismutable(C)
 
 """
+    setindex!!(collection, value, indices...) -> collection′
+"""
+setindex!!(xs, v, I...) = may(_setindex!, xs, v, I...)
+
+_setindex!(xs, v, I...) = (setindex!(xs, v, I...); xs)
+
+pure(::typeof(_setindex!)) = NoBang._setindex
+possible(::typeof(_setindex!), ::C, ::T, ::Vararg) where {C, T} =
+    ismutable(C) && promote_type(eltype(C), T) <: eltype(C)
+
+"""
     setproperty!!(value, name, x)
 
 # Examples

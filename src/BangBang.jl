@@ -11,6 +11,7 @@ export
     popfirst!!,
     push!!,
     pushfirst!!,
+    setindex!!,
     setproperty!!
 
 using LinearAlgebra

@@ -5,6 +5,10 @@ using Base: ImmutableDict
 using Requires
 using Setfield: setproperties
 
+if VERSION < v"1.1-"
+    using Future: copy!
+end
+
 include("singletoncontainers.jl")
 include("core.jl")
 include("base.jl")

@@ -82,4 +82,15 @@ delete(xs::NamedTuple, key) = something(maybepop(xs, key), (xs,))[1]
 _empty(xs) = empty(xs)
 _empty(xs::NamedTuple) = NamedTuple()
 
+_setindex(xs, v, I...) = Base.setindex(xs, v, I...)
+_setindex(xs::NamedTuple, value, name) = setproperty(xs, name, value)
+
+function _setindex(xs::AbstractArray, v, I...)
+    T = promote_type(eltype(xs), typeof(v))
+    ys = similar(xs, T)
+    copy!(ys, xs)
+    ys[I...] = v
+    return ys
+end
+
 setproperty(value, name, x) = setproperties(value, NamedTuple{(name,)}((x,)))
