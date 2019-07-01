@@ -1,4 +1,4 @@
-module TestAppend
+module TestSetProperty
 
 include("preamble.jl")
 
