@@ -79,4 +79,7 @@ popfirst(xs::NamedTuple{names}) where {names} =
 
 delete(xs::NamedTuple, key) = something(maybepop(xs, key), (xs,))[1]
 
+_empty(xs) = empty(xs)
+_empty(xs::NamedTuple) = NamedTuple()
+
 setproperty(value, name, x) = setproperties(value, NamedTuple{(name,)}((x,)))

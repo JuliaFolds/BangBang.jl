@@ -139,6 +139,33 @@ pure(::typeof(_popfirst!)) = NoBang.popfirst
 possible(::typeof(_popfirst!), ::C,) where C = ismutable(C)
 
 """
+    empty!!(collection) -> collection′
+
+# Examples
+```jldoctest
+julia> using BangBang
+
+julia> empty!!((1, 2, 3))
+()
+
+julia> empty!!((a=1, b=2, c=3))
+NamedTuple()
+
+julia> xs = [1, 2, 3];
+
+julia> empty!!(xs)
+0-element Array{Int64,1}
+
+julia> xs
+0-element Array{Int64,1}
+```
+"""
+empty!!(xs) = may(empty!, xs)
+
+pure(::typeof(empty!)) = NoBang._empty
+possible(::typeof(empty!), ::C) where C = ismutable(C)
+
+"""
     setproperty!!(value, name, x)
 
 # Examples
