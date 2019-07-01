@@ -20,8 +20,7 @@ install:
 script:
   - julia -e 'using Run; Run.test()'
 after_success:
-  - julia -e 'using Pkg; Pkg.add("Coverage"); using Coverage; Codecov.submit(process_folder())'
-  - julia -e 'using Pkg; Pkg.add("Coverage"); using Coverage; Coveralls.submit(process_folder())'
+  - julia -e 'using Run; Run.after_success_test()'
 jobs:
   include:
     - stage: Documentation
