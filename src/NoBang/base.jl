@@ -33,6 +33,8 @@ _append(xs, ys::Pairs{Symbol, <:Any, <:Any, <:NamedTuple}) = push(xs, ys...)
 
 append(xs::ImmutableContainer, ys) = push(xs, ys...)
 
+append(xs::AbstractString, ys::AbstractString) = string(xs, ys)
+
 function pushfirst(xs::AbstractVector, ys...)
     T = promote_type(eltype(xs), map(typeof, ys)...)
     zs = similar(xs, T, length(xs) + length(ys))

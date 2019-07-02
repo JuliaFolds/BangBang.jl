@@ -10,6 +10,7 @@ include("preamble.jl")
     @test append!!((a=0,), pairs((b=1,))) === (a=0, b=1)
     @test append!!(ImmutableDict(:a=>1), ImmutableDict(:b=>2)) ==
         ImmutableDict(ImmutableDict(:a=>1), :b=>2)
+    @test append!!("a", "b") === "ab"
 end
 
 end  # module
