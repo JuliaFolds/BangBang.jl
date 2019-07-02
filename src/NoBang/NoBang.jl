@@ -10,7 +10,6 @@ if VERSION < v"1.1-"
 end
 
 include("singletoncontainers.jl")
-include("core.jl")
 include("base.jl")
 include("linearalgebra.jl")
 
