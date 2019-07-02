@@ -119,6 +119,14 @@ pure(::typeof(_pop!)) = NoBang.pop
 possible(::typeof(_pop!), ::C, ::Vararg) where C = ismutable(C)
 
 """
+    delete!!(assoc, key) -> assoc′
+"""
+delete!!(xs, key) = may(delete!, xs, key)
+
+pure(::typeof(delete!)) = NoBang.delete
+possible(::typeof(delete!), ::C, ::Any) where C = ismutable(C)
+
+"""
     popfirst!!(sequence) -> (sequence′, value)
 
 # Examples

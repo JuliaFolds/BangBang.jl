@@ -5,6 +5,7 @@ module BangBang
 
 export
     append!!,
+    delete!!,
     empty!!,
     mul!!,
     pop!!,
