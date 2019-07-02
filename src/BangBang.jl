@@ -13,7 +13,8 @@ export
     push!!,
     pushfirst!!,
     setindex!!,
-    setproperty!!
+    setproperty!!,
+    splice!!
 
 using LinearAlgebra
 using Requires

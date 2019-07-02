@@ -43,13 +43,20 @@ end
 
 pushfirst(xs::Tuple, ys...) = (ys..., xs...)
 
-@inline splice(xs::Tuple, i) = _splice_pre((), i - 1, xs...)
-
-@inline _splice_pre(pre, n, x, xs...) =
+@inline splice(xs::Tuple, i::Integer) = _splice_del((), i - 1, xs...)
+@inline _splice_del(pre, n, x, xs...) =
     if length(pre) < n
-        _splice_pre((pre..., x), n, xs...)
+        _splice_del((pre..., x), n, xs...)
     else
         (pre..., xs...), x
+    end
+
+@inline splice(xs::Tuple, i::Integer, v) = _splice_insert((), i - 1, v, xs...)
+@inline _splice_insert(pre, n, v, x, xs...) =
+    if length(pre) < n
+        _splice_insert((pre..., x), n, v, xs...)
+    else
+        (pre..., v, xs...), x
     end
 
 pop(xs::Tuple) = xs[1:end-1], xs[end]

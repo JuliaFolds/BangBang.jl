@@ -173,6 +173,26 @@ empty!!(xs) = may(empty!, xs)
 pure(::typeof(empty!)) = NoBang._empty
 possible(::typeof(empty!), ::C) where C = ismutable(C)
 
+#=
+"""
+    splice!!(sequence, i, [replacement]) -> (sequence′, item)
+    splice!!(sequence, range, [replacement]) -> (sequence′, items)
+"""
+=#
+
+"""
+    splice!!(sequence, i, [replacement]) -> (sequence′, item)
+"""
+splice!!(xs, args...) = may(_splice!, xs, args...)
+_splice!(xs, args...) = xs, splice!(xs, args...)
+
+pure(::typeof(_splice!)) = NoBang.splice
+possible(::typeof(_splice!), ::C, ::Any) where C = ismutable(C)
+possible(::typeof(_splice!), xs::C, i::Integer, ::S) where {C, S} =
+    possible(_splice!, xs, i) && promote_type(eltype(C), S) <: eltype(C)
+possible(::typeof(_splice!), xs::C, i::Any, ::S) where {C, S} =
+    possible(_splice!, xs, i) && promote_type(eltype(C), eltype(S)) <: eltype(C)
+
 """
     setindex!!(collection, value, indices...) -> collection′
 """
