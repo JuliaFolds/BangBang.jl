@@ -13,8 +13,6 @@ end
 pure(::typeof(push!)) = NoBang.push
 pure(::typeof(append!)) = NoBang.append
 pure(::typeof(pushfirst!)) = NoBang.pushfirst
-pure(::typeof(pop!)) = NoBang.pop
-pure(::typeof(popfirst!)) = NoBang.popfirst
 pure(::typeof(_setproperty!)) = NoBang.setproperty
 pure(::typeof(mul!)) = NoBang.mul
 
