@@ -82,7 +82,7 @@ end
 
 popfirst(xs::Tuple) = xs[2:end], xs[1]
 popfirst(xs::NamedTuple{names}) where {names} =
-    NamedTuple{names[2:end]}(xs[2:end]), xs[1]
+    NamedTuple{names[2:end]}(Tuple(xs)[2:end]), xs[1]
 
 delete(xs::NamedTuple, key) = something(maybepop(xs, key), (xs,))[1]
 
