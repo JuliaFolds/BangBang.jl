@@ -54,7 +54,7 @@ pushfirst(xs::Tuple, ys...) = (ys..., xs...)
 
 pop(xs::Tuple) = xs[1:end-1], xs[end]
 pop(xs::NamedTuple{names}) where {names} =
-    NamedTuple{names[1:end-1]}(xs[1:end-1]), xs[end]
+    NamedTuple{names[1:end-1]}(Tuple(xs)[1:end-1]), xs[end]
 
 maybepop(xs::NamedTuple, key) = maybepop(xs, Val(key))
 maybepop(xs::NamedTuple{names}, ::Val{key}) where {names, key} =
