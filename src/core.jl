@@ -31,7 +31,6 @@ ismutable(::Type{<:AbstractString}) = false
 ismutablestruct(x) = ismutablestruct(typeof(x))
 Base.@pure ismutablestruct(T::DataType) = T.mutable
 ismutablestruct(::Type{<:NamedTuple}) = false
-ismutablestruct(T::Type) = error("mutability unknown for type $T")  # maybe `false`?
 
 # trymutate(::typeof(push!)) = push!!
 # trymutate(::typeof(append!)) = append!!
