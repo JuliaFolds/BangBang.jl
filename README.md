@@ -11,7 +11,7 @@ BangBang.jl implements functions whose name end with `!!`.  Those
 functions provide a uniform interface for mutable and immutable data
 structures.  Furthermore, those function automatically use "immutable"
 mode if the usual mutating function does not work (e.g.,
-`push!!(Int[], 1.0)` creates a new array `Float64[1.0]`).
+`push!!(Int[], 1.5)` creates a new array `Float64[1.5]`).
 
 See the supported functions in the
 [documentation](https://tkf.github.io/BangBang.jl/dev)
