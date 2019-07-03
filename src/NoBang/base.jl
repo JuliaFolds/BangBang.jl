@@ -102,4 +102,13 @@ function _setindex(xs::AbstractArray, v, I...)
     return ys
 end
 
+function _setindex(d0::AbstractDict, v, k)
+    K = promote_type(keytype(d0), typeof(k))
+    V = promote_type(valtype(d0), typeof(v))
+    d = Dict{K, V}()
+    copy!(d, d0)
+    d[k] = v
+    return d
+end
+
 setproperty(value, name, x) = setproperties(value, NamedTuple{(name,)}((x,)))

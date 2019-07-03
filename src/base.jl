@@ -201,8 +201,13 @@ setindex!!(xs, v, I...) = may(_setindex!, xs, v, I...)
 _setindex!(xs, v, I...) = (setindex!(xs, v, I...); xs)
 
 pure(::typeof(_setindex!)) = NoBang._setindex
-possible(::typeof(_setindex!), ::C, ::T, ::Vararg) where {C, T} =
+possible(::typeof(_setindex!), ::Union{Tuple, NamedTuple}, ::Vararg) = false
+possible(::typeof(_setindex!), ::C, ::T, ::Vararg) where {C <: AbstractArray, T} =
     ismutable(C) && promote_type(eltype(C), T) <: eltype(C)
+possible(::typeof(_setindex!), ::C, ::V, ::K) where {C <: AbstractDict, V, K} =
+    ismutable(C) &&
+    promote_type(keytype(C), K) <: keytype(C) &&
+    promote_type(valtype(C), V) <: valtype(C)
 
 """
     setproperty!!(value, name, x)
