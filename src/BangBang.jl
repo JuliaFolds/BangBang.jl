@@ -31,7 +31,7 @@ function __init__()
         include("staticarrays.jl")
     end
     @require Initials="f5763212-9e0f-11e9-37f1-074a78aac78e" begin
-        include("universalidentity.jl")
+        include("initials.jl")
     end
 end
 
