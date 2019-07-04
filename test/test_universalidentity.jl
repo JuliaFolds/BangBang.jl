@@ -1,7 +1,7 @@
 module TestUniversalidentity
 
 include("preamble.jl")
-using UniversalIdentity: Id, hasidentity
+using Initials: Id, hasidentity
 
 @testset begin
     @test hasidentity(push!!)

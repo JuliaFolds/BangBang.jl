@@ -1,2 +1,2 @@
-UniversalIdentity.@def push!! [x]
-UniversalIdentity.@def append!!
+Initials.@def push!! [x]
+Initials.@def append!!

@@ -30,7 +30,7 @@ function __init__()
     @require StaticArrays="90137ffa-7385-5640-81b9-e52037218182" begin
         include("staticarrays.jl")
     end
-    @require UniversalIdentity="b8f959e8-97da-11e9-3356-bb6559ac5c1b" begin
+    @require Initials="f5763212-9e0f-11e9-37f1-074a78aac78e" begin
         include("universalidentity.jl")
     end
 end

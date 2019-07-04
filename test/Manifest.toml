@@ -51,6 +51,13 @@ uuid = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 deps = ["Random"]
 uuid = "9fa8497b-333b-5362-9e8d-4d0656e87820"
 
+[[Initials]]
+git-tree-sha1 = "a78afb86e51ed472f2080f962d23e899f33ada51"
+repo-rev = "master"
+repo-url = "https://github.com/tkf/Initials.jl"
+uuid = "f5763212-9e0f-11e9-37f1-074a78aac78e"
+version = "0.1.0"
+
 [[InteractiveUtils]]
 deps = ["Markdown"]
 uuid = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
@@ -157,10 +164,3 @@ uuid = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
 
 [[Unicode]]
 uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
-
-[[UniversalIdentity]]
-git-tree-sha1 = "b9e1703a9600e86b7295aaaff6d1466a4a5c0506"
-repo-rev = "master"
-repo-url = "https://github.com/tkf/UniversalIdentity.jl"
-uuid = "b8f959e8-97da-11e9-3356-bb6559ac5c1b"
-version = "0.1.0"
