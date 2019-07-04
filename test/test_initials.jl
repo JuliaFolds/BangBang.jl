@@ -1,4 +1,4 @@
-module TestUniversalidentity
+module TestInitials
 
 include("preamble.jl")
 using Initials: Init, hasinitial
