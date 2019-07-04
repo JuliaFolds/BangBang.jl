@@ -52,7 +52,7 @@ deps = ["Random"]
 uuid = "9fa8497b-333b-5362-9e8d-4d0656e87820"
 
 [[Initials]]
-git-tree-sha1 = "a78afb86e51ed472f2080f962d23e899f33ada51"
+git-tree-sha1 = "b9c37cfe620007798569fc9c2333f95cd2f20b8e"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/Initials.jl"
 uuid = "f5763212-9e0f-11e9-37f1-074a78aac78e"
