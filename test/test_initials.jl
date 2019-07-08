@@ -1,11 +1,11 @@
 module TestInitialValues
 
 include("preamble.jl")
-using InitialValues: Init, hasinitial
+using InitialValues: Init, hasinitialvalue
 
 @testset begin
-    @test hasinitial(push!!)
-    @test hasinitial(append!!)
+    @test hasinitialvalue(push!!)
+    @test hasinitialvalue(append!!)
     @test push!!(Init(push!!), 1) == [1]
     @test append!!(Init(append!!), [1]) == [1]
 end
