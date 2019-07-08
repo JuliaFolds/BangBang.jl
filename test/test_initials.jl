@@ -1,7 +1,7 @@
-module TestInitials
+module TestInitialValues
 
 include("preamble.jl")
-using Initials: Init, hasinitial
+using InitialValues: Init, hasinitial
 
 @testset begin
     @test hasinitial(push!!)
