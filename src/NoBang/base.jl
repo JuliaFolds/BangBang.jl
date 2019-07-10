@@ -89,7 +89,9 @@ popfirst(xs::NamedTuple{names}) where {names} =
 delete(xs::NamedTuple, key) = something(maybepop(xs, key), (xs,))[1]
 
 _empty(xs) = empty(xs)
-_empty(xs::NamedTuple) = NamedTuple()
+if VERSION < v"1.3.0-DEV.533"
+    _empty(xs::NamedTuple) = NamedTuple()
+end
 
 _setindex(xs, v, I...) = Base.setindex(xs, v, I...)
 _setindex(xs::NamedTuple, value, name) = setproperty(xs, name, value)
