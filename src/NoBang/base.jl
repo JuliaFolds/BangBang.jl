@@ -99,7 +99,9 @@ _setindex(xs::NamedTuple, value, name) = setproperty(xs, name, value)
 function _setindex(xs::AbstractArray, v, I...)
     T = promote_type(eltype(xs), typeof(v))
     ys = similar(xs, T)
-    copy!(ys, xs)
+    if eltype(xs) !== Union{}
+        copy!(ys, xs)
+    end
     ys[I...] = v
     return ys
 end

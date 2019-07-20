@@ -1,4 +1,4 @@
-may(mutate, args...) =
+Base.@propagate_inbounds may(mutate, args...) =
     if possible(mutate, args...)
         mutate(args...)
     else

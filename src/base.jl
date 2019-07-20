@@ -196,9 +196,9 @@ possible(::typeof(_splice!), xs::C, i::Any, ::S) where {C, S} =
 """
     setindex!!(collection, value, indices...) -> collection′
 """
-setindex!!(xs, v, I...) = may(_setindex!, xs, v, I...)
+Base.@propagate_inbounds setindex!!(xs, v, I...) = may(_setindex!, xs, v, I...)
 
-_setindex!(xs, v, I...) = (setindex!(xs, v, I...); xs)
+Base.@propagate_inbounds _setindex!(xs, v, I...) = (setindex!(xs, v, I...); xs)
 
 pure(::typeof(_setindex!)) = NoBang._setindex
 possible(::typeof(_setindex!), ::Union{Tuple, NamedTuple}, ::Vararg) = false

@@ -51,6 +51,14 @@ uuid = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 deps = ["Random"]
 uuid = "9fa8497b-333b-5362-9e8d-4d0656e87820"
 
+[[IRTest]]
+deps = ["Test"]
+git-tree-sha1 = "5f2778f64fdc9d2e29176869ba49167777ed1170"
+repo-rev = "master"
+repo-url = "https://github.com/tkf/IRTest.jl"
+uuid = "c9680f28-2a59-47f6-98e4-d41620d42cd2"
+version = "0.1.0"
+
 [[InitialValues]]
 git-tree-sha1 = "00fc3631033606a66b6eebce4b020ad21abd5243"
 repo-rev = "master"
