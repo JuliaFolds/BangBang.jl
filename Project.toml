@@ -1,7 +1,7 @@
 name = "BangBang"
 uuid = "198e06fe-97b7-11e9-32a5-e1d131e6ad66"
 authors = ["Takafumi Arakaki <aka.tkf@gmail.com>"]
-version = "0.1.2-DEV"
+version = "0.1.2"
 
 [deps]
 Future = "9fa8497b-333b-5362-9e8d-4d0656e87820"
