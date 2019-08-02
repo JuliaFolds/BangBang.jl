@@ -1,2 +1,7 @@
 InitialValues.@def push!! [x]
-InitialValues.@def append!!
+
+@static if isdefined(InitialValues, Symbol("@def_monoid"))
+    InitialValues.@def_monoid append!!
+else
+    InitialValues.@def append!!
+end
