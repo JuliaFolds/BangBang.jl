@@ -8,6 +8,7 @@ using InitialValues: Init, hasinitialvalue
     @test hasinitialvalue(append!!)
     @test push!!(Init(push!!), 1) == [1]
     @test append!!(Init(append!!), [1]) == [1]
+    @test append!!([1], Init(append!!)) == [1]
 end
 
 end  # module
