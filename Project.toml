@@ -5,12 +5,14 @@ version = "0.2.0-DEV"
 
 [deps]
 Future = "9fa8497b-333b-5362-9e8d-4d0656e87820"
+InitialValues = "22cec73e-a1b8-11e9-2c92-598750a2cf9c"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 Requires = "ae029012-a4dd-5104-9daa-d747884805df"
 Setfield = "efcf1570-3423-57d1-acb7-fd33fddbac46"
 
 [compat]
 julia = "1.0"
+InitialValues = "≥ 0.2, < 1"
 
 [extras]
 StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"

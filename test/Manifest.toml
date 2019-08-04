@@ -9,7 +9,7 @@ uuid = "4c88cf16-eb10-579e-8560-4a9242c79595"
 version = "0.4.0"
 
 [[BangBang]]
-deps = ["Future", "LinearAlgebra", "Requires", "Setfield"]
+deps = ["Future", "InitialValues", "LinearAlgebra", "Requires", "Setfield"]
 path = ".."
 uuid = "198e06fe-97b7-11e9-32a5-e1d131e6ad66"
 version = "0.2.0-DEV"
