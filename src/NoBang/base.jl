@@ -31,6 +31,8 @@ _append(xs, ys) = append!(copy(xs), ys)
 _append(xs, ys::Tuple) = push(xs, ys...)
 _append(xs, ys::Pairs{Symbol, <:Any, <:Any, <:NamedTuple}) = push(xs, ys...)
 
+append(xs::AbstractVector, ys::AbstractVector) = vcat(xs, ys)
+
 append(xs::ImmutableContainer, ys) = push(xs, ys...)
 
 append(xs::AbstractString, ys::AbstractString) = string(xs, ys)

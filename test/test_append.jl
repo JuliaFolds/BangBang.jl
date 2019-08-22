@@ -11,6 +11,8 @@ include("preamble.jl")
     @test append!!(ImmutableDict(:a=>1), ImmutableDict(:b=>2)) ==
         ImmutableDict(ImmutableDict(:a=>1), :b=>2)
     @test append!!("a", "b") === "ab"
+    @test append!!(SVector(0), [1])::Vector == [0, 1]
+    @test append!!([0], SVector(1))::Vector == [0, 1]
 end
 
 end  # module
