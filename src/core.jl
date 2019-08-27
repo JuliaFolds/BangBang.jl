@@ -44,3 +44,6 @@ ismutablestruct(::Type{<:NamedTuple}) = false
 
 # trymutate(::typeof(push!)) = push!!
 # trymutate(::typeof(append!)) = append!!
+
+struct Undefined end
+ismutable(::Undefined) = false
