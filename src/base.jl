@@ -244,3 +244,12 @@ Mutable(1, 3)
 setproperty!!(value, name, x) = may(_setproperty!, value, name, x)
 
 possible(::typeof(_setproperty!), x, ::Any, ::Any) = ismutablestruct(x)
+
+
+"""
+    materialize!!(dest, x)
+"""
+materialize!!(dest, x) = may(materialize!, dest, x)
+
+pure(::typeof(materialize!)) = NoBang.materialize
+possible(::typeof(materialize!), x, ::Any) = ismutable(x)

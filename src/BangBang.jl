@@ -7,6 +7,7 @@ export
     append!!,
     delete!!,
     empty!!,
+    materialize!!,
     mul!!,
     pop!!,
     popfirst!!,
@@ -16,6 +17,7 @@ export
     setproperty!!,
     splice!!
 
+using Base.Broadcast: materialize!
 using InitialValues
 using LinearAlgebra
 using Requires
