@@ -16,6 +16,16 @@ pure(::typeof(pushfirst!)) = NoBang.pushfirst
 pure(::typeof(_setproperty!)) = NoBang.setproperty
 pure(::typeof(mul!)) = NoBang.mul
 
+_maybb(mutate) = something(_asbb(mutate), mutate)
+_asbb(::Any) = nothing
+
+_asbb(::typeof(push!)) = push!!
+_asbb(::typeof(append!)) = append!!
+_asbb(::typeof(pushfirst!)) = pushfirst!!
+_asbb(::typeof(mul!)) = mul!!
+_asbb(::typeof(delete!)) = delete!!
+_asbb(::typeof(empty!)) = empty!!
+
 const MaybeMutableContainer = Union{
     AbstractArray,
     AbstractDict,

@@ -4,6 +4,7 @@ module BangBang
 @doc read(joinpath(dirname(@__DIR__), "README.md"), String) BangBang
 
 export
+    @!,
     append!!,
     delete!!,
     empty!!,
@@ -29,6 +30,7 @@ include("core.jl")
 include("base.jl")
 include("linearalgebra.jl")
 include("initials.jl")
+include("macro.jl")
 
 function __init__()
     @require StaticArrays="90137ffa-7385-5640-81b9-e52037218182" begin
