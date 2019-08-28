@@ -9,6 +9,20 @@ julia> using BangBang
 
 julia> @! push!(empty!((0, 1)), 2, 3)
 (2, 3)
+
+julia> y = [1, 2];
+
+julia> @! y .= 2 .* y
+       y
+2-element Array{Int64,1}:
+ 2
+ 4
+
+julia> y = (1, 2);
+
+julia> @! y .= 2 .* y
+       y
+(2, 4)
 ```
 """
 macro !(expr)
