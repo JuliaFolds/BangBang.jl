@@ -263,7 +263,7 @@ possible(::typeof(_setproperty!), x, ::Any, ::Any) = ismutablestruct(x)
 """
     materialize!!(dest, x)
 """
-materialize!!(dest, x) = may(materialize!, dest, x)
+@inline materialize!!(dest, x) = may(materialize!, dest, x)
 # TODO: maybe instantiate `x` and be aware of `x`'s style
 
 pure(::typeof(materialize!)) = NoBang.materialize
