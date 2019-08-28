@@ -26,7 +26,7 @@ julia> @! y .= 2 .* y
 ```
 """
 macro !(expr)
-    foldexpr(expr) do x
+    foldexpr(macroexpand(__module__, expr)) do x
         if Meta.isexpr(x, :call)
             isdotoperator(x.args[1]) && return x
             return Expr(:call, Expr(:call, _maybb, x.args[1]), x.args[2:end]...)
