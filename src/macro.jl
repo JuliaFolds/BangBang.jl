@@ -14,7 +14,7 @@ julia> @! push!(empty!((0, 1)), 2, 3)
 macro !(expr)
     foldexpr(expr) do x
         if Meta.isexpr(x, :call)
-            # TODO: handle `x .* y`
+            isdotoperator(x.args[1]) && return x
             return Expr(:call, Expr(:call, _maybb, x.args[1]), x.args[2:end]...)
         elseif Meta.isexpr(x, :.=) && x.args[1] isa Symbol
             @assert length(x.args) == 2
@@ -30,3 +30,12 @@ end
 
 foldexpr(f, x) = x
 foldexpr(f, ex::Expr) = f(Expr(ex.head, foldexpr.(f, ex.args)...))
+
+isdotoperator(x::Symbol) = undotoperator(x) !== nothing
+
+function undotoperator(x::Symbol)
+    startswith(string(x), ".") || return nothing
+    op = Symbol(string(x)[2:end])
+    Base.isoperator(op) || return nothing
+    return op
+end
