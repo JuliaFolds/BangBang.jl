@@ -1,13 +1,7 @@
 module TestMaterialize
 
 include("preamble.jl")
-
-function air end
-struct Aired{T}
-    value::T
-end
-@inline Broadcast.broadcasted(::typeof(air), x) = Aired(x)
-@inline Broadcast.materialize(x::Aired) = x.value
+using BangBang: air
 
 @testset begin
     @test materialize!!(nothing, air.([0, 1] .+ 2))::Vector{Int} == [2, 3]

@@ -21,7 +21,7 @@ macro !(expr)
             lhs, rhs = x.args
             return :($lhs = $materialize!!(
                 $Base.@isdefined($lhs) ? $lhs : $(Undefined()),
-                $rhs,
+                $air.($rhs),
             ))
         end
         return x
@@ -39,3 +39,10 @@ function undotoperator(x::Symbol)
     Base.isoperator(op) || return nothing
     return op
 end
+
+function air end
+struct Aired{T}
+    value::T
+end
+@inline Broadcast.broadcasted(::typeof(air), x) = Aired(x)
+@inline Broadcast.materialize(x::Aired) = x.value
