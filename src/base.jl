@@ -28,6 +28,8 @@ push!!(xs, i1, i2, items...) =
     foldl(push!!, items, init=push!!(push!!(xs, i1), i2))
 push!!(xs, x) = may(push!, xs, x)
 
+pure(::typeof(push!)) = NoBang.push
+_asbb(::typeof(push!)) = push!!
 possible(::typeof(push!), x, ::Any) = ismutable(x)
 possible(::typeof(push!), ::C, ::S) where {C <: MaybeMutableContainer, S} =
     ismutable(C) && promote_type(eltype(C), S) <: eltype(C)
@@ -55,6 +57,8 @@ julia> append!!([1, 2], (3, 4))
 """
 append!!(xs, ys) = may(append!, xs, ys)
 
+pure(::typeof(append!)) = NoBang.append
+_asbb(::typeof(append!)) = append!!
 possible(::typeof(append!), x, ::Any) = ismutable(x)
 possible(::typeof(append!), ::C, ys) where {C <: MaybeMutableContainer} =
     ismutable(C) && promote_type(eltype(C), eltype(ys)) <: eltype(C)
@@ -86,6 +90,8 @@ julia> pushfirst!!([1, 2], 3, 4.0)
 """
 pushfirst!!(xs, ys...) = may(pushfirst!, xs, ys...)
 
+pure(::typeof(pushfirst!)) = NoBang.pushfirst
+_asbb(::typeof(pushfirst!)) = pushfirst!!
 possible(::typeof(pushfirst!), ::Tuple, ::Vararg) = false
 possible(::typeof(pushfirst!), ::C, ys...) where {C <: AbstractVector} =
     ismutable(C) && promote_type(eltype(C), map(typeof, ys)...) <: eltype(C)
@@ -124,6 +130,7 @@ possible(::typeof(_pop!), ::C, ::Vararg) where C = ismutable(C)
 delete!!(xs, key) = may(delete!, xs, key)
 
 pure(::typeof(delete!)) = NoBang.delete
+_asbb(::typeof(delete!)) = delete!!
 possible(::typeof(delete!), ::C, ::Any) where C = ismutable(C)
 
 """
@@ -171,6 +178,7 @@ julia> xs
 empty!!(xs) = may(empty!, xs)
 
 pure(::typeof(empty!)) = NoBang._empty
+_asbb(::typeof(empty!)) = empty!!
 possible(::typeof(empty!), ::C) where C = ismutable(C)
 
 #=
@@ -243,6 +251,12 @@ Mutable(1, 3)
 """
 setproperty!!(value, name, x) = may(_setproperty!, value, name, x)
 
+function _setproperty!(value, name, x)
+    setproperty!(value, name, x)
+    return value
+end
+
+pure(::typeof(_setproperty!)) = NoBang.setproperty
 possible(::typeof(_setproperty!), x, ::Any, ::Any) = ismutablestruct(x)
 
 
