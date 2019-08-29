@@ -24,6 +24,7 @@ using Base.Broadcast: materialize!
 using InitialValues
 using LinearAlgebra
 using Requires
+using ZygoteRules: @adjoint
 
 include("NoBang/NoBang.jl")
 using .NoBang: ImmutableContainer
@@ -33,13 +34,11 @@ include("base.jl")
 include("linearalgebra.jl")
 include("initials.jl")
 include("macro.jl")
+include("zygote.jl")
 
 function __init__()
     @require StaticArrays="90137ffa-7385-5640-81b9-e52037218182" begin
         include("staticarrays.jl")
-    end
-    @require Zygote="e88e6eb3-aa80-5325-afca-941959d7151f" begin
-        include("zygote.jl")
     end
 end
 
