@@ -11,11 +11,13 @@ using LinearAlgebra
     AB = A * B
     @test lmul!!(A, B) === B
     @test B == AB
+    @test_inferred lmul!!(A, B)
 
     A = LowerTriangular(collect(Float64, reshape(1:4, 2, 2)))
     B = ones(Int, 2, 2)
     AB = A * B
     @test lmul!!(A, B) :: Matrix{Float64} == AB
+    @test_inferred lmul!!(A, B)
 end
 
 end  # module

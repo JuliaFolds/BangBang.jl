@@ -16,3 +16,7 @@ macro test_error(ex)
         end
     end
 end
+
+macro test_inferred(ex)
+    esc(:($Test.@test (($Test.@inferred $ex); true)))
+end

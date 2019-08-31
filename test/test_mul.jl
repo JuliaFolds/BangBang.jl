@@ -12,9 +12,11 @@ include("preamble.jl")
     B = ones(2, 2)
     @test mul!!(C, A, B) === C
     @test C == A * B
+    @test_inferred mul!!(C, A, B)
 
     C = zeros(Int, size(A * B))
     @test mul!!(C, A, B) :: Matrix{Float64} == A * B
+    @test_inferred mul!!(C, A, B)
 end
 
 end  # module
