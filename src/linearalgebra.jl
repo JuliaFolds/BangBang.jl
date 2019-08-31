@@ -11,14 +11,27 @@ possible(::typeof(mul!), C, A, B) =
 possible(::typeof(mul!), C, A, B, α, β) =
     ismutable(C) && _matmuleltype(C, A, B, α, β) <: eltype(C)
 
-# Estimate `eltype` of `C`.  This is how it's done in LinearAlgebra.jl
-# but maybe it's better to use the approach of
-# https://github.com/tpapp/AlgebraResultTypes.jl ?
-_matprod(x, y) = x * y + x * y
-_matprod(c, a, b, α, β) = a * b * α + a * b * α + c * β
-_matmuleltype(A, B) = Base.promote_op(_matprod, eltype(A), eltype(B))
-_matmuleltype(C, A, B, α, β) =
-    Base.promote_op(_matprod, eltype(C), eltype(A), eltype(B), typeof(α), typeof(β))
+# Estimate `eltype` of `C`.  This is somewhat based on the approach of
+# https://github.com/tpapp/AlgebraResultTypes.jl and `matprod` in
+# LinearAlgebra.jl.
+
+@inline _matprodtype(x, y) = typeof(x * y + x * y)
+@inline _matprodtype(c, a, b, α, β) = typeof(a * b * α + a * b * α + c * β)
+
+function _matmuleltype(A, B)
+    a = eltype(A)
+    b = eltype(B)
+    isconcretetype(a) || return Any
+    isconcretetype(b) || return Any
+    return _matprodtype(one(a), one(b))
+end
+
+function _matmuleltype(C, A, B, α, β)
+    a = eltype(A)
+    b = eltype(B)
+    c = eltype(C)
+    return _matprodtype(one(c), one(a), one(b), α, β)
+end
 
 """
     lmul!!(A, B) -> B′
