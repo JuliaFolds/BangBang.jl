@@ -1,1 +1,1 @@
-push(xs::StaticArrays.StaticArray, x) = StaticArrays.push(xs, x)
+push(xs::StaticArrays.StaticVector, x) = vcat(xs, StaticArrays.SVector(x))

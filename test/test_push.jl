@@ -14,6 +14,7 @@ using BangBang.NoBang: push
     @test push!!((a=0,), :b => 1) === (a=0, b=1)
     @test push!!((a=0,), Val(:b) => 1) === (a=0, b=1)
     @test push!!(SVector(0), 1) === SVector(0, 1)
+    @test push!!(SVector(0), 0.5) === SVector(0.0, 0.5)
     @test push!!(ImmutableDict(:a=>1), :b=>2) ==
         ImmutableDict(ImmutableDict(:a=>1), :b=>2)
     @test push!!(Dict(), :a=>1)::Dict{Any,Any} == Dict(:a=>1)
