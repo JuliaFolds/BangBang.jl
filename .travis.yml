@@ -18,9 +18,10 @@ notifications:
 # Do not build my PR twice.  Use the build on branch.
 if: NOT (type == pull_request AND head_repo == tkf/BangBang.jl)
 
-install:
+before_install:
   - unset JULIA_PROJECT
   - julia -e 'using Pkg; pkg"add https://github.com/tkf/Run.jl"'
+install:
   - julia -e 'using Run; Run.prepare_test()'
 script:
   - julia -e 'using Run; Run.test(inline=false)'
@@ -30,9 +31,8 @@ jobs:
   include:
     - stage: Documentation
       julia: 1.2
-      script: julia --project=docs --color=yes -e '
-          using Pkg;
-          Pkg.develop(PackageSpec(path=pwd()));
-          Pkg.instantiate();
-          include("docs/make.jl");'
+      install:
+        - julia -e 'using Run; Run.prepare_docs()'
+      script:
+        - julia -e 'using Run; Run.docs()'
       after_success: skip
