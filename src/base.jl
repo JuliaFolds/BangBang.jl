@@ -218,7 +218,7 @@ possible(::typeof(_setindex!), ::C, ::V, ::K) where {C <: AbstractDict, V, K} =
     promote_type(valtype(C), V) <: valtype(C)
 
 """
-    setproperty!!(value, name, x)
+    setproperty!!(value, name, x) -> value′
 
 # Examples
 ```jldoctest
@@ -235,18 +235,24 @@ julia> struct Immutable
 julia> setproperty!!(Immutable(1, 2), :b, 3)
 Immutable(1, 3)
 
-julia> mutable struct Mutable
-           a
-           b
+julia> mutable struct Mutable{T, S}
+           a::T
+           b::S
        end
 
 julia> s = Mutable(1, 2);
 
 julia> setproperty!!(s, :b, 3)
-Mutable(1, 3)
+Mutable{Int64,Int64}(1, 3)
 
 julia> s
-Mutable(1, 3)
+Mutable{Int64,Int64}(1, 3)
+
+julia> setproperty!!(s, :b, 4.0)
+Mutable{Int64,Float64}(1, 4.0)
+
+julia> s
+Mutable{Int64,Int64}(1, 3)
 ```
 """
 setproperty!!(value, name, x) = may(_setproperty!, value, name, x)
@@ -258,6 +264,8 @@ end
 
 pure(::typeof(_setproperty!)) = NoBang.setproperty
 possible(::typeof(_setproperty!), x, ::Any, ::Any) = ismutablestruct(x)
+possible(::typeof(_setproperty!), x, name::Union{Symbol, Int}, value) =
+    ismutablestruct(x) && value isa fieldtype(typeof(x), name)
 
 
 """
