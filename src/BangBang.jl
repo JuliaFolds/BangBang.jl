@@ -40,6 +40,9 @@ function __init__()
     @require StaticArrays="90137ffa-7385-5640-81b9-e52037218182" begin
         include("staticarrays.jl")
     end
+    @require StructArrays="09ab397b-f2b6-538f-b94a-2f83cf4a842a" begin
+        include("structarrays.jl")
+    end
 end
 
 end # module
