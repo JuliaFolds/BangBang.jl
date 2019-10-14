@@ -4,6 +4,6 @@
 ```
 
 ```@autodocs
-Modules = [BangBang, BangBang.NoBang]
+Modules = [BangBang, BangBang.NoBang, BangBang.SetfieldImpl]
 Private = false
 ```

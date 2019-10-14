@@ -4,6 +4,7 @@ module BangBang
 @doc read(joinpath(dirname(@__DIR__), "README.md"), String) BangBang
 
 export @!,
+       @set!!,
        Empty,
        append!!,
        delete!!,
@@ -14,6 +15,7 @@ export @!,
        mul!!,
        pop!!,
        popfirst!!,
+       prefermutation,
        push!!,
        pushfirst!!,
        rmul!!,
@@ -45,6 +47,9 @@ include("initials.jl")
 include("macro.jl")
 include("dataframes_impl.jl")
 include("zygote.jl")
+
+include("setfield.jl")
+using .SetfieldImpl: @set!!, prefermutation
 
 function __init__()
     @require StaticArrays = "90137ffa-7385-5640-81b9-e52037218182" begin
