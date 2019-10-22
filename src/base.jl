@@ -248,13 +248,14 @@ possible(::typeof(_setindex!), ::C, ::V, ::K) where {C <: AbstractDict, V, K} =
     promote_type(valtype(C), V) <: valtype(C)
 
 """
-    setproperty!!(value, name, x)
+    setproperties!!(value, patch::NamedTuple)
+    setproperties!!(value; patch...)
 
 # Examples
 ```jldoctest
 julia> using BangBang
 
-julia> setproperty!!((a=1, b=2), :b, 3)
+julia> setproperties!!((a=1, b=2); b=3)
 (a = 1, b = 3)
 
 julia> struct Immutable
@@ -262,7 +263,7 @@ julia> struct Immutable
            b
        end
 
-julia> setproperty!!(Immutable(1, 2), :b, 3)
+julia> setproperties!!(Immutable(1, 2); b=3)
 Immutable(1, 3)
 
 julia> mutable struct Mutable
@@ -272,23 +273,32 @@ julia> mutable struct Mutable
 
 julia> s = Mutable(1, 2);
 
-julia> setproperty!!(s, :b, 3)
+julia> setproperties!!(s; b=3)
 Mutable(1, 3)
 
 julia> s
 Mutable(1, 3)
 ```
 """
-setproperty!!(value, name, x) = may(_setproperty!, value, name, x)
+setproperties!!(value, patch) = may(setproperties!, value, patch)
+setproperties!!(value; patch...) = setproperties!!(value, (; patch...))
 
-function _setproperty!(value, name, x)
-    setproperty!(value, name, x)
+function setproperties!(value, patch)
+    for (k, v) in pairs(patch)
+        setproperty!(value, k, v)
+    end
     return value
 end
 
-pure(::typeof(_setproperty!)) = NoBang.setproperty
-possible(::typeof(_setproperty!), x, ::Any, ::Any) = ismutablestruct(x)
+pure(::typeof(setproperties!)) = NoBang.setproperties
+possible(::typeof(setproperties!), x, ::Any) = ismutablestruct(x)
 
+"""
+    setproperty!!(value, name::Symbol, x)
+
+An alias of `setproperty!!(value, (name=x,))`.
+"""
+setproperty!!(value, name::Symbol, x) = setproperties!!(value, (; name => x))
 
 """
     materialize!!(dest, x)

@@ -17,6 +17,7 @@ export @!,
        pushfirst!!,
        rmul!!,
        setindex!!,
+       setproperties!!,
        setproperty!!,
        singletonof,
        splice!!
