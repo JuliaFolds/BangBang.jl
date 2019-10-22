@@ -266,32 +266,50 @@ julia> struct Immutable
 julia> setproperties!!(Immutable(1, 2); b=3)
 Immutable(1, 3)
 
-julia> mutable struct Mutable
-           a
-           b
+julia> mutable struct Mutable{T, S}
+           a::T
+           b::S
        end
 
 julia> s = Mutable(1, 2);
 
 julia> setproperties!!(s; b=3)
-Mutable(1, 3)
+Mutable{Int64,Int64}(1, 3)
+
+julia> setproperties!!(s, b=4.0)
+Mutable{Int64,Float64}(1, 4.0)
 
 julia> s
-Mutable(1, 3)
+Mutable{Int64,Int64}(1, 3)
 ```
 """
-setproperties!!(value, patch) = may(setproperties!, value, patch)
-setproperties!!(value; patch...) = setproperties!!(value, (; patch...))
+@inline setproperties!!(value, patch) = may(setproperties!, value, patch)
+@inline setproperties!!(value; patch...) = setproperties!!(value, (; patch...))
 
-function setproperties!(value, patch)
+@inline function setproperties!(value, patch)
     for (k, v) in pairs(patch)
         setproperty!(value, k, v)
     end
     return value
 end
 
+@inline function setproperties!(value, patch::NamedTuple)
+    ntuple(length(patch)) do i
+        setproperty!(value, keys(patch)[i], patch[i])
+    end
+    return value
+end
+
 pure(::typeof(setproperties!)) = NoBang.setproperties
-possible(::typeof(setproperties!), x, ::Any) = ismutablestruct(x)
+possible(::typeof(setproperties!), obj, patch) =
+    ismutablestruct(obj) && _is_compatible_field_types(obj, patch)
+
+_is_compatible_field_types(::T, patch) where T =
+    all(n -> fieldtype(typeof(patch), n) <: fieldtype(T, n), keys(patch))
+
+@generated function _is_compatible_field_types(obj, patch::NamedTuple{pnames}) where pnames
+    all(n -> fieldtype(patch, n) <: fieldtype(obj, n), pnames)
+end
 
 """
     setproperty!!(value, name::Symbol, x)
