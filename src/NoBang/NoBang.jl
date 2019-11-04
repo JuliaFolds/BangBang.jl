@@ -3,7 +3,7 @@ module NoBang
 using Base.Iterators: Pairs
 using Base: ImmutableDict
 using Requires
-using ConstructionBase: setproperties
+using ConstructionBase: constructorof, setproperties
 
 if VERSION < v"1.1-"
     using Future: copy!
