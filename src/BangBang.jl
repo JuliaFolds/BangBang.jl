@@ -15,6 +15,7 @@ export @!,
        push!!,
        pushfirst!!,
        rmul!!,
+       singletonof,
        setindex!!,
        setproperty!!,
        splice!!
@@ -26,7 +27,7 @@ using Requires
 using ZygoteRules: @adjoint
 
 include("NoBang/NoBang.jl")
-using .NoBang: ImmutableContainer
+using .NoBang: ImmutableContainer, singletonof
 
 include("core.jl")
 include("base.jl")
