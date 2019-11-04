@@ -15,15 +15,17 @@ export @!,
        push!!,
        pushfirst!!,
        rmul!!,
-       singletonof,
        setindex!!,
        setproperty!!,
+       singletonof,
        splice!!
 
 using Base.Broadcast: materialize!
+using Compat: hasproperty
 using InitialValues
 using LinearAlgebra
 using Requires
+using Tables: Tables
 using ZygoteRules: @adjoint
 
 # Used in NoBang:
@@ -38,6 +40,7 @@ include("base.jl")
 include("linearalgebra.jl")
 include("initials.jl")
 include("macro.jl")
+include("dataframes_impl.jl")
 include("zygote.jl")
 
 function __init__()
@@ -46,6 +49,9 @@ function __init__()
     end
     @require StructArrays = "09ab397b-f2b6-538f-b94a-2f83cf4a842a" begin
         include("structarrays.jl")
+    end
+    @require DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0" begin
+        include("dataframes.jl")
     end
 end
 

@@ -1,7 +1,7 @@
 # This file is machine-generated - editing it directly is not advised
 
 [[BangBang]]
-deps = ["ConstructionBase", "Future", "InitialValues", "LinearAlgebra", "Requires", "ZygoteRules"]
+deps = ["Compat", "ConstructionBase", "Future", "InitialValues", "LinearAlgebra", "Requires", "Tables", "ZygoteRules"]
 path = ".."
 uuid = "198e06fe-97b7-11e9-32a5-e1d131e6ad66"
 version = "0.3.2-DEV"

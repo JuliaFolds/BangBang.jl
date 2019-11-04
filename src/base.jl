@@ -69,6 +69,11 @@ julia> append!!([1, 2], (3, 4))
  3
  4
 
+julia> using DataFrames: DataFrame
+
+julia> @assert append!!(DataFrame(a=[1], b=[2]), [(a=3.0, b=4.0)]) ==
+           DataFrame(a=[1.0, 3.0], b=[2.0, 4.0])
+
 julia> using StructArrays: StructVector
 
 julia> @assert append!!(StructVector(a=[1], b=[2]), [(a=3.5, b=4.5)]) ==
