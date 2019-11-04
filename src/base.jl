@@ -22,6 +22,11 @@ julia> push!!([1, 2], 3.0)
  1.0
  2.0
  3.0
+
+julia> using DataFrames: DataFrame
+
+julia> @assert push!!(DataFrame(a=[1], b=[2]), (a=3.0, b=4.0)) ==
+           DataFrame(a=[1.0, 3.0], b=[2.0, 4.0])
 ```
 """
 push!!(xs, i1, i2, items...) =
