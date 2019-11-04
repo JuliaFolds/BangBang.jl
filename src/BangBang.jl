@@ -26,6 +26,10 @@ using LinearAlgebra
 using Requires
 using ZygoteRules: @adjoint
 
+# Used in NoBang:
+function ismutable end
+function push!! end
+
 include("NoBang/NoBang.jl")
 using .NoBang: ImmutableContainer, singletonof
 

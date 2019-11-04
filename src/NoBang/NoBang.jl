@@ -5,6 +5,8 @@ using Base: ImmutableDict
 using Requires
 using ConstructionBase: constructorof, setproperties
 
+using ..BangBang: push!!, ismutable
+
 if VERSION < v"1.1-"
     using Future: copy!
 end

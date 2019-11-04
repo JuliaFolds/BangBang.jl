@@ -31,7 +31,22 @@ _append(xs, ys) = append!(copy(xs), ys)
 _append(xs, ys::Tuple) = push(xs, ys...)
 _append(xs, ys::Pairs{Symbol, <:Any, <:Any, <:NamedTuple}) = push(xs, ys...)
 
-append(xs::AbstractVector, ys::AbstractVector) = vcat(xs, ys)
+append(xs::AbstractVector, ys::AbstractVector) =
+    if constructorof(typeof(xs)) === constructorof(typeof(ys))
+        vcat(xs, ys)
+    elseif !ismutable(xs) && ismutable(ys)
+        vcat(xs, ys)
+    elseif length(ys) == 0
+        xs
+    #=
+    elseif length(ys) == 1
+        push(xs, ys[1])
+    =#
+    else
+        # Not so robust:
+        # append!!(push(xs, ys[1]), @view ys[2:end])
+        foldl(push!!, (@view ys[2:end]), init=push(xs, ys[1]))
+    end
 
 append(xs::ImmutableContainer, ys) = push(xs, ys...)
 
