@@ -18,11 +18,12 @@ function checkcolumnnames(x::Union{Tuple,AbstractVector}, columnnames)
     length(columnnames) == length(x) || error("Number of columns does not match.")
 end
 
-function df_append_columns!!(df, columns)
+function df_append_columns!!(df, table)
     columns = getfield(df, :columns)
-    checkcolumnnames(columns, propertynames(df))
-    for (pos, (name, col)) in enumerate(zip(propertynames(df), columns))
-        columns[pos] = append!!(col, _getvalue(columns, pos, name))
+    colnames = DataFrames._names(df)  # avoid copy
+    checkcolumnnames(columns, colnames)
+    for (pos, (name, col)) in enumerate(zip(colnames, columns))
+        columns[pos] = append!!(col, _getvalue(table, pos, name))
     end
     return df
 end

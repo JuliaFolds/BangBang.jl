@@ -1,6 +1,7 @@
 [deps]
 Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"
 BangBang = "198e06fe-97b7-11e9-32a5-e1d131e6ad66"
+CategoricalArrays = "324d7699-5711-5eae-9e2f-1d82baa6b597"
 ConstructionBase = "187b0558-2788-49d3-abe0-74a17ed4e7c9"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
