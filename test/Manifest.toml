@@ -61,8 +61,6 @@ version = "1.3.0"
 
 [[ConstructionBase]]
 git-tree-sha1 = "e3efe0a0f49dcd294c8c73e897b4fdf891f0fbd3"
-repo-rev = "master"
-repo-url = "https://github.com/JuliaObjects/ConstructionBase.jl.git"
 uuid = "187b0558-2788-49d3-abe0-74a17ed4e7c9"
 version = "0.1.0"
 
@@ -153,7 +151,7 @@ uuid = "7869d1d1-7146-5819-86e3-90919afe41df"
 version = "0.2.3"
 
 [[InitialValues]]
-git-tree-sha1 = "a0238e1256a95893866c424ef69ac32037a71d40"
+git-tree-sha1 = "bea64fd3a0cb4edd5ec177cbe4b2c4f95b607356"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/InitialValues.jl"
 uuid = "22cec73e-a1b8-11e9-2c92-598750a2cf9c"
@@ -277,9 +275,9 @@ version = "0.8.0"
 
 [[StaticArrays]]
 deps = ["LinearAlgebra", "Random", "Statistics"]
-git-tree-sha1 = "db23bbf50064c582b6f2b9b043c8e7e98ea8c0c6"
+git-tree-sha1 = "1e9c5d89cba8047d518f1ffef432906ef1a3e8bd"
 uuid = "90137ffa-7385-5640-81b9-e52037218182"
-version = "0.11.0"
+version = "0.12.0"
 
 [[Statistics]]
 deps = ["LinearAlgebra", "SparseArrays"]
