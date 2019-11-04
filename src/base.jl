@@ -27,6 +27,16 @@ julia> using DataFrames: DataFrame
 
 julia> @assert push!!(DataFrame(a=[1], b=[2]), (a=3.0, b=4.0)) ==
            DataFrame(a=[1.0, 3.0], b=[2.0, 4.0])
+
+julia> using StructArrays: StructVector
+
+julia> @assert push!!(StructVector(a=[1], b=[2]), (a=3.0, b=4.0)) ==
+           StructVector(a=[1.0, 3.0], b=[2.0, 4.0])
+
+julia> using TypedTables: Table
+
+julia> @assert push!!(Table(a=[1], b=[2]), (a=3.0, b=4.0)) ==
+           Table(a=[1.0, 3.0], b=[2.0, 4.0])
 ```
 """
 push!!(xs, i1, i2, items...) =
@@ -58,6 +68,16 @@ julia> append!!([1, 2], (3, 4))
  2
  3
  4
+
+julia> using StructArrays: StructVector
+
+julia> @assert append!!(StructVector(a=[1], b=[2]), [(a=3.0, b=4.0)]) ==
+           StructVector(a=[1.0, 3.0], b=[2.0, 4.0])
+
+julia> using TypedTables: Table
+
+julia> @assert append!!(Table(a=[1], b=[2]), [(a=3.0, b=4.0)]) ==
+           Table(a=[1.0, 3.0], b=[2.0, 4.0])
 ```
 """
 append!!(xs, ys) = may(append!, xs, ys)
