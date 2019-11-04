@@ -1,5 +1,6 @@
 """
     singletonof(::Type{T}, x) :: T
+    singletonof(::T, x) :: T
 
 Create a singleton container of type `T`.
 
@@ -23,3 +24,8 @@ julia> @assert singletonof(Table, (a=1, b=2)) == Table(a=[1], b=[2])
 ```
 """
 singletonof(::Type{T}, x) where T = T(SingletonVector(x))
+
+function singletonof(::T, x) where T
+    C = constructorof(T)
+    return singletonof(C isa Type ? C : T, x)
+end

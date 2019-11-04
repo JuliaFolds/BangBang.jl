@@ -7,7 +7,7 @@ const ImmutableContainer = Union{
 push(xs, i1, i2, items...) =
     foldl(push, items, init=push(push(xs, i1), i2))
 
-push(xs::AbstractVector, x) = vcat(xs, SingletonVector(x))
+push(xs::AbstractVector, x) = vcat(xs, singletonof(xs, x))
 push(xs::AbstractSet, x) = union(xs, SingletonVector(x))
 push(xs::AbstractDict, x::Pair) = merge(xs, SingletonDict(x[1], x[2]))
 
