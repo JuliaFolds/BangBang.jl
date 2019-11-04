@@ -16,6 +16,10 @@ julia> @assert singletonof(Set, 1) == Set([1])
 julia> using StructArrays: StructVector
 
 julia> @assert singletonof(StructVector, (a=1, b=2)) == StructVector(a=[1], b=[2])
+
+julia> using TypedTables: Table
+
+julia> @assert singletonof(Table, (a=1, b=2)) == Table(a=[1], b=[2])
 ```
 """
 singletonof(::Type{T}, x) where T = T(SingletonVector(x))

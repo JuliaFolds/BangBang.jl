@@ -2,3 +2,4 @@
 BangBang = "198e06fe-97b7-11e9-32a5-e1d131e6ad66"
 ConstructionBase = "187b0558-2788-49d3-abe0-74a17ed4e7c9"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+TypedTables = "9d95f2ec-7b3d-5a63-8d20-e2491e220bb9"
