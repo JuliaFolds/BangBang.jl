@@ -1,5 +1,7 @@
 module NoBang
 
+export singletonof
+
 using Base.Iterators: Pairs
 using Base: ImmutableDict
 using Requires
