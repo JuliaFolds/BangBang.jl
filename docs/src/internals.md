@@ -1,9 +1,6 @@
-# BangBang.jl
-
-```@index
-```
+# Internals
 
 ```@autodocs
 Modules = [BangBang, BangBang.NoBang]
-Private = false
+Public = false
 ```
