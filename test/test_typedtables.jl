@@ -27,4 +27,8 @@ end
     @test_broken tints == Table(a = [1, 3], b = [2, 4])
 end
 
+@testset "type inference" begin
+    @test (@inferred singletonof(Table, (a=1,))) == Table((a=[1]))
+end
+
 end  # module
