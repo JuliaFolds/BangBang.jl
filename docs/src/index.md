@@ -4,5 +4,5 @@
 ```
 
 ```@autodocs
-Modules = [BangBang]
+Modules = [BangBang, BangBang.NoBang]
 ```
