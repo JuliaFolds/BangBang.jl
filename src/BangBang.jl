@@ -4,6 +4,7 @@ module BangBang
 @doc read(joinpath(dirname(@__DIR__), "README.md"), String) BangBang
 
 export @!,
+       Empty,
        append!!,
        delete!!,
        empty!!,
@@ -33,7 +34,7 @@ function ismutable end
 function push!! end
 
 include("NoBang/NoBang.jl")
-using .NoBang: ImmutableContainer, singletonof
+using .NoBang: Empty, ImmutableContainer, singletonof
 
 include("core.jl")
 include("base.jl")
