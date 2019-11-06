@@ -7,7 +7,7 @@ include("preamble.jl")
     @test pushfirst!!([0], 1.0) == [1.0, 0.0]
     @test pushfirst!!((0,), 1) === (1, 0)
     @test pushfirst!!(SVector(0), 1) == SVector(1, 0)
-    @test_broken pushfirst!!(SVector(0), 1) === SVector(1, 0)
+    @test pushfirst!!(SVector(0), 1) === SVector(1, 0)
 end
 
 end  # module

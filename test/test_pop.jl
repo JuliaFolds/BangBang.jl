@@ -6,7 +6,7 @@ include("preamble.jl")
     @test pop!!([0, 1]) == ([0], 1)
     @test pop!!((0, 1)) === ((0,), 1)
     @test pop!!((a=0, b=1)) === ((a=0,), 1)
-    @test_broken pop!!(SVector(0, 1)) === (SVector(0), 1)
+    @test pop!!(SVector(0, 1)) === (SVector(0), 1)
 end
 
 @testset "pop(assoc, key)" begin

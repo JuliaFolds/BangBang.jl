@@ -62,6 +62,7 @@ end
 
 pushfirst(xs::Tuple, ys...) = (ys..., xs...)
 
+@inline splice(xs, i) = deleteat(xs, i), xs[i]
 @inline splice(xs::Tuple, i::Integer) = _splice_del((), i - 1, xs...)
 @inline _splice_del(pre, n, x, xs...) =
     if length(pre) < n
@@ -70,6 +71,7 @@ pushfirst(xs::Tuple, ys...) = (ys..., xs...)
         (pre..., xs...), x
     end
 
+@inline splice(xs, i, v) = _setindex(xs, v, i), xs[i]
 @inline splice(xs::Tuple, i::Integer, v) = _splice_insert((), i - 1, v, xs...)
 @inline _splice_insert(pre, n, v, x, xs...) =
     if length(pre) < n
@@ -102,6 +104,13 @@ end
 popfirst(xs::Tuple) = xs[2:end], xs[1]
 popfirst(xs::NamedTuple{names}) where {names} =
     NamedTuple{names[2:end]}(Tuple(xs)[2:end]), xs[1]
+
+function deleteat(xs::Tuple, i)
+    h, t, = foldl(ntuple(identity, i - 1); init=((), xs)) do (h, t), _
+        ((h..., t[1]), Base.tail(t))
+    end
+    return (h..., Base.tail(t)...)
+end
 
 delete(xs::NamedTuple, key) = something(maybepop(xs, key), (xs,))[1]
 
