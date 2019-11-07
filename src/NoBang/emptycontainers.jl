@@ -41,7 +41,7 @@ julia> @assert push!!(Empty(Table), (a=1, b=2)) == Table(a=[1], b=[2])
 
 `Empty(T)` object is an iterable with length 0 and element type `Union{}`:
 
-```julia; setup=:(using BangBang)
+```jldoctest; setup=:(using BangBang)
 julia> collect(Empty(Vector))
 0-element Array{Union{},1}
 
