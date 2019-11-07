@@ -26,4 +26,8 @@ end
     @test_broken eltype(ys) == ComplexF64
 end
 
+@testset "type inference" begin
+    @test (@inferred singletonof(StructVector, (a=1,))) == StructVector((a=[1]))
+end
+
 end  # module
