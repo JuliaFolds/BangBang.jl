@@ -34,7 +34,7 @@ indicesfor(::ConstIndexLens{I}, _) where {I} = I
 indicesfor(lens::DynamicIndexLens, obj) = lens.f(obj)
 
 Setfield.set(obj, lens::Lens!!{<:SupportedIndexLens}, value) =
-    setindex!!(obj, value, indicesfor(lens, obj)...)
+    setindex!!(obj, value, indicesfor(lens.lens, obj)...)
 
 """
     prefermutation(lens::Lens) :: Lens
