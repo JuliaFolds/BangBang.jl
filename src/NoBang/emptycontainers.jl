@@ -38,8 +38,33 @@ julia> using TypedTables: Table
 
 julia> @assert push!!(Empty(Table), (a=1, b=2)) == Table(a=[1], b=[2])
 ```
+
+`Empty(T)` object is an iterable with length 0 and element type `Union{}`:
+
+```julia; setup=:(using BangBang)
+julia> collect(Empty(Vector))
+0-element Array{Union{},1}
+
+julia> length(Empty(Vector))
+0
+
+julia> eltype(typeof(Empty(Vector)))
+Union{}
+
+julia> Base.IteratorSize(Empty)
+Base.HasLength()
+
+julia> Base.IteratorEltype(Empty)
+Base.HasEltype()
+```
 """
 struct Empty{T} end
 Empty(T::Type) = Empty{T}()
 
 push(::Empty{T}, x) where T = singletonof(T, x)
+
+Base.IteratorSize(::Type{<:Empty}) = Base.HasLength()
+Base.IteratorEltype(::Type{<:Empty}) = Base.HasEltype()
+Base.eltype(::Type{<:Empty}) = Union{}
+Base.length(::Empty) = 0
+Base.iterate(::Empty) = nothing

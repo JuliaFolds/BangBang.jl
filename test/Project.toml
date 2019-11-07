@@ -14,3 +14,6 @@ StructArrays = "09ab397b-f2b6-538f-b94a-2f83cf4a842a"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 TypedTables = "9d95f2ec-7b3d-5a63-8d20-e2491e220bb9"
 Zygote = "e88e6eb3-aa80-5325-afca-941959d7151f"
+
+[compat]
+StaticArrays = "< 0.12"
