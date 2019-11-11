@@ -3,6 +3,7 @@ module TestDataFrames
 using BangBang: append!!, push!!
 using CategoricalArrays: CategoricalArray
 using DataFrames: DataFrame
+using Tables: Tables
 using Test
 
 @testset "push!!" begin
@@ -29,6 +30,17 @@ using Test
         end
         @test push!!(copy(df), row) == vcat(df, df2)
         @test push!(push!!(copy(df), row), row) isa DataFrame
+    end
+end
+
+@testset "push!!(::DataFrame, ::IteratorRow)" begin
+    @testset "column: $(typeof(column)); row: $(typeof(row))" for (column, row) in [
+        ([0], Tables.IteratorRow((a = 1,))),
+        ([0.5], Tables.IteratorRow((a = 1,))),
+    ]
+        df = DataFrame(a = copy(column))
+        df2 = DataFrame([(a = 1,)])
+        @test push!!(copy(df), row) == vcat(df, df2)
     end
 end
 

@@ -8,12 +8,16 @@ _hascolumn(x, n) = hasproperty(x, n)
 _hascolumn(::NamedTuple{names}, n) where {names} = n in names  # optimization
 _hascolumn(x::AbstractDict, n) = haskey(x, n)
 
+ncolumns(x) = length(propertynames(x))  # e.g., Tables.IteratorRow
+ncolumns(x::Union{NamedTuple, AbstractDict}) = length(x)
+
 function checkcolumnnames(x, columnnames)
     for n in columnnames
         _hascolumn(x, n) || error("No column `", n, "` in given row.")
     end
-    length(columnnames) < length(x) && error("More columns exist in given row.")
-    @assert length(columnnames) == length(x)
+    nc = ncolumns(x)
+    length(columnnames) < nc && error("More columns exist in given row.")
+    @assert length(columnnames) == nc
 end
 
 function checkcolumnnames(x::Union{Tuple,AbstractVector}, columnnames)
