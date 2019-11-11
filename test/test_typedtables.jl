@@ -12,6 +12,8 @@ using TypedTables
     tints = Table(a = [1], b = [2])
     @test push!!(tints, (a = 3, b = 4)) === tints
     @test tints == Table(a = [1, 3], b = [2, 4])
+
+    @test push!!(Table(a = [1]), Tables.IteratorRow((a = 2,))) == Table(a = [1, 2])
 end
 
 @testset "append!!" begin
