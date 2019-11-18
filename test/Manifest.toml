@@ -358,9 +358,9 @@ uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [[TimerOutputs]]
 deps = ["Printf"]
-git-tree-sha1 = "8f22dc0c23e1cd4ab8070a01ba32285926f104f1"
+git-tree-sha1 = "311765af81bbb48d7bad01fb016d9c328c6ede03"
 uuid = "a759f4b9-e2f1-59dc-863e-4aeb61b1ea8f"
-version = "0.5.2"
+version = "0.5.3"
 
 [[TypedTables]]
 deps = ["SplitApplyCombine", "Tables", "Unicode"]
