@@ -101,10 +101,10 @@ uuid = "163ba53b-c6d8-5494-b064-1a9d43ac40c5"
 version = "0.0.4"
 
 [[DiffRules]]
-deps = ["Random", "Test"]
-git-tree-sha1 = "dc0869fb2f5b23466b32ea799bd82c76480167f7"
+deps = ["NaNMath", "Random", "SpecialFunctions"]
+git-tree-sha1 = "f734b5f6bc9c909027ef99f6d91d5d9e4b111eed"
 uuid = "b552c78f-8df3-52c6-915a-8e097449b14b"
-version = "0.0.10"
+version = "0.1.0"
 
 [[Distributed]]
 deps = ["Random", "Serialization", "Sockets"]
@@ -118,7 +118,7 @@ version = "0.8.1"
 
 [[Documenter]]
 deps = ["Base64", "Dates", "DocStringExtensions", "InteractiveUtils", "JSON", "LibGit2", "Logging", "Markdown", "REPL", "Test", "Unicode"]
-git-tree-sha1 = "adb6ced649fcb135f9a88100765eb60004858422"
+git-tree-sha1 = "fb16819c1bcf5e99b8e316e329e5e0958550334e"
 repo-rev = "master"
 repo-url = "https://github.com/JuliaDocs/Documenter.jl.git"
 uuid = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
