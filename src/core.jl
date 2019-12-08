@@ -26,6 +26,7 @@ const MaybeMutableContainer = Union{
 """
 ismutable(x) = ismutable(typeof(x))
 ismutable(::Type) = false
+ismutable(::Type{T}) where {T<:AbstractArray} = ArrayInterface.ismutable(T)
 ismutable(::Type{<:ImmutableContainer}) = false
 ismutable(::Type{<:MaybeMutableContainer}) = true
 ismutable(::Type{<:AbstractString}) = false
