@@ -20,11 +20,11 @@ twice(x) = 2x
     ir_noinbounds = llvm_ir(mapbb, (twice, Float64[], Val(false)))
     @debug "LLVM IR" ir_noinbounds=Text(ir_noinbounds)
     if Base.JLOptions().check_bounds == 2  # --check-bounds=no
-        @test nmatches(r"fmul <4 x double>", ir_noinbounds) >= 4
+        @test nmatches(r"fmul <[0-9]+ x double>", ir_noinbounds) >= 4
     else
-        @test nmatches(r"fmul <4 x double>", ir_noinbounds) == 0
+        @test nmatches(r"fmul <[0-9]+ x double>", ir_noinbounds) == 0
     end
     ir_inbounds = llvm_ir(mapbb, (twice, Float64[], Val(true)))
     @debug "LLVM IR" ir_inbounds=Text(ir_noinbounds)
-    @test nmatches(r"fmul <4 x double>", ir_inbounds) >= 4
+    @test nmatches(r"fmul <[0-9]+ x double>", ir_inbounds) >= 4
 end
