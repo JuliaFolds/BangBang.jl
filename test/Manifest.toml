@@ -146,7 +146,7 @@ uuid = "9fa8497b-333b-5362-9e8d-4d0656e87820"
 
 [[IRTest]]
 deps = ["Test"]
-git-tree-sha1 = "5f2778f64fdc9d2e29176869ba49167777ed1170"
+git-tree-sha1 = "136b6f386964ec0e721ba76121a933e74bed15a5"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/IRTest.jl"
 uuid = "c9680f28-2a59-47f6-98e4-d41620d42cd2"
@@ -248,7 +248,7 @@ uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
 version = "0.3.10"
 
 [[Pkg]]
-deps = ["Dates", "LibGit2", "Markdown", "Printf", "REPL", "Random", "SHA", "UUIDs"]
+deps = ["Dates", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "Random", "SHA", "UUIDs"]
 uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 
 [[PooledArrays]]
