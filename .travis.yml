@@ -24,6 +24,7 @@ before_install:
 install:
   - julia -e 'using Run; Run.prepare_test()'
 script:
+  - export JULIA_DEBUG="Main"
   - julia -e 'using Run; Run.test(inline=false)'
 after_success:
   - julia -e 'using Run; Run.after_success_test()'
