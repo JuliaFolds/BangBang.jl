@@ -18,7 +18,7 @@ version = "0.4.0"
 deps = ["Compat", "ConstructionBase", "Future", "InitialValues", "LinearAlgebra", "Requires", "Setfield", "Tables", "ZygoteRules"]
 path = ".."
 uuid = "198e06fe-97b7-11e9-32a5-e1d131e6ad66"
-version = "0.3.9-DEV"
+version = "0.3.10-DEV"
 
 [[Base64]]
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
@@ -118,9 +118,9 @@ version = "0.8.1"
 
 [[Documenter]]
 deps = ["Base64", "Dates", "DocStringExtensions", "InteractiveUtils", "JSON", "LibGit2", "Logging", "Markdown", "REPL", "Test", "Unicode"]
-git-tree-sha1 = "0be9bf63e854a2408c2ecd3c600d68d4d87d8a73"
+git-tree-sha1 = "885467cebde4639a3d81953652cc53ff5a73cb87"
 uuid = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
-version = "0.24.2"
+version = "0.24.3"
 
 [[FFTW]]
 deps = ["AbstractFFTs", "BinaryProvider", "Conda", "Libdl", "LinearAlgebra", "Reexport"]
