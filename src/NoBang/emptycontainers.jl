@@ -58,12 +58,16 @@ julia> Base.IteratorEltype(Empty)
 Base.HasEltype()
 ```
 """
-struct Empty{T} end
-Empty(T::Type) = Empty{T}()
+struct Empty{T}
+    f::T
+    Empty{T}(f) where T = new(f)
+end
+Empty(T::Type) = Empty{Type{T}}(T)
+Empty(f::T) where T = Empty{T}(f)
 
-push(::Empty{T}, x) where T = singletonof(T, x)
-append(::Empty{T}, x) where T = T(x)
-# In `append`, it is assumed that `T(x::Vector)` works (as done in the
+push(E::Empty, x) = E.f(SingletonVector(x))
+append(E::Empty, x) = E.f(x)
+# It is assumed that `E.f(x::Vector)` works (as done in the
 # implementation of `singletonof`).
 
 Base.IteratorSize(::Type{<:Empty}) = Base.HasLength()
