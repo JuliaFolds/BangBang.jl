@@ -49,9 +49,9 @@ version = "0.2.0"
 
 [[Compat]]
 deps = ["Base64", "Dates", "DelimitedFiles", "Distributed", "InteractiveUtils", "LibGit2", "Libdl", "LinearAlgebra", "Markdown", "Mmap", "Pkg", "Printf", "REPL", "Random", "Serialization", "SharedArrays", "Sockets", "SparseArrays", "Statistics", "Test", "UUIDs", "Unicode"]
-git-tree-sha1 = "ed2c4abadf84c53d9e58510b5fc48912c2336fbb"
+git-tree-sha1 = "0caaa696071d6e7872ddf30e58ed6ec0b49954c4"
 uuid = "34da2185-b29b-5c13-b0c7-acf172513d20"
-version = "2.2.0"
+version = "3.0.0"
 
 [[Conda]]
 deps = ["JSON", "VersionParsing"]
@@ -95,10 +95,10 @@ deps = ["Mmap"]
 uuid = "8bb1440f-4735-579b-a4ab-409b98df4dab"
 
 [[DiffResults]]
-deps = ["Compat", "StaticArrays"]
-git-tree-sha1 = "34a4a1e8be7bc99bc9c611b895b5baf37a80584c"
+deps = ["StaticArrays"]
+git-tree-sha1 = "b5b37c47c5cee040a47d02cf65144ab7c5d8aef6"
 uuid = "163ba53b-c6d8-5494-b064-1a9d43ac40c5"
-version = "0.0.4"
+version = "1.0.1"
 
 [[DiffRules]]
 deps = ["NaNMath", "Random", "SpecialFunctions"]
@@ -136,9 +136,9 @@ version = "0.8.2"
 
 [[ForwardDiff]]
 deps = ["CommonSubexpressions", "DiffResults", "DiffRules", "NaNMath", "Random", "SpecialFunctions", "StaticArrays"]
-git-tree-sha1 = "da46ac97b17793eba44ff366dc6cb70f1238a738"
+git-tree-sha1 = "840700059391d36e2498d89c2e82c08f261f2a2a"
 uuid = "f6369f11-7733-5829-9624-2563aa707210"
-version = "0.10.7"
+version = "0.10.8"
 
 [[Future]]
 deps = ["Random"]
@@ -288,9 +288,9 @@ uuid = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
 
 [[Setfield]]
 deps = ["ConstructionBase", "Future", "MacroTools", "Requires"]
-git-tree-sha1 = "161fc4aaee52eabf584d9506d2143d83f60411c2"
+git-tree-sha1 = "ed5045722fcdacf263a90fb9eb9f258598ccebac"
 uuid = "efcf1570-3423-57d1-acb7-fd33fddbac46"
-version = "0.5.3"
+version = "0.5.4"
 
 [[SharedArrays]]
 deps = ["Distributed", "Mmap", "Random", "Serialization"]
