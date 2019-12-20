@@ -37,6 +37,10 @@ julia> @assert push!!(Empty(StructVector), (a=1, b=2)) == StructVector(a=[1], b=
 julia> using TypedTables: Table
 
 julia> @assert push!!(Empty(Table), (a=1, b=2)) == Table(a=[1], b=[2])
+
+julia> using StaticArrays: SVector
+
+julia> @assert push!!(Empty(SVector), 1) === SVector(1)
 ```
 
 `Empty(T)` object is an iterable with length 0 and element type `Union{}`:
