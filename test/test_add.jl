@@ -1,6 +1,7 @@
 module TestAdd
 
 include("preamble.jl")
+using Base.Broadcast: broadcasted
 
 @testset begin
     @test add!!(1, 2) === 3
@@ -15,6 +16,14 @@ end
 @testset "mutation" begin
     x = [1]
     @test add!!(x, [2]) === x ==ₜ [3]
+end
+
+@testset "broadcasted" begin
+    @test @inferred(add!!(broadcasted(*, [1], [2]), [2])) ==ₜ [4]
+    @test @inferred(add!!([1], broadcasted(/, [1], [2]))) ==ₜ [1.5]
+
+    x = [1]
+    @test @inferred(add!!(x, broadcasted(*, [1], [2]))) === x ==ₜ [3]
 end
 
 end  # module

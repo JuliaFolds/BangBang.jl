@@ -1,7 +1,7 @@
 """
     add!!(A, B) -> A′
 
-`A .+= B` if `A` is mutable; otherwise return `A .+ B`.
+`A .+= B` if possible; otherwise return `A .+ B`.
 
 # Examples
 ```jldoctest
@@ -21,9 +21,16 @@ add!(A, B) = A .+= B
 pure(::typeof(add!)) = NoBang.add
 _asbb(::typeof(add!)) = add!!
 possible(::typeof(add!), A, B) = ismutable(A) && _addeltype(A, B) <: eltype(A)
-_addeltype(A, B) = Base.promote_op(+, eltype(A), eltype(B))
-# TODO: use AlgebraResultTypes.jl-like approach when the eltypes are
-# Number subtypes.
+
+_addeltype(A, B) = Base.promote_op(+, eltype(A), _eltype(B))
+_eltype(x) = eltype(x)
+function _eltype(x::Broadcast.Broadcasted)
+    bc = Broadcast.instantiate(x)
+    return Base._return_type(getindex, Tuple{typeof(bc), Vararg{Int, ndims(bc)}})
+end
+# TODO: Implement `materialize!!(dest, bc)` based on `copyto_nonleaf!`
+# and use it like this:
+# add!!(A, B) = materialize!!(A, instantiate(broadcasted(+, A, B)))
 
 """
     mul!!(C, A, B, [α, β]) -> C′
