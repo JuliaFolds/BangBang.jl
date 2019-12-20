@@ -1,4 +1,31 @@
 """
+    add!!(A, B) -> A′
+
+`A .+= B` if `A` is mutable; otherwise return `A .+ B`.
+
+# Examples
+```jldoctest
+julia> using BangBang: add!!
+
+julia> add!!((1,), (2,))
+(3,)
+
+julia> add!!([1], [2])
+1-element Array{Int64,1}:
+ 3
+```
+"""
+add!!(A, B) = may(add!, A, B)
+add!(A, B) = A .+= B
+
+pure(::typeof(add!)) = NoBang.add
+_asbb(::typeof(add!)) = add!!
+possible(::typeof(add!), A, B) = ismutable(A) && _addeltype(A, B) <: eltype(A)
+_addeltype(A, B) = Base.promote_op(+, eltype(A), eltype(B))
+# TODO: use AlgebraResultTypes.jl-like approach when the eltypes are
+# Number subtypes.
+
+"""
     mul!!(C, A, B, [α, β]) -> C′
 """
 mul!!(C, A, B) = may(mul!, C, A, B)

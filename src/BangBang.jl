@@ -6,6 +6,7 @@ module BangBang
 export @!,
        @set!!,
        Empty,
+       add!!,
        append!!,
        delete!!,
        deleteat!!,
