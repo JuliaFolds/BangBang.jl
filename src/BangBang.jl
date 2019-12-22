@@ -26,7 +26,15 @@ export @!,
        singletonof,
        splice!!
 
-using Base.Broadcast: materialize!
+using Base.Broadcast:
+    Broadcasted,
+    broadcasted,
+    combine_eltypes,
+    copyto_nonleaf!,
+    instantiate,
+    materialize!,
+    preprocess
+using Base: promote_typejoin
 using Compat: hasproperty
 using InitialValues
 using LinearAlgebra
