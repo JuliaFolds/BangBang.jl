@@ -3,6 +3,9 @@ name: pkg-update
 on:
   schedule:
     - cron: '0 0 * * *'
+  push:
+    branches:
+      - actions/trigger/pkg-update
 
 jobs:
   build:
@@ -17,7 +20,20 @@ jobs:
         with:
           version: ${{ matrix.julia-version }}
 
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+      - name: '"Merge" master to create-pull-request/pkg-update'
+        run: |
+          git fetch --unshallow origin \
+            refs/heads/master:refs/remotes/origin/master \
+            refs/heads/create-pull-request/pkg-update:refs/remotes/origin/create-pull-request/pkg-update \
+            || exit 0
+          git config --global user.email "tkf@users.noreply.github.com"
+          git config --global user.name "tkf"
+          git checkout -B master origin/master
+          git merge --strategy=ours origin/create-pull-request/pkg-update
+          git checkout -B create-pull-request/pkg-update
+          git branch --set-upstream-to origin/create-pull-request/pkg-update
+
       - name: Update test/Manifest.toml
         run: julia --project=test -e "import Pkg; Pkg.update()"
       - name: Update docs/Manifest.toml
