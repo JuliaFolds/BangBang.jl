@@ -42,12 +42,12 @@ jobs:
       # https://github.com/marketplace/actions/create-pull-request
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMIT_MESSAGE: Update */Manifest.toml
-          PULL_REQUEST_TITLE: '[AUTO] Update */Manifest.toml'
-          PULL_REQUEST_LABELS: no changelog
-          PULL_REQUEST_BRANCH: create-pull-request/pkg-update
-          BRANCH_SUFFIX: none
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Update */Manifest.toml
+          title: '[AUTO] Update */Manifest.toml'
+          labels: no changelog
+          branch: create-pull-request/pkg-update
+          branch-suffix: none
       - name: Check output environment variable
         run: echo "Pull Request Number - ${{ env.PULL_REQUEST_NUMBER }}"
