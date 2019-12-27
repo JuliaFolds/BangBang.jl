@@ -49,5 +49,6 @@ jobs:
           labels: no changelog
           branch: create-pull-request/pkg-update
           branch-suffix: none
+          base: master
       - name: Check output environment variable
         run: echo "Pull Request Number - ${{ env.PULL_REQUEST_NUMBER }}"
