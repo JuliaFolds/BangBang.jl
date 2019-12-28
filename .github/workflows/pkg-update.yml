@@ -21,7 +21,7 @@ jobs:
           version: ${{ matrix.julia-version }}
 
       - uses: actions/checkout@v2
-      - name: '"Merge" master to create-pull-request/pkg-update'
+      - name: 'Merge master to create-pull-request/pkg-update'
         run: |
           git fetch --unshallow origin \
             refs/heads/master:refs/remotes/origin/master \
@@ -30,9 +30,12 @@ jobs:
           git config --global user.email "tkf@users.noreply.github.com"
           git config --global user.name "tkf"
           git checkout -B master origin/master
-          git merge --strategy=ours origin/create-pull-request/pkg-update
-          git checkout -B create-pull-request/pkg-update
-          git branch --set-upstream-to origin/create-pull-request/pkg-update
+          git checkout -B create-pull-request/pkg-update origin/create-pull-request/pkg-update
+          git merge --strategy=ours --no-commit master
+          git checkout master -- .
+          git checkout origin/create-pull-request/pkg-update -- */Manifest.toml
+          git add .
+          git commit -m "Merge branch 'master'" || exit 0
 
       - name: Update test/Manifest.toml
         run: julia --project=test -e "import Pkg; Pkg.update()"
