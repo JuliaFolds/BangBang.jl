@@ -418,8 +418,46 @@ setproperty!!(value, name::Symbol, x) = setproperties!!(value, (; name => x))
 """
     materialize!!(dest, x)
 """
-@inline materialize!!(dest, x) = may(materialize!, dest, x)
+@inline materialize!!(dest, x) = may(_materialize!!, dest, x)
 # TODO: maybe instantiate `x` and be aware of `x`'s style
 
-pure(::typeof(materialize!)) = NoBang.materialize
-possible(::typeof(materialize!), x, ::Any) = ismutable(x)
+@inline _materialize!!(dest, bc::Broadcasted{Style}) where {Style} =
+    _copyto!!(dest, instantiate(Broadcasted{Style}(bc.f, bc.args, axes(dest))))
+
+pure(::typeof(_materialize!!)) = NoBang.materialize
+possible(::typeof(_materialize!!), ::Any, ::Any) = false
+possible(::typeof(_materialize!!), x::AbstractArray, ::Any) = ismutable(x)
+
+@noinline throwdm(axdest, axsrc) =
+    throw(DimensionMismatch("destination axes $axdest are not compatible with source axes $axsrc"))
+
+# Based on default `copy(bc)` implementation
+@inline function _copyto!!(dest, bc::Broadcasted)
+    axes(dest) == axes(bc) || throwdm(axes(dest), axes(bc))
+
+    ElType = combine_eltypes(bc.f, bc.args)
+    # Use `copyto!` if we can trust the inference result:
+    if ElType <: eltype(dest)
+        return copyto!(dest, bc)
+    elseif Base.isconcretetype(ElType)
+        return copyto!(similar(bc, promote_typejoin(eltype(dest), ElType)), bc)
+    end
+
+    bc′ = preprocess(nothing, bc)
+    iter = eachindex(bc′)
+    y = iterate(iter)
+    y === nothing && return dest
+
+    # Try to store the first value
+    I, state = y
+    @inbounds val = bc′[I]
+    if typeof(val) <: eltype(dest)
+        @inbounds dest[I] = val
+        dest′ = dest
+    else
+        dest′ = similar(bc′, typeof(val))
+    end
+
+    # Handle the rest
+    return copyto_nonleaf!(dest′, bc′, iter, state, 1)
+end

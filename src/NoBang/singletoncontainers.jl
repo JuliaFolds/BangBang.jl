@@ -6,6 +6,8 @@ struct SingletonVector{T} <: AbstractVector{T}
 end
 
 Base.size(::SingletonVector) = (1,)
+Base.first(v::SingletonVector) = v.value
+Base.last(v::SingletonVector) = v.value
 
 function Base.getindex(v::SingletonVector, i::Integer)
     @boundscheck i == 1 || throw(BoundsError(v, i))
@@ -32,6 +34,9 @@ end
 
 Base.iterate(d::SingletonDict) = (d.key => d.value, nothing)
 Base.iterate(d::SingletonDict, ::Nothing) = nothing
+
+Base.first(d::SingletonDict) = d.key => d.value
+Base.last(d::SingletonDict) = d.key => d.value
 
 function Base.getindex(d::SingletonDict{K}, key::K) where {K}
     @boundscheck d.key == key || throw(BoundsError(d, key))

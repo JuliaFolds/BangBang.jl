@@ -5,19 +5,6 @@ include("preamble.jl")
 using BangBang.NoBang: SingletonVector
 using StructArrays: StructVector
 
-"""
-    ==ₜ(x, y)
-
-Check that _type_ and value of `x` and `y` are equal.
-"""
-==ₜ(_, _) = false
-==ₜ(x::T, y::T) where T = x == y
-
-@testset "==ₜ" begin
-    @test 1 ==ₜ 1
-    @test !(1.0 ==ₜ 1)
-end
-
 @testset begin
     @test append!!([0.0], [1.0]) == [0.0, 1.0]
     @test append!!([0], [1.0]) == [0.0, 1.0]

@@ -13,7 +13,7 @@ end
 
 @testset "SingletonVector" begin
     v = SingletonVector(1)
-    @test v[1] == 1
+    @test v[1] == first(v) == last(v) == 1
     @test_throws BoundsError v[2]
     @test size(v) == (1,)
     @test collect(v)::Vector{Int} == [1]
@@ -48,6 +48,7 @@ end
 @testset "SingletonDict" begin
     d = SingletonDict(:a, 1)
     @test d[:a] == 1
+    @test first(d) == last(d) == first(collect(d))
     @test_throws BoundsError d[:non_existing_key]
     @test collect(d)::Vector{Pair{Symbol,Int}} == [:a => 1]
     test_shows(d)

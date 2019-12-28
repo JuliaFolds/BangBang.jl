@@ -21,6 +21,12 @@ julia> @assert singletonof(StructVector, (a=1, b=2)) == StructVector(a=[1], b=[2
 julia> using TypedTables: Table
 
 julia> @assert singletonof(Table, (a=1, b=2)) == Table(a=[1], b=[2])
+
+julia> using StaticArrays: SArray, SVector
+
+julia> @assert singletonof(SArray, 1) === SVector(1)
+
+julia> @assert singletonof(SVector, 1) === SVector(1)
 ```
 """
 singletonof(::Type{T}, x) where T = T(SingletonVector(x))

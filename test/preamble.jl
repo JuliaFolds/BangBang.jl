@@ -4,6 +4,14 @@ using BangBang
 using BangBang: ismutable
 using StaticArrays: SVector
 
+"""
+    ==ₜ(x, y)
+
+Check that _type_ and value of `x` and `y` are equal.
+"""
+==ₜ(_, _) = false
+==ₜ(x::T, y::T) where T = x == y
+
 macro test_error(ex)
     quote
         let err = nothing

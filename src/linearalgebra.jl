@@ -1,4 +1,23 @@
 """
+    add!!(A, B) -> A′
+
+`A .+= B` if possible; otherwise return `A .+ B`.
+
+# Examples
+```jldoctest
+julia> using BangBang: add!!
+
+julia> add!!((1,), (2,))
+(3,)
+
+julia> add!!([1], [2])
+1-element Array{Int64,1}:
+ 3
+```
+"""
+add!!(A, B) = materialize!!(A, instantiate(broadcasted(+, A, B)))
+
+"""
     mul!!(C, A, B, [α, β]) -> C′
 """
 mul!!(C, A, B) = may(mul!, C, A, B)
