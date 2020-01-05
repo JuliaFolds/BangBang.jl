@@ -27,15 +27,9 @@ push(::NamedTuple, x) =
 push(xs::ImmutableDict, x::Pair) = ImmutableDict(xs, x)
 
 append(xs, ys) = _append(xs, ys)
+_append(xs, ys) = append!(copy(xs), ys)
 _append(xs, ys::Tuple) = push(xs, ys...)
 _append(xs, ys::Pairs{Symbol, <:Any, <:Any, <:NamedTuple}) = push(xs, ys...)
-
-function _append(xs, ys)
-    next = iterate(ys)
-    next === nothing && return xs
-    y, state = next
-    return foldl(push!!, Iterators.rest(ys, state), init = push(xs, y))
-end
 
 append(xs::AbstractVector, ys::AbstractVector) =
     if constructorof(typeof(xs)) === constructorof(typeof(ys))
