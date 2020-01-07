@@ -276,6 +276,45 @@ pure(::typeof(empty!)) = NoBang._empty
 _asbb(::typeof(empty!)) = empty!!
 possible(::typeof(empty!), ::C) where C = implements(push!, C)
 
+"""
+    merge!!(dictlike, others...) -> dictlike′
+    merge!!(combine, dictlike, others...) -> dictlike′
+
+# Examples
+```jldoctest
+julia> using BangBang
+
+julia> merge!!(Dict(:a => 1), Dict(:b => 0.5))
+Dict{Symbol,Float64} with 2 entries:
+  :a => 1.0
+  :b => 0.5
+
+julia> merge!!((a = 1,), Dict(:b => 0.5))
+(a = 1, b = 0.5)
+
+julia> merge!!(+, Dict(:a => 1), Dict(:a => 0.5))
+Dict{Symbol,Float64} with 1 entry:
+  :a => 1.5
+```
+"""
+merge!!(dict::Union{AbstractDict,NamedTuple}, others...) =
+    merge!!(right, dict, others...)
+
+merge!!(combine, dict, other) =
+    foldl(pairs(other); init=dict) do dict, (k, v2)
+        v1 = get(dict, k, _NoValue())
+        setindex!!(dict, v1 isa _NoValue ? v2 : combine(v1, v2), k)
+    end
+
+merge!!(combine, dict, others...) =
+    foldl(others; init=dict) do dict, other
+        merge!!(combine, dict, other)
+    end
+
+right(_, x) = x
+
+struct _NoValue end
+
 #=
 """
     splice!!(sequence, i, [replacement]) -> (sequence′, item)
