@@ -1,7 +1,7 @@
 using Test
 using Base: ImmutableDict
 using BangBang
-using BangBang: ismutable
+using BangBang: implements
 using StaticArrays: SVector
 
 """
