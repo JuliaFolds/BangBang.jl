@@ -24,6 +24,34 @@ const Mutator = Union{typeof(push!), typeof(setindex!)}
     implements(f!, x) :: Bool
 
 `true` if in-place function `f!` can mutate `x`.
+
+# Examples
+```jldoctest
+julia> using BangBang: implements
+
+julia> implements(push!, Vector)
+true
+
+julia> implements(push!, [])  # works with instances, too
+true
+
+julia> implements(push!, Tuple)
+false
+
+julia> using StaticArrays
+
+julia> implements(push!, SVector)
+false
+
+julia> implements(setindex!, SVector)
+false
+
+julia> implements(push!, MVector)
+false
+
+julia> implements(setindex!, MVector)
+true
+```
 """
 implements(f!, x) = implements(f!, typeof(x))
 implements(::Any, ::Type) = false
