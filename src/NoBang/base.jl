@@ -40,7 +40,7 @@ end
 append(xs::AbstractVector, ys::AbstractVector) =
     if constructorof(typeof(xs)) === constructorof(typeof(ys))
         vcat(xs, ys)
-    elseif !ismutable(xs) && ismutable(ys)
+    elseif !implements(push!, xs) && implements(push!, ys)
         vcat(xs, ys)
     elseif length(ys) == 0
         xs

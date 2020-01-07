@@ -8,7 +8,7 @@ using Requires
 using ConstructionBase: constructorof, setproperties
 using Tables: Tables
 
-using ..BangBang: push!!, ismutable
+using ..BangBang: push!!, implements
 
 if VERSION < v"1.1-"
     using Future: copy!

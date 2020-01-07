@@ -43,7 +43,7 @@ using Tables: Tables
 using ZygoteRules: @adjoint
 
 # Used in NoBang:
-function ismutable end
+function implements end
 function push!! end
 
 include("NoBang/NoBang.jl")

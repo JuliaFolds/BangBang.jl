@@ -20,15 +20,16 @@ const MaybeMutableContainer = Union{
 }
 
 """
-    ismutable(x)
+    implements(f!, x) :: Bool
 
-`true` if `x` is mutable as container.
+`true` if in-place function `f!` can mutate `x`.
 """
-ismutable(x) = ismutable(typeof(x))
-ismutable(::Type) = false
-ismutable(::Type{<:ImmutableContainer}) = false
-ismutable(::Type{<:MaybeMutableContainer}) = true
-ismutable(::Type{<:AbstractString}) = false
+implements(f!, x) = implements(f!, typeof(x))
+implements(::Any, ::Type) = false
+
+implements(::typeof(push!), ::Type{<:ImmutableContainer}) = false
+implements(::typeof(push!), ::Type{<:MaybeMutableContainer}) = true
+implements(::typeof(push!), ::Type{<:AbstractString}) = false
 
 """
     ismutablestruct(x)
@@ -43,4 +44,4 @@ ismutablestruct(::Type{<:NamedTuple}) = false
 # trymutate(::typeof(append!)) = append!!
 
 struct Undefined end
-ismutable(::Undefined) = false
+implements(::typeof(push!), ::Undefined) = false

@@ -1,2 +1,2 @@
-ismutable(::Type{<:StaticArrays.StaticArray}) = false
-ismutable(::Type{<:StaticArrays.MArray}) = true
+implements(::typeof(push!), ::Type{<:StaticArrays.StaticArray}) = false
+implements(::typeof(push!), ::Type{<:StaticArrays.MArray}) = true
