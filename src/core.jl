@@ -69,3 +69,21 @@ implements(::typeof(setproperty!), ::Type{<:NamedTuple}) = false
 
 struct Undefined end
 implements(::Mutator, ::Undefined) = false
+
+"""
+    possible(f!, args...) :: Bool
+
+Check if `f!(args...)` is possible.
+
+# Examples
+```jldoctest
+julia> using BangBang: possible
+
+julia> possible(push!, Int[], 1)
+true
+
+julia> possible(push!, Int[], 0.5)
+false
+```
+"""
+possible
