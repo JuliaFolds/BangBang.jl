@@ -32,14 +32,9 @@ implements(::Mutator, ::Type{<:ImmutableContainer}) = false
 implements(::Mutator, ::Type{<:MaybeMutableContainer}) = true
 implements(::Mutator, ::Type{<:AbstractString}) = false
 
-"""
-    ismutablestruct(x)
-
-`true` if `x` is mutable as a struct/object.
-"""
-ismutablestruct(x) = ismutablestruct(typeof(x))
 Base.@pure ismutablestruct(T::DataType) = T.mutable
-ismutablestruct(::Type{<:NamedTuple}) = false
+implements(::typeof(setproperty!), T::DataType) = ismutablestruct(T)
+implements(::typeof(setproperty!), ::Type{<:NamedTuple}) = false
 
 # trymutate(::typeof(push!)) = push!!
 # trymutate(::typeof(append!)) = append!!

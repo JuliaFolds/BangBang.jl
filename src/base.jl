@@ -399,7 +399,7 @@ end
 
 pure(::typeof(setproperties!)) = NoBang.setproperties
 possible(::typeof(setproperties!), obj, patch) =
-    ismutablestruct(obj) && _is_compatible_field_types(obj, patch)
+    implements(setproperty!, obj) && _is_compatible_field_types(obj, patch)
 
 _is_compatible_field_types(::T, patch) where T =
     all(n -> fieldtype(typeof(patch), n) <: fieldtype(T, n), keys(patch))
