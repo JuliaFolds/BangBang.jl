@@ -18,6 +18,7 @@ const MaybeMutableContainer = Union{
     AbstractDict,
     AbstractSet,
 }
+const Mutator = Union{typeof(push!), typeof(setindex!)}
 
 """
     implements(f!, x) :: Bool
@@ -27,9 +28,9 @@ const MaybeMutableContainer = Union{
 implements(f!, x) = implements(f!, typeof(x))
 implements(::Any, ::Type) = false
 
-implements(::typeof(push!), ::Type{<:ImmutableContainer}) = false
-implements(::typeof(push!), ::Type{<:MaybeMutableContainer}) = true
-implements(::typeof(push!), ::Type{<:AbstractString}) = false
+implements(::Mutator, ::Type{<:ImmutableContainer}) = false
+implements(::Mutator, ::Type{<:MaybeMutableContainer}) = true
+implements(::Mutator, ::Type{<:AbstractString}) = false
 
 """
     ismutablestruct(x)
@@ -44,4 +45,4 @@ ismutablestruct(::Type{<:NamedTuple}) = false
 # trymutate(::typeof(append!)) = append!!
 
 struct Undefined end
-implements(::typeof(push!), ::Undefined) = false
+implements(::Mutator, ::Undefined) = false
