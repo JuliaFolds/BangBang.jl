@@ -297,7 +297,7 @@ Dict{Symbol,Float64} with 1 entry:
   :a => 1.5
 ```
 """
-merge!!(dict::Union{AbstractDict,NamedTuple}, others...) =
+merge!!(dict::Union{AbstractDict,NamedTuple,Empty}, others...) =
     merge!!(right, dict, others...)
 
 merge!!(combine, dict, other) =
@@ -375,7 +375,7 @@ Base.@propagate_inbounds setindex!!(xs, v, I...) = may(_setindex!, xs, v, I...)
 Base.@propagate_inbounds _setindex!(xs, v, I...) = (setindex!(xs, v, I...); xs)
 
 pure(::typeof(_setindex!)) = NoBang._setindex
-possible(::typeof(_setindex!), ::Union{Tuple, NamedTuple}, ::Vararg) = false
+possible(::typeof(_setindex!), ::Union{Tuple,NamedTuple,Empty}, ::Vararg) = false
 possible(::typeof(_setindex!), ::C, ::T, ::Vararg) where {C <: AbstractArray, T} =
     implements(setindex!, C) && promote_type(eltype(C), T) <: eltype(C)
 possible(::typeof(_setindex!), ::C, ::V, ::K) where {C <: AbstractDict, V, K} =

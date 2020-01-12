@@ -32,6 +32,8 @@ struct SingletonDict{K,V} <: AbstractDict{K,V}
     value::V
 end
 
+SingletonDict((key, value)::Pair) = SingletonDict(key, value)
+
 Base.iterate(d::SingletonDict) = (d.key => d.value, nothing)
 Base.iterate(d::SingletonDict, ::Nothing) = nothing
 

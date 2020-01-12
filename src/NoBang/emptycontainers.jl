@@ -70,6 +70,9 @@ append(::Empty{T}, x) where T = T(x)
 # In `append`, it is assumed that `T(x::Vector)` works (as done in the
 # implementation of `singletonof`).
 
+_setindex(::Empty{T}, v, k) where {T <: AbstractDict} = T(SingletonDict(k, v))
+Base.get(::Empty, _, default) = default
+
 Base.IteratorSize(::Type{<:Empty}) = Base.HasLength()
 Base.IteratorEltype(::Type{<:Empty}) = Base.HasEltype()
 Base.eltype(::Type{<:Empty}) = Union{}

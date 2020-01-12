@@ -1,6 +1,7 @@
 module TestMerge
 
 include("preamble.jl")
+using BangBang.NoBang: SingletonDict
 
 function signature(args)
     #! format: off
@@ -25,6 +26,8 @@ end
         (((a = 1,), (b = 2,)), (a = 1, b = 2)),
         (((a = 1,), Dict(:b => 2)), (a = 1, b = 2)),
         (((a = 1,), Dict(:b => 2), (b = 3,)), (a = 1, b = 3)),
+        ((Empty(Dict), Dict(:a => 1)), Dict(:a => 1)),
+        ((Empty(Dict), SingletonDict(:a => 1)), Dict(:a => 1)),
     ]
         d = deepcopy(args[1])
         @test merge!!(args...) ==ₜ desired
