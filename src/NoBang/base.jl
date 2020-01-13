@@ -126,7 +126,7 @@ if VERSION < v"1.3.0-DEV.533"
 end
 
 _setindex(xs, v, I...) = Base.setindex(xs, v, I...)
-_setindex(xs::NamedTuple, value, name) = setproperty(xs, name, value)
+_setindex(xs::NamedTuple, value, name) = merge(xs, (; name => value))
 
 function _setindex(xs::AbstractArray, v, I...)
     T = promote_type(eltype(xs), typeof(v))
