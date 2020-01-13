@@ -53,6 +53,7 @@ using .NoBang: Empty, ImmutableContainer, SingletonVector, singletonof
 include("core.jl")
 include("base.jl")
 include("linearalgebra.jl")
+include("experimental.jl")
 include("initials.jl")
 include("macro.jl")
 include("dataframes_impl.jl")
