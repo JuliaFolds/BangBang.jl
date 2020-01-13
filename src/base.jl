@@ -297,23 +297,11 @@ Dict{Symbol,Float64} with 1 entry:
   :a => 1.5
 ```
 """
-merge!!(dict::Union{AbstractDict,NamedTuple,Empty}, others...) =
-    merge!!(right, dict, others...)
-
-merge!!(combine, dict, other) =
-    foldl(pairs(other); init=dict) do dict, (k, v2)
-        v1 = get(dict, k, _NoValue())
-        setindex!!(dict, v1 isa _NoValue ? v2 : combine(v1, v2), k)
-    end
-
-merge!!(combine, dict, others...) =
-    foldl(others; init=dict) do dict, other
-        merge!!(combine, dict, other)
-    end
+merge!!(dict, others...) = merge!!(right, dict, others...)
+merge!!(combine::Base.Callable, dict, others...) =
+    Experimental.mergewith!!(combine, dict, others...)
 
 right(_, x) = x
-
-struct _NoValue end
 
 #=
 """
