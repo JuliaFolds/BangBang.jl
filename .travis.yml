@@ -29,6 +29,12 @@ after_success:
   - julia -e 'using Run; Run.after_success_test()'
 jobs:
   include:
+    - name: Test with old dependencies
+      os: linux
+      install:
+        - julia -e 'using Run; Run.prepare("test/environments/old")'
+      script:
+        - julia -e 'using Run; Run.test(project="test/environments/old", inline=false)'
     - julia: 1.0
       os: linux
       install:
