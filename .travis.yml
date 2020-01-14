@@ -30,6 +30,7 @@ after_success:
 jobs:
   include:
     - name: Test with old dependencies
+      julia: 1.0
       os: linux
       install:
         - julia -e 'using Run; Run.prepare("test/environments/old")'
