@@ -2,7 +2,7 @@ module TestStaticArrays
 
 include("preamble.jl")
 using BangBang: implements
-using StaticArrays: MArray, MMatrix, MVector, SArray, SMatrix, SVector
+using StaticArrays: MArray, MMatrix, MVector, SArray, SMatrix, SVector, StaticVector
 
 @testset "implements(push!, _)" begin
     @test !implements(push!, SVector(0))
@@ -20,7 +20,8 @@ end
 
 @testset "push!!" begin
     @test push!!(SVector(1, 2, 3), 4) === SVector(1, 2, 3, 4)
-    @test push!!(MVector(1, 2, 3), 4) ==ₜ MVector(1, 2, 3, 4)
+    @test push!!(MVector(1, 2, 3), 4)::StaticVector == [1, 2, 3, 4]
+    # It's SVector in StaticArrays 0.8 and MVector in 0.12.
 end
 
 @testset "setindex!!(SArray, ...)" begin
