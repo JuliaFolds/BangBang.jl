@@ -141,14 +141,6 @@ version = "0.10.8"
 deps = ["Random"]
 uuid = "9fa8497b-333b-5362-9e8d-4d0656e87820"
 
-[[IRTest]]
-deps = ["Test"]
-git-tree-sha1 = "5f2778f64fdc9d2e29176869ba49167777ed1170"
-repo-rev = "master"
-repo-url = "https://github.com/tkf/IRTest.jl"
-uuid = "c9680f28-2a59-47f6-98e4-d41620d42cd2"
-version = "0.1.0"
-
 [[IRTools]]
 deps = ["InteractiveUtils", "MacroTools", "Test"]
 git-tree-sha1 = "e23faa71b8f54c3fdc99b230b9c2906cafdddca5"
@@ -235,6 +227,14 @@ deps = ["Dates", "Test"]
 git-tree-sha1 = "0139ba59ce9bc680e2925aec5b7db79065d60556"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
 version = "0.3.10"
+
+[[PerformanceTestTools]]
+deps = ["Test"]
+git-tree-sha1 = "18c699615f3f04f0df2808b7cdcf0ffaeea0e22f"
+repo-rev = "master"
+repo-url = "https://github.com/tkf/PerformanceTestTools.jl.git"
+uuid = "dc46b164-d16f-48ec-a853-60448fc869fe"
+version = "0.1.0"
 
 [[Pkg]]
 deps = ["Dates", "LibGit2", "Markdown", "Printf", "REPL", "Random", "SHA", "UUIDs"]

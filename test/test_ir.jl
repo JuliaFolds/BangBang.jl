@@ -1,6 +1,6 @@
 module TestIR
 
-using IRTest
-IRTest.@include("__test_ir.jl")
+using PerformanceTestTools
+PerformanceTestTools.@include("__test_ir.jl")
 
 end  # module
