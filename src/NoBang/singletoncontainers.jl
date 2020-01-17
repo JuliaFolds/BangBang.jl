@@ -14,6 +14,9 @@ function Base.getindex(v::SingletonVector, i::Integer)
     return v.value
 end
 
+Base.append!(dest::AbstractVector, v::SingletonVector) = push!(dest, v.value)
+Base.append!(dest::Vector, v::SingletonVector) = push!(dest, v.value)  # disambiguation
+
 # Define table interface as a `SingletonVector{<:NamedTuple}`:
 Tables.istable(::Type{<:SingletonVector{<:NamedTuple{names}}}) where {names} =
     @isdefined(names)
