@@ -20,11 +20,14 @@ $url
 --data @-
 ```
 
-open(pipeline(cmd, stdout = stdout, stderr = stderr), write = true) do io
-    printcommentjson(
-        io;
-        group_target = group_target,
-        group_baseline = group_baseline,
-        judgement = judgement,
-    )
+response = sprint() do stdout
+    open(pipeline(cmd, stdout = stdout, stderr = stderr), write = true) do io
+        printcommentjson(
+            io;
+            group_target = group_target,
+            group_baseline = group_baseline,
+            judgement = judgement,
+        )
+    end
 end
+@debug "Response from GitHub" response
