@@ -2,6 +2,7 @@
 *.jl.cov
 *.jl.mem
 .DS_Store
+/benchmark/*.json
 /dev/
 /docs/build/
 /docs/site/
