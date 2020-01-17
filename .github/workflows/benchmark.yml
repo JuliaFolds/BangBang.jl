@@ -21,6 +21,8 @@ jobs:
         run: julia -e 'using Pkg; Pkg.instantiate()'
       - name: Run benchmarks
         run: julia benchmark/runjudge.jl
+        env:
+          CI: "true"
       - name: Post result
         run: julia benchmark/postjudge.jl
         env:
