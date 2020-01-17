@@ -15,8 +15,7 @@ jobs:
           version: 1.3
       - name: Create baseline branch
         run: |
-          git fetch origin '+refs/heads/master:refs/remotes/origin/master'
-          git branch baseline origin/master
+          git branch baseline HEAD
       - name: Install dependencies
         run: julia -e 'using Pkg; Pkg.instantiate()'
       - name: Run benchmarks
