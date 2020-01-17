@@ -1,10 +1,8 @@
 include("pprinthelper.jl")
 
-results = (
-    group_target = PkgBenchmark.readresults(joinpath(@__DIR__, "result-target.json")),
-    group_baseline =     PkgBenchmark.readresults(joinpath(@__DIR__, "result-baseline.json")),
-    judgement = judge(group_target, group_baseline),
-)
+group_target = PkgBenchmark.readresults(joinpath(@__DIR__, "result-target.json"))
+group_baseline = PkgBenchmark.readresults(joinpath(@__DIR__, "result-baseline.json"))
+judgement = judge(group_target, group_baseline)
 
 event_path = ENV["GITHUB_EVENT_PATH"]
 event = JSON.parsefile(ENV["GITHUB_EVENT_PATH"])
@@ -22,5 +20,10 @@ $url
 ```
 
 open(pipeline(cmd, stdout = stdout, stderr = stderr), write = true) do io
-    printcommentjson(io; results...)
+    printcommentjson(
+        io;
+        group_target = group_target,
+        group_baseline = group_baseline,
+        judgement = judgement,
+    )
 end
