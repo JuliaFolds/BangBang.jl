@@ -16,7 +16,7 @@ curl
 $url
 -H "Content-Type: application/json"
 -H "Authorization: token $GITHUB_TOKEN"
---data=@.
+--data @.
 ```
 
 open(pipeline(cmd, stdout = stdout, stderr = stderr), write = true) do io
