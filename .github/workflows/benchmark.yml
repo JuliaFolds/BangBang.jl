@@ -26,3 +26,4 @@ jobs:
         run: julia benchmark/postjudge.jl
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JULIA_DEBUG: Main

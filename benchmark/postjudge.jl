@@ -8,6 +8,7 @@ event_path = ENV["GITHUB_EVENT_PATH"]
 event = JSON.parsefile(ENV["GITHUB_EVENT_PATH"])
 url = event["pull_request"]["comments_url"]
 # https://developer.github.com/v3/activity/events/types/#pullrequestevent
+@debug "Posting to: $url"
 
 GITHUB_TOKEN = ENV["GITHUB_TOKEN"]
 cmd = ```
