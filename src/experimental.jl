@@ -17,7 +17,7 @@ The curried form `mergewith!!(combine)` returns the function
 `(args...) -> mergewith!!(combine, args...)`.
 
 See also:
-[Add mergewith[!](combine, dicts...) by tkf · Pull Request #34296 · JuliaLang/julia](https://github.com/JuliaLang/julia/pull/34296)
+[Add `mergewith[!](combine, dicts...)` by tkf · Pull Request #34296 · JuliaLang/julia](https://github.com/JuliaLang/julia/pull/34296)
 """
 mergewith!!
 
