@@ -21,8 +21,13 @@ end
 
 @testset "push!!" begin
     @test push!!(SVector(1, 2, 3), 4) === SVector(1, 2, 3, 4)
-    @test push!!(MVector(1, 2, 3), 4)::StaticVector == [1, 2, 3, 4]
-    # It's SVector in StaticArrays 0.8 and MVector in 0.12.
+    if versionof(StaticArrays) >= v"0.12"  # not sure when it was fixed
+        @test push!!(MVector(1, 2, 3), 4) ==ₜ MVector(1, 2, 3, 4)
+    else
+        # For StaticArrays 0.8
+        @test_broken push!!(MVector(1, 2, 3), 4) ==ₜ MVector(1, 2, 3, 4)
+        @test push!!(MVector(1, 2, 3), 4)::StaticVector == [1, 2, 3, 4]
+    end
 end
 
 @testset "setindex!!(SArray, ...)" begin
@@ -42,6 +47,7 @@ end
     if versionof(StaticArrays) >= v"0.12"  # not sure when it was fixed
         @test empty!!(MVector(1)) ==ₜ MVector{0,Int}()
     else
+        # For StaticArrays 0.8
         @test_broken empty!!(MVector(1)) ==ₜ MVector{0,Int}()
     end
 end
