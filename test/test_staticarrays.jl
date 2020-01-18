@@ -35,6 +35,11 @@ end
     @test_broken setindex!!(xs, 0.2, 2) === xs ==ₜ MVector(1.0, 0.2, 3.0)
 end
 
+@testset "empty!!" begin
+    @test empty!!(SVector(1)) === SVector{0,Int}()
+    @test empty!!(MVector(1)) === MVector{0,Int}()
+end
+
 @testset "Empty" begin
     @test push!!(Empty(SVector), 1) === SVector(1)
     @test push!!(Empty(SArray), 1) === SVector(1)
