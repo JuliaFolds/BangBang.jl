@@ -2,7 +2,8 @@ module TestStaticArrays
 
 include("preamble.jl")
 using BangBang: implements
-using StaticArrays: MArray, MMatrix, MVector, SArray, SMatrix, SVector, StaticVector
+using StaticArrays:
+    MArray, MMatrix, MVector, SArray, SMatrix, SVector, StaticArrays, StaticVector
 
 @testset "implements(push!, _)" begin
     @test !implements(push!, SVector(0))
@@ -33,6 +34,16 @@ end
     xs = MVector(1, 2, 3)
     @test setindex!!(xs, 200, 2) === xs ==ₜ MVector(1, 200, 3)
     @test_broken setindex!!(xs, 0.2, 2) === xs ==ₜ MVector(1.0, 0.2, 3.0)
+end
+
+@testset "empty!!" begin
+    @test empty!!(SVector(1)) === SVector{0,Int}()
+    @test isempty(empty!!(MVector(1)))
+    if versionof(StaticArrays) >= v"0.12"  # not sure when it was fixed
+        @test empty!!(MVector(1)) ==ₜ MVector{0,Int}()
+    else
+        @test_broken empty!!(MVector(1)) ==ₜ MVector{0,Int}()
+    end
 end
 
 @testset "Empty" begin
