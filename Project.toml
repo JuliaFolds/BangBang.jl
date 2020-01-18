@@ -26,8 +26,9 @@ julia = "1.0"
 
 [extras]
 PerformanceTestTools = "c9680f28-2a59-47f6-98e4-d41620d42cd2"
+Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
-test = ["StaticArrays", "Test", "PerformanceTestTools"]
+test = ["PerformanceTestTools", "Pkg", "StaticArrays", "Test"]
