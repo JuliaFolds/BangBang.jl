@@ -37,7 +37,7 @@ end
 
 @testset "empty!!" begin
     @test empty!!(SVector(1)) === SVector{0,Int}()
-    @test empty!!(MVector(1)) === MVector{0,Int}()
+    @test empty!!(MVector(1)) ==ₜ MVector{0,Int}()
 end
 
 @testset "Empty" begin
