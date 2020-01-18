@@ -6,10 +6,6 @@ os:
 julia:
   - 1.3
   - nightly
-matrix:
-  allow_failures:
-    - julia: nightly
-  fast_finish: true
 notifications:
   email: false
 
@@ -27,7 +23,11 @@ script:
   - julia -e 'using Run; Run.test(inline=false)'
 after_success:
   - julia -e 'using Run; Run.after_success_test()'
+
 jobs:
+  allow_failures:
+    - julia: nightly
+  fast_finish: true
   include:
     - name: Test with old dependencies
       julia: 1.0
