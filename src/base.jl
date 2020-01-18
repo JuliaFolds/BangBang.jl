@@ -93,12 +93,16 @@ julia> @assert append!!(Table(a=[1], b=[2]), [(a=3.5, b=4.5)]) ==
            Table(a=[1.0, 3.5], b=[2.0, 4.5])
 ```
 """
-append!!(xs, ys) = may(append!, xs, ys)
+append!!(xs, ys) = may(_append!, xs, ys)
 
-pure(::typeof(append!)) = NoBang.append
+# An indirection for supporting dispatch on the second argument.
+_append!(dest, src) = append!(dest, src)
+_append!(dest, src::SingletonVector) = push!(dest, src.value)
+
+pure(::typeof(_append!)) = NoBang.append
 _asbb(::typeof(append!)) = append!!
-possible(::typeof(append!), x, ::Any) = implements(push!, x)
-possible(::typeof(append!), ::C, ys) where {C <: MaybeMutableContainer} =
+possible(::typeof(_append!), x, ::Any) = implements(push!, x)
+possible(::typeof(_append!), ::C, ys) where {C <: MaybeMutableContainer} =
     implements(push!, C) && promote_type(eltype(C), eltype(ys)) <: eltype(C)
 
 """
