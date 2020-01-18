@@ -18,9 +18,9 @@ before_install:
   - unset JULIA_PROJECT
   - julia -e 'using Pkg; pkg"add https://github.com/tkf/Run.jl"'
 install:
-  - julia -e 'using Run; Run.prepare_test()'
+  - julia -e 'using Run; Run.prepare("test/environments/main")'
 script:
-  - julia -e 'using Run; Run.test(inline=false)'
+  - julia -e 'using Run; Run.test(project="test/environments/main", inline=false)'
 after_success:
   - julia -e 'using Run; Run.after_success_test()'
 
