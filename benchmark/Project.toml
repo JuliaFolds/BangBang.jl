@@ -1,0 +1,9 @@
+[deps]
+BangBang = "198e06fe-97b7-11e9-32a5-e1d131e6ad66"
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
+CategoricalArrays = "324d7699-5711-5eae-9e2f-1d82baa6b597"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+PkgBenchmark = "32113eaa-f34f-5b0d-bd6c-c81e245fc73d"
+StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
