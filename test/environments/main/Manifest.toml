@@ -18,7 +18,7 @@ version = "0.4.0"
 deps = ["Compat", "ConstructionBase", "Future", "InitialValues", "LinearAlgebra", "Requires", "Setfield", "Tables", "ZygoteRules"]
 path = "../../.."
 uuid = "198e06fe-97b7-11e9-32a5-e1d131e6ad66"
-version = "0.3.14-DEV"
+version = "0.3.15-DEV"
 
 [[Base64]]
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
@@ -259,11 +259,11 @@ version = "0.3.10"
 
 [[PerformanceTestTools]]
 deps = ["Test"]
-git-tree-sha1 = "18c699615f3f04f0df2808b7cdcf0ffaeea0e22f"
+git-tree-sha1 = "ce8410f31672418a8c3a77a5482825ec3c08b003"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/PerformanceTestTools.jl.git"
 uuid = "dc46b164-d16f-48ec-a853-60448fc869fe"
-version = "0.1.0"
+version = "0.1.1-DEV"
 
 [[Pkg]]
 deps = ["Dates", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "Random", "SHA", "Test", "UUIDs"]
