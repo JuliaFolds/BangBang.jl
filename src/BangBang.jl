@@ -1,4 +1,5 @@
 module BangBang
+# https://github.com/JuliaImages/ImageFiltering.jl/pull/148#issuecomment-577405454
 
 # Use README as the docstring of the module:
 @doc read(joinpath(dirname(@__DIR__), "README.md"), String) BangBang
