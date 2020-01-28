@@ -150,9 +150,9 @@ uuid = "9fa8497b-333b-5362-9e8d-4d0656e87820"
 
 [[IRTools]]
 deps = ["InteractiveUtils", "MacroTools", "Test"]
-git-tree-sha1 = "72421971e60917b8cd7737f9577c4f0f87eab306"
+git-tree-sha1 = "1a4355e4b5b50be2311ebb644f34f3306dbd0410"
 uuid = "7869d1d1-7146-5819-86e3-90919afe41df"
-version = "0.3.0"
+version = "0.3.1"
 
 [[Indexing]]
 deps = ["Test"]
@@ -161,7 +161,7 @@ uuid = "313cdc1a-70c2-5d6a-ae34-0150d3930a38"
 version = "1.1.0"
 
 [[InitialValues]]
-git-tree-sha1 = "1795283e2421a3a5413fc8428b656139969a94ac"
+git-tree-sha1 = "4c2864b6f89a4538be7edb773a6b3609874b24cd"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/InitialValues.jl"
 uuid = "22cec73e-a1b8-11e9-2c92-598750a2cf9c"
