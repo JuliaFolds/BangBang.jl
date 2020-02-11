@@ -8,7 +8,7 @@ version = "0.5.0"
 
 [[Aqua]]
 deps = ["Test"]
-git-tree-sha1 = "6d697c372bd1a2b5a3c690113581f98e6b0e2ff5"
+git-tree-sha1 = "e557405da980fea92dd8c4899b8ff4c03922b39c"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/Aqua.jl"
 uuid = "4c88cf16-eb10-579e-8560-4a9242c79595"
@@ -157,7 +157,7 @@ uuid = "313cdc1a-70c2-5d6a-ae34-0150d3930a38"
 version = "1.1.0"
 
 [[InitialValues]]
-git-tree-sha1 = "4c2864b6f89a4538be7edb773a6b3609874b24cd"
+git-tree-sha1 = "c01222308b05abab5e045eb6e07fb245800d3154"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/InitialValues.jl"
 uuid = "22cec73e-a1b8-11e9-2c92-598750a2cf9c"
@@ -259,11 +259,11 @@ version = "0.3.11"
 
 [[PerformanceTestTools]]
 deps = ["Test"]
-git-tree-sha1 = "77c268bfbf98f79a56427348b286fd7c1aa9fdfb"
+git-tree-sha1 = "76e2c1aacdeac68f0a67b00a0db4ecbb03a9a3fa"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/PerformanceTestTools.jl.git"
 uuid = "dc46b164-d16f-48ec-a853-60448fc869fe"
-version = "0.1.1-DEV"
+version = "0.1.2-DEV"
 
 [[Pkg]]
 deps = ["Dates", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "Random", "SHA", "Test", "UUIDs"]
