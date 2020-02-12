@@ -47,9 +47,9 @@ version = "0.2.0"
 
 [[Compat]]
 deps = ["Base64", "Dates", "DelimitedFiles", "Distributed", "InteractiveUtils", "LibGit2", "Libdl", "LinearAlgebra", "Markdown", "Mmap", "Pkg", "Printf", "REPL", "Random", "SHA", "Serialization", "SharedArrays", "Sockets", "SparseArrays", "Statistics", "Test", "UUIDs", "Unicode"]
-git-tree-sha1 = "5a5e0e21707cabade4f2e197976f550333a24165"
+git-tree-sha1 = "a4839bd26e3e7f4869a4cf6c31f9f93f47aac7c5"
 uuid = "34da2185-b29b-5c13-b0c7-acf172513d20"
-version = "3.4.0"
+version = "3.5.0"
 
 [[Conda]]
 deps = ["JSON", "VersionParsing"]
@@ -245,7 +245,7 @@ version = "0.3.11"
 
 [[PerformanceTestTools]]
 deps = ["Test"]
-git-tree-sha1 = "76e2c1aacdeac68f0a67b00a0db4ecbb03a9a3fa"
+git-tree-sha1 = "8a042281fdf8a6dc79b6a59c5901491fd06ec4c4"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/PerformanceTestTools.jl.git"
 uuid = "dc46b164-d16f-48ec-a853-60448fc869fe"
