@@ -53,9 +53,9 @@ version = "3.5.0"
 
 [[Conda]]
 deps = ["JSON", "VersionParsing"]
-git-tree-sha1 = "457ed99182beb33124aa5e602596b67fc6e1c96f"
+git-tree-sha1 = "7a58bb32ce5d85f8bf7559aa7c2842f9aecf52fc"
 uuid = "8f4d0f93-b110-5947-807f-2305c1781a2d"
-version = "1.4.0"
+version = "1.4.1"
 
 [[ConstructionBase]]
 git-tree-sha1 = "a2a6a5fea4d6f730ec4c18a76d27ec10e8ec1c50"
@@ -245,11 +245,11 @@ version = "0.3.11"
 
 [[PerformanceTestTools]]
 deps = ["Test"]
-git-tree-sha1 = "8a042281fdf8a6dc79b6a59c5901491fd06ec4c4"
+git-tree-sha1 = "e8a1a886235adf81c9ebe0a349ae196284362290"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/PerformanceTestTools.jl.git"
 uuid = "dc46b164-d16f-48ec-a853-60448fc869fe"
-version = "0.1.2-DEV"
+version = "0.1.3-DEV"
 
 [[Pkg]]
 deps = ["Dates", "LibGit2", "Markdown", "Printf", "REPL", "Random", "SHA", "UUIDs"]
