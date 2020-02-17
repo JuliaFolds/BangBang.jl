@@ -25,6 +25,15 @@ end
         @test append!!(Empty(Vector), xs) !== xs
         @test append!!(Empty(Vector), xs) == xs
     end
+    @testset "append!!(::Empty, ::Empty) :: Empty" begin
+        @test append!!(Empty(Vector), Empty(Vector)) === Empty(Vector)
+        @test append!!(Empty(Vector), Empty(Dict)) === Empty(Vector)
+        @test append!!(Empty(Dict), Empty(Vector)) === Empty(Dict)
+    end
+    @testset "append!!(x, ::Empty) == x" begin
+        x = [0]
+        @test append!!(x, Empty(Vector)) === x == [0]
+    end
     @testset "`mapreduce`" begin
         @test mapreduce(
             SingletonVector,
