@@ -25,7 +25,8 @@ export @!,
        setproperties!!,
        setproperty!!,
        singletonof,
-       splice!!
+       splice!!,
+       union!!
 
 using Base.Broadcast:
     Broadcasted,
@@ -35,7 +36,7 @@ using Base.Broadcast:
     instantiate,
     materialize!,
     preprocess
-using Base: promote_typejoin
+using Base: HasEltype, IteratorEltype, promote_typejoin
 using Compat: hasproperty
 using InitialValues
 using LinearAlgebra
