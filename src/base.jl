@@ -492,3 +492,15 @@ possible(::typeof(_materialize!!), x::AbstractArray, ::Any) = implements(push!, 
     # Handle the rest
     return copyto_nonleaf!(dest′, bc′, iter, state, 1)
 end
+
+"""
+    union!!(setlike, itrs...) -> setlike′
+"""
+union!!(set, itr) = may(union!, set, itr)
+union!!(set, itr, itrs...) = foldl(union!!, itrs, init = union!!(set, itr))
+
+pure(::typeof(union!)) = union
+_asbb(::typeof(union!)) = union!!
+possible(::typeof(union!), ::C, ::I) where {C<:Union{AbstractSet,AbstractVector},I} =
+    implements(push!, C) &&
+    IteratorEltype(I) isa HasEltype && promote_type(eltype(C), eltype(I)) <: eltype(C)
