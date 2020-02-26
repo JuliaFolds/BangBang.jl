@@ -333,11 +333,11 @@ uuid = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 
 [[StructArrays]]
 deps = ["PooledArrays", "Tables", "WeakRefStrings"]
-git-tree-sha1 = "34b0abbea18d77bb473f5090aee5856aa9a2c85f"
-repo-rev = "master"
-repo-url = "https://github.com/JuliaArrays/StructArrays.jl.git"
+git-tree-sha1 = "3fc5db2b56b24425b7ff2c498bcc91d83972bec3"
+repo-rev = "remotes/cache/pull/97/head"
+repo-url = "https://github.com/piever/StructArrays.jl.git"
 uuid = "09ab397b-f2b6-538f-b94a-2f83cf4a842a"
-version = "0.4.1"
+version = "0.4.0"
 
 [[TableTraits]]
 deps = ["IteratorInterfaceExtensions"]
