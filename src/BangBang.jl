@@ -6,12 +6,14 @@ module BangBang
 export @!,
        @set!!,
        Empty,
+       add!!,
        append!!,
        delete!!,
        deleteat!!,
        empty!!,
        lmul!!,
        materialize!!,
+       merge!!,
        mul!!,
        pop!!,
        popfirst!!,
@@ -23,9 +25,18 @@ export @!,
        setproperties!!,
        setproperty!!,
        singletonof,
-       splice!!
+       splice!!,
+       union!!
 
-using Base.Broadcast: materialize!
+using Base.Broadcast:
+    Broadcasted,
+    broadcasted,
+    combine_eltypes,
+    copyto_nonleaf!,
+    instantiate,
+    materialize!,
+    preprocess
+using Base: HasEltype, IteratorEltype, promote_typejoin
 using Compat: hasproperty
 using InitialValues
 using LinearAlgebra
@@ -34,7 +45,7 @@ using Tables: Tables
 using ZygoteRules: @adjoint
 
 # Used in NoBang:
-function ismutable end
+function implements end
 function push!! end
 
 include("NoBang/NoBang.jl")
@@ -43,6 +54,7 @@ using .NoBang: Empty, ImmutableContainer, SingletonVector, singletonof
 include("core.jl")
 include("base.jl")
 include("linearalgebra.jl")
+include("experimental.jl")
 include("initials.jl")
 include("macro.jl")
 include("dataframes_impl.jl")

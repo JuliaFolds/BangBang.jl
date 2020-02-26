@@ -27,14 +27,20 @@ push(::NamedTuple, x) =
 push(xs::ImmutableDict, x::Pair) = ImmutableDict(xs, x)
 
 append(xs, ys) = _append(xs, ys)
-_append(xs, ys) = append!(copy(xs), ys)
 _append(xs, ys::Tuple) = push(xs, ys...)
 _append(xs, ys::Pairs{Symbol, <:Any, <:Any, <:NamedTuple}) = push(xs, ys...)
+
+function _append(xs, ys)
+    next = iterate(ys)
+    next === nothing && return xs
+    y, state = next
+    return foldl(push!!, Iterators.rest(ys, state), init = push(xs, y))
+end
 
 append(xs::AbstractVector, ys::AbstractVector) =
     if constructorof(typeof(xs)) === constructorof(typeof(ys))
         vcat(xs, ys)
-    elseif !ismutable(xs) && ismutable(ys)
+    elseif !implements(push!, xs) && implements(push!, ys)
         vcat(xs, ys)
     elseif length(ys) == 0
         xs
@@ -120,7 +126,7 @@ if VERSION < v"1.3.0-DEV.533"
 end
 
 _setindex(xs, v, I...) = Base.setindex(xs, v, I...)
-_setindex(xs::NamedTuple, value, name) = setproperty(xs, name, value)
+_setindex(xs::NamedTuple, value, name) = merge(xs, (; name => value))
 
 function _setindex(xs::AbstractArray, v, I...)
     T = promote_type(eltype(xs), typeof(v))

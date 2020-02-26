@@ -4,33 +4,46 @@ os:
   - linux
   # - osx
 julia:
-  - 1.0
-  - 1.2
   - 1.3
   - nightly
-matrix:
-  allow_failures:
-    - julia: nightly
-  fast_finish: true
 notifications:
   email: false
 
-# Do not build my PR twice.  Use the build on branch.
-if: NOT (type == pull_request AND head_repo == tkf/BangBang.jl)
+# Only build branches via PR to avoid running CI twice.
+# https://docs.travis-ci.com/user/conditional-builds-stages-jobs
+# https://docs.travis-ci.com/user/conditions-v1
+if: branch = master OR tag IS present OR type != push
 
 before_install:
   - unset JULIA_PROJECT
   - julia -e 'using Pkg; pkg"add https://github.com/tkf/Run.jl"'
 install:
-  - julia -e 'using Run; Run.prepare_test()'
+  - julia -e 'using Run; Run.prepare("test/environments/main")'
 script:
-  - julia -e 'using Run; Run.test(inline=false)'
+  - julia -e 'using Run; Run.test(project="test/environments/main", inline=false)'
 after_success:
   - julia -e 'using Run; Run.after_success_test()'
+
 jobs:
+  allow_failures:
+    - julia: nightly
+  fast_finish: true
   include:
+    - name: Test with old dependencies
+      julia: 1.0
+      os: linux
+      install:
+        - julia -e 'using Run; Run.prepare("test/environments/old")'
+      script:
+        - julia -e 'using Run; Run.test(project="test/environments/old", inline=false)'
+    - julia: 1.0
+      os: linux
+      install:
+        - julia -e 'using Run; Run.prepare("test/environments/jl10")'
+      script:
+        - julia -e 'using Run; Run.test(project="test/environments/jl10", inline=false)'
     - stage: Documentation
-      julia: 1.2
+      julia: 1.3
       install:
         - julia -e 'using Run; Run.prepare_docs()'
       script:

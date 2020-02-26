@@ -18,29 +18,72 @@ const MaybeMutableContainer = Union{
     AbstractDict,
     AbstractSet,
 }
+const Mutator = Union{typeof(push!), typeof(setindex!)}
 
 """
-    ismutable(x)
+    implements(f!, x) :: Bool
 
-`true` if `x` is mutable as container.
-"""
-ismutable(x) = ismutable(typeof(x))
-ismutable(::Type) = false
-ismutable(::Type{<:ImmutableContainer}) = false
-ismutable(::Type{<:MaybeMutableContainer}) = true
-ismutable(::Type{<:AbstractString}) = false
+`true` if in-place function `f!` can mutate `x`.
 
-"""
-    ismutablestruct(x)
+# Examples
+```jldoctest
+julia> using BangBang: implements
 
-`true` if `x` is mutable as a struct/object.
+julia> implements(push!, Vector)
+true
+
+julia> implements(push!, [])  # works with instances, too
+true
+
+julia> implements(push!, Tuple)
+false
+
+julia> using StaticArrays
+
+julia> implements(push!, SVector)
+false
+
+julia> implements(setindex!, SVector)
+false
+
+julia> implements(push!, MVector)
+false
+
+julia> implements(setindex!, MVector)
+true
+```
 """
-ismutablestruct(x) = ismutablestruct(typeof(x))
+implements(f!, x) = implements(f!, typeof(x))
+implements(::Any, ::Type) = false
+
+implements(::Mutator, ::Type{<:ImmutableContainer}) = false
+implements(::Mutator, ::Type{<:MaybeMutableContainer}) = true
+implements(::Mutator, ::Type{<:AbstractString}) = false
+
 Base.@pure ismutablestruct(T::DataType) = T.mutable
-ismutablestruct(::Type{<:NamedTuple}) = false
+implements(::typeof(setproperty!), T::DataType) = ismutablestruct(T)
+implements(::typeof(setproperty!), ::Type{<:NamedTuple}) = false
 
 # trymutate(::typeof(push!)) = push!!
 # trymutate(::typeof(append!)) = append!!
 
 struct Undefined end
-ismutable(::Undefined) = false
+implements(::Mutator, ::Undefined) = false
+
+"""
+    possible(f!, args...) :: Bool
+
+Check if `f!(args...)` is possible.
+
+# Examples
+```jldoctest
+julia> using BangBang: possible
+
+julia> possible(push!, Int[], 1)
+true
+
+julia> possible(push!, Int[], 0.5)
+false
+```
+"""
+possible

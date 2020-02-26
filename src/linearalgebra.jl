@@ -1,4 +1,23 @@
 """
+    add!!(A, B) -> A′
+
+`A .+= B` if possible; otherwise return `A .+ B`.
+
+# Examples
+```jldoctest
+julia> using BangBang: add!!
+
+julia> add!!((1,), (2,))
+(3,)
+
+julia> add!!([1], [2])
+1-element Array{Int64,1}:
+ 3
+```
+"""
+add!!(A, B) = materialize!!(A, instantiate(broadcasted(+, A, B)))
+
+"""
     mul!!(C, A, B, [α, β]) -> C′
 """
 mul!!(C, A, B) = may(mul!, C, A, B)
@@ -7,9 +26,9 @@ mul!!(C, A, B, α, β) = may(mul!, C, A, B, α, β)
 pure(::typeof(mul!)) = NoBang.mul
 _asbb(::typeof(mul!)) = mul!!
 possible(::typeof(mul!), C, A, B) =
-    ismutable(C) && _matmuleltype(A, B) <: eltype(C)
+    implements(push!, C) && _matmuleltype(A, B) <: eltype(C)
 possible(::typeof(mul!), C, A, B, α, β) =
-    ismutable(C) && _matmuleltype(C, A, B, α, β) <: eltype(C)
+    implements(push!, C) && _matmuleltype(C, A, B, α, β) <: eltype(C)
 
 # Estimate `eltype` of `C`.  This is how it's done in LinearAlgebra.jl
 # but maybe it's better to use the approach of
@@ -28,7 +47,7 @@ lmul!!(A, B) = may(lmul!, A, B)
 pure(::typeof(lmul!)) = *
 _asbb(::typeof(lmul!)) = lmul!!
 possible(::typeof(lmul!), A, B) =
-    ismutable(B) && _matmuleltype(A, B) <: eltype(B)
+    implements(push!, B) && _matmuleltype(A, B) <: eltype(B)
 
 """
     rmul!!(A, B) -> A′
@@ -38,4 +57,4 @@ rmul!!(A, B) = may(rmul!, A, B)
 pure(::typeof(rmul!)) = *
 _asbb(::typeof(rmul!)) = rmul!!
 possible(::typeof(rmul!), A, B) =
-    ismutable(A) && _matmuleltype(A, B) <: eltype(A)
+    implements(push!, A) && _matmuleltype(A, B) <: eltype(A)

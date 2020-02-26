@@ -10,3 +10,8 @@ _empty(xs::StaticArrays.StaticVector) =
         StaticArrays.pop(xs)
     end
 _setindex(xs::StaticArrays.StaticArray, v, I...) = Base.setindex(xs, v, I...)
+
+StaticArrays.SArray(x::SingletonVector) = StaticArrays.SVector{1}(x)
+StaticArrays.SVector(x::SingletonVector) = StaticArrays.SVector{1}(x)
+StaticArrays.MArray(x::SingletonVector) = StaticArrays.MVector{1}(x)
+StaticArrays.MVector(x::SingletonVector) = StaticArrays.MVector{1}(x)

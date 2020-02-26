@@ -49,9 +49,9 @@ push!!(xs, x) = may(push!, xs, x)
 
 pure(::typeof(push!)) = NoBang.push
 _asbb(::typeof(push!)) = push!!
-possible(::typeof(push!), x, ::Any) = ismutable(x)
+possible(::typeof(push!), x, ::Any) = implements(push!, x)
 possible(::typeof(push!), ::C, ::S) where {C <: MaybeMutableContainer, S} =
-    ismutable(C) && promote_type(eltype(C), S) <: eltype(C)
+    implements(push!, C) && promote_type(eltype(C), S) <: eltype(C)
 
 """
     append!!(dest, src)
@@ -93,13 +93,17 @@ julia> @assert append!!(Table(a=[1], b=[2]), [(a=3.5, b=4.5)]) ==
            Table(a=[1.0, 3.5], b=[2.0, 4.5])
 ```
 """
-append!!(xs, ys) = may(append!, xs, ys)
+append!!(xs, ys) = may(_append!, xs, ys)
 
-pure(::typeof(append!)) = NoBang.append
+# An indirection for supporting dispatch on the second argument.
+_append!(dest, src) = append!(dest, src)
+_append!(dest, src::SingletonVector) = push!(dest, src.value)
+
+pure(::typeof(_append!)) = NoBang.append
 _asbb(::typeof(append!)) = append!!
-possible(::typeof(append!), x, ::Any) = ismutable(x)
-possible(::typeof(append!), ::C, ys) where {C <: MaybeMutableContainer} =
-    ismutable(C) && promote_type(eltype(C), eltype(ys)) <: eltype(C)
+possible(::typeof(_append!), x, ::Any) = implements(push!, x)
+possible(::typeof(_append!), ::C, ys) where {C <: MaybeMutableContainer} =
+    implements(push!, C) && promote_type(eltype(C), eltype(ys)) <: eltype(C)
 
 """
     pushfirst!!(collection, items...)
@@ -136,7 +140,7 @@ pure(::typeof(pushfirst!)) = NoBang.pushfirst
 _asbb(::typeof(pushfirst!)) = pushfirst!!
 possible(::typeof(pushfirst!), ::Tuple, ::Vararg) = false
 possible(::typeof(pushfirst!), ::C, ys...) where {C <: AbstractVector} =
-    ismutable(C) && promote_type(eltype(C), map(typeof, ys)...) <: eltype(C)
+    implements(push!, C) && promote_type(eltype(C), map(typeof, ys)...) <: eltype(C)
 
 """
     pop!!(sequence) -> (sequence′, value)
@@ -168,7 +172,7 @@ pop!!(xs, args...) = may(_pop!, xs, args...)
 _pop!(xs, args...) = xs, pop!(xs, args...)
 
 pure(::typeof(_pop!)) = NoBang.pop
-possible(::typeof(_pop!), ::C, ::Vararg) where C = ismutable(C)
+possible(::typeof(_pop!), ::C, ::Vararg) where C = implements(push!, C)
 
 """
     deleteat!!(assoc, i) -> assoc′
@@ -194,7 +198,7 @@ deleteat!!(xs, key) = may(deleteat!, xs, key)
 
 pure(::typeof(deleteat!)) = NoBang.deleteat
 _asbb(::typeof(deleteat!)) = deleteat!!
-possible(::typeof(deleteat!), ::C, ::Any) where C = ismutable(C)
+possible(::typeof(deleteat!), ::C, ::Any) where C = implements(push!, C)
 
 """
     delete!!(assoc, key) -> assoc′
@@ -215,7 +219,7 @@ delete!!(xs, key) = may(delete!, xs, key)
 
 pure(::typeof(delete!)) = NoBang.delete
 _asbb(::typeof(delete!)) = delete!!
-possible(::typeof(delete!), ::C, ::Any) where C = ismutable(C)
+possible(::typeof(delete!), ::C, ::Any) where C = implements(push!, C)
 
 """
     popfirst!!(sequence) -> (sequence′, value)
@@ -242,7 +246,7 @@ popfirst!!(xs) = may(_popfirst!, xs)
 _popfirst!(xs) = xs, popfirst!(xs)
 
 pure(::typeof(_popfirst!)) = NoBang.popfirst
-possible(::typeof(_popfirst!), ::C,) where C = ismutable(C)
+possible(::typeof(_popfirst!), ::C,) where C = implements(push!, C)
 
 """
     empty!!(collection) -> collection′
@@ -274,7 +278,34 @@ empty!!(xs) = may(empty!, xs)
 
 pure(::typeof(empty!)) = NoBang._empty
 _asbb(::typeof(empty!)) = empty!!
-possible(::typeof(empty!), ::C) where C = ismutable(C)
+possible(::typeof(empty!), ::C) where C = implements(push!, C)
+
+"""
+    merge!!(dictlike, others...) -> dictlike′
+    merge!!(combine, dictlike, others...) -> dictlike′
+
+# Examples
+```jldoctest
+julia> using BangBang
+
+julia> merge!!(Dict(:a => 1), Dict(:b => 0.5))
+Dict{Symbol,Float64} with 2 entries:
+  :a => 1.0
+  :b => 0.5
+
+julia> merge!!((a = 1,), Dict(:b => 0.5))
+(a = 1, b = 0.5)
+
+julia> merge!!(+, Dict(:a => 1), Dict(:a => 0.5))
+Dict{Symbol,Float64} with 1 entry:
+  :a => 1.5
+```
+"""
+merge!!(dict, others...) = merge!!(right, dict, others...)
+merge!!(combine::Base.Callable, dict, others...) =
+    Experimental.mergewith!!(combine, dict, others...)
+
+right(_, x) = x
 
 #=
 """
@@ -305,7 +336,7 @@ splice!!(xs, args...) = may(_splice!, xs, args...)
 _splice!(xs, args...) = xs, splice!(xs, args...)
 
 pure(::typeof(_splice!)) = NoBang.splice
-possible(::typeof(_splice!), ::C, ::Any) where C = ismutable(C)
+possible(::typeof(_splice!), ::C, ::Any) where C = implements(push!, C)
 possible(::typeof(_splice!), xs::C, i::Integer, ::S) where {C, S} =
     possible(_splice!, xs, i) && promote_type(eltype(C), S) <: eltype(C)
 possible(::typeof(_splice!), xs::C, i::Any, ::S) where {C, S} =
@@ -336,11 +367,11 @@ Base.@propagate_inbounds setindex!!(xs, v, I...) = may(_setindex!, xs, v, I...)
 Base.@propagate_inbounds _setindex!(xs, v, I...) = (setindex!(xs, v, I...); xs)
 
 pure(::typeof(_setindex!)) = NoBang._setindex
-possible(::typeof(_setindex!), ::Union{Tuple, NamedTuple}, ::Vararg) = false
+possible(::typeof(_setindex!), ::Union{Tuple,NamedTuple,Empty}, ::Vararg) = false
 possible(::typeof(_setindex!), ::C, ::T, ::Vararg) where {C <: AbstractArray, T} =
-    ismutable(C) && promote_type(eltype(C), T) <: eltype(C)
+    implements(setindex!, C) && promote_type(eltype(C), T) <: eltype(C)
 possible(::typeof(_setindex!), ::C, ::V, ::K) where {C <: AbstractDict, V, K} =
-    ismutable(C) &&
+    implements(setindex!, C) &&
     promote_type(keytype(C), K) <: keytype(C) &&
     promote_type(valtype(C), V) <: valtype(C)
 
@@ -399,7 +430,7 @@ end
 
 pure(::typeof(setproperties!)) = NoBang.setproperties
 possible(::typeof(setproperties!), obj, patch) =
-    ismutablestruct(obj) && _is_compatible_field_types(obj, patch)
+    implements(setproperty!, obj) && _is_compatible_field_types(obj, patch)
 
 _is_compatible_field_types(::T, patch) where T =
     all(n -> fieldtype(typeof(patch), n) <: fieldtype(T, n), keys(patch))
@@ -418,8 +449,58 @@ setproperty!!(value, name::Symbol, x) = setproperties!!(value, (; name => x))
 """
     materialize!!(dest, x)
 """
-@inline materialize!!(dest, x) = may(materialize!, dest, x)
+@inline materialize!!(dest, x) = may(_materialize!!, dest, x)
 # TODO: maybe instantiate `x` and be aware of `x`'s style
 
-pure(::typeof(materialize!)) = NoBang.materialize
-possible(::typeof(materialize!), x, ::Any) = ismutable(x)
+@inline _materialize!!(dest, bc::Broadcasted{Style}) where {Style} =
+    _copyto!!(dest, instantiate(Broadcasted{Style}(bc.f, bc.args, axes(dest))))
+
+pure(::typeof(_materialize!!)) = NoBang.materialize
+possible(::typeof(_materialize!!), ::Any, ::Any) = false
+possible(::typeof(_materialize!!), x::AbstractArray, ::Any) = implements(push!, x)
+
+@noinline throwdm(axdest, axsrc) =
+    throw(DimensionMismatch("destination axes $axdest are not compatible with source axes $axsrc"))
+
+# Based on default `copy(bc)` implementation
+@inline function _copyto!!(dest, bc::Broadcasted)
+    axes(dest) == axes(bc) || throwdm(axes(dest), axes(bc))
+
+    ElType = combine_eltypes(bc.f, bc.args)
+    # Use `copyto!` if we can trust the inference result:
+    if ElType <: eltype(dest)
+        return copyto!(dest, bc)
+    elseif Base.isconcretetype(ElType)
+        return copyto!(similar(bc, promote_typejoin(eltype(dest), ElType)), bc)
+    end
+
+    bc′ = preprocess(nothing, bc)
+    iter = eachindex(bc′)
+    y = iterate(iter)
+    y === nothing && return dest
+
+    # Try to store the first value
+    I, state = y
+    @inbounds val = bc′[I]
+    if typeof(val) <: eltype(dest)
+        @inbounds dest[I] = val
+        dest′ = dest
+    else
+        dest′ = similar(bc′, typeof(val))
+    end
+
+    # Handle the rest
+    return copyto_nonleaf!(dest′, bc′, iter, state, 1)
+end
+
+"""
+    union!!(setlike, itrs...) -> setlike′
+"""
+union!!(set, itr) = may(union!, set, itr)
+union!!(set, itr, itrs...) = foldl(union!!, itrs, init = union!!(set, itr))
+
+pure(::typeof(union!)) = union
+_asbb(::typeof(union!)) = union!!
+possible(::typeof(union!), ::C, ::I) where {C<:Union{AbstractSet,AbstractVector},I} =
+    implements(push!, C) &&
+    IteratorEltype(I) isa HasEltype && promote_type(eltype(C), eltype(I)) <: eltype(C)
