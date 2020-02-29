@@ -74,6 +74,8 @@ append(e::Empty, ::Empty) = e
 
 _empty(x::Empty) = x
 
+_union(::Empty{T}, x) where {T} = unique!!(T(x))
+
 _setindex(::Empty{T}, v, k) where {T <: AbstractDict} = T(SingletonDict(k, v))
 Base.get(::Empty, _, default) = default
 
