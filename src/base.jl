@@ -494,13 +494,26 @@ possible(::typeof(_materialize!!), x::AbstractArray, ::Any) = implements(push!, 
 end
 
 """
+    unique!!(set) -> set
+    unique!!(sequence) -> sequence′
+"""
+unique!!(itr) = unique(itr)
+unique!!(set::AbstractSet) = set
+unique!!(xs::AbstractVector) = may(unique!, xs)
+
+pure(::typeof(unique!)) = unique
+_asbb(::typeof(unique!)) = unique!!
+possible(::typeof(unique!), ::C) where {C} = implements(push!, C)
+
+"""
     union!!(setlike, itrs...) -> setlike′
 """
 union!!(set, itr) = may(union!, set, itr)
 union!!(set, itr, itrs...) = foldl(union!!, itrs, init = union!!(set, itr))
 
-pure(::typeof(union!)) = union
+pure(::typeof(union!)) = NoBang._union
 _asbb(::typeof(union!)) = union!!
 possible(::typeof(union!), ::C, ::I) where {C<:Union{AbstractSet,AbstractVector},I} =
     implements(push!, C) &&
     IteratorEltype(I) isa HasEltype && promote_type(eltype(C), eltype(I)) <: eltype(C)
+possible(::typeof(union!), ::Empty, ::Any) = false
