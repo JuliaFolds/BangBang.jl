@@ -26,7 +26,8 @@ export @!,
        setproperty!!,
        singletonof,
        splice!!,
-       union!!
+       union!!,
+       unique!!
 
 using Base.Broadcast:
     Broadcasted,
@@ -47,6 +48,7 @@ using ZygoteRules: @adjoint
 # Used in NoBang:
 function implements end
 function push!! end
+function unique!! end
 
 include("NoBang/NoBang.jl")
 using .NoBang: Empty, ImmutableContainer, SingletonVector, singletonof

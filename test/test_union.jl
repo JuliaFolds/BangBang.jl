@@ -1,12 +1,15 @@
 module TestUnion
 
 include("preamble.jl")
+using BangBang: SingletonVector
 
 @testset begin
     @test union!!([0.0], [1.0]) ==ₜ [0.0, 1.0]
     @test union!!([0], [0.5]) ==ₜ [0.0, 0.5]
     @test union!!(Set([0.0]), [1.0]) ==ₜ Set([0.0, 1.0])
     @test union!!(Set([0]), [0.5]) ==ₜ Set([0.0, 0.5])
+    @test union!!(Empty(Set), [0]) ==ₜ Set([0])
+    @test union!!(Empty(Set), SingletonVector(0)) ==ₜ Set([0])
 end
 
 @testset "mutation" begin
