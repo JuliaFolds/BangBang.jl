@@ -12,6 +12,13 @@ using BangBang: SingletonVector
     @test union!!(Empty(Set), SingletonVector(0)) ==ₜ Set([0])
 end
 
+@testset "Empty" begin
+    @testset "union!!(::Empty, ::Empty) :: Empty" begin
+        @test union!!(Empty(Set), Empty(Set)) === Empty(Set)
+        @test union!!(Empty(Set), Empty(Vector)) === Empty(Set)
+    end
+end
+
 @testset "mutation" begin
     @testset "Vector" begin
         x = [0.0]
