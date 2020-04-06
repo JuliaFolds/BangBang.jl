@@ -20,9 +20,9 @@ version = "0.4.2-DEV"
 
 [[ArrayLayouts]]
 deps = ["FillArrays", "LinearAlgebra"]
-git-tree-sha1 = "bc779df8d73be70e4e05a63727d3a4dfb4c52b1f"
+git-tree-sha1 = "41956a49a8a4fefa1bf6664bca4a3035aba4c3a0"
 uuid = "4c555306-a7a7-4459-81d9-ec55ddd5c99a"
-version = "0.1.5"
+version = "0.2.3"
 
 [[BangBang]]
 deps = ["Compat", "ConstructionBase", "Future", "InitialValues", "LinearAlgebra", "Requires", "Setfield", "Tables", "ZygoteRules"]
@@ -62,12 +62,6 @@ deps = ["Base64", "Dates", "DelimitedFiles", "Distributed", "InteractiveUtils", 
 git-tree-sha1 = "0198d18b28c093bef39872a22f1a897218a925f5"
 uuid = "34da2185-b29b-5c13-b0c7-acf172513d20"
 version = "3.8.0"
-
-[[Conda]]
-deps = ["JSON", "VersionParsing"]
-git-tree-sha1 = "7a58bb32ce5d85f8bf7559aa7c2842f9aecf52fc"
-uuid = "8f4d0f93-b110-5947-807f-2305c1781a2d"
-version = "1.4.1"
 
 [[ConstructionBase]]
 git-tree-sha1 = "a2a6a5fea4d6f730ec4c18a76d27ec10e8ec1c50"
@@ -137,12 +131,6 @@ deps = ["Base64", "Dates", "DocStringExtensions", "InteractiveUtils", "JSON", "L
 git-tree-sha1 = "646ebc3db49889ffeb4c36f89e5d82c6a26295ff"
 uuid = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 version = "0.24.7"
-
-[[FFTW]]
-deps = ["AbstractFFTs", "BinaryProvider", "Conda", "Libdl", "LinearAlgebra", "Reexport"]
-git-tree-sha1 = "4cfd3d43819228b9e73ab46600d0af0aa5cedceb"
-uuid = "7a1cc6ca-52ef-59f5-83cd-3a7055c09341"
-version = "1.1.0"
 
 [[FillArrays]]
 deps = ["LinearAlgebra", "Random", "SparseArrays"]
@@ -389,16 +377,11 @@ uuid = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
 [[Unicode]]
 uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
 
-[[VersionParsing]]
-git-tree-sha1 = "80229be1f670524750d905f8fc8148e5a8c4537f"
-uuid = "81def892-9a0e-5fdd-b105-ffc91e053289"
-version = "1.2.0"
-
 [[Zygote]]
-deps = ["ArrayLayouts", "DiffRules", "FFTW", "FillArrays", "ForwardDiff", "IRTools", "InteractiveUtils", "LinearAlgebra", "MacroTools", "NNlib", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
-git-tree-sha1 = "9688fce24bd8a9468fed12f3d5206099a39054dc"
+deps = ["AbstractFFTs", "ArrayLayouts", "DiffRules", "FillArrays", "ForwardDiff", "IRTools", "InteractiveUtils", "LinearAlgebra", "MacroTools", "NNlib", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
+git-tree-sha1 = "1ccbfbe8930376e31752b812daa2532c723dc332"
 uuid = "e88e6eb3-aa80-5325-afca-941959d7151f"
-version = "0.4.12"
+version = "0.4.13"
 
 [[ZygoteRules]]
 deps = ["MacroTools"]
