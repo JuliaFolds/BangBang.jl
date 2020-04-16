@@ -35,9 +35,9 @@ uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
 
 [[BinDeps]]
 deps = ["Libdl", "Pkg", "SHA", "URIParser", "Unicode"]
-git-tree-sha1 = "66158ad56b4bf6cc8413b37d0b7bc52402682764"
+git-tree-sha1 = "46cf2c1668ad07aba5a9d331bdeea994a1f13856"
 uuid = "9e28174c-4ba2-5203-b857-d8d62c4213ee"
-version = "1.0.0"
+version = "1.0.1"
 
 [[BinaryProvider]]
 deps = ["Libdl", "SHA"]
@@ -128,9 +128,9 @@ version = "0.8.1"
 
 [[Documenter]]
 deps = ["Base64", "Dates", "DocStringExtensions", "InteractiveUtils", "JSON", "LibGit2", "Logging", "Markdown", "REPL", "Test", "Unicode"]
-git-tree-sha1 = "f4c8a9965af27e3c4d1c7b248f6db102e8e3a74e"
+git-tree-sha1 = "bc99c157ff2957c058a1067061d16c2c83d1ec42"
 uuid = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
-version = "0.24.8"
+version = "0.24.9"
 
 [[FillArrays]]
 deps = ["LinearAlgebra", "Random", "SparseArrays"]
