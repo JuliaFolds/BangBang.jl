@@ -22,9 +22,9 @@ version = "0.4.2-DEV"
 
 [[ArrayLayouts]]
 deps = ["FillArrays", "LinearAlgebra"]
-git-tree-sha1 = "5a57a6158c1d340635a89d19beb34b0f325a4431"
+git-tree-sha1 = "a504dca2ac7eda8761c8f7c1ed52427a1be75a3c"
 uuid = "4c555306-a7a7-4459-81d9-ec55ddd5c99a"
-version = "0.2.5"
+version = "0.2.6"
 
 [[BangBang]]
 deps = ["Compat", "ConstructionBase", "Future", "InitialValues", "LinearAlgebra", "Requires", "Setfield", "Tables", "ZygoteRules"]
@@ -336,9 +336,9 @@ version = "1.0.0"
 
 [[StaticArrays]]
 deps = ["LinearAlgebra", "Random", "Statistics"]
-git-tree-sha1 = "4118cba3529e99af61aea9a83f7bfd3cff5ffb28"
+git-tree-sha1 = "5c06c0aeb81bef54aed4b3f446847905eb6cbda0"
 uuid = "90137ffa-7385-5640-81b9-e52037218182"
-version = "0.12.2"
+version = "0.12.3"
 
 [[Statistics]]
 deps = ["LinearAlgebra", "SparseArrays"]
@@ -380,10 +380,10 @@ uuid = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
 uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
 
 [[Zygote]]
-deps = ["AbstractFFTs", "ArrayLayouts", "DiffRules", "FillArrays", "ForwardDiff", "IRTools", "InteractiveUtils", "LinearAlgebra", "MacroTools", "NNlib", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
-git-tree-sha1 = "9d0610bc68e2ac9d3f852babb07c863248fb44eb"
+deps = ["AbstractFFTs", "ArrayLayouts", "DiffRules", "FillArrays", "ForwardDiff", "Future", "IRTools", "InteractiveUtils", "LinearAlgebra", "MacroTools", "NNlib", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
+git-tree-sha1 = "707ceea58e2bd0ff3077ab13a92f8355181d3ee4"
 uuid = "e88e6eb3-aa80-5325-afca-941959d7151f"
-version = "0.4.19"
+version = "0.4.20"
 
 [[ZygoteRules]]
 deps = ["MacroTools"]
