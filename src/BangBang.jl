@@ -25,7 +25,9 @@ export @!,
        setproperties!!,
        setproperty!!,
        singletonof,
-       splice!!
+       splice!!,
+       union!!,
+       unique!!
 
 using Base.Broadcast:
     Broadcasted,
@@ -35,7 +37,7 @@ using Base.Broadcast:
     instantiate,
     materialize!,
     preprocess
-using Base: promote_typejoin
+using Base: HasEltype, IteratorEltype, promote_typejoin
 using Compat: hasproperty
 using InitialValues
 using LinearAlgebra
@@ -46,6 +48,7 @@ using ZygoteRules: @adjoint
 # Used in NoBang:
 function implements end
 function push!! end
+function unique!! end
 
 include("NoBang/NoBang.jl")
 using .NoBang: Empty, ImmutableContainer, SingletonVector, singletonof

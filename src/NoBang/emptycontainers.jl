@@ -70,6 +70,13 @@ append(::Empty{T}, x) where T = T(x)
 # In `append`, it is assumed that `T(x::Vector)` works (as done in the
 # implementation of `singletonof`).
 
+append(e::Empty, ::Empty) = e
+
+_empty(x::Empty) = x
+
+_union(::Empty{T}, x) where {T} = unique!!(T(x))
+_union(e::Empty, ::Empty) = e
+
 _setindex(::Empty{T}, v, k) where {T <: AbstractDict} = T(SingletonDict(k, v))
 Base.get(::Empty, _, default) = default
 

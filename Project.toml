@@ -1,7 +1,7 @@
 name = "BangBang"
 uuid = "198e06fe-97b7-11e9-32a5-e1d131e6ad66"
 authors = ["Takafumi Arakaki <aka.tkf@gmail.com>"]
-version = "0.3.13-DEV"
+version = "0.3.20-DEV"
 
 [deps]
 Compat = "34da2185-b29b-5c13-b0c7-acf172513d20"
@@ -19,15 +19,24 @@ Compat = "2.0, 3.0"
 ConstructionBase = "0.1, 1.0"
 InitialValues = "0.2"
 Requires = "0.5, 1.0"
-Setfield = "0.5.1"
-Tables = "0.2"
+Setfield = "0.5.1, 0.6"
+Tables = "0.2, 1.0"
 ZygoteRules = "0.1, 0.2"
 julia = "1.0"
 
 [extras]
-IRTest = "c9680f28-2a59-47f6-98e4-d41620d42cd2"
+Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"
+CategoricalArrays = "324d7699-5711-5eae-9e2f-1d82baa6b597"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+InteractiveUtils = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
+PerformanceTestTools = "dc46b164-d16f-48ec-a853-60448fc869fe"
+Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
+StructArrays = "09ab397b-f2b6-538f-b94a-2f83cf4a842a"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+TypedTables = "9d95f2ec-7b3d-5a63-8d20-e2491e220bb9"
+Zygote = "e88e6eb3-aa80-5325-afca-941959d7151f"
 
 [targets]
-test = ["StaticArrays", "Test", "IRTest"]
+test = ["Aqua", "CategoricalArrays", "DataFrames", "Documenter", "InteractiveUtils", "PerformanceTestTools", "Pkg", "StaticArrays", "StructArrays", "Test", "TypedTables", "Zygote"]

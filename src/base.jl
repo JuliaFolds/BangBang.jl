@@ -93,12 +93,16 @@ julia> @assert append!!(Table(a=[1], b=[2]), [(a=3.5, b=4.5)]) ==
            Table(a=[1.0, 3.5], b=[2.0, 4.5])
 ```
 """
-append!!(xs, ys) = may(append!, xs, ys)
+append!!(xs, ys) = may(_append!, xs, ys)
 
-pure(::typeof(append!)) = NoBang.append
+# An indirection for supporting dispatch on the second argument.
+_append!(dest, src) = append!(dest, src)
+_append!(dest, src::SingletonVector) = push!(dest, src.value)
+
+pure(::typeof(_append!)) = NoBang.append
 _asbb(::typeof(append!)) = append!!
-possible(::typeof(append!), x, ::Any) = implements(push!, x)
-possible(::typeof(append!), ::C, ys) where {C <: MaybeMutableContainer} =
+possible(::typeof(_append!), x, ::Any) = implements(push!, x)
+possible(::typeof(_append!), ::C, ys) where {C <: MaybeMutableContainer} =
     implements(push!, C) && promote_type(eltype(C), eltype(ys)) <: eltype(C)
 
 """
@@ -488,3 +492,28 @@ possible(::typeof(_materialize!!), x::AbstractArray, ::Any) = implements(push!, 
     # Handle the rest
     return copyto_nonleaf!(dest′, bc′, iter, state, 1)
 end
+
+"""
+    unique!!(set) -> set
+    unique!!(sequence) -> sequence′
+"""
+unique!!(itr) = unique(itr)
+unique!!(set::AbstractSet) = set
+unique!!(xs::AbstractVector) = may(unique!, xs)
+
+pure(::typeof(unique!)) = unique
+_asbb(::typeof(unique!)) = unique!!
+possible(::typeof(unique!), ::C) where {C} = implements(push!, C)
+
+"""
+    union!!(setlike, itrs...) -> setlike′
+"""
+union!!(set, itr) = may(union!, set, itr)
+union!!(set, itr, itrs...) = foldl(union!!, itrs, init = union!!(set, itr))
+
+pure(::typeof(union!)) = NoBang._union
+_asbb(::typeof(union!)) = union!!
+possible(::typeof(union!), ::C, ::I) where {C<:Union{AbstractSet,AbstractVector},I} =
+    implements(push!, C) &&
+    IteratorEltype(I) isa HasEltype && promote_type(eltype(C), eltype(I)) <: eltype(C)
+possible(::typeof(union!), ::Empty, ::Any) = false
