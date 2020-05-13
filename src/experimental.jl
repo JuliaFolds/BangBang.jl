@@ -130,7 +130,9 @@ function modify!!(f, h::Dict{K1}, key0::K2) where {K1, K2}
     idx = Base.ht_keyindex2!(h, key)
 
     age0 = h.age
+    found = false
     if idx > 0
+        found = true
         @inbounds vold = h.vals[idx]
         vnew = f(Some(vold))
     else
@@ -146,8 +148,13 @@ function modify!!(f, h::Dict{K1}, key0::K2) where {K1, K2}
         end
     else
         val = something(vnew)
+        if !(K1 isa String)
+            if found && val === vold
+                return (h, vnew)  # nothing to do (optimization)
+            end
+        end
         if !(typeof(val) <: eltype(h.vals))
-            return setindex!!(dict, val, key0), vnew
+            return setindex!!(h, val, key0), vnew
         end
         if idx > 0
             h.age += 1
