@@ -146,7 +146,9 @@ function modify!!(f, h::Dict{K1}, key0::K2) where {K1, K2}
         end
     else
         val = something(vnew)
-        typeof(val) <: eltype(h.vals) || return generic_modify!!(f, h, key0)
+        if !(typeof(val) <: eltype(h.vals))
+            return setindex!!(dict, val, key0), vnew
+        end
         if idx > 0
             h.age += 1
             @inbounds h.keys[idx] = key
