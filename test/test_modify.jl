@@ -47,6 +47,14 @@ end
         dict = constructor(Dict("a" => 1))
         @test modify!(_ -> nothing, dict, :b) === nothing
         @test Dict(dict) == Dict("a" => 1)
+
+        dict = constructor(Dict("a" => 1))
+        @test modify!(identity, dict, "a") === Some(1)
+        @test Dict(dict) == Dict("a" => 1)
+
+        dict = constructor(Dict(:a => 1))
+        @test modify!(identity, dict, :a) === Some(1)
+        @test Dict(dict) == Dict(:a => 1)
     end
 
     @testset "mutation inside `f`" begin
