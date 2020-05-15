@@ -30,7 +30,7 @@ version = "0.2.6"
 deps = ["Compat", "ConstructionBase", "Future", "InitialValues", "LinearAlgebra", "Requires", "Setfield", "Tables", "ZygoteRules"]
 path = "../../.."
 uuid = "198e06fe-97b7-11e9-32a5-e1d131e6ad66"
-version = "0.3.20-DEV"
+version = "0.3.21-DEV"
 
 [[Base64]]
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
@@ -247,9 +247,9 @@ version = "1.2.0"
 
 [[Parsers]]
 deps = ["Dates", "Test"]
-git-tree-sha1 = "72c3451932513427caffbd8bab15643ad693804b"
+git-tree-sha1 = "f0abb338b4d00306500056a3fd44c221b8473ef2"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "1.0.3"
+version = "1.0.4"
 
 [[PerformanceTestTools]]
 deps = ["Test"]
@@ -324,9 +324,9 @@ uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 
 [[SpecialFunctions]]
 deps = ["OpenSpecFun_jll"]
-git-tree-sha1 = "0d440173da9f6d306f0c20664433734e487be8bd"
+git-tree-sha1 = "a69e1eaf3397fbb5a4d718538463e5cc20ef42a4"
 uuid = "276daf66-3868-5448-9aa4-cd146d93841b"
-version = "0.10.1"
+version = "0.10.2"
 
 [[SplitApplyCombine]]
 deps = ["Dictionaries", "Indexing"]
