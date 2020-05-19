@@ -8,9 +8,11 @@ export @!,
        Empty,
        add!!,
        append!!,
+       collector,
        delete!!,
        deleteat!!,
        empty!!,
+       finish!,
        lmul!!,
        materialize!!,
        merge!!,
@@ -39,6 +41,7 @@ using Base.Broadcast:
     preprocess
 using Base: HasEltype, IteratorEltype, promote_typejoin
 using Compat: hasproperty
+using ConstructionBase: constructorof
 using InitialValues
 using LinearAlgebra
 using Requires
@@ -58,6 +61,7 @@ include("base.jl")
 include("linearalgebra.jl")
 include("experimental.jl")
 include("initials.jl")
+include("collectors.jl")
 include("macro.jl")
 include("dataframes_impl.jl")
 include("zygote.jl")
