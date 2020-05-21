@@ -42,7 +42,7 @@ julia> finish!(append!!(collector(Vector{Float64}(undef, 10), Val(true)), [1, 2,
 collector
 collector(data::AbstractArray, ::Val{false} = Val(false)) = SafeCollector(data)
 collector(data::AbstractArray, ::Val{true}) = UnsafeCollector(data)
-collector(ElType::Type = Union{}) = collector(ElType[])
+collector(ElType::Type = Union{}) = SafeCollector(Empty(Vector{ElType}), 1)
 
 abstract type AbstractCollector end
 
@@ -79,10 +79,12 @@ _next_length(data, src) = max(4, length(data) + length(src), length(data) * 2)
     i = c.i
     if possible(_append!, data, src)
         if c isa UnsafeCollector
+            data′ = data
         elseif i + length(src) - 1 > lastindex(data)
-            resize!(data, _next_length(data, src))
+            data′ = resize!!(data, _next_length(data, src))
+        else
+            data′ = data
         end
-        data′ = data
     else
         T = promote_type(eltype(data), eltype(src))
         if i + length(src) - 1 > lastindex(data)
@@ -109,10 +111,13 @@ end
     ::Base.IteratorEltype,
 )
     if c isa UnsafeCollector
+        data′′ = c.data
     elseif c.i + length(src) - 1 > lastindex(c.data)
-        resize!(c.data, _next_length(c.data, src))
+        data′′ = resize!!(c.data, _next_length(c.data, src))
+    else
+        data′′ = c.data
     end
-    data, i = foldl(src, init = (c.data, c.i)) do (data, i), v
+    data, i = foldl(src, init = (data′′, c.i)) do (data, i), v
         Base.@_inline_meta
         T = promote_type(eltype(data), eltype(v))
         if T <: eltype(data)
@@ -145,7 +150,7 @@ Extract the `data` collected in the collector `c`.
 
 See [`collector`](@ref).
 """
-finish!(c::AbstractCollector) = resize!(c.data, c.i - firstindex(c.data))
+finish!(c::AbstractCollector) = resize!!(c.data, c.i - firstindex(c.data))
 # Final length is `(c.i - 1) - (firstindex(c.data) - 1)` where the
 # first `- 1` is because `c.i` is the index for the next element and
 # the second `- 1` is for turning the index to offset.

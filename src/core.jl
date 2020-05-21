@@ -60,6 +60,12 @@ implements(::Mutator, ::Type{<:ImmutableContainer}) = false
 implements(::Mutator, ::Type{<:MaybeMutableContainer}) = true
 implements(::Mutator, ::Type{<:AbstractString}) = false
 
+implements(::typeof(resize!), ::Type{<:AbstractVector}) = true
+implements(
+    ::typeof(resize!),
+    ::Type{<:Union{SubArray{<:Any,1},Base.ReshapedArray{<:Any,1}}},
+) = false
+
 Base.@pure ismutablestruct(T::DataType) = T.mutable
 implements(::typeof(setproperty!), T::DataType) = ismutablestruct(T)
 implements(::typeof(setproperty!), ::Type{<:NamedTuple}) = false

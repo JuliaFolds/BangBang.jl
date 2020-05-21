@@ -1,6 +1,6 @@
 module BenchCollectors
 
-using BangBang: collector, finish!, push!!
+using BangBang: Empty, collector, finish!, push!!
 using BenchmarkTools: @benchmarkable, BenchmarkGroup
 using SplittablesBase: amount
 
@@ -55,11 +55,9 @@ end
     end
 end
 
-const vec0 = Union{}[]
+collect_collector(src) = finish!(_foldl(push!!, collector(), src))
 
-collect_collector(src) = finish!(_foldl(push!!, collector(vec0), src))
-
-collect_vector(src) = _foldl(push!!, vec0, src)
+collect_vector(src) = _foldl(push!!, Empty(Vector), src)
 
 collect_collector_nonexpanding(src) =
     finish!(_foldl(push!!, collector(resize!(Union{}[], amount(src)), Val(true)), src))
