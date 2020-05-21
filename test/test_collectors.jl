@@ -35,6 +35,12 @@ end
     end
 end
 
+@testset "combine" begin
+    c1 = append!!(collector(), [1, 2])
+    c2 = append!!(collector(), [3, 4, 5])
+    @test finish!(append!!(c1, c2)) == 1:5
+end
+
 @testset "Empty" begin
     @test finish!(append!!(collector(), Union{}[])) ==ₜ Union{}[]
     @test finish!(append!!(collector(), ())) ==ₜ Union{}[]

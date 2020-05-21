@@ -134,8 +134,9 @@ end
     ::Base.IteratorEltype,
 ) = foldl(push!!, src, init = c)
 
-@inline append!!(c::AbstractCollector, src::AbstractCollector) =
-    append!!(c, view(src.data, firstindex(src.data):c.i-1))
+@inline append!!(c::AbstractCollector, src::AbstractCollector) = append!!(c, _view(src))
+
+_view(c::AbstractCollector) = @inbounds view(c.data, firstindex(c.data):c.i-1)
 
 """
     finish!(c::AbstractCollector) -> data::AbstractVector
