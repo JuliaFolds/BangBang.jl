@@ -28,6 +28,8 @@ end
         (((a = 1,), Dict(:b => 2), (b = 3,)), (a = 1, b = 3)),
         ((Empty(Dict), Dict(:a => 1)), Dict(:a => 1)),
         ((Empty(Dict), SingletonDict(:a => 1)), Dict(:a => 1)),
+        ((SingletonDict(:a => 1), Dict(:b => 2)), Dict(:a => 1, :b => 2)),
+        ((SingletonDict(:a => 1), Dict(:a => 2)), Dict(:a => 2)),
     ]
         d = deepcopy(args[1])
         @test merge!!(args...) ==ₜ desired

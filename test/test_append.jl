@@ -17,6 +17,7 @@ using StructArrays: StructVector
     @test append!!(SVector(0), [1])::Vector == [0, 1]
     @test append!!([0], SVector(1))::Vector == [0, 1]
     @test append!!(Union{}[], Iterators.take(1:10, 3)) ==ₜ [1, 2, 3]
+    @test append!!(SingletonVector(1), [0.5, 2]) ==ₜ [1, 0.5, 2]
 end
 
 @testset "Empty" begin
