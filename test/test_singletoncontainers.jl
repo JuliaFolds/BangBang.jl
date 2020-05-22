@@ -51,6 +51,7 @@ end
     @test first(d) == last(d) == first(collect(d))
     @test_throws BoundsError d[:non_existing_key]
     @test collect(d)::Vector{Pair{Symbol,Int}} == [:a => 1]
+    @test SingletonDict(missing => 1)[missing] === 1
     test_shows(d)
 end
 
