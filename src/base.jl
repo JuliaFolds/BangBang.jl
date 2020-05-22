@@ -376,6 +376,15 @@ possible(::typeof(_setindex!), ::C, ::V, ::K) where {C <: AbstractDict, V, K} =
     promote_type(valtype(C), V) <: valtype(C)
 
 """
+    resize!!(vector::AbstractVector, n::Integer) -> vector′
+"""
+resize!!(xs::Union{AbstractVector,Empty{<:AbstractVector}}, n::Integer) =
+    implements(resize!, xs) ? resize!(xs, n) : NoBang.resize(xs, n)
+
+pure(::typeof(resize!)) = NoBang.resize
+_asbb(::typeof(resize!)) = resize!!
+
+"""
     setproperties!!(value, patch::NamedTuple)
     setproperties!!(value; patch...)
 

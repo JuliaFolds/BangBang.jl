@@ -147,6 +147,8 @@ function _setindex(d0::AbstractDict, v, k)
     return d
 end
 
+resize(xs::AbstractVector, n::Integer) = similar(xs, (n,))
+
 setproperty(value, name, x) = setproperties(value, NamedTuple{(name,)}((x,)))
 
 materialize(::Any, x) = Broadcast.materialize(x)

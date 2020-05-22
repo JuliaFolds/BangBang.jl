@@ -5,3 +5,5 @@ InitialValues.@def push!! [x]
 else
     InitialValues.@def append!!
 end
+
+InitialValues.@disambiguate append!! AbstractCollector

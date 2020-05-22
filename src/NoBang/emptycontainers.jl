@@ -73,6 +73,7 @@ append(::Empty{T}, x) where T = T(x)
 append(e::Empty, ::Empty) = e
 
 _empty(x::Empty) = x
+resize(::Empty{T}, n::Integer) where {T <: AbstractVector} = similar(T, (n,))
 
 _union(::Empty{T}, x) where {T} = unique!!(T(x))
 _union(e::Empty, ::Empty) = e
@@ -83,5 +84,18 @@ Base.get(::Empty, _, default) = default
 Base.IteratorSize(::Type{<:Empty}) = Base.HasLength()
 Base.IteratorEltype(::Type{<:Empty}) = Base.HasEltype()
 Base.eltype(::Type{<:Empty}) = Union{}
+Base.eltype(::Type{<:Empty{<:AbstractVector{T}}}) where {T} = T
 Base.length(::Empty) = 0
 Base.iterate(::Empty) = nothing
+
+Base.firstindex(::Empty{<:Vector}) = 1
+Base.lastindex(::Empty{<:Vector}) = 0
+Base.similar(e::Empty) = similar(e, eltype(e), (0,))
+Base.similar(e::Empty, dims::Int...) = similar(e, eltype(e), dims)
+Base.similar(e::Empty, dims::Tuple{Vararg{Int}}) = similar(e, eltype(e), dims)
+Base.similar(e::Empty, T::Type) = similar(e, T, (0,))
+Base.similar(e::Empty, T::Type, dims::Int...) = similar(e, T, dims)
+Base.similar(::Empty{<:Vector}, T::Type, dims::Tuple{Vararg{Int}}) =
+    similar(Vector{T}, dims)
+Base.similar(::Empty{Vector{T}}, dims::Tuple{Vararg{Int}}) where {T} =
+    similar(Vector{T}, dims)
