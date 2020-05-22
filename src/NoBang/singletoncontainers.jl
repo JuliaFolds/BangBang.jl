@@ -54,4 +54,6 @@ function Base.getindex(d::SingletonDict{K}, key::K) where {K}
     return d.value
 end
 
+Base.get(d::SingletonDict, k, v) = isequal(d.key, k) ? d.value : v
+
 Base.length(::SingletonDict) = 1

@@ -18,6 +18,12 @@ const MaybeMutableContainer = Union{
     AbstractDict,
     AbstractSet,
 }
+const ShapeFrozenContainer = Union{
+    NoBang.ImmutableContainer,
+    NoBang.Empty,
+    NoBang.SingletonVector,
+    NoBang.SingletonDict,
+}
 const Mutator = Union{typeof(push!), typeof(setindex!)}
 
 """
@@ -56,7 +62,7 @@ true
 implements(f!, x) = implements(f!, typeof(x))
 implements(::Any, ::Type) = false
 
-implements(::Mutator, ::Type{<:ImmutableContainer}) = false
+implements(::Mutator, ::Type{<:ShapeFrozenContainer}) = false
 implements(::Mutator, ::Type{<:MaybeMutableContainer}) = true
 implements(::Mutator, ::Type{<:AbstractString}) = false
 
