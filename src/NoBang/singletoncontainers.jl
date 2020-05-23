@@ -50,7 +50,7 @@ Base.first(d::SingletonDict) = d.key => d.value
 Base.last(d::SingletonDict) = d.key => d.value
 
 function Base.getindex(d::SingletonDict{K}, key::K) where {K}
-    @boundscheck d.key == key || throw(BoundsError(d, key))
+    @boundscheck isequal(d.key, key) || throw(BoundsError(d, key))
     return d.value
 end
 
