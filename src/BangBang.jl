@@ -54,7 +54,7 @@ function push!! end
 function unique!! end
 
 include("NoBang/NoBang.jl")
-using .NoBang: Empty, ImmutableContainer, SingletonVector, singletonof
+using .NoBang: Empty, SingletonVector, singletonof
 
 include("core.jl")
 include("base.jl")
