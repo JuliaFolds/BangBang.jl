@@ -93,7 +93,16 @@ julia> @assert append!!(Table(a=[1], b=[2]), [(a=3.5, b=4.5)]) ==
            Table(a=[1.0, 3.5], b=[2.0, 4.5])
 ```
 """
-append!!(xs, ys) = may(_append!, xs, ys)
+@inline append!!(xs, ys) = __append!!__(xs, ys)
+
+"""
+    __append!!__(dest::CustomType, src) -> dest′
+
+This is an overload interface for `append!!`.  This function must
+dispatch on the first argument and implemented by the owner of the
+type of the first argument.
+"""
+@inline __append!!__(xs, ys) = may(_append!, xs, ys)
 
 # An indirection for supporting dispatch on the second argument.
 _append!(dest, src) = append!(dest, src)
