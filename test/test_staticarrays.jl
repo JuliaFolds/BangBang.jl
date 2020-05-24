@@ -2,6 +2,7 @@ module TestStaticArrays
 
 include("preamble.jl")
 using BangBang: implements
+using InitialValues: Init
 using StaticArrays:
     MArray, MMatrix, MVector, SArray, SMatrix, SVector, StaticArrays, StaticVector
 
@@ -28,6 +29,14 @@ end
         @test_broken push!!(MVector(1, 2, 3), 4) ==ₜ MVector(1, 2, 3, 4)
         @test push!!(MVector(1, 2, 3), 4)::StaticVector == [1, 2, 3, 4]
     end
+end
+
+@testset "append!! with Init(append!!)" begin
+    @test append!!(Init(append!!), SVector(1, 2)) === SVector(1, 2)
+    @test append!!(SVector(1, 2), Init(append!!)) === SVector(1, 2)
+    @test append!!(Init(append!!), MVector(1, 2)) ==ₜ MVector(1, 2)
+    xs = MVector(1, 2)
+    @test append!!(xs, Init(append!!)) === xs
 end
 
 @testset "setindex!!(SArray, ...)" begin
