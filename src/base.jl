@@ -309,12 +309,8 @@ mergewith!!(combine, dict, other) =
         setindex!!(dict, v1 isa _NoValue ? v2 : combine(v1, v2), k)
     end
 
-mergewith!!(combine, dict, others...) =
-    foldl(others; init=dict) do dict, other
-        mergewith!!(combine, dict, other)
-    end
-
-mergewith!!(combine) = (args...) -> mergewith!!(combine, args...)
+mergewith!!(combine, dict, others...) = foldl(mergewith!!(combine), others; init = dict)
+mergewith!!(combine) = (dict, others...) -> mergewith!!(combine, dict, others...)
 
 """
     merge!!(dictlike, others...) -> dictlike′
