@@ -310,7 +310,13 @@ mergewith!!(combine, dict, other) =
     end
 
 mergewith!!(combine, dict, others...) = foldl(mergewith!!(combine), others; init = dict)
-mergewith!!(combine) = (dict, others...) -> mergewith!!(combine, dict, others...)
+mergewith!!(combine) = MergeWith!!(combine)
+
+struct MergeWith!!{F} <: Function
+    combine::F
+end
+
+(f::MergeWith!!)(dict, others...) = mergewith!!(f.combine, dict, others...)
 
 """
     merge!!(dictlike, others...) -> dictlike′
