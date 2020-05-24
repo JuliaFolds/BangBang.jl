@@ -63,7 +63,7 @@ end
 @inline push!!(c::AbstractCollector, v) =
     _collect_to!!(c, SingletonVector(v), Base.HasShape{1}(), Base.HasEltype())
 
-@inline append!!(c::AbstractCollector, src) =
+@inline __append!!__(c::AbstractCollector, src) =
     _collect_to!!(c, src, Base.IteratorSize(src), Base.IteratorEltype(src))
 
 # ref: jl_array_grow_at_end
@@ -139,7 +139,8 @@ end
     ::Base.IteratorEltype,
 ) = foldl(push!!, src, init = c)
 
-@inline append!!(c::AbstractCollector, src::AbstractCollector) = append!!(c, _view(src))
+@inline __append!!__(c::AbstractCollector, src::AbstractCollector) =
+    __append!!__(c, _view(src))
 
 _view(c::AbstractCollector) = @inbounds view(c.data, firstindex(c.data):c.i-1)
 
