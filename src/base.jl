@@ -290,6 +290,33 @@ _asbb(::typeof(empty!)) = empty!!
 possible(::typeof(empty!), ::C) where C = implements(push!, C)
 
 """
+    mergewith!!(combine, dict, others...) -> dict′
+    mergewith!!(combine)
+
+Like `merge!!(combine, dict, others...)` but `combine` does not have
+to be a `Function`.
+
+The curried form `mergewith!!(combine)` returns the function
+`(args...) -> mergewith!!(combine, args...)`.
+"""
+mergewith!!
+
+struct _NoValue end
+
+mergewith!!(combine, dict, other) =
+    foldl(pairs(other); init=dict) do dict, (k, v2)
+        v1 = get(dict, k, _NoValue())
+        setindex!!(dict, v1 isa _NoValue ? v2 : combine(v1, v2), k)
+    end
+
+mergewith!!(combine, dict, others...) =
+    foldl(others; init=dict) do dict, other
+        mergewith!!(combine, dict, other)
+    end
+
+mergewith!!(combine) = (args...) -> mergewith!!(combine, args...)
+
+"""
     merge!!(dictlike, others...) -> dictlike′
     merge!!(combine, dictlike, others...) -> dictlike′
 
@@ -312,7 +339,7 @@ Dict{Symbol,Float64} with 1 entry:
 """
 merge!!(dict, others...) = merge!!(right, dict, others...)
 merge!!(combine::Base.Callable, dict, others...) =
-    Experimental.mergewith!!(combine, dict, others...)
+    mergewith!!(combine, dict, others...)
 
 right(_, x) = x
 
