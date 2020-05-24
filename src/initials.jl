@@ -53,9 +53,11 @@ InitialValues.@def push!! [x]
 # `acc = monoid!!(acc, x)` was called at least once.
 
 const InitAppend!! = InitialValues.GenericInitialValue{typeof(append!!)}
-append!!(::InitAppend!!, src) = Base.copymutable(src)
+append!!(::InitAppend!!, src) = copyappendable(src)
 append!!(dest, ::InitAppend!!) = dest
 append!!(dest::InitAppend!!, ::InitAppend!!) = dest
 InitialValues.hasinitialvalue(::Type{typeof(append!!)}) = true
+
+copyappendable(src) = Base.copymutable(src)
 
 # TODO: similar setup/code for union!! and mergewith!!
