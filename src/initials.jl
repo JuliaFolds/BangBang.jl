@@ -70,6 +70,7 @@ const InitMerge!! = InitialValues.GenericInitialValue{typeof(merge!!)}
 merge!!(dest::InitMerge!!, src) = copymergeable(src)
 merge!!(dest, ::InitMerge!!) = dest
 merge!!(dest::InitMerge!!, src::InitMerge!!) = dest
+merge!!(::Base.Callable, dest::InitMerge!!) = dest  # disambiguation
 InitialValues.hasinitialvalue(::Type{typeof(merge!!)}) = true
 
 copymergeable(src) = Dict(src)
