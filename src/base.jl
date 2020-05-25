@@ -530,11 +530,11 @@ possible(::typeof(_materialize!!), x::AbstractArray, ::Any) = implements(push!, 
     I, state = y
     @inbounds val = bc′[I]
     if typeof(val) <: eltype(dest)
-        @inbounds dest[I] = val
         dest′ = dest
     else
         dest′ = similar(bc′, typeof(val))
     end
+    @inbounds dest′[I] = val
 
     # Handle the rest
     return copyto_nonleaf!(dest′, bc′, iter, state, 1)
