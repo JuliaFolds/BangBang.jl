@@ -2,6 +2,7 @@ module TestUnion
 
 include("preamble.jl")
 using BangBang: SingletonVector
+using InitialValues: Init, asmonoid
 
 @testset begin
     @test union!!([0.0], [1.0]) ==ₜ [0.0, 1.0]
@@ -30,6 +31,16 @@ end
         @test union!!(x, [1]) === x
         @test x ==ₜ Set([0.0, 1.0])
     end
+end
+
+@testset "Init" begin
+    xs = Set([0])
+    @test union!!(xs, Init(union!!)) === xs
+    @test union!!(Init(union!!), xs) !== xs
+    @test union!!(Init(union!!), xs) ==ₜ xs
+    @test union!!(Init(union!!), (x for x in xs if true)) ==ₜ xs
+    @test union!!(Init(union!!), Init(union!!)) === Init(union!!)
+    @test asmonoid(union!!) === union!!
 end
 
 end  # module

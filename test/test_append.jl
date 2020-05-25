@@ -3,7 +3,7 @@ module TestAppend
 include("preamble.jl")
 
 using BangBang.NoBang: SingletonVector
-using InitialValues: Init
+using InitialValues: Init, asmonoid
 using StructArrays: StructVector
 
 @testset begin
@@ -25,7 +25,10 @@ end
     xs = [1, 2, 3]
     @test append!!(xs, Init(append!!)) === xs
     @test append!!(Init(append!!), xs) !== xs
-    @test append!!(Init(append!!), xs) == xs
+    @test append!!(Init(append!!), xs) ==ₜ xs
+    @test append!!(Init(append!!), (x for x in xs if true)) ==ₜ xs
+    @test append!!(Init(append!!), Init(append!!)) === Init(append!!)
+    @test asmonoid(append!!) === append!!
 end
 
 @testset "Empty" begin

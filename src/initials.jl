@@ -60,4 +60,27 @@ InitialValues.hasinitialvalue(::Type{typeof(append!!)}) = true
 
 copyappendable(src) = Base.copymutable(src)
 
-# TODO: similar setup/code for union!! and mergewith!!
+const InitMergeWith!!{F} = InitialValues.GenericInitialValue{MergeWith!!{F}}
+(f::MergeWith!!{F})(dest::InitMergeWith!!{F}, src) where {F} = copymergeable(src)
+(f::MergeWith!!{F})(dest, ::InitMergeWith!!{F}) where {F} = dest
+(f::MergeWith!!{F})(dest::InitMergeWith!!{F}, src::InitMergeWith!!{F}) where {F} = dest
+InitialValues.hasinitialvalue(::Type{MergeWith!!{F}}) where {F} = true
+
+const InitMerge!! = InitialValues.GenericInitialValue{typeof(merge!!)}
+merge!!(dest::InitMerge!!, src) = copymergeable(src)
+merge!!(dest, ::InitMerge!!) = dest
+merge!!(dest::InitMerge!!, src::InitMerge!!) = dest
+merge!!(::Base.Callable, dest::InitMerge!!) = dest  # disambiguation
+InitialValues.hasinitialvalue(::Type{typeof(merge!!)}) = true
+
+copymergeable(src) = Dict(src)
+copymergeable(src::NamedTuple) = src
+
+const InitUnion!! = InitialValues.GenericInitialValue{typeof(union!!)}
+union!!(dest::InitUnion!!, src) = copyunionable(src)
+union!!(dest, ::InitUnion!!) = dest
+union!!(dest::InitUnion!!, src::InitUnion!!) = dest
+InitialValues.hasinitialvalue(::Type{typeof(union!!)}) = true
+
+copyunionable(src::AbstractVector) = Base.copymutable(src)
+copyunionable(src) = Set(src)
