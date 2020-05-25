@@ -3,6 +3,7 @@ module TestDataFrames
 using BangBang: append!!, push!!
 using CategoricalArrays: CategoricalArray
 using DataFrames: DataFrame
+using InitialValues: Init
 using Tables: Tables
 using Test
 
@@ -73,6 +74,13 @@ end
         # source isa DataFrame
         # source[:, :a] .+= 1
         @test append!!(copy(df), source) == vcat(df, DataFrame(source))
+    end
+    @testset "Init" begin
+        src = DataFrame(a=[1])
+        dest = append!!(Init(append!!), src)
+        @test src == dest
+        src.a[1] = 123
+        @test src != dest
     end
 end
 

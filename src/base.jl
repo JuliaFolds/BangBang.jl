@@ -93,7 +93,16 @@ julia> @assert append!!(Table(a=[1], b=[2]), [(a=3.5, b=4.5)]) ==
            Table(a=[1.0, 3.5], b=[2.0, 4.5])
 ```
 """
-append!!(xs, ys) = may(_append!, xs, ys)
+@inline append!!(xs, ys) = __append!!__(xs, ys)
+
+"""
+    __append!!__(dest::CustomType, src) -> dest′
+
+This is an overload interface for `append!!`.  This function must
+dispatch on the first argument and implemented by the owner of the
+type of the first argument.
+"""
+@inline __append!!__(xs, ys) = may(_append!, xs, ys)
 
 # An indirection for supporting dispatch on the second argument.
 _append!(dest, src) = append!(dest, src)
@@ -281,6 +290,33 @@ _asbb(::typeof(empty!)) = empty!!
 possible(::typeof(empty!), ::C) where C = implements(push!, C)
 
 """
+    mergewith!!(combine, dict, others...) -> dict′
+    mergewith!!(combine)
+
+Like `merge!!(combine, dict, others...)` but `combine` does not have
+to be a `Function`.
+
+The curried form `mergewith!!(combine)` returns the function
+`(args...) -> mergewith!!(combine, args...)`.
+"""
+mergewith!!
+
+struct _NoValue end
+
+mergewith!!(combine, dict, other) =
+    foldl(pairs(other); init=dict) do dict, (k, v2)
+        v1 = get(dict, k, _NoValue())
+        setindex!!(dict, v1 isa _NoValue ? v2 : combine(v1, v2), k)
+    end
+
+mergewith!!(combine, dict, others...) =
+    foldl(others; init=dict) do dict, other
+        mergewith!!(combine, dict, other)
+    end
+
+mergewith!!(combine) = (args...) -> mergewith!!(combine, args...)
+
+"""
     merge!!(dictlike, others...) -> dictlike′
     merge!!(combine, dictlike, others...) -> dictlike′
 
@@ -303,7 +339,7 @@ Dict{Symbol,Float64} with 1 entry:
 """
 merge!!(dict, others...) = merge!!(right, dict, others...)
 merge!!(combine::Base.Callable, dict, others...) =
-    Experimental.mergewith!!(combine, dict, others...)
+    mergewith!!(combine, dict, others...)
 
 right(_, x) = x
 
