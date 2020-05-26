@@ -309,12 +309,14 @@ mergewith!!(combine, dict, other) =
         setindex!!(dict, v1 isa _NoValue ? v2 : combine(v1, v2), k)
     end
 
-mergewith!!(combine, dict, others...) =
-    foldl(others; init=dict) do dict, other
-        mergewith!!(combine, dict, other)
-    end
+mergewith!!(combine, dict, others...) = foldl(mergewith!!(combine), others; init = dict)
+mergewith!!(combine) = MergeWith!!(combine)
 
-mergewith!!(combine) = (args...) -> mergewith!!(combine, args...)
+struct MergeWith!!{F} <: Function
+    combine::F
+end
+
+(f::MergeWith!!)(dict, others...) = mergewith!!(f.combine, dict, others...)
 
 """
     merge!!(dictlike, others...) -> dictlike′
@@ -528,11 +530,11 @@ possible(::typeof(_materialize!!), x::AbstractArray, ::Any) = implements(push!, 
     I, state = y
     @inbounds val = bc′[I]
     if typeof(val) <: eltype(dest)
-        @inbounds dest[I] = val
         dest′ = dest
     else
         dest′ = similar(bc′, typeof(val))
     end
+    @inbounds dest′[I] = val
 
     # Handle the rest
     return copyto_nonleaf!(dest′, bc′, iter, state, 1)
