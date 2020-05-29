@@ -5,10 +5,12 @@ uuid = "621f4979-c628-5d54-868e-fcf4e3e8185c"
 version = "0.5.0"
 
 [[Aqua]]
-deps = ["Test"]
-git-tree-sha1 = "6d697c372bd1a2b5a3c690113581f98e6b0e2ff5"
+deps = ["Pkg", "Test"]
+git-tree-sha1 = "8b16716787990494b9425f0ca2dcff728d493038"
+repo-rev = "master"
+repo-url = "https://github.com/tkf/Aqua.jl.git"
 uuid = "4c88cf16-eb10-579e-8560-4a9242c79595"
-version = "0.4.0"
+version = "0.4.2-DEV"
 
 [[BangBang]]
 deps = ["Compat", "ConstructionBase", "Future", "InitialValues", "LinearAlgebra", "Requires", "Setfield", "Tables", "ZygoteRules"]

@@ -6,9 +6,9 @@ version = "0.5.0"
 
 [[Aqua]]
 deps = ["Pkg", "Test"]
-git-tree-sha1 = "247ea4b87248ddb83152ff6f82dbd5991a363ab0"
+git-tree-sha1 = "8b16716787990494b9425f0ca2dcff728d493038"
 repo-rev = "master"
-repo-url = "https://github.com/tkf/Aqua.jl"
+repo-url = "https://github.com/tkf/Aqua.jl.git"
 uuid = "4c88cf16-eb10-579e-8560-4a9242c79595"
 version = "0.4.2-DEV"
 
@@ -161,11 +161,11 @@ uuid = "313cdc1a-70c2-5d6a-ae34-0150d3930a38"
 version = "1.1.0"
 
 [[InitialValues]]
-git-tree-sha1 = "65f197424126f388c758a56f651411282a82c1b0"
+git-tree-sha1 = "3e58a0df400830cf485876a699644f106c72aae7"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/InitialValues.jl.git"
 uuid = "22cec73e-a1b8-11e9-2c92-598750a2cf9c"
-version = "0.2.5-DEV"
+version = "0.2.7-DEV"
 
 [[InteractiveUtils]]
 deps = ["LinearAlgebra", "Markdown"]
