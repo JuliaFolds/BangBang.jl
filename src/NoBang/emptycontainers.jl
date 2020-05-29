@@ -87,6 +87,7 @@ Base.eltype(::Type{<:Empty}) = Union{}
 Base.eltype(::Type{<:Empty{<:AbstractVector{T}}}) where {T} = T
 Base.length(::Empty) = 0
 Base.iterate(::Empty) = nothing
+Base.haskey(::Empty, ::Any) = false
 
 Base.firstindex(::Empty{<:Vector}) = 1
 Base.lastindex(::Empty{<:Vector}) = 0
