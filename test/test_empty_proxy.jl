@@ -34,4 +34,8 @@ end
     @test similar(Empty(Vector{Int}), Symbol, (3,)) ==ₜₗ resize!(Symbol[], 3)
 end
 
+@testset "Empty(Dict)" begin
+    @test !haskey(Empty(Dict), :key)
+end
+
 end  # module
