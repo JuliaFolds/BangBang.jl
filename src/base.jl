@@ -301,12 +301,12 @@ The curried form `mergewith!!(combine)` returns the function
 """
 mergewith!!
 
-struct _NoValue end
-
 mergewith!!(combine, dict, other) =
     foldl(pairs(other); init=dict) do dict, (k, v2)
-        v1 = get(dict, k, _NoValue())
-        setindex!!(dict, v1 isa _NoValue ? v2 : combine(v1, v2), k)
+        newdict, = Experimental.modify!!(dict, k) do ans
+            Some(ans === nothing ? v2 : combine(something(ans), v2))
+        end
+        return newdict
     end
 
 mergewith!!(combine, dict, others...) = foldl(mergewith!!(combine), others; init = dict)
