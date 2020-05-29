@@ -95,9 +95,9 @@ uuid = "313cdc1a-70c2-5d6a-ae34-0150d3930a38"
 version = "1.1.0"
 
 [[InitialValues]]
-git-tree-sha1 = "66012b0d294549c747ad02da038188deae54d408"
+git-tree-sha1 = "f3458faa269a6edefb2c329c26fdc829771c993b"
 uuid = "22cec73e-a1b8-11e9-2c92-598750a2cf9c"
-version = "0.2.6"
+version = "0.2.7"
 
 [[InteractiveUtils]]
 deps = ["Markdown"]
