@@ -1,4 +1,9 @@
-module Experimental
+"""
+    BangBang.Extras
+
+`BangBang` APIs that have no counterparts in `Base`.
+"""
+module Extras
 
 export mergewith!!
 
@@ -31,7 +36,7 @@ of Haskell's lens library.
 
 # Examples
 ```jldoctest
-julia> using BangBang.Experimental: modify!!
+julia> using BangBang.Extras: modify!!
 
 julia> dict = Dict("a" => 1);
 
@@ -138,3 +143,6 @@ function modify!!(f, h::Dict{K1}, key0::K2) where {K1, K2}
 end
 
 end  # module
+
+# `Extras` was called `Experimental` before
+const Experimental = Extras
