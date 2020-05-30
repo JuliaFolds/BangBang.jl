@@ -8,10 +8,10 @@ makedocs(
         "Home" => "index.md",
         hide("internals.md"),
     ],
-    repo = "https://github.com/tkf/BangBang.jl/blob/{commit}{path}#L{line}",
+    repo = "https://github.com/JuliaFolds/BangBang.jl/blob/{commit}{path}#L{line}",
     sitename = "BangBang.jl",
     authors = "Takafumi Arakaki <aka.tkf@gmail.com>",
     strict = true,
 )
 
-deploydocs(; repo = "github.com/tkf/BangBang.jl")
+deploydocs(; repo = "github.com/JuliaFolds/BangBang.jl")
