@@ -1,7 +1,7 @@
 # Internals
 
 ```@autodocs
-Modules = [BangBang.Experimental]
+Modules = [BangBang.Extras]
 ```
 
 ```@autodocs

@@ -303,7 +303,7 @@ mergewith!!
 
 mergewith!!(combine, dict, other) =
     foldl(pairs(other); init=dict) do dict, (k, v2)
-        newdict, = Experimental.modify!!(dict, k) do ans
+        newdict, = Extras.modify!!(dict, k) do ans
             Some(ans === nothing ? v2 : combine(something(ans), v2))
         end
         return newdict
