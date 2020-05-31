@@ -1,7 +1,7 @@
 # BangBang
 
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://tkf.github.io/BangBang.jl/stable)
-[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://tkf.github.io/BangBang.jl/dev)
+[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://juliafolds.github.io/BangBang.jl/stable)
+[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://juliafolds.github.io/BangBang.jl/dev)
 [![Build Status](https://travis-ci.com/JuliaFolds/BangBang.jl.svg?branch=master)](https://travis-ci.com/JuliaFolds/BangBang.jl)
 [![Codecov](https://codecov.io/gh/JuliaFolds/BangBang.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/JuliaFolds/BangBang.jl)
 [![Coveralls](https://coveralls.io/repos/github/JuliaFolds/BangBang.jl/badge.svg?branch=master)](https://coveralls.io/github/JuliaFolds/BangBang.jl?branch=master)
@@ -15,4 +15,4 @@ fallback for the case the usual mutating function does not work (e.g.,
 `push!!(Int[], 1.5)` creates a new array `Float64[1.5]`).
 
 See the supported functions in the
-[documentation](https://tkf.github.io/BangBang.jl/dev)
+[documentation](https://juliafolds.github.io/BangBang.jl/dev)
