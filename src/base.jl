@@ -55,10 +55,15 @@ possible(::typeof(push!), ::C, ::S) where {C <: MaybeMutableContainer, S} =
     implements(push!, C) && promote_type(eltype(C), S) <: eltype(C)
 
 """
-    append!!(dest, src)
+    append!!(dest, src) -> dest′
 
-Append items in `src` to `dest`.  Mutate `dest` if possible.  See also
-[`push!!`](@ref).
+Append items in `src` to `dest`.  Mutate `dest` if possible.
+
+This function "owns" `dest` but not `src`; i.e., returned value
+`dest′` does not alias `src`.  For example, `append!!(Empty(Vector),
+src)` shallow-copies `src` instead of returning `src` as-is.
+
+See also [`push!!`](@ref).
 
 # Examples
 ```jldoctest
@@ -92,6 +97,21 @@ julia> using TypedTables: Table
 
 julia> @assert append!!(Table(a=[1], b=[2]), [(a=3.5, b=4.5)]) ==
            Table(a=[1.0, 3.5], b=[2.0, 4.5])
+```
+
+`append!!` does not own the second argument:
+
+```jldoctest; setup = :(using BangBang)
+julia> xs = [1, 2, 3];
+
+julia> ys = append!!(Empty(Vector), xs)
+3-element Array{Int64,1}:
+ 1
+ 2
+ 3
+
+julia> ys === xs
+false
 ```
 """
 append!!
@@ -299,11 +319,14 @@ _asbb(::typeof(empty!)) = empty!!
 possible(::typeof(empty!), ::C) where C = implements(push!, C)
 
 """
-    mergewith!!(combine, dict, others...) -> dict′
+    mergewith!!(combine, dictlike, others...) -> dictlike′
     mergewith!!(combine)
 
-Like `merge!!(combine, dict, others...)` but `combine` does not have
+Like `merge!!(combine, dictlike, others...)` but `combine` does not have
 to be a `Function`.
+
+This function "owns" `dictlike` but not `others`.  See
+[`merge!!`](@ref) for more details.
 
 The curried form `mergewith!!(combine)` returns the function
 `(args...) -> mergewith!!(combine, args...)`.
@@ -331,6 +354,20 @@ end
     merge!!(dictlike, others...) -> dictlike′
     merge!!(combine, dictlike, others...) -> dictlike′
 
+Merge key-value pairs from `others` to `dictlike`.  Mutate `dictlike`
+if possible.
+
+This function "owns" `dictlike` but not `others`; i.e., returned value
+`dictlike′` does not alias any of `others`.  For example,
+`merge!!(Empty(Dict), other)` shallow-copies `other` instead of
+returning `other` as-is.
+
+Method `merge!!(combine::Union{Function,Type}, args...)` as an alias
+of `mergewith!!(combine, args...)` is still available for backward
+compatibility.
+
+See also [`mergewith!!`](@ref).
+
 # Examples
 ```jldoctest
 julia> using BangBang
@@ -346,6 +383,21 @@ julia> merge!!((a = 1,), Dict(:b => 0.5))
 julia> merge!!(+, Dict(:a => 1), Dict(:a => 0.5))
 Dict{Symbol,Float64} with 1 entry:
   :a => 1.5
+```
+
+`merge!!` does not own the second argument:
+
+```jldoctest; setup = :(using BangBang)
+julia> xs = Dict(:a => 1, :b => 2, :c => 3);
+
+julia> ys = merge!!(Empty(Dict), xs)
+Dict{Symbol,Int64} with 3 entries:
+  :a => 1
+  :b => 2
+  :c => 3
+
+julia> ys === xs
+false
 ```
 """
 merge!!
@@ -568,7 +620,51 @@ _asbb(::typeof(unique!)) = unique!!
 possible(::typeof(unique!), ::C) where {C} = implements(push!, C)
 
 """
-    union!!(setlike, itrs...) -> setlike′
+    union!!(setlike, others...) -> setlike′
+
+Return the union of all sets in the arguments.  Mutate `setlike` if
+possible.
+
+This function "owns" `setlike` but not `others`; i.e., returned value
+`setlike′` does not alias any of `others`.  For example,
+`union!!(Empty(Set), other)` shallow-copies `other` instead of
+returning `other` as-is.
+
+# Examples
+```jldoctest
+julia> using BangBang
+
+julia> xs = Set([1]);
+
+julia> ys = union!!(xs, Set([2]));  # mutates `xs` as it's possible
+
+julia> ys == Set([1, 2])
+true
+
+julia> ys === xs  # `xs` is returned
+true
+
+julia> zs = union!!(xs, Set([0.5]));  # incompatible element type
+
+julia> zs == Set([0.5, 1, 2])
+true
+
+julia> zs === xs  # a new set is returned
+false
+```
+
+`union!!` does not own the second argument:
+
+```jldoctest; setup = :(using BangBang)
+julia> xs = Set([1]);
+
+julia> ys = union!!(Empty(Set), xs)
+Set{Int64} with 1 element:
+  1
+
+julia> ys === xs
+false
+```
 """
 union!!
 union!!(set, itr) = may(union!, set, itr)
