@@ -60,7 +60,7 @@ using .NoBang: Empty, SingletonVector, singletonof
 include("core.jl")
 include("base.jl")
 include("linearalgebra.jl")
-include("experimental.jl")
+include("extras.jl")
 include("collectors.jl")
 include("initials.jl")
 include("macro.jl")
