@@ -43,6 +43,7 @@ julia> @assert push!!(Table(a=[1], b=[2]), (a=3.5, b=4.5)) ==
            Table(a=[1.0, 3.5], b=[2.0, 4.5])
 ```
 """
+push!!
 push!!(xs, i1, i2, items...) =
     foldl(push!!, items, init=push!!(push!!(xs, i1), i2))
 push!!(xs, x) = may(push!, xs, x)
@@ -93,6 +94,7 @@ julia> @assert append!!(Table(a=[1], b=[2]), [(a=3.5, b=4.5)]) ==
            Table(a=[1.0, 3.5], b=[2.0, 4.5])
 ```
 """
+append!!
 @inline append!!(xs, ys) = __append!!__(xs, ys)
 
 """
@@ -102,6 +104,7 @@ This is an overload interface for `append!!`.  This function must
 dispatch on the first argument and implemented by the owner of the
 type of the first argument.
 """
+__append!!__
 @inline __append!!__(xs, ys) = may(_append!, xs, ys)
 
 # An indirection for supporting dispatch on the second argument.
@@ -143,6 +146,7 @@ julia> using StaticArrays: SVector
 julia> @assert pushfirst!!(SVector(1, 2), 3, 4) === SVector(3, 4, 1, 2)
 ```
 """
+pushfirst!!
 pushfirst!!(xs, ys...) = may(pushfirst!, xs, ys...)
 
 pure(::typeof(pushfirst!)) = NoBang.pushfirst
@@ -177,6 +181,7 @@ julia> using StaticArrays: SVector
 julia> @assert pop!!(SVector(1, 2)) === (SVector(1), 2)
 ```
 """
+pop!!
 pop!!(xs, args...) = may(_pop!, xs, args...)
 _pop!(xs, args...) = xs, pop!(xs, args...)
 
@@ -203,6 +208,7 @@ julia> using StaticArrays: SVector
 julia> @assert deleteat!!(SVector(1, 2, 3), 2) === SVector(1, 3)
 ```
 """
+deleteat!!
 deleteat!!(xs, key) = may(deleteat!, xs, key)
 
 pure(::typeof(deleteat!)) = NoBang.deleteat
@@ -224,6 +230,7 @@ Dict{Symbol,Int64} with 1 entry:
   :b => 2
 ```
 """
+delete!!
 delete!!(xs, key) = may(delete!, xs, key)
 
 pure(::typeof(delete!)) = NoBang.delete
@@ -251,6 +258,7 @@ julia> using StaticArrays: SVector
 julia> @assert popfirst!!(SVector(1, 2)) === (SVector(2), 1)
 ```
 """
+popfirst!!
 popfirst!!(xs) = may(_popfirst!, xs)
 _popfirst!(xs) = xs, popfirst!(xs)
 
@@ -283,6 +291,7 @@ julia> using StaticArrays: SVector
 julia> @assert empty!!(SVector(1, 2)) == SVector{0, Int}()
 ```
 """
+empty!!
 empty!!(xs) = may(empty!, xs)
 
 pure(::typeof(empty!)) = NoBang._empty
@@ -339,6 +348,7 @@ Dict{Symbol,Float64} with 1 entry:
   :a => 1.5
 ```
 """
+merge!!
 merge!!(dict, others...) = merge!!(right, dict, others...)
 merge!!(combine::Base.Callable, dict, others...) =
     mergewith!!(combine, dict, others...)
@@ -370,6 +380,7 @@ julia> using StaticArrays: SVector
 julia> @assert splice!!(SVector(1, 2, 3), 2) === (SVector(1, 3), 2)
 ```
 """
+splice!!
 splice!!(xs, args...) = may(_splice!, xs, args...)
 _splice!(xs, args...) = xs, splice!(xs, args...)
 
@@ -400,6 +411,7 @@ julia> using StaticArrays: SVector
 julia> @assert setindex!!(SVector(1, 2), 10.0, 1) == SVector(10.0, 2.0)
 ```
 """
+setindex!!
 Base.@propagate_inbounds setindex!!(xs, v, I...) = may(_setindex!, xs, v, I...)
 
 Base.@propagate_inbounds _setindex!(xs, v, I...) = (setindex!(xs, v, I...); xs)
@@ -416,6 +428,7 @@ possible(::typeof(_setindex!), ::C, ::V, ::K) where {C <: AbstractDict, V, K} =
 """
     resize!!(vector::AbstractVector, n::Integer) -> vector′
 """
+resize!!
 resize!!(xs::Union{AbstractVector,Empty{<:AbstractVector}}, n::Integer) =
     implements(resize!, xs) ? resize!(xs, n) : NoBang.resize(xs, n)
 
@@ -491,6 +504,7 @@ end
 
 An alias of `setproperty!!(value, (name=x,))`.
 """
+setproperty!!
 setproperty!!(value, name::Symbol, x) = setproperties!!(value, (; name => x))
 
 """
@@ -544,6 +558,7 @@ end
     unique!!(set) -> set
     unique!!(sequence) -> sequence′
 """
+unique!!
 unique!!(itr) = unique(itr)
 unique!!(set::AbstractSet) = set
 unique!!(xs::AbstractVector) = may(unique!, xs)
@@ -555,6 +570,7 @@ possible(::typeof(unique!), ::C) where {C} = implements(push!, C)
 """
     union!!(setlike, itrs...) -> setlike′
 """
+union!!
 union!!(set, itr) = may(union!, set, itr)
 union!!(set, itr, itrs...) = foldl(union!!, itrs, init = union!!(set, itr))
 

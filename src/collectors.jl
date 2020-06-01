@@ -151,6 +151,7 @@ Extract the `data` collected in the collector `c`.
 
 See [`collector`](@ref).
 """
+finish!
 finish!(c::AbstractCollector) = resize!!(c.data, c.i - firstindex(c.data))
 # Final length is `(c.i - 1) - (firstindex(c.data) - 1)` where the
 # first `- 1` is because `c.i` is the index for the next element and
