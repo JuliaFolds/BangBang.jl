@@ -6,6 +6,16 @@ using Test
     file,
 ) !== nothing])
 
+    if file == "test_doctest.jl"
+        if lowercase(get(ENV, "JULIA_PKGEVAL", "false")) == "true"
+            @info "Skipping doctests on PkgEval."
+            continue
+        elseif !(v"1.4" <= VERSION < v"1.5-")
+            @info "Skipping doctests on Julia $VERSION."
+            continue
+        end
+    end
+
     if VERSION < v"1.2-" && file == "test_zygote.jl"
         @info "Skip $file for Julia $VERSION to avoid segfault"
         # For example:
