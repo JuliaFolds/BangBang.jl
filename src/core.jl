@@ -3,6 +3,7 @@
 
 Call `mutate!(args...)` if possible; fallback to the out-of-place version if not.
 """
+may
 Base.@propagate_inbounds may(mutate, args...) =
     if possible(mutate, args...)
         mutate(args...)
@@ -59,6 +60,7 @@ julia> implements(setindex!, MVector)
 true
 ```
 """
+implements
 implements(f!, x) = implements(f!, typeof(x))
 implements(::Any, ::Type) = false
 
