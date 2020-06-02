@@ -15,11 +15,13 @@ julia> add!!([1], [2])
  3
 ```
 """
+add!!
 add!!(A, B) = materialize!!(A, instantiate(broadcasted(+, A, B)))
 
 """
     mul!!(C, A, B, [α, β]) -> C′
 """
+mul!!
 mul!!(C, A, B) = may(mul!, C, A, B)
 mul!!(C, A, B, α, β) = may(mul!, C, A, B, α, β)
 
@@ -42,6 +44,7 @@ _matmuleltype(C, A, B, α, β) =
 """
     lmul!!(A, B) -> B′
 """
+lmul!!
 lmul!!(A, B) = may(lmul!, A, B)
 
 pure(::typeof(lmul!)) = *
@@ -52,6 +55,7 @@ possible(::typeof(lmul!), A, B) =
 """
     rmul!!(A, B) -> A′
 """
+rmul!!
 rmul!!(A, B) = may(rmul!, A, B)
 
 pure(::typeof(rmul!)) = *
