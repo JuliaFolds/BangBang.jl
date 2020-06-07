@@ -5,7 +5,7 @@
 """
 module Extras
 
-export mergewith!!
+export mergewith!!, modify!!
 
 using ..BangBang: delete!!, setindex!!, mergewith!!
 
