@@ -12,17 +12,17 @@ version = "1.1.0"
 
 [[Aqua]]
 deps = ["Pkg", "Test"]
-git-tree-sha1 = "ef6528217bb27f14ef7e292ccb69e36d696a54fe"
+git-tree-sha1 = "3a45b0fd092e5e35bde98d244dbf53f1438aede9"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/Aqua.jl"
 uuid = "4c88cf16-eb10-579e-8560-4a9242c79595"
-version = "0.4.3-DEV"
+version = "0.4.4-DEV"
 
 [[ArrayLayouts]]
 deps = ["FillArrays", "LinearAlgebra"]
-git-tree-sha1 = "a504dca2ac7eda8761c8f7c1ed52427a1be75a3c"
+git-tree-sha1 = "89182776a99b69964e995cc2f1e37b5fc3476d56"
 uuid = "4c555306-a7a7-4459-81d9-ec55ddd5c99a"
-version = "0.2.6"
+version = "0.3.4"
 
 [[BangBang]]
 deps = ["Compat", "ConstructionBase", "Future", "InitialValues", "LinearAlgebra", "Requires", "Setfield", "Tables", "ZygoteRules"]
@@ -50,6 +50,18 @@ deps = ["DataAPI", "Future", "JSON", "Missings", "Printf", "Statistics", "Unicod
 git-tree-sha1 = "a6c17353ee38ddab30e73dcfaa1107752de724ec"
 uuid = "324d7699-5711-5eae-9e2f-1d82baa6b597"
 version = "0.8.1"
+
+[[ChainRules]]
+deps = ["ChainRulesCore", "LinearAlgebra", "Reexport", "Requires", "Statistics"]
+git-tree-sha1 = "85f130f2c5ce208a5a395b550802398d2fcc5ee6"
+uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
+version = "0.6.4"
+
+[[ChainRulesCore]]
+deps = ["MuladdMacro"]
+git-tree-sha1 = "32e2c6e44d4fdd985b5688b5e85c1f6892cf3d15"
+uuid = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
+version = "0.8.0"
 
 [[CommonSubexpressions]]
 deps = ["Test"]
@@ -150,9 +162,9 @@ uuid = "9fa8497b-333b-5362-9e8d-4d0656e87820"
 
 [[IRTools]]
 deps = ["InteractiveUtils", "MacroTools", "Test"]
-git-tree-sha1 = "90ee39f9beaaa186e4968417ea2b8ed5673c91c0"
+git-tree-sha1 = "6875ae3cfcb9a50af80553d5cc825f406e8d13bc"
 uuid = "7869d1d1-7146-5819-86e3-90919afe41df"
-version = "0.3.3"
+version = "0.4.0"
 
 [[Indexing]]
 deps = ["Test"]
@@ -220,6 +232,11 @@ version = "0.4.3"
 [[Mmap]]
 uuid = "a63ad114-7e13-5084-954f-fe012c677804"
 
+[[MuladdMacro]]
+git-tree-sha1 = "c6190f9a7fc5d9d5915ab29f2134421b12d24a68"
+uuid = "46d2c3a1-f734-5fdb-9937-b9b9aeba4221"
+version = "0.2.2"
+
 [[NNlib]]
 deps = ["BinaryProvider", "Libdl", "LinearAlgebra", "Requires", "Statistics"]
 git-tree-sha1 = "d9f196d911f55aeaff11b11f681b135980783824"
@@ -244,11 +261,11 @@ version = "1.0.5"
 
 [[PerformanceTestTools]]
 deps = ["Test"]
-git-tree-sha1 = "e8a1a886235adf81c9ebe0a349ae196284362290"
+git-tree-sha1 = "44e2a6effd106d58189455545e2fe3d63a3b8cdc"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/PerformanceTestTools.jl.git"
 uuid = "dc46b164-d16f-48ec-a853-60448fc869fe"
-version = "0.1.3-DEV"
+version = "0.1.4-DEV"
 
 [[Pkg]]
 deps = ["Dates", "LibGit2", "Markdown", "Printf", "REPL", "Random", "SHA", "UUIDs"]
@@ -377,10 +394,10 @@ uuid = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
 uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
 
 [[Zygote]]
-deps = ["AbstractFFTs", "ArrayLayouts", "DiffRules", "FillArrays", "ForwardDiff", "Future", "IRTools", "InteractiveUtils", "LinearAlgebra", "MacroTools", "NNlib", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
-git-tree-sha1 = "707ceea58e2bd0ff3077ab13a92f8355181d3ee4"
+deps = ["AbstractFFTs", "ArrayLayouts", "ChainRules", "FillArrays", "ForwardDiff", "Future", "IRTools", "InteractiveUtils", "LinearAlgebra", "MacroTools", "NNlib", "Random", "Requires", "Statistics", "ZygoteRules"]
+git-tree-sha1 = "6d0f78976db6dbea9a36865efe068e6e2a5db6ed"
 uuid = "e88e6eb3-aa80-5325-afca-941959d7151f"
-version = "0.4.20"
+version = "0.4.21"
 
 [[ZygoteRules]]
 deps = ["MacroTools"]
