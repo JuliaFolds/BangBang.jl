@@ -44,10 +44,8 @@ append(xs::AbstractVector, ys::AbstractVector) =
         vcat(xs, ys)
     elseif length(ys) == 0
         xs
-    #=
     elseif length(ys) == 1
         push(xs, ys[1])
-    =#
     else
         # Not so robust:
         # append!!(push(xs, ys[1]), @view ys[2:end])
