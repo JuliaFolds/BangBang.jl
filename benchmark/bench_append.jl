@@ -14,13 +14,16 @@ function repeat_append!(dest, src, n_repeat = 100, n_values = 1000)
     end
 end
 
+repeat_append(dest, src) =
+    foldl(append!!, ntuple(_ -> src, 10); init = dest)
+
 suite = BenchmarkGroup()
 suite["append!!(::Vector, ::SingletonVector)"] =
     @benchmarkable(repeat_append!($(Float64[]), SingletonVector(1.0)))
 suite["append!!(::SVector, ::SingletonVector)"] =
-    @benchmarkable(repeat_append!(SVector{0,Float64}(), SingletonVector(1.0)))
+    @benchmarkable(repeat_append(SVector{0,Float64}(), SingletonVector(1.0)))
 suite["append!!(Empty(SVector), ::SingletonVector)"] =
-    @benchmarkable(repeat_append!(Empty(SVector), SingletonVector(1.0)))
+    @benchmarkable(repeat_append(Empty(SVector), SingletonVector(1.0)))
 
 end  # module
 BenchAppend.suite

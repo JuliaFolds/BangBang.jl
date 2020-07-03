@@ -125,7 +125,18 @@ dispatch on the first argument and implemented by the owner of the
 type of the first argument.
 """
 __append!!__
-@inline __append!!__(xs, ys) = may(_append!, xs, ys)
+@inline __append!!__(xs, ys) = __appendto!!__(xs, ys)
+
+"""
+    __appendto!!__(dest, src::CustomType) -> dest′
+
+This is an overload interface for `append!!`.  This function must
+dispatch on the second argument and implemented by the owner of the
+type of second first argument.  This function is used when there is
+no specific implementation for [`__append!!__`](@ref) is found.
+"""
+__appendto!!__
+@inline __appendto!!__(xs, ys) = may(_append!, xs, ys)
 
 # An indirection for supporting dispatch on the second argument.
 _append!(dest, src) = append!(dest, src)
