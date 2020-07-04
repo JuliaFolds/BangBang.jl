@@ -565,7 +565,7 @@ end
 """
     setproperty!!(value, name::Symbol, x)
 
-An alias of `setproperty!!(value, (name=x,))`.
+An alias of `setproperties!!(value, (name=x,))`.
 """
 setproperty!!
 setproperty!!(value, name::Symbol, x) = setproperties!!(value, (; name => x))
