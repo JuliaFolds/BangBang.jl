@@ -47,9 +47,3 @@ jobs:
         - julia -e 'using Run; Run.prepare("test/environments/jl10")'
       script:
         - julia -e 'using Run; Run.test(project="test/environments/jl10", inline=false)'
-    - stage: Documentation
-      install:
-        - julia -e 'using Run; Run.prepare_docs()'
-      script:
-        - julia -e 'using Run; Run.docs()'
-      after_success: skip
