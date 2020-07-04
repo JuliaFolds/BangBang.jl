@@ -9,6 +9,10 @@ julia:
   - nightly
 notifications:
   email: false
+cache:
+  directories:
+    # Cache ~/.julia/artifacts (https://discourse.julialang.org/t/35484)
+    - $HOME/.julia/artifacts
 
 # Only build branches via PR to avoid running CI twice.
 # https://docs.travis-ci.com/user/conditional-builds-stages-jobs
