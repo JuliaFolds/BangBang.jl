@@ -42,10 +42,10 @@ uuid = "324d7699-5711-5eae-9e2f-1d82baa6b597"
 version = "0.8.1"
 
 [[ChainRules]]
-deps = ["ChainRulesCore", "LinearAlgebra", "Reexport", "Requires", "Statistics"]
-git-tree-sha1 = "9d1951a1686e4849bda5469caadf7de593d56dcd"
+deps = ["ChainRulesCore", "LinearAlgebra", "Random", "Reexport", "Requires", "Statistics"]
+git-tree-sha1 = "4a2d0a94d4a2193c08b0dab32d0ebc1a457b7b2c"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "0.7.2"
+version = "0.7.4"
 
 [[ChainRulesCore]]
 deps = ["MuladdMacro"]
