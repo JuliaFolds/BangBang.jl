@@ -572,6 +572,36 @@ setproperty!!(value, name::Symbol, x) = setproperties!!(value, (; name => x))
 
 """
     materialize!!(dest, x)
+
+```jldoctest
+julia> using BangBang
+
+julia> using Base.Broadcast: instantiate, broadcasted
+
+julia> bc = instantiate(broadcasted(+, [1.0, 1.5, 2.0], 1));
+
+julia> xs = zeros(Float64, 3);
+
+julia> ys = materialize!!(xs, bc)
+3-element Array{Float64,1}:
+ 2.0
+ 2.5
+ 3.0
+
+julia> xs === ys  # mutated
+true
+
+julia> xs = Vector{Union{}}(undef, 3);
+
+julia> ys = materialize!!(xs, bc)
+3-element Array{Float64,1}:
+ 2.0
+ 2.5
+ 3.0
+
+julia> xs === ys
+false
+```
 """
 @inline materialize!!(dest, x) = may(_materialize!!, dest, x)
 # TODO: maybe instantiate `x` and be aware of `x`'s style
