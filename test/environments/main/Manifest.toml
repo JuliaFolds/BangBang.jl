@@ -43,15 +43,15 @@ version = "0.8.1"
 
 [[ChainRules]]
 deps = ["ChainRulesCore", "LinearAlgebra", "Random", "Reexport", "Requires", "Statistics"]
-git-tree-sha1 = "4a2d0a94d4a2193c08b0dab32d0ebc1a457b7b2c"
+git-tree-sha1 = "cb6638807e41b771337cf3dbb7b67c5be16e2018"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "0.7.4"
+version = "0.7.6"
 
 [[ChainRulesCore]]
 deps = ["MuladdMacro"]
-git-tree-sha1 = "bd1e56ac59d408c63ea26ab23aab78f827f13511"
+git-tree-sha1 = "4177411bef28d680948562abd25059dceb4d53ed"
 uuid = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
-version = "0.9.1"
+version = "0.9.2"
 
 [[CommonSubexpressions]]
 deps = ["MacroTools", "Test"]
@@ -169,7 +169,8 @@ uuid = "313cdc1a-70c2-5d6a-ae34-0150d3930a38"
 version = "1.1.0"
 
 [[InitialValues]]
-git-tree-sha1 = "7b16627136e5af30a43109eb7286d13921623b64"
+deps = ["Pkg"]
+git-tree-sha1 = "4694fcc660b178d6162a213c0c02357e9c016233"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/InitialValues.jl.git"
 uuid = "22cec73e-a1b8-11e9-2c92-598750a2cf9c"
