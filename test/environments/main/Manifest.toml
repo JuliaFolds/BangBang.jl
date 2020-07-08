@@ -35,6 +35,11 @@ version = "0.3.28-DEV"
 [[Base64]]
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
 
+[[CEnum]]
+git-tree-sha1 = "215a9aa4a1f23fbd05b92769fdd62559488d70e9"
+uuid = "fa961155-64e5-5f13-b03f-caf6b980ea82"
+version = "0.4.1"
+
 [[CategoricalArrays]]
 deps = ["DataAPI", "Future", "JSON", "Missings", "Printf", "Statistics", "Unicode"]
 git-tree-sha1 = "a6c17353ee38ddab30e73dcfaa1107752de724ec"
@@ -75,6 +80,12 @@ version = "0.3.3+0"
 git-tree-sha1 = "a2a6a5fea4d6f730ec4c18a76d27ec10e8ec1c50"
 uuid = "187b0558-2788-49d3-abe0-74a17ed4e7c9"
 version = "1.0.0"
+
+[[CpuId]]
+deps = ["Markdown", "Test"]
+git-tree-sha1 = "f0464e499ab9973b43c20f8216d088b61fda80c6"
+uuid = "adafc99b-e345-5852-983c-f28acb93d879"
+version = "0.2.2"
 
 [[DataAPI]]
 git-tree-sha1 = "176e23402d80e7743fc26c19c681bfb11246af32"
@@ -197,6 +208,12 @@ git-tree-sha1 = "b34d7cef7b337321e97d22242c3c2b91f476748e"
 uuid = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 version = "0.21.0"
 
+[[LLVM]]
+deps = ["CEnum", "Libdl", "Printf", "Unicode"]
+git-tree-sha1 = "a662366a5d485dee882077e8da3e1a95a86d097f"
+uuid = "929cbde3-209d-540e-8aea-75f648917ca0"
+version = "2.0.0"
+
 [[LibGit2]]
 deps = ["Printf"]
 uuid = "76f85450-5226-5b5a-8eaa-529ad045b433"
@@ -210,6 +227,12 @@ uuid = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 
 [[Logging]]
 uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
+
+[[LoopVectorization]]
+deps = ["DocStringExtensions", "LinearAlgebra", "OffsetArrays", "SIMDPirates", "SLEEFPirates", "UnPack", "VectorizationBase"]
+git-tree-sha1 = "147011570b80b06bc6de152146f55340fb080fb5"
+uuid = "bdcacae8-1622-11e9-2a5c-532679323890"
+version = "0.8.12"
 
 [[MacroTools]]
 deps = ["Markdown", "Random"]
@@ -242,15 +265,20 @@ uuid = "a6bfbf70-4841-5cb9-aa18-3a8ad3c413ee"
 version = "2018.6.22+0"
 
 [[NNlib]]
-deps = ["Libdl", "LinearAlgebra", "NNPACK_jll", "Pkg", "Requires", "Statistics"]
-git-tree-sha1 = "dc93bd9acde9ea39aac3cd7bf5be1ec36ae3b1f9"
+deps = ["Libdl", "LinearAlgebra", "LoopVectorization", "NNPACK_jll", "Pkg", "Requires", "Statistics"]
+git-tree-sha1 = "f593bdb98b00a4f5b87cc2c18231b81433111590"
 uuid = "872c559c-99b0-510c-b3b7-b6c96a88d5cd"
-version = "0.7.1"
+version = "0.7.2"
 
 [[NaNMath]]
 git-tree-sha1 = "928b8ca9b2791081dc71a51c55347c27c618760f"
 uuid = "77ba4419-2d1f-58cd-9bb1-8ffee604a2e3"
 version = "0.3.3"
+
+[[OffsetArrays]]
+git-tree-sha1 = "4ba4cd84c88df8340da1c3e2d8dcb9d18dd1b53b"
+uuid = "6fe1bfb0-de20-5000-8ca7-80f57d26f881"
+version = "1.1.1"
 
 [[OpenSpecFun_jll]]
 deps = ["CompilerSupportLibraries_jll", "Libdl", "Pkg"]
@@ -313,6 +341,18 @@ version = "1.0.1"
 
 [[SHA]]
 uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
+
+[[SIMDPirates]]
+deps = ["VectorizationBase"]
+git-tree-sha1 = "dae629e96c1819d77882256e6cb29736f493bc30"
+uuid = "21efa798-c60a-11e8-04d3-e1a92915a26a"
+version = "0.8.13"
+
+[[SLEEFPirates]]
+deps = ["Libdl", "SIMDPirates", "VectorizationBase"]
+git-tree-sha1 = "c750d618b7c8268a97e55c70e8c88e56080d30fa"
+uuid = "476501e8-09a2-5ece-8869-fb82de89a1fa"
+version = "0.5.4"
 
 [[Serialization]]
 uuid = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
@@ -394,8 +434,19 @@ version = "1.2.0"
 deps = ["Random", "SHA"]
 uuid = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
 
+[[UnPack]]
+git-tree-sha1 = "d4bfa022cd30df012700cf380af2141961bb3bfb"
+uuid = "3a884ed6-31ef-47d7-9d2a-63182c4928ed"
+version = "1.0.1"
+
 [[Unicode]]
 uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
+
+[[VectorizationBase]]
+deps = ["CpuId", "LLVM", "Libdl", "LinearAlgebra"]
+git-tree-sha1 = "a0b3ee35f2431acf2c5f87d43f9407df34d076a7"
+uuid = "3d5dd08c-fd9d-11e8-17fa-ed2836048c2f"
+version = "0.12.18"
 
 [[Zygote]]
 deps = ["AbstractFFTs", "ArrayLayouts", "ChainRules", "DiffRules", "FillArrays", "ForwardDiff", "Future", "IRTools", "InteractiveUtils", "LinearAlgebra", "MacroTools", "NNlib", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
