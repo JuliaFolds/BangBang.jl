@@ -39,6 +39,8 @@ end
     c1 = append!!(collector(), [1, 2])
     c2 = append!!(collector(), [3, 4, 5])
     @test finish!(append!!(c1, c2)) == 1:5
+
+    @test finish!(append!!(collector(), collector())) ==ₜ Union{}[]
 end
 
 @testset "Empty" begin
