@@ -142,12 +142,7 @@ end
 @inline __append!!__(c::AbstractCollector, src::AbstractCollector) =
     __append!!__(c, _view(src))
 
-_view(c::AbstractCollector) =
-    if c.data isa Empty
-        c.data
-    else
-        @inbounds view(c.data, firstindex(c.data):c.i-1)
-    end
+_view(c::AbstractCollector) = @inbounds view(c.data, firstindex(c.data):c.i-1)
 
 """
     finish!(c::AbstractCollector) -> data::AbstractVector
