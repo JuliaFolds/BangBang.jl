@@ -48,9 +48,9 @@ version = "0.8.1"
 
 [[ChainRules]]
 deps = ["ChainRulesCore", "LinearAlgebra", "Random", "Reexport", "Requires", "Statistics"]
-git-tree-sha1 = "5c8078c70b43d77d679aa146ea212a46da94458d"
+git-tree-sha1 = "55e8b5174c7fb2e138ef59e51ba3331e285c8f35"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "0.7.7"
+version = "0.7.8"
 
 [[ChainRulesCore]]
 deps = ["MuladdMacro"]
@@ -449,10 +449,10 @@ uuid = "3d5dd08c-fd9d-11e8-17fa-ed2836048c2f"
 version = "0.12.21"
 
 [[Zygote]]
-deps = ["AbstractFFTs", "ArrayLayouts", "ChainRules", "DiffRules", "FillArrays", "ForwardDiff", "Future", "IRTools", "InteractiveUtils", "LinearAlgebra", "MacroTools", "NNlib", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
-git-tree-sha1 = "295e68106dd7bb327f8aedbab79ca1b6bd80d9b3"
+deps = ["AbstractFFTs", "ArrayLayouts", "ChainRules", "DiffRules", "Distributed", "FillArrays", "ForwardDiff", "Future", "IRTools", "InteractiveUtils", "LinearAlgebra", "LoopVectorization", "MacroTools", "NNlib", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
+git-tree-sha1 = "16a7228209e6f457e9d71c39a58965616425384e"
 uuid = "e88e6eb3-aa80-5325-afca-941959d7151f"
-version = "0.5.2"
+version = "0.5.3"
 
 [[ZygoteRules]]
 deps = ["MacroTools"]
