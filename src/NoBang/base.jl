@@ -44,14 +44,12 @@ append(xs::AbstractVector, ys::AbstractVector) =
         vcat(xs, ys)
     elseif length(ys) == 0
         xs
-    #=
-    elseif length(ys) == 1
-        push(xs, ys[1])
-    =#
     else
         # Not so robust:
         # append!!(push(xs, ys[1]), @view ys[2:end])
-        foldl(push!!, (@view ys[2:end]), init=push(xs, ys[1]))
+        zs = push(xs, ys[1])
+        length(ys) == 1 && return zs
+        foldl(push!!, (@view ys[2:end]), init = zs)
     end
 
 append(xs::ImmutableContainer, ys) = push(xs, ys...)
@@ -146,6 +144,8 @@ function _setindex(d0::AbstractDict, v, k)
     d[k] = v
     return d
 end
+
+resize(xs::AbstractVector, n::Integer) = similar(xs, (n,))
 
 setproperty(value, name, x) = setproperties(value, NamedTuple{(name,)}((x,)))
 

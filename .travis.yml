@@ -5,9 +5,14 @@ os:
   # - osx
 julia:
   - 1.4
+  - 1.5
   - nightly
 notifications:
   email: false
+cache:
+  directories:
+    # Cache ~/.julia/artifacts (https://discourse.julialang.org/t/35484)
+    - $HOME/.julia/artifacts
 
 # Only build branches via PR to avoid running CI twice.
 # https://docs.travis-ci.com/user/conditional-builds-stages-jobs
@@ -42,9 +47,3 @@ jobs:
         - julia -e 'using Run; Run.prepare("test/environments/jl10")'
       script:
         - julia -e 'using Run; Run.test(project="test/environments/jl10", inline=false)'
-    - stage: Documentation
-      install:
-        - julia -e 'using Run; Run.prepare_docs()'
-      script:
-        - julia -e 'using Run; Run.docs()'
-      after_success: skip

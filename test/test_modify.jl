@@ -1,7 +1,7 @@
 module TestModify
 
 include("preamble.jl")
-using BangBang.Experimental: modify!!
+using BangBang.Extras: modify!!
 
 function modify!(f, d, k)
     d′, v = modify!!(f, d, k)

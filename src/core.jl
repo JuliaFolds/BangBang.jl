@@ -3,6 +3,7 @@
 
 Call `mutate!(args...)` if possible; fallback to the out-of-place version if not.
 """
+may
 Base.@propagate_inbounds may(mutate, args...) =
     if possible(mutate, args...)
         mutate(args...)
@@ -17,6 +18,12 @@ const MaybeMutableContainer = Union{
     AbstractArray,
     AbstractDict,
     AbstractSet,
+}
+const ShapeFrozenContainer = Union{
+    NoBang.ImmutableContainer,
+    NoBang.Empty,
+    NoBang.SingletonVector,
+    NoBang.SingletonDict,
 }
 const Mutator = Union{typeof(push!), typeof(setindex!)}
 
@@ -53,12 +60,19 @@ julia> implements(setindex!, MVector)
 true
 ```
 """
+implements
 implements(f!, x) = implements(f!, typeof(x))
 implements(::Any, ::Type) = false
 
-implements(::Mutator, ::Type{<:ImmutableContainer}) = false
+implements(::Mutator, ::Type{<:ShapeFrozenContainer}) = false
 implements(::Mutator, ::Type{<:MaybeMutableContainer}) = true
 implements(::Mutator, ::Type{<:AbstractString}) = false
+
+implements(::typeof(resize!), ::Type{<:AbstractVector}) = true
+implements(
+    ::typeof(resize!),
+    ::Type{<:Union{SubArray{<:Any,1},Base.ReshapedArray{<:Any,1}}},
+) = false
 
 Base.@pure ismutablestruct(T::DataType) = T.mutable
 implements(::typeof(setproperty!), T::DataType) = ismutablestruct(T)

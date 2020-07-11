@@ -8,12 +8,15 @@ export @!,
        Empty,
        add!!,
        append!!,
+       collector,
        delete!!,
        deleteat!!,
        empty!!,
+       finish!,
        lmul!!,
        materialize!!,
        merge!!,
+       mergewith!!,
        mul!!,
        pop!!,
        popfirst!!,
@@ -39,6 +42,7 @@ using Base.Broadcast:
     preprocess
 using Base: HasEltype, IteratorEltype, promote_typejoin
 using Compat: hasproperty
+using ConstructionBase: constructorof
 using InitialValues
 using LinearAlgebra
 using Requires
@@ -51,12 +55,13 @@ function push!! end
 function unique!! end
 
 include("NoBang/NoBang.jl")
-using .NoBang: Empty, ImmutableContainer, SingletonVector, singletonof
+using .NoBang: Empty, SingletonVector, singletonof
 
 include("core.jl")
 include("base.jl")
 include("linearalgebra.jl")
-include("experimental.jl")
+include("extras.jl")
+include("collectors.jl")
 include("initials.jl")
 include("macro.jl")
 include("dataframes_impl.jl")

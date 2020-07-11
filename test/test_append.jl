@@ -3,6 +3,7 @@ module TestAppend
 include("preamble.jl")
 
 using BangBang.NoBang: SingletonVector
+using InitialValues: Init, asmonoid
 using StructArrays: StructVector
 
 @testset begin
@@ -17,6 +18,17 @@ using StructArrays: StructVector
     @test append!!(SVector(0), [1])::Vector == [0, 1]
     @test append!!([0], SVector(1))::Vector == [0, 1]
     @test append!!(Union{}[], Iterators.take(1:10, 3)) ==ₜ [1, 2, 3]
+    @test append!!(SingletonVector(1), [0.5, 2]) ==ₜ [1, 0.5, 2]
+end
+
+@testset "Init" begin
+    xs = [1, 2, 3]
+    @test append!!(xs, Init(append!!)) === xs
+    @test append!!(Init(append!!), xs) !== xs
+    @test append!!(Init(append!!), xs) ==ₜ xs
+    @test append!!(Init(append!!), (x for x in xs if true)) ==ₜ xs
+    @test append!!(Init(append!!), Init(append!!)) === Init(append!!)
+    @test asmonoid(append!!) === append!!
 end
 
 @testset "Empty" begin

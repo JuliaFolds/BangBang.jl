@@ -39,6 +39,7 @@ Setfield.set(obj, lens::Lens!!{<:SupportedIndexLens}, value) =
 
 See also [`@set!!`](@ref).
 """
+prefermutation
 prefermutation(lens::Lens) = Lens!!(lens)
 
 """
@@ -62,6 +63,7 @@ julia> @set!! x.a.x.a = 10;
 julia> @assert x.a.x.a == orig.a.x.a == 10
 ```
 """
+:(@set!!)
 macro set!!(ex)
     Setfield.setmacro(prefermutation, ex, overwrite = true)
 end
