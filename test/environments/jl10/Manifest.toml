@@ -146,9 +146,9 @@ version = "0.25.0"
 
 [[FillArrays]]
 deps = ["LinearAlgebra", "Random", "SparseArrays"]
-git-tree-sha1 = "4783bbbeade37f2a8bd82af6c112510fde78e532"
+git-tree-sha1 = "be4180bdb27a11188d694ee3773122f4921f1a62"
 uuid = "1a297f60-69ca-5386-bcde-b61e274b549b"
-version = "0.8.12"
+version = "0.8.13"
 
 [[ForwardDiff]]
 deps = ["CommonSubexpressions", "DiffResults", "DiffRules", "NaNMath", "Random", "SpecialFunctions", "StaticArrays"]
@@ -244,9 +244,9 @@ uuid = "872c559c-99b0-510c-b3b7-b6c96a88d5cd"
 version = "0.6.6"
 
 [[NaNMath]]
-git-tree-sha1 = "928b8ca9b2791081dc71a51c55347c27c618760f"
+git-tree-sha1 = "c84c576296d0e2fbb3fc134d3e09086b3ea617cd"
 uuid = "77ba4419-2d1f-58cd-9bb1-8ffee604a2e3"
-version = "0.3.3"
+version = "0.3.4"
 
 [[OrderedCollections]]
 git-tree-sha1 = "293b70ac1780f9584c89268a6e2a560d938a7065"

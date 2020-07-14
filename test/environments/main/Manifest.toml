@@ -48,9 +48,9 @@ version = "0.8.1"
 
 [[ChainRules]]
 deps = ["ChainRulesCore", "LinearAlgebra", "Random", "Reexport", "Requires", "Statistics"]
-git-tree-sha1 = "55e8b5174c7fb2e138ef59e51ba3331e285c8f35"
+git-tree-sha1 = "3cd33cd1604d854dfd853bcd3efca21ce36b1a58"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "0.7.8"
+version = "0.7.9"
 
 [[ChainRulesCore]]
 deps = ["MuladdMacro"]
@@ -153,9 +153,9 @@ version = "0.25.0"
 
 [[FillArrays]]
 deps = ["LinearAlgebra", "Random", "SparseArrays"]
-git-tree-sha1 = "4783bbbeade37f2a8bd82af6c112510fde78e532"
+git-tree-sha1 = "be4180bdb27a11188d694ee3773122f4921f1a62"
 uuid = "1a297f60-69ca-5386-bcde-b61e274b549b"
-version = "0.8.12"
+version = "0.8.13"
 
 [[ForwardDiff]]
 deps = ["CommonSubexpressions", "DiffResults", "DiffRules", "NaNMath", "Random", "SpecialFunctions", "StaticArrays"]
@@ -270,9 +270,9 @@ uuid = "872c559c-99b0-510c-b3b7-b6c96a88d5cd"
 version = "0.7.3"
 
 [[NaNMath]]
-git-tree-sha1 = "928b8ca9b2791081dc71a51c55347c27c618760f"
+git-tree-sha1 = "c84c576296d0e2fbb3fc134d3e09086b3ea617cd"
 uuid = "77ba4419-2d1f-58cd-9bb1-8ffee604a2e3"
-version = "0.3.3"
+version = "0.3.4"
 
 [[OffsetArrays]]
 git-tree-sha1 = "4ba4cd84c88df8340da1c3e2d8dcb9d18dd1b53b"
