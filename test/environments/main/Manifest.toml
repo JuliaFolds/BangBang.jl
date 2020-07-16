@@ -22,9 +22,9 @@ version = "0.4.4-DEV"
 
 [[ArrayLayouts]]
 deps = ["FillArrays", "LinearAlgebra"]
-git-tree-sha1 = "a3254b3780a3544838ca0b7e23b1e9b06eb71bd8"
+git-tree-sha1 = "6f6e33efac70fc24c1f2a654a090b7af01690ffe"
 uuid = "4c555306-a7a7-4459-81d9-ec55ddd5c99a"
-version = "0.3.5"
+version = "0.3.7"
 
 [[BangBang]]
 deps = ["Compat", "ConstructionBase", "Future", "InitialValues", "LinearAlgebra", "Requires", "Setfield", "Tables", "ZygoteRules"]
@@ -34,11 +34,6 @@ version = "0.3.30-DEV"
 
 [[Base64]]
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
-
-[[CEnum]]
-git-tree-sha1 = "215a9aa4a1f23fbd05b92769fdd62559488d70e9"
-uuid = "fa961155-64e5-5f13-b03f-caf6b980ea82"
-version = "0.4.1"
 
 [[CategoricalArrays]]
 deps = ["DataAPI", "Future", "JSON", "Missings", "Printf", "Statistics", "Unicode"]
@@ -207,12 +202,6 @@ git-tree-sha1 = "b34d7cef7b337321e97d22242c3c2b91f476748e"
 uuid = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 version = "0.21.0"
 
-[[LLVM]]
-deps = ["CEnum", "Libdl", "Printf", "Unicode"]
-git-tree-sha1 = "a662366a5d485dee882077e8da3e1a95a86d097f"
-uuid = "929cbde3-209d-540e-8aea-75f648917ca0"
-version = "2.0.0"
-
 [[LibGit2]]
 deps = ["Printf"]
 uuid = "76f85450-5226-5b5a-8eaa-529ad045b433"
@@ -229,9 +218,9 @@ uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
 
 [[LoopVectorization]]
 deps = ["DocStringExtensions", "LinearAlgebra", "OffsetArrays", "SIMDPirates", "SLEEFPirates", "UnPack", "VectorizationBase"]
-git-tree-sha1 = "175fa26ece232526275d3ce0a95d54345c947714"
+git-tree-sha1 = "4c002de66221639174e081ec74c156e9013e4afa"
 uuid = "bdcacae8-1622-11e9-2a5c-532679323890"
-version = "0.8.16"
+version = "0.8.17"
 
 [[MacroTools]]
 deps = ["Markdown", "Random"]
@@ -442,10 +431,10 @@ version = "1.0.1"
 uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
 
 [[VectorizationBase]]
-deps = ["CpuId", "LLVM", "Libdl", "LinearAlgebra"]
-git-tree-sha1 = "bb72c58beab6c9e544851f5373fcd72f8f1f157a"
+deps = ["CpuId", "Libdl", "LinearAlgebra"]
+git-tree-sha1 = "1f2c3b362447e9dc031d09bf5a887b2ae01fcbd8"
 uuid = "3d5dd08c-fd9d-11e8-17fa-ed2836048c2f"
-version = "0.12.21"
+version = "0.12.23"
 
 [[Zygote]]
 deps = ["AbstractFFTs", "ArrayLayouts", "ChainRules", "DiffRules", "Distributed", "FillArrays", "ForwardDiff", "Future", "IRTools", "InteractiveUtils", "LinearAlgebra", "LoopVectorization", "MacroTools", "NNlib", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
