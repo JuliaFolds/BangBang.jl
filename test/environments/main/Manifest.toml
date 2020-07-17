@@ -43,9 +43,9 @@ version = "0.8.1"
 
 [[ChainRules]]
 deps = ["ChainRulesCore", "LinearAlgebra", "Random", "Reexport", "Requires", "Statistics"]
-git-tree-sha1 = "3cd33cd1604d854dfd853bcd3efca21ce36b1a58"
+git-tree-sha1 = "f6de895e40f52e9ad40fc962aded10647443be31"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "0.7.9"
+version = "0.7.11"
 
 [[ChainRulesCore]]
 deps = ["MuladdMacro"]
@@ -218,9 +218,9 @@ uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
 
 [[LoopVectorization]]
 deps = ["DocStringExtensions", "LinearAlgebra", "OffsetArrays", "SIMDPirates", "SLEEFPirates", "UnPack", "VectorizationBase"]
-git-tree-sha1 = "4c002de66221639174e081ec74c156e9013e4afa"
+git-tree-sha1 = "c130c0ec960fa489dc87041d60834c459b307d0c"
 uuid = "bdcacae8-1622-11e9-2a5c-532679323890"
-version = "0.8.17"
+version = "0.8.18"
 
 [[MacroTools]]
 deps = ["Markdown", "Random"]
@@ -432,9 +432,9 @@ uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
 
 [[VectorizationBase]]
 deps = ["CpuId", "Libdl", "LinearAlgebra"]
-git-tree-sha1 = "1f2c3b362447e9dc031d09bf5a887b2ae01fcbd8"
+git-tree-sha1 = "95c0c737c307dfd4f65ad50a79856b343fdb7959"
 uuid = "3d5dd08c-fd9d-11e8-17fa-ed2836048c2f"
-version = "0.12.23"
+version = "0.12.24"
 
 [[Zygote]]
 deps = ["AbstractFFTs", "ArrayLayouts", "ChainRules", "DiffRules", "Distributed", "FillArrays", "ForwardDiff", "Future", "IRTools", "InteractiveUtils", "LinearAlgebra", "LoopVectorization", "MacroTools", "NNlib", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
