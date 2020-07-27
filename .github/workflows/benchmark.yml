@@ -31,7 +31,12 @@ jobs:
       - name: Run benchmarks
         run: julia -e "using BenchmarkCI; BenchmarkCI.judge()"
       - name: Push results
-        run: julia -e 'using BenchmarkCI; BenchmarkCI.pushresult()'
+        run: julia -e '
+          using BenchmarkCI;
+          BenchmarkCI.pushresult(;
+              url = "git@github.com:JuliaFolds/BangBang-data.git",
+          );
+          '
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_KEY: ${{ secrets.DATA_SSH_KEY }}
