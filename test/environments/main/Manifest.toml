@@ -332,9 +332,9 @@ uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
 
 [[SIMDPirates]]
 deps = ["VectorizationBase"]
-git-tree-sha1 = "d3c57821a9aa32235507cc4ad92f11d4af4a7f54"
+git-tree-sha1 = "8e0bed7e6fde3895341b79d375b10e2c99ef9d63"
 uuid = "21efa798-c60a-11e8-04d3-e1a92915a26a"
-version = "0.8.18"
+version = "0.8.20"
 
 [[SLEEFPirates]]
 deps = ["Libdl", "SIMDPirates", "VectorizationBase"]
@@ -432,9 +432,9 @@ uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
 
 [[VectorizationBase]]
 deps = ["CpuId", "Libdl", "LinearAlgebra"]
-git-tree-sha1 = "ed3abbef49ae998f1348e0794cec0d4d6668a78d"
+git-tree-sha1 = "46afc4dc02f534e149149173f38f8f59cc23c165"
 uuid = "3d5dd08c-fd9d-11e8-17fa-ed2836048c2f"
-version = "0.12.27"
+version = "0.12.29"
 
 [[Zygote]]
 deps = ["AbstractFFTs", "ArrayLayouts", "ChainRules", "DiffRules", "Distributed", "FillArrays", "ForwardDiff", "Future", "IRTools", "InteractiveUtils", "LinearAlgebra", "LoopVectorization", "MacroTools", "NNlib", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
