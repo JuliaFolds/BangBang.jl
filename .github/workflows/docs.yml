@@ -21,6 +21,7 @@ jobs:
       - name: Install dependencies
         run: julia -e 'using Run; Run.prepare_docs()'
       - name: Build and deploy
+        id: build-and-deploy
         if: |
           github.event_name == 'push' || (
             github.event_name == 'pull_request' &&
@@ -31,5 +32,5 @@ jobs:
           DOCUMENTER_KEY: ${{ secrets.SSH_KEY }}
         run: julia -e 'using Run; Run.docs()'
       - name: Just build
-        if: contains(github.head_ref, 'create-pull-request/')
+        if: steps.build-and-deploy.outcome == 'skipped'
         run: julia -e 'using Run; Run.docs()'
