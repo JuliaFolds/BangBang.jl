@@ -30,11 +30,13 @@ end
 end
 
 @testset "index lenses" begin
-    @testset "ConstIndexLens" begin
-        v = [1, 2, 3]
-        i = j = 1
-        @set!! v[$(i + j)] = 20
-        @test v[2] == 20
+    @static if isdefined(Setfield, :ConstIndexLens)
+        @testset "ConstIndexLens" begin
+            v = [1, 2, 3]
+            i = j = 1
+            @set!! v[$(i + j)] = 20
+            @test v[2] == 20
+        end
     end
     @testset "DynamicIndexLens" begin
         v = [1, 2, 3]
