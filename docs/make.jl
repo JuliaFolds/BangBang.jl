@@ -14,4 +14,4 @@ makedocs(
     strict = true,
 )
 
-deploydocs(; repo = "github.com/JuliaFolds/BangBang.jl")
+deploydocs(; repo = "github.com/JuliaFolds/BangBang.jl", push_preview = true)
