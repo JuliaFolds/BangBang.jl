@@ -438,9 +438,9 @@ version = "0.12.29"
 
 [[Zygote]]
 deps = ["AbstractFFTs", "ArrayLayouts", "ChainRules", "DiffRules", "Distributed", "FillArrays", "ForwardDiff", "Future", "IRTools", "InteractiveUtils", "LinearAlgebra", "LoopVectorization", "MacroTools", "NNlib", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
-git-tree-sha1 = "16a7228209e6f457e9d71c39a58965616425384e"
+git-tree-sha1 = "0079d92995b0fbcffd5d475d49ec8ca49375c471"
 uuid = "e88e6eb3-aa80-5325-afca-941959d7151f"
-version = "0.5.3"
+version = "0.5.4"
 
 [[ZygoteRules]]
 deps = ["MacroTools"]
