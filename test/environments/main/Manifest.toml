@@ -218,9 +218,9 @@ uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
 
 [[LoopVectorization]]
 deps = ["DocStringExtensions", "LinearAlgebra", "OffsetArrays", "SIMDPirates", "SLEEFPirates", "UnPack", "VectorizationBase"]
-git-tree-sha1 = "695da000214847a1489c8d78ef781e0abd5b944a"
+git-tree-sha1 = "5d1d5fb3e9a4c18ae1aa8cb16b0fbdbfeb7db5ed"
 uuid = "bdcacae8-1622-11e9-2a5c-532679323890"
-version = "0.8.21"
+version = "0.8.22"
 
 [[MacroTools]]
 deps = ["Markdown", "Random"]
@@ -432,9 +432,9 @@ uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
 
 [[VectorizationBase]]
 deps = ["CpuId", "Libdl", "LinearAlgebra"]
-git-tree-sha1 = "46afc4dc02f534e149149173f38f8f59cc23c165"
+git-tree-sha1 = "09a4d4896aac75199b332eb26a8d0a9e4655e34a"
 uuid = "3d5dd08c-fd9d-11e8-17fa-ed2836048c2f"
-version = "0.12.29"
+version = "0.12.30"
 
 [[Zygote]]
 deps = ["AbstractFFTs", "ArrayLayouts", "ChainRules", "DiffRules", "Distributed", "FillArrays", "ForwardDiff", "Future", "IRTools", "InteractiveUtils", "LinearAlgebra", "LoopVectorization", "MacroTools", "NNlib", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
