@@ -3,6 +3,7 @@ module TestAqua
 using Aqua
 using BangBang
 using Setfield
+using Test
 
 Aqua.test_all(
     BangBang;
