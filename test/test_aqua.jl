@@ -9,4 +9,8 @@ Aqua.test_all(
     ambiguities=(exclude=[Base.get, Setfield.set, Setfield.modify],),
 )
 
+@testset "Stale dependencies" begin
+    Aqua.test_stale_deps(BangBang)
+end
+
 end  # module
