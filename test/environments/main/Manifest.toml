@@ -218,9 +218,9 @@ uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
 
 [[LoopVectorization]]
 deps = ["DocStringExtensions", "LinearAlgebra", "OffsetArrays", "SIMDPirates", "SLEEFPirates", "UnPack", "VectorizationBase"]
-git-tree-sha1 = "df625d1ac07cb4b630ec1c024a42b8bc6ee9927f"
+git-tree-sha1 = "c91ec40b996132c96d1392e36e36383e579eb60f"
 uuid = "bdcacae8-1622-11e9-2a5c-532679323890"
-version = "0.8.23"
+version = "0.8.24"
 
 [[MacroTools]]
 deps = ["Markdown", "Random"]
