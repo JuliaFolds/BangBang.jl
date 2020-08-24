@@ -45,9 +45,9 @@ version = "0.21.6"
 
 [[DataStructures]]
 deps = ["Compat", "InteractiveUtils", "OrderedCollections"]
-git-tree-sha1 = "11bdd2b516918f852fdb9018bac715ff2fbfea76"
+git-tree-sha1 = "d00f02a7616fdcc63a156e13c641678c70e5c412"
 uuid = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
-version = "0.18.0"
+version = "0.18.1"
 
 [[DataValueInterfaces]]
 git-tree-sha1 = "bfc1187b79289637fa0ef6d4436ebdfe6905cbd6"
