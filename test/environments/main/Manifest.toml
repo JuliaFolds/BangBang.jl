@@ -21,10 +21,10 @@ uuid = "4c88cf16-eb10-579e-8560-4a9242c79595"
 version = "0.4.5-DEV"
 
 [[ArrayLayouts]]
-deps = ["FillArrays", "LinearAlgebra"]
-git-tree-sha1 = "951c3fc1ff93497c88fb1dfa893f4de55d0b38e3"
+deps = ["FillArrays", "LinearAlgebra", "SparseArrays"]
+git-tree-sha1 = "3aa7f96b1f5e5520d764b83e8ecda26800b7302f"
 uuid = "4c555306-a7a7-4459-81d9-ec55ddd5c99a"
-version = "0.3.8"
+version = "0.4.4"
 
 [[BangBang]]
 deps = ["Compat", "ConstructionBase", "Future", "InitialValues", "LinearAlgebra", "Requires", "Setfield", "Tables", "ZygoteRules"]
@@ -49,9 +49,9 @@ version = "0.7.14"
 
 [[ChainRulesCore]]
 deps = ["MuladdMacro"]
-git-tree-sha1 = "971b03f25bdf2acab79f1c51afc717f9dccf43c2"
+git-tree-sha1 = "e4afc6b9ff6827e190de8f4ee81498804e40cf23"
 uuid = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
-version = "0.9.5"
+version = "0.9.6"
 
 [[CommonSubexpressions]]
 deps = ["MacroTools", "Test"]
@@ -148,9 +148,9 @@ version = "0.25.2"
 
 [[FillArrays]]
 deps = ["LinearAlgebra", "Random", "SparseArrays"]
-git-tree-sha1 = "4863cbb7910079369e258dee4add9d06ead5063a"
+git-tree-sha1 = "56dc5338eb79a05e5ea120f510ed77efe7e9784d"
 uuid = "1a297f60-69ca-5386-bcde-b61e274b549b"
-version = "0.8.14"
+version = "0.9.5"
 
 [[ForwardDiff]]
 deps = ["CommonSubexpressions", "DiffResults", "DiffRules", "NaNMath", "Random", "SpecialFunctions", "StaticArrays"]
@@ -432,9 +432,9 @@ version = "0.12.32"
 
 [[Zygote]]
 deps = ["AbstractFFTs", "ArrayLayouts", "ChainRules", "DiffRules", "Distributed", "FillArrays", "ForwardDiff", "Future", "IRTools", "InteractiveUtils", "LinearAlgebra", "LoopVectorization", "MacroTools", "NNlib", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
-git-tree-sha1 = "0079d92995b0fbcffd5d475d49ec8ca49375c471"
+git-tree-sha1 = "fa45127afd117fca6a8540f92d5e3799daf8339a"
 uuid = "e88e6eb3-aa80-5325-afca-941959d7151f"
-version = "0.5.4"
+version = "0.5.5"
 
 [[ZygoteRules]]
 deps = ["MacroTools"]
