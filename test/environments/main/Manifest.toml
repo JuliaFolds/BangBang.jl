@@ -164,9 +164,9 @@ uuid = "9fa8497b-333b-5362-9e8d-4d0656e87820"
 
 [[IRTools]]
 deps = ["InteractiveUtils", "MacroTools", "Test"]
-git-tree-sha1 = "6875ae3cfcb9a50af80553d5cc825f406e8d13bc"
+git-tree-sha1 = "a8d88c05a23b44b4da6cf4fb5659e13ff95e0f47"
 uuid = "7869d1d1-7146-5819-86e3-90919afe41df"
-version = "0.4.0"
+version = "0.4.1"
 
 [[Indexing]]
 deps = ["Test"]
@@ -218,9 +218,9 @@ uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
 
 [[LoopVectorization]]
 deps = ["DocStringExtensions", "LinearAlgebra", "OffsetArrays", "SIMDPirates", "SLEEFPirates", "UnPack", "VectorizationBase"]
-git-tree-sha1 = "c91ec40b996132c96d1392e36e36383e579eb60f"
+git-tree-sha1 = "224c9768765c2a3b588fec71cff48b8eb1c80c48"
 uuid = "bdcacae8-1622-11e9-2a5c-532679323890"
-version = "0.8.24"
+version = "0.8.25"
 
 [[MacroTools]]
 deps = ["Markdown", "Random"]

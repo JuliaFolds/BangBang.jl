@@ -162,9 +162,9 @@ uuid = "9fa8497b-333b-5362-9e8d-4d0656e87820"
 
 [[IRTools]]
 deps = ["InteractiveUtils", "MacroTools", "Test"]
-git-tree-sha1 = "6875ae3cfcb9a50af80553d5cc825f406e8d13bc"
+git-tree-sha1 = "a8d88c05a23b44b4da6cf4fb5659e13ff95e0f47"
 uuid = "7869d1d1-7146-5819-86e3-90919afe41df"
-version = "0.4.0"
+version = "0.4.1"
 
 [[Indexing]]
 deps = ["Test"]
