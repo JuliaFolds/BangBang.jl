@@ -22,9 +22,9 @@ version = "0.4.5-DEV"
 
 [[ArrayLayouts]]
 deps = ["FillArrays", "LinearAlgebra", "SparseArrays"]
-git-tree-sha1 = "e3e0a1e7dcbfdb1fc1061bfd889581a1d942cfcb"
+git-tree-sha1 = "2d8ac01e2d62d6bc9172e71ddcc9c904d478633f"
 uuid = "4c555306-a7a7-4459-81d9-ec55ddd5c99a"
-version = "0.4.5"
+version = "0.4.6"
 
 [[BangBang]]
 deps = ["Compat", "ConstructionBase", "Future", "InitialValues", "LinearAlgebra", "Requires", "Setfield", "Tables", "ZygoteRules"]
@@ -95,9 +95,9 @@ version = "0.21.7"
 
 [[DataStructures]]
 deps = ["Compat", "InteractiveUtils", "OrderedCollections"]
-git-tree-sha1 = "65974157a18f4e19c07e5a94576328814ae23f9b"
+git-tree-sha1 = "6189e66c78a2d840db5ee530ac2326505b3cc7ae"
 uuid = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
-version = "0.18.3"
+version = "0.18.4"
 
 [[DataValueInterfaces]]
 git-tree-sha1 = "bfc1187b79289637fa0ef6d4436ebdfe6905cbd6"
@@ -432,15 +432,15 @@ uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
 
 [[VectorizationBase]]
 deps = ["CpuId", "Libdl", "LinearAlgebra"]
-git-tree-sha1 = "c2a34c8065076a867fc36522c1a3441156a63445"
+git-tree-sha1 = "03e2fbb479a1ea350398195b6fbf439bae0f8260"
 uuid = "3d5dd08c-fd9d-11e8-17fa-ed2836048c2f"
-version = "0.12.32"
+version = "0.12.33"
 
 [[Zygote]]
 deps = ["AbstractFFTs", "ArrayLayouts", "ChainRules", "DiffRules", "Distributed", "FillArrays", "ForwardDiff", "Future", "IRTools", "InteractiveUtils", "LinearAlgebra", "LoopVectorization", "MacroTools", "NNlib", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
-git-tree-sha1 = "fa45127afd117fca6a8540f92d5e3799daf8339a"
+git-tree-sha1 = "b0a948a0a78e3e41515714fa1ef4f40a284ffa06"
 uuid = "e88e6eb3-aa80-5325-afca-941959d7151f"
-version = "0.5.5"
+version = "0.5.6"
 
 [[ZygoteRules]]
 deps = ["MacroTools"]
