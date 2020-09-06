@@ -6,11 +6,11 @@ version = "0.5.0"
 
 [[Aqua]]
 deps = ["Pkg", "Test"]
-git-tree-sha1 = "8b16716787990494b9425f0ca2dcff728d493038"
+git-tree-sha1 = "2c366fa12569d9232b5b7cfa37c36f3f1b2665b2"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/Aqua.jl.git"
 uuid = "4c88cf16-eb10-579e-8560-4a9242c79595"
-version = "0.4.2-DEV"
+version = "0.4.4-DEV"
 
 [[BangBang]]
 deps = ["Compat", "ConstructionBase", "Future", "InitialValues", "LinearAlgebra", "Requires", "Setfield", "Tables", "ZygoteRules"]
@@ -111,15 +111,15 @@ uuid = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 
 [[DocStringExtensions]]
 deps = ["LibGit2", "Markdown", "Pkg", "Test"]
-git-tree-sha1 = "88bb0edb352b16608036faadcc071adda068582a"
+git-tree-sha1 = "c5714d9bcdba66389612dc4c47ed827c64112997"
 uuid = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
-version = "0.8.1"
+version = "0.8.2"
 
 [[Documenter]]
 deps = ["Base64", "Dates", "DocStringExtensions", "InteractiveUtils", "JSON", "LibGit2", "Logging", "Markdown", "REPL", "Test", "Unicode"]
-git-tree-sha1 = "885467cebde4639a3d81953652cc53ff5a73cb87"
+git-tree-sha1 = "1c593d1efa27437ed9dd365d1143c594b563e138"
 uuid = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
-version = "0.24.3"
+version = "0.25.1"
 
 [[FFTW]]
 deps = ["AbstractFFTs", "BinaryProvider", "Conda", "Libdl", "LinearAlgebra", "Reexport"]
