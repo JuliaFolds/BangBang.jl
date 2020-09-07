@@ -12,11 +12,11 @@ version = "2.0.2"
 
 [[Aqua]]
 deps = ["Pkg", "Test"]
-git-tree-sha1 = "bac58b993dda4d3bf10d986424b7d14be3b9afa7"
+git-tree-sha1 = "e8c2eeb77541031d2d91f6b312a384e4aeb097fc"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/Aqua.jl.git"
 uuid = "4c88cf16-eb10-579e-8560-4a9242c79595"
-version = "0.4.5-DEV"
+version = "0.4.6-DEV"
 
 [[ArrayLayouts]]
 deps = ["FillArrays", "LinearAlgebra"]
