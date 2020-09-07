@@ -8,10 +8,10 @@ using Test
 Aqua.test_all(
     BangBang;
     ambiguities=(exclude=[Base.get, Setfield.set, Setfield.modify],),
+    project_extras = true,
+    stale_deps = true,
+    deps_compat = true,
+    project_toml_formatting = true,
 )
-
-@testset "Stale dependencies" begin
-    Aqua.test_stale_deps(BangBang)
-end
 
 end  # module
