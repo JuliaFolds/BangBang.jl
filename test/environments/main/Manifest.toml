@@ -14,17 +14,17 @@ version = "2.0.2"
 
 [[Aqua]]
 deps = ["Pkg", "Test"]
-git-tree-sha1 = "e8c2eeb77541031d2d91f6b312a384e4aeb097fc"
+git-tree-sha1 = "3adc536b8a80ecfcbb0c07c868eddf4a8e1582d4"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/Aqua.jl.git"
 uuid = "4c88cf16-eb10-579e-8560-4a9242c79595"
-version = "0.4.6-DEV"
+version = "0.4.8-DEV"
 
 [[ArrayLayouts]]
 deps = ["FillArrays", "LinearAlgebra", "SparseArrays"]
-git-tree-sha1 = "2d8ac01e2d62d6bc9172e71ddcc9c904d478633f"
+git-tree-sha1 = "bd09f450716f55c5a47b24de277a8825e2450729"
 uuid = "4c555306-a7a7-4459-81d9-ec55ddd5c99a"
-version = "0.4.6"
+version = "0.4.7"
 
 [[BangBang]]
 deps = ["Compat", "ConstructionBase", "Future", "InitialValues", "LinearAlgebra", "Requires", "Setfield", "Tables", "ZygoteRules"]
@@ -148,9 +148,9 @@ version = "0.25.2"
 
 [[FillArrays]]
 deps = ["LinearAlgebra", "Random", "SparseArrays"]
-git-tree-sha1 = "56dc5338eb79a05e5ea120f510ed77efe7e9784d"
+git-tree-sha1 = "b955c227b0d1413a1a97e2ca0635a5de019d7337"
 uuid = "1a297f60-69ca-5386-bcde-b61e274b549b"
-version = "0.9.5"
+version = "0.9.6"
 
 [[ForwardDiff]]
 deps = ["CommonSubexpressions", "DiffResults", "DiffRules", "NaNMath", "Random", "SpecialFunctions", "StaticArrays"]
@@ -198,9 +198,9 @@ version = "1.0.0"
 
 [[JSON]]
 deps = ["Dates", "Mmap", "Parsers", "Unicode"]
-git-tree-sha1 = "b34d7cef7b337321e97d22242c3c2b91f476748e"
+git-tree-sha1 = "81690084b6198a2e1da36fcfda16eeca9f9f24e4"
 uuid = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
-version = "0.21.0"
+version = "0.21.1"
 
 [[LibGit2]]
 deps = ["Printf"]
@@ -218,9 +218,9 @@ uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
 
 [[LoopVectorization]]
 deps = ["DocStringExtensions", "LinearAlgebra", "OffsetArrays", "SIMDPirates", "SLEEFPirates", "UnPack", "VectorizationBase"]
-git-tree-sha1 = "224c9768765c2a3b588fec71cff48b8eb1c80c48"
+git-tree-sha1 = "3242a8f411e19eda9adc49d0b877681975c11375"
 uuid = "bdcacae8-1622-11e9-2a5c-532679323890"
-version = "0.8.25"
+version = "0.8.26"
 
 [[MacroTools]]
 deps = ["Markdown", "Random"]
