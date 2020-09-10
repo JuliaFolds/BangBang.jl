@@ -77,7 +77,7 @@ deps = ["Random"]
 uuid = "9fa8497b-333b-5362-9e8d-4d0656e87820"
 
 [[InitialValues]]
-git-tree-sha1 = "a9abff7c4d902acc09f1a0c96a4d3f820e51f283"
+git-tree-sha1 = "6c71201824a14aa71f4932875acf8a320ea3b830"
 repo-rev = "master"
 repo-url = "https://github.com/JuliaFolds/InitialValues.jl.git"
 uuid = "22cec73e-a1b8-11e9-2c92-598750a2cf9c"

@@ -173,7 +173,7 @@ uuid = "313cdc1a-70c2-5d6a-ae34-0150d3930a38"
 version = "1.1.0"
 
 [[InitialValues]]
-git-tree-sha1 = "a9abff7c4d902acc09f1a0c96a4d3f820e51f283"
+git-tree-sha1 = "6c71201824a14aa71f4932875acf8a320ea3b830"
 repo-rev = "master"
 repo-url = "https://github.com/JuliaFolds/InitialValues.jl.git"
 uuid = "22cec73e-a1b8-11e9-2c92-598750a2cf9c"
@@ -261,7 +261,7 @@ version = "1.0.10"
 
 [[PerformanceTestTools]]
 deps = ["Test"]
-git-tree-sha1 = "44e2a6effd106d58189455545e2fe3d63a3b8cdc"
+git-tree-sha1 = "e38352801f3c781777d6ce139179303bec95495d"
 repo-rev = "master"
 repo-url = "https://github.com/tkf/PerformanceTestTools.jl.git"
 uuid = "dc46b164-d16f-48ec-a853-60448fc869fe"
