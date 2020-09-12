@@ -47,9 +47,9 @@ version = "0.7.18"
 
 [[ChainRulesCore]]
 deps = ["MuladdMacro"]
-git-tree-sha1 = "cd464e38276e956cd1112c5df96851659f888b11"
+git-tree-sha1 = "dda27ab79311f4d6e1ebff192b92d78837a6d0eb"
 uuid = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
-version = "0.9.8"
+version = "0.9.9"
 
 [[CommonSubexpressions]]
 deps = ["MacroTools", "Test"]
