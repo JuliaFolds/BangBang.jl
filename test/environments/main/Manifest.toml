@@ -8,9 +8,9 @@ version = "0.5.0"
 
 [[Adapt]]
 deps = ["LinearAlgebra"]
-git-tree-sha1 = "0fac443759fa829ed8066db6cf1077d888bb6573"
+git-tree-sha1 = "95f8bda0555209f122bc796b0382ea4a3a121720"
 uuid = "79e6a3ab-5dfb-504d-930d-738a2a938a0e"
-version = "2.0.2"
+version = "2.1.0"
 
 [[Aqua]]
 deps = ["Pkg", "Test"]
@@ -41,9 +41,9 @@ version = "0.8.2"
 
 [[ChainRules]]
 deps = ["ChainRulesCore", "LinearAlgebra", "Random", "Reexport", "Requires", "Statistics"]
-git-tree-sha1 = "6e7424bc42e222570cc8d588c501349070802b3f"
+git-tree-sha1 = "c51598477479e7788f176b261f45dab0ed5e56ae"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "0.7.18"
+version = "0.7.19"
 
 [[ChainRulesCore]]
 deps = ["LinearAlgebra", "MuladdMacro"]
