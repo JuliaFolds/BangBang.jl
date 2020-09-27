@@ -31,7 +31,7 @@ jobs:
               git config --global user.name "$GITHUB_ACTOR"
               git merge "origin/$xfailbranch"
               git log --graph --oneline -n10
-              julia -e 'using Pkg; pkg"add https://github.com/tkf/Run.jl"'
+              julia -e 'using Pkg; pkg"add Run@0.1"'
               julia -e 'using Run; Run.test(project = "test/environments/main", xfail = true)'
           else
               echo "No branch named $xfailbranch"
