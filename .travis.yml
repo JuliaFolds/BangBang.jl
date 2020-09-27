@@ -21,7 +21,7 @@ if: branch = master OR tag IS present OR type != push
 
 before_install:
   - unset JULIA_PROJECT
-  - julia -e 'using Pkg; pkg"add https://github.com/tkf/Run.jl"'
+  - julia -e 'using Pkg; pkg"add Run@0.1"'
 install:
   - julia -e 'using Run; Run.prepare("test/environments/main")'
 script:
