@@ -14,9 +14,9 @@ version = "2.3.0"
 
 [[Aqua]]
 deps = ["Pkg", "Test"]
-git-tree-sha1 = "9faa731748d2f2879700176f2de5bfa73a80d385"
+git-tree-sha1 = "58c988b7d09ace6afc91308ce8ddfd0fc268c86f"
 uuid = "4c88cf16-eb10-579e-8560-4a9242c79595"
-version = "0.4.10"
+version = "0.4.11"
 
 [[ArrayLayouts]]
 deps = ["Compat", "FillArrays", "LinearAlgebra", "SparseArrays"]
@@ -41,9 +41,9 @@ version = "0.8.3"
 
 [[ChainRules]]
 deps = ["ChainRulesCore", "LinearAlgebra", "Random", "Reexport", "Requires", "Statistics"]
-git-tree-sha1 = "60b76639ff1dc573b0708a68924539d03ed6520b"
+git-tree-sha1 = "e7750a8c6681aa5ce45693a74c5a3f402777d6de"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "0.7.20"
+version = "0.7.21"
 
 [[ChainRulesCore]]
 deps = ["LinearAlgebra", "MuladdMacro"]
