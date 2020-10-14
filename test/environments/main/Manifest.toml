@@ -47,9 +47,9 @@ version = "0.7.23"
 
 [[ChainRulesCore]]
 deps = ["LinearAlgebra", "MuladdMacro"]
-git-tree-sha1 = "c1aa8ebd97d1726323e78859be881ea5f9c380bb"
+git-tree-sha1 = "213b81305993a9711d105fbdf5bce8e6dfd36ecf"
 uuid = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
-version = "0.9.14"
+version = "0.9.15"
 
 [[CommonSubexpressions]]
 deps = ["MacroTools", "Test"]
@@ -146,9 +146,9 @@ version = "0.25.2"
 
 [[FillArrays]]
 deps = ["LinearAlgebra", "Random", "SparseArrays"]
-git-tree-sha1 = "b955c227b0d1413a1a97e2ca0635a5de019d7337"
+git-tree-sha1 = "502b3de6039d5b78c76118423858d981349f3823"
 uuid = "1a297f60-69ca-5386-bcde-b61e274b549b"
-version = "0.9.6"
+version = "0.9.7"
 
 [[ForwardDiff]]
 deps = ["CommonSubexpressions", "DiffResults", "DiffRules", "NaNMath", "Random", "SpecialFunctions", "StaticArrays"]
