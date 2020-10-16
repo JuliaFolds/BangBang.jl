@@ -20,9 +20,9 @@ version = "0.5.0"
 
 [[ArrayLayouts]]
 deps = ["Compat", "FillArrays", "LinearAlgebra", "SparseArrays"]
-git-tree-sha1 = "d6f1ecde467019346f7601fb2ee58cb2bc60d121"
+git-tree-sha1 = "613ee839b41d4fb5aef6494a9ac998d058729051"
 uuid = "4c555306-a7a7-4459-81d9-ec55ddd5c99a"
-version = "0.4.8"
+version = "0.4.9"
 
 [[BangBang]]
 deps = ["Compat", "ConstructionBase", "Future", "InitialValues", "LinearAlgebra", "Requires", "Setfield", "Tables", "ZygoteRules"]
@@ -47,9 +47,9 @@ version = "0.7.25"
 
 [[ChainRulesCore]]
 deps = ["LinearAlgebra", "MuladdMacro"]
-git-tree-sha1 = "213b81305993a9711d105fbdf5bce8e6dfd36ecf"
+git-tree-sha1 = "a7e639087196dc62ce4f7cad7224735d7520e963"
 uuid = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
-version = "0.9.15"
+version = "0.9.16"
 
 [[CommonSubexpressions]]
 deps = ["MacroTools", "Test"]
