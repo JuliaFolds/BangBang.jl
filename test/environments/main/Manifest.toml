@@ -47,9 +47,9 @@ version = "0.8.3"
 
 [[ChainRules]]
 deps = ["ChainRulesCore", "LinearAlgebra", "Random", "Reexport", "Requires", "Statistics"]
-git-tree-sha1 = "04afa37b7ea5fe1964ebec15b7f4769276b4edc5"
+git-tree-sha1 = "709004ae60363f13d7c44c934771f72694c0f86f"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "0.7.26"
+version = "0.7.27"
 
 [[ChainRulesCore]]
 deps = ["LinearAlgebra", "MuladdMacro", "SparseArrays"]
@@ -65,9 +65,9 @@ version = "0.3.0"
 
 [[Compat]]
 deps = ["Base64", "Dates", "DelimitedFiles", "Distributed", "InteractiveUtils", "LibGit2", "Libdl", "LinearAlgebra", "Markdown", "Mmap", "Pkg", "Printf", "REPL", "Random", "SHA", "Serialization", "SharedArrays", "Sockets", "SparseArrays", "Statistics", "Test", "UUIDs", "Unicode"]
-git-tree-sha1 = "f76e41cf110de7176a657c72409e722cfc86fbb6"
+git-tree-sha1 = "48608f94f3e1a755f65e7ef34684675bb3653030"
 uuid = "34da2185-b29b-5c13-b0c7-acf172513d20"
-version = "3.20.0"
+version = "3.21.0"
 
 [[CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
