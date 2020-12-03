@@ -53,9 +53,9 @@ version = "0.7.33"
 
 [[ChainRulesCore]]
 deps = ["LinearAlgebra", "MuladdMacro", "SparseArrays"]
-git-tree-sha1 = "793ea43b751e5c6cc6bbd82970af2952a5afb7d1"
+git-tree-sha1 = "1e314c23fc3471644ac068d539053a3e6f91321e"
 uuid = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
-version = "0.9.21"
+version = "0.9.22"
 
 [[ChainRulesTestUtils]]
 deps = ["ChainRulesCore", "Compat", "FiniteDifferences", "LinearAlgebra", "Random", "Test"]
@@ -169,9 +169,9 @@ version = "0.10.1"
 
 [[FiniteDifferences]]
 deps = ["ChainRulesCore", "LinearAlgebra", "Printf", "Random", "Richardson"]
-git-tree-sha1 = "e62dc2e6c482bbbe97e79f875063285257daa142"
+git-tree-sha1 = "df77f981a713a616884df390e0a8a8449ae4bfda"
 uuid = "26cc04aa-876d-5657-8c51-4c34ba976000"
-version = "0.11.3"
+version = "0.11.4"
 
 [[Formatting]]
 deps = ["Printf"]
@@ -415,9 +415,9 @@ uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 
 [[SpecialFunctions]]
 deps = ["OpenSpecFun_jll"]
-git-tree-sha1 = "bf68b90f72f81dd1519b289b7403c591cfdd6a88"
+git-tree-sha1 = "7286f31f27e3335cba31c618ac344a35eceac060"
 uuid = "276daf66-3868-5448-9aa4-cd146d93841b"
-version = "1.0.0"
+version = "1.1.0"
 
 [[SplitApplyCombine]]
 deps = ["Dictionaries", "Indexing"]
