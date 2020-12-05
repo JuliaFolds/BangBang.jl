@@ -297,9 +297,9 @@ version = "0.3.5"
 
 [[OffsetArrays]]
 deps = ["Adapt"]
-git-tree-sha1 = "9db93b990af57b3a56dca38476832f60d58f777b"
+git-tree-sha1 = "45d5e495ab559357aee8cb1dfb8c12b0787d4545"
 uuid = "6fe1bfb0-de20-5000-8ca7-80f57d26f881"
-version = "1.4.0"
+version = "1.4.1"
 
 [[OpenSpecFun_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "Libdl", "Pkg"]
@@ -314,9 +314,9 @@ version = "1.3.2"
 
 [[Parsers]]
 deps = ["Dates"]
-git-tree-sha1 = "b417be52e8be24e916e34b3d70ec2da7bdf56a68"
+git-tree-sha1 = "9d738ba28afdbd877397fb24d48440244590e039"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "1.0.12"
+version = "1.0.13"
 
 [[PerformanceTestTools]]
 deps = ["Test"]
@@ -489,9 +489,9 @@ version = "0.12.33"
 
 [[Zygote]]
 deps = ["AbstractFFTs", "ArrayLayouts", "ChainRules", "DiffRules", "Distributed", "FillArrays", "ForwardDiff", "IRTools", "InteractiveUtils", "LinearAlgebra", "LoopVectorization", "MacroTools", "NNlib", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
-git-tree-sha1 = "17f2429f9025a2182e4657ee0769b0958591972a"
+git-tree-sha1 = "45b9b178970188066cfa852bfb13b5fed3209915"
 uuid = "e88e6eb3-aa80-5325-afca-941959d7151f"
-version = "0.5.14"
+version = "0.5.15"
 
 [[ZygoteRules]]
 deps = ["MacroTools"]
