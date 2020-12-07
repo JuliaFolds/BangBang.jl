@@ -47,9 +47,9 @@ version = "0.9.0"
 
 [[ChainRules]]
 deps = ["ChainRulesCore", "ChainRulesTestUtils", "Compat", "LinearAlgebra", "Random", "Reexport", "Requires", "Statistics"]
-git-tree-sha1 = "f034ac3dac255b543788bc170713f40a87efe9bf"
+git-tree-sha1 = "a2f58e82d31b8f934d8038d3a735a2c938642084"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "0.7.34"
+version = "0.7.35"
 
 [[ChainRulesCore]]
 deps = ["LinearAlgebra", "MuladdMacro", "SparseArrays"]
@@ -59,9 +59,9 @@ version = "0.9.22"
 
 [[ChainRulesTestUtils]]
 deps = ["ChainRulesCore", "Compat", "FiniteDifferences", "LinearAlgebra", "Random", "Test"]
-git-tree-sha1 = "1acd5ce374b8fe74fa01a0dfc5ca4f42b3b070bf"
+git-tree-sha1 = "47ad20146e0c0275a0d22b0c62c5ab74fc0cc879"
 uuid = "cdddcdb0-9152-4a09-a978-84456f9df70a"
-version = "0.5.4"
+version = "0.5.5"
 
 [[CommonSubexpressions]]
 deps = ["MacroTools", "Test"]
