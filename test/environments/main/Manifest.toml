@@ -47,15 +47,15 @@ version = "0.9.0"
 
 [[ChainRules]]
 deps = ["ChainRulesCore", "ChainRulesTestUtils", "Compat", "LinearAlgebra", "Random", "Reexport", "Requires", "Statistics"]
-git-tree-sha1 = "a2f58e82d31b8f934d8038d3a735a2c938642084"
+git-tree-sha1 = "09c9fcd398500ab851288597dfbdaf0530a509db"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "0.7.35"
+version = "0.7.36"
 
 [[ChainRulesCore]]
 deps = ["LinearAlgebra", "MuladdMacro", "SparseArrays"]
-git-tree-sha1 = "1e314c23fc3471644ac068d539053a3e6f91321e"
+git-tree-sha1 = "bd7db5cdb38fe787892fc7af2e006dac34e62ddd"
 uuid = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
-version = "0.9.22"
+version = "0.9.23"
 
 [[ChainRulesTestUtils]]
 deps = ["ChainRulesCore", "Compat", "FiniteDifferences", "LinearAlgebra", "Random", "Test"]
@@ -314,9 +314,9 @@ version = "1.3.2"
 
 [[Parsers]]
 deps = ["Dates"]
-git-tree-sha1 = "9d738ba28afdbd877397fb24d48440244590e039"
+git-tree-sha1 = "6370b5b3cf2ce5a3d2b6f7ab2dc10f374e4d7d2b"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "1.0.13"
+version = "1.0.14"
 
 [[PerformanceTestTools]]
 deps = ["Test"]
@@ -489,9 +489,9 @@ version = "0.12.33"
 
 [[Zygote]]
 deps = ["AbstractFFTs", "ArrayLayouts", "ChainRules", "DiffRules", "Distributed", "FillArrays", "ForwardDiff", "IRTools", "InteractiveUtils", "LinearAlgebra", "LoopVectorization", "MacroTools", "NNlib", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
-git-tree-sha1 = "45b9b178970188066cfa852bfb13b5fed3209915"
+git-tree-sha1 = "0a03c99ec000a89f5d17d3477c8c7367ed4367f3"
 uuid = "e88e6eb3-aa80-5325-afca-941959d7151f"
-version = "0.5.15"
+version = "0.5.16"
 
 [[ZygoteRules]]
 deps = ["MacroTools"]
