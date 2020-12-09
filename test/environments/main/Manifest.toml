@@ -368,9 +368,9 @@ version = "1.1.1"
 
 [[Richardson]]
 deps = ["LinearAlgebra"]
-git-tree-sha1 = "776e0fdd3da5ad52067b60310ea8f3150d794c2f"
+git-tree-sha1 = "f61def2a7b3cbdddc34809dc099daa1c1f4879ea"
 uuid = "708f8203-808e-40c0-ba2d-98a6953ed40d"
-version = "1.2.0"
+version = "1.3.0"
 
 [[SHA]]
 uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
@@ -455,9 +455,9 @@ version = "1.0.0"
 
 [[Tables]]
 deps = ["DataAPI", "DataValueInterfaces", "IteratorInterfaceExtensions", "LinearAlgebra", "TableTraits", "Test"]
-git-tree-sha1 = "5131a624173d532299d1c7eb05341c18112b21b8"
+git-tree-sha1 = "240d19b8762006ff04b967bdd833269ad642d550"
 uuid = "bd369af6-aec1-5ad0-b16a-f7cc5008161c"
-version = "1.2.1"
+version = "1.2.2"
 
 [[Test]]
 deps = ["Distributed", "InteractiveUtils", "Logging", "Random"]
