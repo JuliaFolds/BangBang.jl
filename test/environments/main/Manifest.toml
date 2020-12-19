@@ -59,9 +59,9 @@ version = "0.9.24"
 
 [[ChainRulesTestUtils]]
 deps = ["ChainRulesCore", "Compat", "FiniteDifferences", "LinearAlgebra", "Random", "Test"]
-git-tree-sha1 = "46bffe681346102f3573851204b88ef381a32f43"
+git-tree-sha1 = "89cb6ebdae4010b8024b2ac22fcb9e316ac9b82c"
 uuid = "cdddcdb0-9152-4a09-a978-84456f9df70a"
-version = "0.5.8"
+version = "0.5.9"
 
 [[CommonSubexpressions]]
 deps = ["MacroTools", "Test"]
