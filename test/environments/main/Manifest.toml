@@ -41,9 +41,9 @@ version = "0.9.0"
 
 [[ChainRules]]
 deps = ["ChainRulesCore", "Compat", "LinearAlgebra", "Random", "Reexport", "Requires", "Statistics"]
-git-tree-sha1 = "c601987dff1d274c188be22f6acbeebec3f6234d"
+git-tree-sha1 = "38ad0177c30bd2fd76822445889c0a25cfbfc6f0"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "0.7.42"
+version = "0.7.43"
 
 [[ChainRulesCore]]
 deps = ["LinearAlgebra", "MuladdMacro", "SparseArrays"]
@@ -111,9 +111,9 @@ uuid = "8bb1440f-4735-579b-a4ab-409b98df4dab"
 
 [[Dictionaries]]
 deps = ["Indexing", "Random"]
-git-tree-sha1 = "51665e54ed110d3a3187927c7a2923c98b33fe65"
+git-tree-sha1 = "73ddbf30bc6488a72c4a7a05b54f21b59c6c74fb"
 uuid = "85a47980-9c8c-11e8-2b9f-f7ca1fa99fb4"
-version = "0.3.5"
+version = "0.3.6"
 
 [[DiffResults]]
 deps = ["StaticArrays"]
