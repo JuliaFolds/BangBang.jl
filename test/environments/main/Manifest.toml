@@ -41,9 +41,9 @@ version = "0.9.0"
 
 [[ChainRules]]
 deps = ["ChainRulesCore", "Compat", "LinearAlgebra", "Random", "Reexport", "Requires", "Statistics"]
-git-tree-sha1 = "38ad0177c30bd2fd76822445889c0a25cfbfc6f0"
+git-tree-sha1 = "31b28f5123afa5e5ca0c885e4051896032754578"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "0.7.43"
+version = "0.7.45"
 
 [[ChainRulesCore]]
 deps = ["LinearAlgebra", "MuladdMacro", "SparseArrays"]
