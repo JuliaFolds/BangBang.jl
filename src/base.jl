@@ -717,3 +717,41 @@ possible(::typeof(union!), ::C, ::I) where {C<:Union{AbstractSet,AbstractVector}
     implements(push!, C) &&
     IteratorEltype(I) isa HasEltype && promote_type(eltype(C), eltype(I)) <: eltype(C)
 possible(::typeof(union!), ::Empty, ::Any) = false
+# TODO: simplify `possible` after deciding what to do with dictionaries
+
+"""
+    setdiff!!(setlike, others...) -> setlike′
+
+Return the set of elements in `setlike` but not in any of the collections
+`others`. Mutate `setlike` if possible.
+
+This function "owns" `setlike` but not `others`; i.e., returned value
+`setlike′` does not alias any of `others`.  For example,
+`setdiff!!(Empty(Set), other)` shallow-copies `other` instead of
+returning `other` as-is.
+
+# Examples
+```jldoctest
+julia> using BangBang
+
+julia> xs = Set([1]);
+
+julia> ys = setdiff!!(xs, [1]);  # mutates `xs` as it's possible
+
+julia> ys == Set([])
+true
+
+julia> ys === xs  # `xs` is returned
+true
+```
+"""
+setdiff!!
+setdiff!!(set, itr) = may(setdiff!, set, itr)
+setdiff!!(set, itr, itrs...) = foldl(setdiff!!, itrs, init = setdiff!!(set, itr))
+
+pure(::typeof(setdiff!)) = NoBang._setdiff
+_asbb(::typeof(setdiff!)) = setdiff!!
+possible(::typeof(setdiff!), ::C, ::Any) where {C<:Union{AbstractSet,AbstractVector}} =
+    implements(push!, C)
+possible(::typeof(setdiff!), ::Empty, ::Any) = false
+# TODO: simplify `possible` after deciding what to do with dictionaries
