@@ -152,3 +152,5 @@ setproperty(value, name, x) = setproperties(value, NamedTuple{(name,)}((x,)))
 materialize(::Any, x) = Broadcast.materialize(x)
 
 @inline _union(a, b) = union(a, b)
+
+@inline _setdiff(a, b) = setdiff(a, b)

@@ -64,11 +64,16 @@ jobs:
               | xargs git add -f --
 
       # https://github.com/tkf/julia-update-manifests
+      # - name: Update */Manifest.toml
+      #   uses: tkf/julia-update-manifests@v1
+      #   with:
+      #     version: '1.6'
+      #     projects: test/environments/main
       - name: Update */Manifest.toml
         uses: tkf/julia-update-manifests@v1
         with:
           version: '1.4'
-          projects: test/environments/main docs benchmark
+          projects: test/environments/jl14 docs benchmark
       - name: Update test/environments/jl10/Manifest.toml
         uses: tkf/julia-update-manifests@v1
         with:
