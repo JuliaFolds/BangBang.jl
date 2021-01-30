@@ -78,6 +78,8 @@ resize(::Empty{T}, n::Integer) where {T <: AbstractVector} = similar(T, (n,))
 _union(::Empty{T}, x) where {T} = unique!!(T(x))
 _union(e::Empty, ::Empty) = e
 
+_setdiff(x::Empty, _) = x
+
 _setindex(::Empty{T}, v, k) where {T <: AbstractDict} = T(SingletonDict(k, v))
 Base.get(::Empty, _, default) = default
 
