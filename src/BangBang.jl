@@ -78,9 +78,6 @@ function __init__()
     @require StructArrays = "09ab397b-f2b6-538f-b94a-2f83cf4a842a" begin
         include("structarrays.jl")
     end
-    @require TypedTables = "9d95f2ec-7b3d-5a63-8d20-e2491e220bb9" begin
-        include("typedtables.jl")
-    end
     @require DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0" begin
         include("dataframes.jl")
     end

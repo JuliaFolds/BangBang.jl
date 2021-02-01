@@ -29,8 +29,7 @@ end
 end
 
 @testset "append!!(::Table, ::$(constructorof(typeof(src)))) [mutation]" for src in Any[
-    # Broken:
-    # [(a = 3, b = 4)],
+    [(a = 3, b = 4)],
     SingletonVector((a = 3, b = 4)),
 ]
     tints = Table(a = [1], b = [2])
@@ -38,12 +37,6 @@ end
         a = [1, 3],
         b = [2, 4],
     )
-end
-
-@testset "append!!" begin
-    tints = Table(a = [1], b = [2])
-    @test_broken append!!(tints, [(a = 3, b = 4)]) === tints
-    @test_broken tints == Table(a = [1, 3], b = [2, 4])
 end
 
 @testset "type inference" begin
