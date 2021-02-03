@@ -111,9 +111,9 @@ uuid = "8bb1440f-4735-579b-a4ab-409b98df4dab"
 
 [[Dictionaries]]
 deps = ["Indexing", "Random"]
-git-tree-sha1 = "73ddbf30bc6488a72c4a7a05b54f21b59c6c74fb"
+git-tree-sha1 = "2a08bdd177e0f7653661a4c0a1b0cf37b2690dfd"
 uuid = "85a47980-9c8c-11e8-2b9f-f7ca1fa99fb4"
-version = "0.3.6"
+version = "0.3.7"
 
 [[DiffResults]]
 deps = ["StaticArrays"]
@@ -157,9 +157,9 @@ version = "0.4.2"
 
 [[ForwardDiff]]
 deps = ["CommonSubexpressions", "DiffResults", "DiffRules", "NaNMath", "Random", "SpecialFunctions", "StaticArrays"]
-git-tree-sha1 = "c26b56e9b9f0687f7ca887f6b6ded03d269e0e35"
+git-tree-sha1 = "d48a40c0f54f29a5c8748cfb3225719accc72b77"
 uuid = "f6369f11-7733-5829-9624-2563aa707210"
-version = "0.10.15"
+version = "0.10.16"
 
 [[Future]]
 deps = ["Random"]
