@@ -176,10 +176,10 @@ uuid = "32113eaa-f34f-5b0d-bd6c-c81e245fc73d"
 version = "0.2.10"
 
 [[PooledArrays]]
-deps = ["DataAPI"]
-git-tree-sha1 = "0e8f5c428a41a81cd71f76d76f2fc3415fe5a676"
+deps = ["DataAPI", "Future"]
+git-tree-sha1 = "cde4ce9d6f33219465b55162811d8de8139c0414"
 uuid = "2dfb63ee-cc39-5dd5-95bd-886bf059d720"
-version = "1.1.0"
+version = "1.2.1"
 
 [[PrettyTables]]
 deps = ["Crayons", "Formatting", "Markdown", "Reexport", "Tables"]
