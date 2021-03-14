@@ -10,8 +10,8 @@
 
 BangBang.jl implements functions whose name ends with `!!`.  Those
 functions provide a uniform interface for mutable and immutable data
-structures.  Furthermore, those function implement the "widening"
-fallback for the case the usual mutating function does not work (e.g.,
+structures.  Furthermore, those functions implement the "widening"
+fallback for the case when the usual mutating function does not work (e.g.,
 `push!!(Int[], 1.5)` creates a new array `Float64[1.5]`).
 
 See the supported functions in the
