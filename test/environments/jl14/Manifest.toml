@@ -41,15 +41,15 @@ version = "0.9.3"
 
 [[ChainRules]]
 deps = ["ChainRulesCore", "Compat", "LinearAlgebra", "Random", "Reexport", "Requires", "Statistics"]
-git-tree-sha1 = "e01f521443e3700f40ad3c7c1c6aa3a6940aaea1"
+git-tree-sha1 = "5eb1fc216faf520e29b0c8fc3ee542d35e7f0beb"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "0.7.54"
+version = "0.7.55"
 
 [[ChainRulesCore]]
 deps = ["Compat", "LinearAlgebra", "SparseArrays"]
-git-tree-sha1 = "a8a75576d509f1996fe3046ce62e5685b0a8bd3a"
+git-tree-sha1 = "0893f8d90331a0f5223c7ef2a8868464394a886c"
 uuid = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
-version = "0.9.31"
+version = "0.9.33"
 
 [[CommonSubexpressions]]
 deps = ["MacroTools", "Test"]
@@ -87,9 +87,9 @@ version = "1.6.0"
 
 [[DataFrames]]
 deps = ["CategoricalArrays", "Compat", "DataAPI", "Future", "InvertedIndices", "IteratorInterfaceExtensions", "LinearAlgebra", "Markdown", "Missings", "PooledArrays", "PrettyTables", "Printf", "REPL", "Reexport", "SortingAlgorithms", "Statistics", "TableTraits", "Tables", "Unicode"]
-git-tree-sha1 = "b0db5579803eabb33f1274ca7ca2f472fdfb7f2a"
+git-tree-sha1 = "6b6dcb8c1a32c2151c5110e0e11fecff1c50dfca"
 uuid = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
-version = "0.22.5"
+version = "0.22.6"
 
 [[DataStructures]]
 deps = ["Compat", "InteractiveUtils", "OrderedCollections"]
@@ -411,10 +411,10 @@ uuid = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
 uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
 
 [[Zygote]]
-deps = ["AbstractFFTs", "ChainRules", "DiffRules", "Distributed", "FillArrays", "ForwardDiff", "IRTools", "InteractiveUtils", "LinearAlgebra", "MacroTools", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
-git-tree-sha1 = "639a3554de807c56920ac4f7b262b0d4035b3c45"
+deps = ["AbstractFFTs", "ChainRules", "ChainRulesCore", "DiffRules", "Distributed", "FillArrays", "ForwardDiff", "IRTools", "InteractiveUtils", "LinearAlgebra", "MacroTools", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
+git-tree-sha1 = "f0e41a4780d82a3129e073670090646ed98e8b30"
 uuid = "e88e6eb3-aa80-5325-afca-941959d7151f"
-version = "0.6.5"
+version = "0.6.6"
 
 [[ZygoteRules]]
 deps = ["MacroTools"]
