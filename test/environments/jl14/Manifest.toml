@@ -41,9 +41,9 @@ version = "0.9.6"
 
 [[ChainRules]]
 deps = ["ChainRulesCore", "Compat", "LinearAlgebra", "Random", "Reexport", "Requires", "Statistics"]
-git-tree-sha1 = "a426b3526dffff05ef3eaab35d6dc2869ec5846a"
+git-tree-sha1 = "1f410fba5c04d03ab712f348f1542e6059376547"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "0.7.60"
+version = "0.7.61"
 
 [[ChainRulesCore]]
 deps = ["Compat", "LinearAlgebra", "SparseArrays"]
@@ -425,9 +425,9 @@ uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
 
 [[Zygote]]
 deps = ["AbstractFFTs", "ChainRules", "ChainRulesCore", "DiffRules", "Distributed", "FillArrays", "ForwardDiff", "IRTools", "InteractiveUtils", "LinearAlgebra", "MacroTools", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
-git-tree-sha1 = "de86b4c5ff8e161c37bde0b5ecf6d201721373f8"
+git-tree-sha1 = "927209c83efa62256788a9880c191774c07c5b51"
 uuid = "e88e6eb3-aa80-5325-afca-941959d7151f"
-version = "0.6.9"
+version = "0.6.10"
 
 [[ZygoteRules]]
 deps = ["MacroTools"]
