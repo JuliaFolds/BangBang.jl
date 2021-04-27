@@ -47,9 +47,9 @@ version = "0.7.61"
 
 [[ChainRulesCore]]
 deps = ["Compat", "LinearAlgebra", "SparseArrays"]
-git-tree-sha1 = "42e3c181483fbd2c416087a0a93838803e358358"
+git-tree-sha1 = "5402b5674b3068ca570771c11da9a57bfa70acd4"
 uuid = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
-version = "0.9.38"
+version = "0.9.39"
 
 [[CommonSubexpressions]]
 deps = ["MacroTools", "Test"]
