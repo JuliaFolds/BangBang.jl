@@ -47,9 +47,9 @@ version = "0.7.65"
 
 [[ChainRulesCore]]
 deps = ["Compat", "LinearAlgebra", "SparseArrays"]
-git-tree-sha1 = "9b0375dc013ab0fc472b37cb8b18eed66b83f76b"
+git-tree-sha1 = "b391f22252b8754f4440de1f37ece49d8a7314bb"
 uuid = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
-version = "0.9.43"
+version = "0.9.44"
 
 [[CommonSubexpressions]]
 deps = ["MacroTools", "Test"]
@@ -230,9 +230,9 @@ uuid = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 
 [[LogExpFunctions]]
 deps = ["DocStringExtensions", "LinearAlgebra"]
-git-tree-sha1 = "ed26854d7c2c867d143f0e07c198fc9e8b721d10"
+git-tree-sha1 = "1ba664552f1ef15325e68dc4c05c3ef8c2d5d885"
 uuid = "2ab3a3ac-af41-5b50-aa03-7779005ae688"
-version = "0.2.3"
+version = "0.2.4"
 
 [[Logging]]
 uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
@@ -367,9 +367,9 @@ uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 
 [[SpecialFunctions]]
 deps = ["ChainRulesCore", "LogExpFunctions", "OpenSpecFun_jll"]
-git-tree-sha1 = "9146da51b38e9705b9f5ccfadc3ab10a482cae36"
+git-tree-sha1 = "c467f25b6ec4167ea3a9a4351c66c2e1cba5da33"
 uuid = "276daf66-3868-5448-9aa4-cd146d93841b"
-version = "1.4.0"
+version = "1.4.1"
 
 [[SplitApplyCombine]]
 deps = ["Dictionaries", "Indexing"]
