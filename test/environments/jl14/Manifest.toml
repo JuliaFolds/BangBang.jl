@@ -367,9 +367,9 @@ uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 
 [[SpecialFunctions]]
 deps = ["ChainRulesCore", "LogExpFunctions", "OpenSpecFun_jll"]
-git-tree-sha1 = "c467f25b6ec4167ea3a9a4351c66c2e1cba5da33"
+git-tree-sha1 = "371204984184315ed7228bcc604d08e1bbc18f31"
 uuid = "276daf66-3868-5448-9aa4-cd146d93841b"
-version = "1.4.1"
+version = "1.4.2"
 
 [[SplitApplyCombine]]
 deps = ["Dictionaries", "Indexing"]
