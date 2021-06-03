@@ -8,9 +8,9 @@ version = "1.0.1"
 
 [[Adapt]]
 deps = ["LinearAlgebra"]
-git-tree-sha1 = "f1b523983a58802c4695851926203b36e28f09db"
+git-tree-sha1 = "84918055d15b3114ede17ac6a7182f68870c16f7"
 uuid = "79e6a3ab-5dfb-504d-930d-738a2a938a0e"
-version = "3.3.0"
+version = "3.3.1"
 
 [[Aqua]]
 deps = ["Pkg", "Test"]
@@ -40,16 +40,16 @@ uuid = "324d7699-5711-5eae-9e2f-1d82baa6b597"
 version = "0.10.0"
 
 [[ChainRules]]
-deps = ["ChainRulesCore", "Compat", "LinearAlgebra", "Random", "Reexport", "Requires", "Statistics"]
-git-tree-sha1 = "422db294d817de46668a3bf119175080ab093b23"
+deps = ["ChainRulesCore", "Compat", "LinearAlgebra", "Random", "Statistics"]
+git-tree-sha1 = "a278be55b242899e06e076eda2c01f4d1a767108"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "0.7.70"
+version = "0.8.1"
 
 [[ChainRulesCore]]
 deps = ["Compat", "LinearAlgebra", "SparseArrays"]
-git-tree-sha1 = "4b28f88cecf5d9a07c85b9ce5209a361ecaff34a"
+git-tree-sha1 = "5d64be50ea9b43a89b476be773e125cef03c7cd5"
 uuid = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
-version = "0.9.45"
+version = "0.10.1"
 
 [[CommonSubexpressions]]
 deps = ["MacroTools", "Test"]
@@ -367,9 +367,9 @@ uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 
 [[SpecialFunctions]]
 deps = ["ChainRulesCore", "LogExpFunctions", "OpenSpecFun_jll"]
-git-tree-sha1 = "371204984184315ed7228bcc604d08e1bbc18f31"
+git-tree-sha1 = "a50550fa3164a8c46747e62063b4d774ac1bcf49"
 uuid = "276daf66-3868-5448-9aa4-cd146d93841b"
-version = "1.4.2"
+version = "1.5.1"
 
 [[SplitApplyCombine]]
 deps = ["Dictionaries", "Indexing"]
@@ -436,9 +436,9 @@ uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
 
 [[Zygote]]
 deps = ["AbstractFFTs", "ChainRules", "ChainRulesCore", "DiffRules", "Distributed", "FillArrays", "ForwardDiff", "IRTools", "InteractiveUtils", "LinearAlgebra", "MacroTools", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
-git-tree-sha1 = "c8b2ac496fd1154fa9020af827f10cced736e8c5"
+git-tree-sha1 = "b1d95edd4e693066c38c13a10aab0a8f6a6e2f65"
 uuid = "e88e6eb3-aa80-5325-afca-941959d7151f"
-version = "0.6.11"
+version = "0.6.12"
 
 [[ZygoteRules]]
 deps = ["MacroTools"]
