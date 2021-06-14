@@ -42,7 +42,7 @@ end
 end
 
 @testset "append!!" begin
-    if versionof(TypedTables) >= v"1.2.4"
+    if versionof(TypedTables) >= v"1.2.4" && VERSION >= v"1.4" # could be older
         tints = Table(a = [1], b = [2])
         @test append!!(tints, [(a = 3, b = 4)]) === tints
         @test tints == Table(a = [1, 3], b = [2, 4])
