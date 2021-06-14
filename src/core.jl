@@ -74,8 +74,10 @@ implements(
     ::Type{<:Union{SubArray{<:Any,1},Base.ReshapedArray{<:Any,1}}},
 ) = false
 
-Base.@pure ismutablestruct(T::DataType) = T.mutable
-implements(::typeof(setproperty!), T::DataType) = ismutablestruct(T)
+if !@isdefined(ismutabletype)
+    Base.@pure ismutabletype(T::DataType) = T.mutable
+end
+implements(::typeof(setproperty!), T::DataType) = ismutabletype(T)
 implements(::typeof(setproperty!), ::Type{<:NamedTuple}) = false
 
 # trymutate(::typeof(push!)) = push!!
