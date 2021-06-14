@@ -8,9 +8,9 @@ version = "1.0.0"
 
 [[Adapt]]
 deps = ["LinearAlgebra"]
-git-tree-sha1 = "345a14764e43fe927d6f5c250fe4c8e4664e6ee8"
+git-tree-sha1 = "84918055d15b3114ede17ac6a7182f68870c16f7"
 uuid = "79e6a3ab-5dfb-504d-930d-738a2a938a0e"
-version = "2.4.0"
+version = "3.3.1"
 
 [[Aqua]]
 deps = ["Pkg", "Test"]
@@ -395,9 +395,9 @@ uuid = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 
 [[StructArrays]]
 deps = ["Adapt", "DataAPI", "Tables"]
-git-tree-sha1 = "8099ed9fb90b6e754d6ba8c6ed8670f010eadca0"
+git-tree-sha1 = "44b3afd37b17422a62aea25f04c1f7e09ce6b07f"
 uuid = "09ab397b-f2b6-538f-b94a-2f83cf4a842a"
-version = "0.4.4"
+version = "0.5.1"
 
 [[StructTypes]]
 deps = ["Dates", "UUIDs"]
@@ -430,10 +430,10 @@ deps = ["InteractiveUtils", "Logging", "Random", "Serialization"]
 uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [[TypedTables]]
-deps = ["SplitApplyCombine", "Tables", "Unicode"]
-git-tree-sha1 = "0a6cb7f9e735b0d4e35494cefc9e3e13f812aaa7"
+deps = ["Adapt", "SplitApplyCombine", "Tables", "Unicode"]
+git-tree-sha1 = "4be59166b709f448938bde983b84836bc2913776"
 uuid = "9d95f2ec-7b3d-5a63-8d20-e2491e220bb9"
-version = "1.2.1"
+version = "1.2.4"
 
 [[UUIDs]]
 deps = ["Random", "SHA"]
