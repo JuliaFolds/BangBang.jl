@@ -41,15 +41,15 @@ version = "0.10.0"
 
 [[ChainRules]]
 deps = ["ChainRulesCore", "Compat", "LinearAlgebra", "Random", "Statistics"]
-git-tree-sha1 = "82ae2b017f808a5b05e21ab16d29c108e1cc7be4"
+git-tree-sha1 = "a41f9e72cffd789d5e19e75f1626b2786d640151"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "0.8.8"
+version = "0.8.11"
 
 [[ChainRulesCore]]
 deps = ["Compat", "LinearAlgebra", "SparseArrays"]
-git-tree-sha1 = "d659e42240c2162300b321f05173cab5cc40a5ba"
+git-tree-sha1 = "dbc9aae1227cfddaa9d2552f3ecba5b641f6cce9"
 uuid = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
-version = "0.10.4"
+version = "0.10.5"
 
 [[CommonSubexpressions]]
 deps = ["MacroTools", "Test"]
