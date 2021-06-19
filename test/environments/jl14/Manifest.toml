@@ -41,15 +41,15 @@ version = "0.10.0"
 
 [[ChainRules]]
 deps = ["ChainRulesCore", "Compat", "LinearAlgebra", "Random", "Statistics"]
-git-tree-sha1 = "a41f9e72cffd789d5e19e75f1626b2786d640151"
+git-tree-sha1 = "85747d77db71012208530a9531d4b1e438e83697"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "0.8.11"
+version = "0.8.13"
 
 [[ChainRulesCore]]
 deps = ["Compat", "LinearAlgebra", "SparseArrays"]
-git-tree-sha1 = "dbc9aae1227cfddaa9d2552f3ecba5b641f6cce9"
+git-tree-sha1 = "4289a76df5a8568cca9970e54dd585c6c395c496"
 uuid = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
-version = "0.10.5"
+version = "0.10.7"
 
 [[CommonSubexpressions]]
 deps = ["MacroTools", "Test"]
@@ -140,9 +140,9 @@ version = "0.8.5"
 
 [[Documenter]]
 deps = ["Base64", "Dates", "DocStringExtensions", "IOCapture", "InteractiveUtils", "JSON", "LibGit2", "Logging", "Markdown", "REPL", "Test", "Unicode"]
-git-tree-sha1 = "182d1b454955cd2f2e1d38eab3431cdd8f7e9096"
+git-tree-sha1 = "621850838b3e74dd6dd047b5432d2e976877104e"
 uuid = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
-version = "0.27.1"
+version = "0.27.2"
 
 [[FillArrays]]
 deps = ["LinearAlgebra", "Random", "SparseArrays"]
@@ -436,9 +436,9 @@ uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
 
 [[Zygote]]
 deps = ["AbstractFFTs", "ChainRules", "ChainRulesCore", "DiffRules", "Distributed", "FillArrays", "ForwardDiff", "IRTools", "InteractiveUtils", "LinearAlgebra", "MacroTools", "NaNMath", "Random", "Requires", "SpecialFunctions", "Statistics", "ZygoteRules"]
-git-tree-sha1 = "b1d95edd4e693066c38c13a10aab0a8f6a6e2f65"
+git-tree-sha1 = "70b0ba0413403e8c8a9266a8c9dc2399dffc1a85"
 uuid = "e88e6eb3-aa80-5325-afca-941959d7151f"
-version = "0.6.12"
+version = "0.6.13"
 
 [[ZygoteRules]]
 deps = ["MacroTools"]
