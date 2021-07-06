@@ -41,15 +41,15 @@ version = "0.10.0"
 
 [[ChainRules]]
 deps = ["ChainRulesCore", "Compat", "LinearAlgebra", "Random", "Statistics"]
-git-tree-sha1 = "4d6ed39877332d0e2157f703cb84f2619056292f"
+git-tree-sha1 = "85c579fa131b5545eef874a5b413bb3b783e21c6"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "0.8.20"
+version = "0.8.21"
 
 [[ChainRulesCore]]
 deps = ["Compat", "LinearAlgebra", "SparseArrays"]
-git-tree-sha1 = "be770c08881f7bb928dfd86d1ba83798f76cf62a"
+git-tree-sha1 = "aec96e79e396dfa7f762c90e3cac8f15ddb43f03"
 uuid = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
-version = "0.10.9"
+version = "0.10.10"
 
 [[CommonSubexpressions]]
 deps = ["MacroTools", "Test"]
@@ -124,9 +124,9 @@ version = "1.0.3"
 
 [[DiffRules]]
 deps = ["NaNMath", "Random", "SpecialFunctions"]
-git-tree-sha1 = "85d2d9e2524da988bffaf2a381864e20d2dae08d"
+git-tree-sha1 = "214c3fcac57755cfda163d91c58893a8723f93e9"
 uuid = "b552c78f-8df3-52c6-915a-8e097449b14b"
-version = "1.2.1"
+version = "1.0.2"
 
 [[Distributed]]
 deps = ["Random", "Serialization", "Sockets"]
