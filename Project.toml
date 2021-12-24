@@ -17,7 +17,7 @@ ZygoteRules = "700de1a5-db45-46bc-99cf-38207098b444"
 [compat]
 Compat = "2.0, 3.0"
 ConstructionBase = "0.1, 1.0"
-InitialValues = "0.2.4"
+InitialValues = "0.2.4, 0.3"
 Requires = "0.5, 1.0"
 Setfield = "0.5.1, 0.6, 0.7, 0.8"
 Tables = "0.2, 1.0"
