@@ -11,6 +11,7 @@ makedocs(
     repo = "https://github.com/JuliaFolds/BangBang.jl/blob/{commit}{path}#L{line}",
     sitename = "BangBang.jl",
     authors = "Takafumi Arakaki <aka.tkf@gmail.com>",
+    doctest = false,  # run via tests
     strict = true,
 )
 
