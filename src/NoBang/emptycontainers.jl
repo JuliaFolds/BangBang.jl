@@ -18,11 +18,11 @@ element is [`push!!`](@ref)'ed.
 julia> using BangBang
 
 julia> push!!(Empty(Vector), 1)
-1-element Array{Int64,1}:
+1-element Vector{Int64}:
  1
 
 julia> append!!(Empty(Dict), (:a=>1, :b=>2))
-Dict{Symbol,Int64} with 2 entries:
+Dict{Symbol, Int64} with 2 entries:
   :a => 1
   :b => 2
 
@@ -47,7 +47,7 @@ julia> @assert push!!(Empty(SVector), 1) === SVector(1)
 
 ```jldoctest; setup=:(using BangBang)
 julia> collect(Empty(Vector))
-0-element Array{Union{},1}
+Union{}[]
 
 julia> length(Empty(Vector))
 0
