@@ -22,18 +22,18 @@ julia> c = collector()
        c = push!!(c, 1)
        c = push!!(c, 0.5)
        finish!(c)
-2-element Array{Float64,1}:
+2-element Vector{Float64}:
  1.0
  0.5
 
 julia> finish!(append!!(collector(), (x for x in Any[1, 2.0, 3im])))
-3-element Array{Complex{Float64},1}:
+3-element Vector{ComplexF64}:
  1.0 + 0.0im
  2.0 + 0.0im
  0.0 + 3.0im
 
 julia> finish!(append!!(collector(Vector{Float64}(undef, 10), Val(true)), [1, 2, 3]))
-3-element Array{Float64,1}:
+3-element Vector{Float64}:
  1.0
  2.0
  3.0

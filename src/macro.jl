@@ -14,7 +14,7 @@ julia> y = [1, 2];
 
 julia> @! y .= 2 .* y
        y
-2-element Array{Int64,1}:
+2-element Vector{Int64}:
  2
  4
 

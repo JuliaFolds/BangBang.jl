@@ -51,7 +51,7 @@ julia> dict === dict′
 true
 
 julia> dict
-Dict{String,Int64} with 1 entry:
+Dict{String, Int64} with 1 entry:
   "a" => 2
 
 julia> dict = Dict();
@@ -61,13 +61,13 @@ julia> modify!!(dict, "a") do val
        end;
 
 julia> dict
-Dict{Any,Any} with 1 entry:
+Dict{Any, Any} with 1 entry:
   "a" => 1
 
 julia> modify!!(_ -> nothing, dict, "a");
 
 julia> dict
-Dict{Any,Any} with 0 entries
+Dict{Any, Any}()
 ```
 
 # Discussion
