@@ -605,6 +605,7 @@ false
 """
 @inline materialize!!(dest, x) = may(_materialize!!, dest, x)
 # TODO: maybe instantiate `x` and be aware of `x`'s style
+# TODO: move `materialize!!` to broadcast.jl
 
 @inline _materialize!!(dest, bc::Broadcasted{Style}) where {Style} =
     _copyto!!(dest, instantiate(Broadcasted{Style}(bc.f, bc.args, axes(dest))))

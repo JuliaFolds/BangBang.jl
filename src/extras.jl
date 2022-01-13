@@ -5,7 +5,7 @@
 """
 module Extras
 
-export mergewith!!, modify!!
+export mergewith!!, modify!!, broadcast_inplace!!
 
 using ..BangBang: delete!!, setindex!!, mergewith!!
 
@@ -141,6 +141,8 @@ function modify!!(f, h::Dict{K1}, key0::K2) where {K1, K2}
     end
     return (h, vnew)
 end
+
+function broadcast_inplace!! end
 
 end  # module
 
