@@ -12,13 +12,13 @@ julia> push!!((1, 2), 3)
 (1, 2, 3)
 
 julia> push!!([1, 2], 3)
-3-element Array{Int64,1}:
+3-element Vector{Int64}:
  1
  2
  3
 
 julia> push!!([1, 2], 3.0)
-3-element Array{Float64,1}:
+3-element Vector{Float64}:
  1.0
  2.0
  3.0
@@ -73,7 +73,7 @@ julia> append!!((1, 2), (3, 4))
 (1, 2, 3, 4)
 
 julia> append!!([1, 2], (3, 4))
-4-element Array{Int64,1}:
+4-element Vector{Int64}:
  1
  2
  3
@@ -105,7 +105,7 @@ julia> @assert append!!(Table(a=[1], b=[2]), [(a=3.5, b=4.5)]) ==
 julia> xs = [1, 2, 3];
 
 julia> ys = append!!(Empty(Vector), xs)
-3-element Array{Int64,1}:
+3-element Vector{Int64}:
  1
  2
  3
@@ -159,14 +159,14 @@ julia> pushfirst!!((1, 2), 3, 4)
 (3, 4, 1, 2)
 
 julia> pushfirst!!([1, 2], 3, 4)
-4-element Array{Int64,1}:
+4-element Vector{Int64}:
  3
  4
  1
  2
 
 julia> pushfirst!!([1, 2], 3, 4.0)
-4-element Array{Float64,1}:
+4-element Vector{Float64}:
  3.0
  4.0
  1.0
@@ -202,7 +202,7 @@ julia> pop!!((0, 1))
 ((0,), 1)
 
 julia> pop!!(Dict(:a => 1), :a)
-(Dict{Symbol,Int64}(), 1)
+(Dict{Symbol, Int64}(), 1)
 
 julia> pop!!((a=1,), :a)
 (NamedTuple(), 1)
@@ -230,7 +230,7 @@ julia> deleteat!!((1, 2, 3), 2)
 (1, 3)
 
 julia> deleteat!!([1, 2, 3], 2)
-2-element Array{Int64,1}:
+2-element Vector{Int64}:
  1
  3
 
@@ -257,7 +257,7 @@ julia> delete!!((a=1, b=2), :a)
 (b = 2,)
 
 julia> delete!!(Dict(:a=>1, :b=>2), :a)
-Dict{Symbol,Int64} with 1 entry:
+Dict{Symbol, Int64} with 1 entry:
   :b => 2
 ```
 """
@@ -312,10 +312,10 @@ NamedTuple()
 julia> xs = [1, 2, 3];
 
 julia> empty!!(xs)
-0-element Array{Int64,1}
+Int64[]
 
 julia> xs
-0-element Array{Int64,1}
+Int64[]
 
 julia> using StaticArrays: SVector
 
@@ -384,7 +384,7 @@ See also [`mergewith!!`](@ref).
 julia> using BangBang
 
 julia> merge!!(Dict(:a => 1), Dict(:b => 0.5))
-Dict{Symbol,Float64} with 2 entries:
+Dict{Symbol, Float64} with 2 entries:
   :a => 1.0
   :b => 0.5
 
@@ -392,7 +392,7 @@ julia> merge!!((a = 1,), Dict(:b => 0.5))
 (a = 1, b = 0.5)
 
 julia> merge!!(+, Dict(:a => 1), Dict(:a => 0.5))
-Dict{Symbol,Float64} with 1 entry:
+Dict{Symbol, Float64} with 1 entry:
   :a => 1.5
 ```
 
@@ -402,7 +402,7 @@ Dict{Symbol,Float64} with 1 entry:
 julia> xs = Dict(:a => 1, :b => 2, :c => 3);
 
 julia> ys = merge!!(Empty(Dict), xs)
-Dict{Symbol,Int64} with 3 entries:
+Dict{Symbol, Int64} with 3 entries:
   :a => 1
   :b => 2
   :c => 3
@@ -465,7 +465,7 @@ julia> setindex!!((1, 2), 10.0, 1)
 (10.0, 2)
 
 julia> setindex!!([1, 2], 10.0, 1)
-2-element Array{Float64,1}:
+2-element Vector{Float64}:
  10.0
   2.0
 
@@ -525,13 +525,13 @@ julia> mutable struct Mutable{T, S}
 julia> s = Mutable(1, 2);
 
 julia> setproperties!!(s; b=3)
-Mutable{Int64,Int64}(1, 3)
+Mutable{Int64, Int64}(1, 3)
 
 julia> setproperties!!(s, b=4.0)
-Mutable{Int64,Float64}(1, 4.0)
+Mutable{Int64, Float64}(1, 4.0)
 
 julia> s
-Mutable{Int64,Int64}(1, 3)
+Mutable{Int64, Int64}(1, 3)
 ```
 """
 @inline setproperties!!(value, patch) = may(setproperties!, value, patch)
@@ -583,7 +583,7 @@ julia> bc = instantiate(broadcasted(+, [1.0, 1.5, 2.0], 1));
 julia> xs = zeros(Float64, 3);
 
 julia> ys = materialize!!(xs, bc)
-3-element Array{Float64,1}:
+3-element Vector{Float64}:
  2.0
  2.5
  3.0
@@ -594,7 +594,7 @@ true
 julia> xs = Vector{Union{}}(undef, 3);
 
 julia> ys = materialize!!(xs, bc)
-3-element Array{Float64,1}:
+3-element Vector{Float64}:
  2.0
  2.5
  3.0
@@ -605,6 +605,7 @@ false
 """
 @inline materialize!!(dest, x) = may(_materialize!!, dest, x)
 # TODO: maybe instantiate `x` and be aware of `x`'s style
+# TODO: move `materialize!!` to broadcast.jl
 
 @inline _materialize!!(dest, bc::Broadcasted{Style}) where {Style} =
     _copyto!!(dest, instantiate(Broadcasted{Style}(bc.f, bc.args, axes(dest))))

@@ -8,6 +8,7 @@ export @!,
        Empty,
        add!!,
        append!!,
+       broadcast!!,
        collector,
        delete!!,
        deleteat!!,
@@ -62,6 +63,7 @@ include("core.jl")
 include("base.jl")
 include("linearalgebra.jl")
 include("extras.jl")
+include("broadcast.jl")
 include("collectors.jl")
 include("initials.jl")
 include("macro.jl")

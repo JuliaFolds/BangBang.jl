@@ -11,7 +11,7 @@ julia> add!!((1,), (2,))
 (3,)
 
 julia> add!!([1], [2])
-1-element Array{Int64,1}:
+1-element Vector{Int64}:
  3
 ```
 """

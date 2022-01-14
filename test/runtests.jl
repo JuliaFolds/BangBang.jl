@@ -10,7 +10,7 @@ using Test
         if lowercase(get(ENV, "JULIA_PKGEVAL", "false")) == "true"
             @info "Skipping doctests on PkgEval."
             continue
-        elseif !(v"1.4" <= VERSION < v"1.5-")
+        elseif !(v"1.6" <= VERSION < v"1.7-")
             @info "Skipping doctests on Julia $VERSION."
             continue
         end

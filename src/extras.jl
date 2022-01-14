@@ -5,7 +5,7 @@
 """
 module Extras
 
-export mergewith!!, modify!!
+export mergewith!!, modify!!, broadcast_inplace!!
 
 using ..BangBang: delete!!, setindex!!, mergewith!!
 
@@ -51,7 +51,7 @@ julia> dict === dict′
 true
 
 julia> dict
-Dict{String,Int64} with 1 entry:
+Dict{String, Int64} with 1 entry:
   "a" => 2
 
 julia> dict = Dict();
@@ -61,13 +61,13 @@ julia> modify!!(dict, "a") do val
        end;
 
 julia> dict
-Dict{Any,Any} with 1 entry:
+Dict{Any, Any} with 1 entry:
   "a" => 1
 
 julia> modify!!(_ -> nothing, dict, "a");
 
 julia> dict
-Dict{Any,Any} with 0 entries
+Dict{Any, Any}()
 ```
 
 # Discussion
@@ -141,6 +141,8 @@ function modify!!(f, h::Dict{K1}, key0::K2) where {K1, K2}
     end
     return (h, vnew)
 end
+
+function broadcast_inplace!! end
 
 end  # module
 
