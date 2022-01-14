@@ -21,7 +21,7 @@ uuid = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
 deps = ["Compat", "ConstructionBase", "Future", "InitialValues", "LinearAlgebra", "Requires", "Setfield", "Tables", "ZygoteRules"]
 path = ".."
 uuid = "198e06fe-97b7-11e9-32a5-e1d131e6ad66"
-version = "0.3.34-DEV"
+version = "0.3.35-DEV"
 
 [[Base64]]
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
@@ -121,11 +121,11 @@ uuid = "313cdc1a-70c2-5d6a-ae34-0150d3930a38"
 version = "1.1.1"
 
 [[InitialValues]]
-git-tree-sha1 = "67ce7a48566bcfbe672dff102bafea097747512a"
+git-tree-sha1 = "c14657878aaab6caaf8aafd67fd81da818096afb"
 repo-rev = "master"
 repo-url = "https://github.com/JuliaFolds/InitialValues.jl.git"
 uuid = "22cec73e-a1b8-11e9-2c92-598750a2cf9c"
-version = "0.3.1-DEV"
+version = "0.3.2-DEV"
 
 [[InteractiveUtils]]
 deps = ["Markdown"]
