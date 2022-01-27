@@ -46,9 +46,9 @@ version = "0.10.2"
 
 [[ChainRules]]
 deps = ["ChainRulesCore", "Compat", "IrrationalConstants", "LinearAlgebra", "Random", "RealDot", "Statistics"]
-git-tree-sha1 = "1756e4846e13eecfce8e4db3b9d3a901041bded4"
+git-tree-sha1 = "3ce62c97bd166b8c810889fba131531c61e41dc8"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "1.24.0"
+version = "1.25.0"
 
 [[ChainRulesCore]]
 deps = ["Compat", "LinearAlgebra", "SparseArrays"]
@@ -415,9 +415,9 @@ uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 
 [[SpecialFunctions]]
 deps = ["ChainRulesCore", "IrrationalConstants", "LogExpFunctions", "OpenLibm_jll", "OpenSpecFun_jll"]
-git-tree-sha1 = "e08890d19787ec25029113e88c34ec20cac1c91e"
+git-tree-sha1 = "e6bf188613555c78062842777b116905a9f9dd49"
 uuid = "276daf66-3868-5448-9aa4-cd146d93841b"
-version = "2.0.0"
+version = "2.1.0"
 
 [[SplitApplyCombine]]
 deps = ["Dictionaries", "Indexing"]
