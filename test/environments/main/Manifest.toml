@@ -45,10 +45,10 @@ uuid = "324d7699-5711-5eae-9e2f-1d82baa6b597"
 version = "0.10.2"
 
 [[ChainRules]]
-deps = ["ChainRulesCore", "Compat", "IrrationalConstants", "LinearAlgebra", "Random", "RealDot", "Statistics"]
-git-tree-sha1 = "3ce62c97bd166b8c810889fba131531c61e41dc8"
+deps = ["ChainRulesCore", "Compat", "IrrationalConstants", "LinearAlgebra", "Random", "RealDot", "SparseArrays", "Statistics"]
+git-tree-sha1 = "849d4cb467ea3ecbbd3efe68dacd36f9429b543c"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "1.25.0"
+version = "1.26.0"
 
 [[ChainRulesCore]]
 deps = ["Compat", "LinearAlgebra", "SparseArrays"]
