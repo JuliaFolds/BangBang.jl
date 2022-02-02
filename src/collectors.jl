@@ -96,7 +96,7 @@ _next_length(data, src) = max(4, length(data) + length(src), length(data) * 2)
     end
     i = let data′ = data′
         foldl(src, init = i) do i, v
-            Base.@_inline_meta
+            @_inline_meta
             @inbounds data′[i] = v
             return i + 1
         end
@@ -118,7 +118,7 @@ end
         data′′ = c.data
     end
     data, i = foldl(src, init = (data′′, c.i)) do (data, i), v
-        Base.@_inline_meta
+        @_inline_meta
         T = promote_type(eltype(data), eltype(v))
         if T <: eltype(data)
             data′ = data
