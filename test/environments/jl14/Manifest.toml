@@ -151,9 +151,9 @@ version = "0.8.6"
 
 [[Documenter]]
 deps = ["ANSIColoredPrinters", "Base64", "Dates", "DocStringExtensions", "IOCapture", "InteractiveUtils", "JSON", "LibGit2", "Logging", "Markdown", "REPL", "Test", "Unicode"]
-git-tree-sha1 = "75c6cf9d99e0efc79b724f5566726ad3ad010a01"
+git-tree-sha1 = "2c023382ab49c40475fcf59b90ba1c8edd9ff45e"
 uuid = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
-version = "0.27.12"
+version = "0.27.13"
 
 [[FillArrays]]
 deps = ["LinearAlgebra", "Random", "SparseArrays", "Statistics"]
@@ -393,9 +393,9 @@ uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 
 [[SpecialFunctions]]
 deps = ["ChainRulesCore", "IrrationalConstants", "LogExpFunctions", "OpenLibm_jll", "OpenSpecFun_jll"]
-git-tree-sha1 = "85e5b185ed647b8ee89aa25a7788a2b43aa8a74f"
+git-tree-sha1 = "5ba658aeecaaf96923dce0da9e703bd1fe7666f9"
 uuid = "276daf66-3868-5448-9aa4-cd146d93841b"
-version = "2.1.3"
+version = "2.1.4"
 
 [[SplitApplyCombine]]
 deps = ["Dictionaries", "Indexing"]
