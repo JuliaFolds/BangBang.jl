@@ -21,4 +21,10 @@ end
     @test ms.b == 2
 end
 
+@testset "inference" begin
+    nt = (a = 1, b = 2)
+    f!!(nt) = setproperty!!(nt, :a, 3)
+    @test @inferred(f!!(nt)) == (a = 3, b = 2)
+end
+
 end  # module

@@ -568,7 +568,8 @@ end
 An alias of `setproperties!!(value, (name=x,))`.
 """
 setproperty!!
-setproperty!!(value, name::Symbol, x) = setproperties!!(value, (; name => x))
+@inline setproperty!!(value, name::Symbol, x) =
+    setproperties!!(value, NamedTuple{(name,)}((x,)))
 
 """
     materialize!!(dest, x)
