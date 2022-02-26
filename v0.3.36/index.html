@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Home · BangBang.jl</title><script data-outdated-warner src="assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.039/juliamono-regular.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.11/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href>BangBang.jl</a></span></div><form class="docs-search" action="search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li class="is-active"><a class="tocitem" href>Home</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Home</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Home</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/JuliaFolds/BangBang.jl/blob/master/docs/src/index.md#L" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="BangBang.jl"><a class="docs-heading-anchor" href="#BangBang.jl">BangBang.jl</a><a id="BangBang.jl-1"></a><a class="docs-heading-anchor-permalink" href="#BangBang.jl" title="Permalink"></a></h1><ul><li><a href="#BangBang.BangBang"><code>BangBang.BangBang</code></a></li><li><a href="#BangBang.Extras"><code>BangBang.Extras</code></a></li><li><a href="#BangBang.NoBang.Empty"><code>BangBang.NoBang.Empty</code></a></li><li><a href="#BangBang.Extras.modify!!"><code>BangBang.Extras.modify!!</code></a></li><li><a href="#BangBang.NoBang.singletonof-Union{Tuple{T}, Tuple{Type{T}, Any}} where T"><code>BangBang.NoBang.singletonof</code></a></li><li><a href="#BangBang.SetfieldImpl.prefermutation"><code>BangBang.SetfieldImpl.prefermutation</code></a></li><li><a href="#BangBang.add!!"><code>BangBang.add!!</code></a></li><li><a href="#BangBang.append!!"><code>BangBang.append!!</code></a></li><li><a href="#BangBang.broadcast!!"><code>BangBang.broadcast!!</code></a></li><li><a href="#BangBang.collector"><code>BangBang.collector</code></a></li><li><a href="#BangBang.delete!!"><code>BangBang.delete!!</code></a></li><li><a href="#BangBang.deleteat!!"><code>BangBang.deleteat!!</code></a></li><li><a href="#BangBang.empty!!"><code>BangBang.empty!!</code></a></li><li><a href="#BangBang.finish!"><code>BangBang.finish!</code></a></li><li><a href="#BangBang.lmul!!"><code>BangBang.lmul!!</code></a></li><li><a href="#BangBang.materialize!!-Tuple{Any, Any}"><code>BangBang.materialize!!</code></a></li><li><a href="#BangBang.merge!!"><code>BangBang.merge!!</code></a></li><li><a href="#BangBang.mergewith!!"><code>BangBang.mergewith!!</code></a></li><li><a href="#BangBang.mul!!"><code>BangBang.mul!!</code></a></li><li><a href="#BangBang.pop!!"><code>BangBang.pop!!</code></a></li><li><a href="#BangBang.popfirst!!"><code>BangBang.popfirst!!</code></a></li><li><a href="#BangBang.push!!"><code>BangBang.push!!</code></a></li><li><a href="#BangBang.pushfirst!!"><code>BangBang.pushfirst!!</code></a></li><li><a href="#BangBang.rmul!!"><code>BangBang.rmul!!</code></a></li><li><a href="#BangBang.setdiff!!"><code>BangBang.setdiff!!</code></a></li><li><a href="#BangBang.setindex!!"><code>BangBang.setindex!!</code></a></li><li><a href="#BangBang.setproperties!!-Tuple{Any, Any}"><code>BangBang.setproperties!!</code></a></li><li><a href="#BangBang.setproperty!!"><code>BangBang.setproperty!!</code></a></li><li><a href="#BangBang.splice!!"><code>BangBang.splice!!</code></a></li><li><a href="#BangBang.union!!"><code>BangBang.union!!</code></a></li><li><a href="#BangBang.unique!!"><code>BangBang.unique!!</code></a></li><li><a href="#BangBang.@!-Tuple{Any}"><code>BangBang.@!</code></a></li><li><a href="#BangBang.SetfieldImpl.@set!!"><code>BangBang.SetfieldImpl.@set!!</code></a></li></ul><article class="docstring"><header><a class="docstring-binding" id="BangBang.BangBang" href="#BangBang.BangBang"><code>BangBang.BangBang</code></a> — <span class="docstring-category">Module</span></header><section><div><p><strong>BangBang</strong></p><p><a href="https://juliafolds.github.io/BangBang.jl/stable"><img src="https://img.shields.io/badge/docs-stable-blue.svg" alt="Stable"/></a> <a href="https://juliafolds.github.io/BangBang.jl/dev"><img src="https://img.shields.io/badge/docs-dev-blue.svg" alt="Dev"/></a> <a href="https://codecov.io/gh/JuliaFolds/BangBang.jl"><img src="https://codecov.io/gh/JuliaFolds/BangBang.jl/branch/master/graph/badge.svg" alt="Codecov"/></a> <a href="https://github.com/JuliaTesting/Aqua.jl"><img src="https://raw.githubusercontent.com/JuliaTesting/Aqua.jl/master/badge.svg" alt="Aqua QA"/></a> <a href="https://github.com/JuliaFolds/BangBang.jl"><img src="https://img.shields.io/github/commits-since/JuliaFolds/BangBang.jl/v0.3.36.svg?style=social&amp;logo=github" alt="GitHub commits since tagged version"/></a></p><p>BangBang.jl implements functions whose name ends with <code>!!</code>.  Those functions provide a uniform interface for mutable and immutable data structures.  Furthermore, those functions implement the &quot;widening&quot; fallback for the case when the usual mutating function does not work (e.g., <code>push!!(Int[], 1.5)</code> creates a new array <code>Float64[1.5]</code>).</p><p>See the supported functions in the <a href="https://juliafolds.github.io/BangBang.jl/dev">documentation</a></p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/BangBang.jl#LL4-L21">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.add!!" href="#BangBang.add!!"><code>BangBang.add!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">add!!(A, B) -&gt; A′</code></pre><p><code>A .+= B</code> if possible; otherwise return <code>A .+ B</code>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang: add!!
+
+julia&gt; add!!((1,), (2,))
+(3,)
+
+julia&gt; add!!([1], [2])
+1-element Vector{Int64}:
+ 3</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/linearalgebra.jl#LL1-L17">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.append!!" href="#BangBang.append!!"><code>BangBang.append!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">append!!(dest, src) -&gt; dest′</code></pre><p>Append items in <code>src</code> to <code>dest</code>.  Mutate <code>dest</code> if possible.</p><p>This function &quot;owns&quot; <code>dest</code> but not <code>src</code>; i.e., returned value <code>dest′</code> does not alias <code>src</code>.  For example, <code>append!!(Empty(Vector), src)</code> shallow-copies <code>src</code> instead of returning <code>src</code> as-is.</p><p>See also <a href="#BangBang.push!!"><code>push!!</code></a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; append!!((1, 2), (3, 4))
+(1, 2, 3, 4)
+
+julia&gt; append!!([1, 2], (3, 4))
+4-element Vector{Int64}:
+ 1
+ 2
+ 3
+ 4
+
+julia&gt; using StaticArrays: SVector
+
+julia&gt; @assert append!!(SVector(1, 2), (3, 4)) === SVector(1, 2, 3, 4)
+
+julia&gt; using DataFrames: DataFrame
+
+julia&gt; @assert append!!(DataFrame(a=[1], b=[2]), [(a=3.0, b=4.0)]) ==
+           DataFrame(a=[1.0, 3.0], b=[2.0, 4.0])
+
+julia&gt; using StructArrays: StructVector
+
+julia&gt; @assert append!!(StructVector(a=[1], b=[2]), [(a=3.5, b=4.5)]) ==
+           StructVector(a=[1.0, 3.5], b=[2.0, 4.5])
+
+julia&gt; using TypedTables: Table
+
+julia&gt; @assert append!!(Table(a=[1], b=[2]), [(a=3.5, b=4.5)]) ==
+           Table(a=[1.0, 3.5], b=[2.0, 4.5])</code></pre><p><code>append!!</code> does not own the second argument:</p><pre><code class="language-julia-repl hljs">julia&gt; xs = [1, 2, 3];
+
+julia&gt; ys = append!!(Empty(Vector), xs)
+3-element Vector{Int64}:
+ 1
+ 2
+ 3
+
+julia&gt; ys === xs
+false</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/base.jl#LL57-L116">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.broadcast!!" href="#BangBang.broadcast!!"><code>BangBang.broadcast!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">broadcast!!(f, dest, As...) -&gt; dest′</code></pre><p>A mutate-or-widen version of <code>dest .= f.(As...)</code>.</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/broadcast.jl#LL1-L5">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.collector" href="#BangBang.collector"><code>BangBang.collector</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">collector(data::AbstractVector, unsafe::Val = Val(false)) -&gt; c::AbstractCollector
+collector(ElType::Type = Union{}) -&gt; c::AbstractCollector</code></pre><p>Create a &quot;collector&quot; <code>c</code> that can be used to collect elements; i.e., it supports <a href="#BangBang.append!!"><code>append!!</code></a> and <a href="#BangBang.push!!"><code>push!!</code></a>.  Appending and pushing elements to a collector are more efficient than doing these operations directly to a vector.</p><p>Use <a href="#BangBang.finish!"><code>finish!(c)</code></a> to get the collected data as a vector.</p><p><code>push!!</code> on the collector can be further optimized by passing <code>Val(true)</code> to the second <code>unsafe</code> argument.  This is valid to use only if the number of elements appended to <code>c</code> is less than or equal to <code>length(data)</code>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; c = collector()
+       c = push!!(c, 1)
+       c = push!!(c, 0.5)
+       finish!(c)
+2-element Vector{Float64}:
+ 1.0
+ 0.5
+
+julia&gt; finish!(append!!(collector(), (x for x in Any[1, 2.0, 3im])))
+3-element Vector{ComplexF64}:
+ 1.0 + 0.0im
+ 2.0 + 0.0im
+ 0.0 + 3.0im
+
+julia&gt; finish!(append!!(collector(Vector{Float64}(undef, 10), Val(true)), [1, 2, 3]))
+3-element Vector{Float64}:
+ 1.0
+ 2.0
+ 3.0</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/collectors.jl#LL1-L41">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.delete!!" href="#BangBang.delete!!"><code>BangBang.delete!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">delete!!(assoc, key) -&gt; assoc′</code></pre><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; delete!!((a=1, b=2), :a)
+(b = 2,)
+
+julia&gt; delete!!(Dict(:a=&gt;1, :b=&gt;2), :a)
+Dict{Symbol, Int64} with 1 entry:
+  :b =&gt; 2</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/base.jl#LL249-L263">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.deleteat!!" href="#BangBang.deleteat!!"><code>BangBang.deleteat!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">deleteat!!(assoc, i) -&gt; assoc′</code></pre><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; deleteat!!((1, 2, 3), 2)
+(1, 3)
+
+julia&gt; deleteat!!([1, 2, 3], 2)
+2-element Vector{Int64}:
+ 1
+ 3
+
+julia&gt; using StaticArrays: SVector
+
+julia&gt; @assert deleteat!!(SVector(1, 2, 3), 2) === SVector(1, 3)</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/base.jl#LL222-L241">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.empty!!" href="#BangBang.empty!!"><code>BangBang.empty!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">empty!!(collection) -&gt; collection′</code></pre><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; empty!!((1, 2, 3))
+()
+
+julia&gt; empty!!((a=1, b=2, c=3))
+NamedTuple()
+
+julia&gt; xs = [1, 2, 3];
+
+julia&gt; empty!!(xs)
+Int64[]
+
+julia&gt; xs
+Int64[]
+
+julia&gt; using StaticArrays: SVector
+
+julia&gt; @assert empty!!(SVector(1, 2)) == SVector{0, Int}()</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/base.jl#LL299-L324">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.finish!" href="#BangBang.finish!"><code>BangBang.finish!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">finish!(c::AbstractCollector) -&gt; data::AbstractVector</code></pre><p>Extract the <code>data</code> collected in the collector <code>c</code>.</p><p>See <a href="#BangBang.collector"><code>collector</code></a>.</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/collectors.jl#LL152-L158">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.lmul!!" href="#BangBang.lmul!!"><code>BangBang.lmul!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">lmul!!(A, B) -&gt; B′</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/linearalgebra.jl#LL44-L46">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.materialize!!-Tuple{Any, Any}" href="#BangBang.materialize!!-Tuple{Any, Any}"><code>BangBang.materialize!!</code></a> — <span class="docstring-category">Method</span></header><section><div><pre><code class="language-julia hljs">materialize!!(dest, x)</code></pre><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; using Base.Broadcast: instantiate, broadcasted
+
+julia&gt; bc = instantiate(broadcasted(+, [1.0, 1.5, 2.0], 1));
+
+julia&gt; xs = zeros(Float64, 3);
+
+julia&gt; ys = materialize!!(xs, bc)
+3-element Vector{Float64}:
+ 2.0
+ 2.5
+ 3.0
+
+julia&gt; xs === ys  # mutated
+true
+
+julia&gt; xs = Vector{Union{}}(undef, 3);
+
+julia&gt; ys = materialize!!(xs, bc)
+3-element Vector{Float64}:
+ 2.0
+ 2.5
+ 3.0
+
+julia&gt; xs === ys
+false</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/base.jl#LL574-L606">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.merge!!" href="#BangBang.merge!!"><code>BangBang.merge!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">merge!!(dictlike, others...) -&gt; dictlike′
+merge!!(combine, dictlike, others...) -&gt; dictlike′</code></pre><p>Merge key-value pairs from <code>others</code> to <code>dictlike</code>.  Mutate <code>dictlike</code> if possible.</p><p>This function &quot;owns&quot; <code>dictlike</code> but not <code>others</code>; i.e., returned value <code>dictlike′</code> does not alias any of <code>others</code>.  For example, <code>merge!!(Empty(Dict), other)</code> shallow-copies <code>other</code> instead of returning <code>other</code> as-is.</p><p>Method <code>merge!!(combine::Union{Function,Type}, args...)</code> as an alias of <code>mergewith!!(combine, args...)</code> is still available for backward compatibility.</p><p>See also <a href="#BangBang.mergewith!!"><code>mergewith!!</code></a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; merge!!(Dict(:a =&gt; 1), Dict(:b =&gt; 0.5))
+Dict{Symbol, Float64} with 2 entries:
+  :a =&gt; 1.0
+  :b =&gt; 0.5
+
+julia&gt; merge!!((a = 1,), Dict(:b =&gt; 0.5))
+(a = 1, b = 0.5)
+
+julia&gt; merge!!(+, Dict(:a =&gt; 1), Dict(:a =&gt; 0.5))
+Dict{Symbol, Float64} with 1 entry:
+  :a =&gt; 1.5</code></pre><p><code>merge!!</code> does not own the second argument:</p><pre><code class="language-julia-repl hljs">julia&gt; xs = Dict(:a =&gt; 1, :b =&gt; 2, :c =&gt; 3);
+
+julia&gt; ys = merge!!(Empty(Dict), xs)
+Dict{Symbol, Int64} with 3 entries:
+  :a =&gt; 1
+  :b =&gt; 2
+  :c =&gt; 3
+
+julia&gt; ys === xs
+false</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/base.jl#LL364-L413">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.mergewith!!" href="#BangBang.mergewith!!"><code>BangBang.mergewith!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">mergewith!!(combine, dictlike, others...) -&gt; dictlike′
+mergewith!!(combine)</code></pre><p>Like <code>merge!!(combine, dictlike, others...)</code> but <code>combine</code> does not have to be a <code>Function</code>.</p><p>This function &quot;owns&quot; <code>dictlike</code> but not <code>others</code>.  See <a href="#BangBang.merge!!"><code>merge!!</code></a> for more details.</p><p>The curried form <code>mergewith!!(combine)</code> returns the function <code>(args...) -&gt; mergewith!!(combine, args...)</code>.</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/base.jl#LL332-L344">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.mul!!" href="#BangBang.mul!!"><code>BangBang.mul!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">mul!!(C, A, B, [α, β]) -&gt; C′</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/linearalgebra.jl#LL21-L23">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.pop!!" href="#BangBang.pop!!"><code>BangBang.pop!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">pop!!(sequence) -&gt; (sequence′, value)
+pop!!(assoc, key) -&gt; (assoc′, value)
+pop!!(assoc, key, default) -&gt; (assoc′, value)</code></pre><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; pop!!([0, 1])
+([0], 1)
+
+julia&gt; pop!!((0, 1))
+((0,), 1)
+
+julia&gt; pop!!(Dict(:a =&gt; 1), :a)
+(Dict{Symbol, Int64}(), 1)
+
+julia&gt; pop!!((a=1,), :a)
+(NamedTuple(), 1)
+
+julia&gt; using StaticArrays: SVector
+
+julia&gt; @assert pop!!(SVector(1, 2)) === (SVector(1), 2)</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/base.jl#LL189-L214">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.popfirst!!" href="#BangBang.popfirst!!"><code>BangBang.popfirst!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">popfirst!!(sequence) -&gt; (sequence′, value)</code></pre><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; popfirst!!([0, 1])
+([1], 0)
+
+julia&gt; popfirst!!((0, 1))
+((1,), 0)
+
+julia&gt; popfirst!!((a=0, b=1))
+((b = 1,), 0)
+
+julia&gt; using StaticArrays: SVector
+
+julia&gt; @assert popfirst!!(SVector(1, 2)) === (SVector(2), 1)</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/base.jl#LL271-L291">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.push!!" href="#BangBang.push!!"><code>BangBang.push!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">push!!(collection, items...)</code></pre><p>Push one or more <code>items</code> to collection.  Create a copy of <code>collection</code> if it cannot be mutated or the element type does not match.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; push!!((1, 2), 3)
+(1, 2, 3)
+
+julia&gt; push!!([1, 2], 3)
+3-element Vector{Int64}:
+ 1
+ 2
+ 3
+
+julia&gt; push!!([1, 2], 3.0)
+3-element Vector{Float64}:
+ 1.0
+ 2.0
+ 3.0
+
+julia&gt; using StaticArrays: SVector
+
+julia&gt; @assert push!!(SVector(1, 2), 3.0) === SVector(1.0, 2.0, 3.0)
+
+julia&gt; using DataFrames: DataFrame
+
+julia&gt; @assert push!!(DataFrame(a=[1], b=[2]), (a=3.5, b=4.5)) ==
+           DataFrame(a=[1.0, 3.5], b=[2.0, 4.5])
+
+julia&gt; using StructArrays: StructVector
+
+julia&gt; @assert push!!(StructVector(a=[1], b=[2]), (a=3.5, b=4.5)) ==
+           StructVector(a=[1.0, 3.5], b=[2.0, 4.5])
+
+julia&gt; using TypedTables: Table
+
+julia&gt; @assert push!!(Table(a=[1], b=[2]), (a=3.5, b=4.5)) ==
+           Table(a=[1.0, 3.5], b=[2.0, 4.5])</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/base.jl#LL1-L45">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.pushfirst!!" href="#BangBang.pushfirst!!"><code>BangBang.pushfirst!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">pushfirst!!(collection, items...)</code></pre><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; pushfirst!!((1, 2), 3, 4)
+(3, 4, 1, 2)
+
+julia&gt; pushfirst!!([1, 2], 3, 4)
+4-element Vector{Int64}:
+ 3
+ 4
+ 1
+ 2
+
+julia&gt; pushfirst!!([1, 2], 3, 4.0)
+4-element Vector{Float64}:
+ 3.0
+ 4.0
+ 1.0
+ 2.0
+
+julia&gt; using StaticArrays: SVector
+
+julia&gt; @assert pushfirst!!(SVector(1, 2), 3, 4) === SVector(3, 4, 1, 2)</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/base.jl#LL151-L179">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.rmul!!" href="#BangBang.rmul!!"><code>BangBang.rmul!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">rmul!!(A, B) -&gt; A′</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/linearalgebra.jl#LL55-L57">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.setdiff!!" href="#BangBang.setdiff!!"><code>BangBang.setdiff!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">setdiff!!(setlike, others...) -&gt; setlike′</code></pre><p>Return the set of elements in <code>setlike</code> but not in any of the collections <code>others</code>. Mutate <code>setlike</code> if possible.</p><p>This function &quot;owns&quot; <code>setlike</code> but not <code>others</code>; i.e., returned value <code>setlike′</code> does not alias any of <code>others</code>.  For example, <code>setdiff!!(Empty(Set), other)</code> shallow-copies <code>other</code> instead of returning <code>other</code> as-is.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; xs = Set([1]);
+
+julia&gt; ys = setdiff!!(xs, [1]);  # mutates `xs` as it&#39;s possible
+
+julia&gt; ys == Set([])
+true
+
+julia&gt; ys === xs  # `xs` is returned
+true</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/base.jl#LL724-L749">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.setindex!!" href="#BangBang.setindex!!"><code>BangBang.setindex!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">setindex!!(collection, value, indices...) -&gt; collection′</code></pre><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; setindex!!((1, 2), 10.0, 1)
+(10.0, 2)
+
+julia&gt; setindex!!([1, 2], 10.0, 1)
+2-element Vector{Float64}:
+ 10.0
+  2.0
+
+julia&gt; using StaticArrays: SVector
+
+julia&gt; @assert setindex!!(SVector(1, 2), 10.0, 1) == SVector(10.0, 2.0)</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/base.jl#LL457-L476">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.setproperties!!-Tuple{Any, Any}" href="#BangBang.setproperties!!-Tuple{Any, Any}"><code>BangBang.setproperties!!</code></a> — <span class="docstring-category">Method</span></header><section><div><pre><code class="language-julia hljs">setproperties!!(value, patch::NamedTuple)
+setproperties!!(value; patch...)</code></pre><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; setproperties!!((a=1, b=2); b=3)
+(a = 1, b = 3)
+
+julia&gt; struct Immutable
+           a
+           b
+       end
+
+julia&gt; setproperties!!(Immutable(1, 2); b=3)
+Immutable(1, 3)
+
+julia&gt; mutable struct Mutable{T, S}
+           a::T
+           b::S
+       end
+
+julia&gt; s = Mutable(1, 2);
+
+julia&gt; setproperties!!(s; b=3)
+Mutable{Int64, Int64}(1, 3)
+
+julia&gt; setproperties!!(s, b=4.0)
+Mutable{Int64, Float64}(1, 4.0)
+
+julia&gt; s
+Mutable{Int64, Int64}(1, 3)</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/base.jl#LL501-L536">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.setproperty!!" href="#BangBang.setproperty!!"><code>BangBang.setproperty!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">setproperty!!(value, name::Symbol, x)</code></pre><p>An alias of <code>setproperties!!(value, (name=x,))</code>.</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/base.jl#LL565-L569">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.splice!!" href="#BangBang.splice!!"><code>BangBang.splice!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">splice!!(sequence, i, [replacement]) -&gt; (sequence′, item)</code></pre><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; splice!!([1, 2, 3], 2)
+([1, 3], 2)
+
+julia&gt; splice!!((1, 2, 3), 2)
+((1, 3), 2)
+
+julia&gt; using StaticArrays: SVector
+
+julia&gt; @assert splice!!(SVector(1, 2, 3), 2) === (SVector(1, 3), 2)</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/base.jl#LL428-L445">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.union!!" href="#BangBang.union!!"><code>BangBang.union!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">union!!(setlike, others...) -&gt; setlike′</code></pre><p>Return the union of all sets in the arguments.  Mutate <code>setlike</code> if possible.</p><p>This function &quot;owns&quot; <code>setlike</code> but not <code>others</code>; i.e., returned value <code>setlike′</code> does not alias any of <code>others</code>.  For example, <code>union!!(Empty(Set), other)</code> shallow-copies <code>other</code> instead of returning <code>other</code> as-is.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; xs = Set([1]);
+
+julia&gt; ys = union!!(xs, Set([2]));  # mutates `xs` as it&#39;s possible
+
+julia&gt; ys == Set([1, 2])
+true
+
+julia&gt; ys === xs  # `xs` is returned
+true
+
+julia&gt; zs = union!!(xs, Set([0.5]));  # incompatible element type
+
+julia&gt; zs == Set([0.5, 1, 2])
+true
+
+julia&gt; zs === xs  # a new set is returned
+false</code></pre><p><code>union!!</code> does not own the second argument:</p><pre><code class="language-julia-repl hljs">julia&gt; xs = Set([1]);
+
+julia&gt; ys = union!!(Empty(Set), xs)
+Set{Int64} with 1 element:
+  1
+
+julia&gt; ys === xs
+false</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/base.jl#LL665-L711">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.unique!!" href="#BangBang.unique!!"><code>BangBang.unique!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">unique!!(set) -&gt; set
+unique!!(sequence) -&gt; sequence′</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/base.jl#LL652-L655">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.@!-Tuple{Any}" href="#BangBang.@!-Tuple{Any}"><code>BangBang.@!</code></a> — <span class="docstring-category">Macro</span></header><section><div><pre><code class="language-julia hljs">@! expr</code></pre><p>Convert all supported mutating calls to double bang equivalent.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; @! push!(empty!((0, 1)), 2, 3)
+(2, 3)
+
+julia&gt; y = [1, 2];
+
+julia&gt; @! y .= 2 .* y
+       y
+2-element Vector{Int64}:
+ 2
+ 4
+
+julia&gt; y = (1, 2);
+
+julia&gt; @! y .= 2 .* y
+       y
+(2, 4)</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/macro.jl#LL1-L27">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.NoBang.Empty" href="#BangBang.NoBang.Empty"><code>BangBang.NoBang.Empty</code></a> — <span class="docstring-category">Type</span></header><section><div><pre><code class="language-julia hljs">Empty(T)</code></pre><p>Create a proxy of an empty container of type <code>T</code>.</p><p>This is a simple API for solving problems such as:</p><ul><li>There is no consistent way to create an empty container given its type.</li><li>There is no consistent way to know that nothing was appended into the container in type-domain.</li></ul><p>Internally, this function simply works by creating a singleton container (a container with one element) using <a href="#BangBang.NoBang.singletonof-Union{Tuple{T}, Tuple{Type{T}, Any}} where T"><code>singletonof</code></a> when the first element is <a href="#BangBang.push!!"><code>push!!</code></a>&#39;ed.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; push!!(Empty(Vector), 1)
+1-element Vector{Int64}:
+ 1
+
+julia&gt; append!!(Empty(Dict), (:a=&gt;1, :b=&gt;2))
+Dict{Symbol, Int64} with 2 entries:
+  :a =&gt; 1
+  :b =&gt; 2
+
+julia&gt; using DataFrames: DataFrame
+
+julia&gt; @assert push!!(Empty(DataFrame), (a=1, b=2)) == DataFrame(a=[1], b=[2])
+
+julia&gt; using StructArrays: StructVector
+
+julia&gt; @assert push!!(Empty(StructVector), (a=1, b=2)) == StructVector(a=[1], b=[2])
+
+julia&gt; using TypedTables: Table
+
+julia&gt; @assert push!!(Empty(Table), (a=1, b=2)) == Table(a=[1], b=[2])
+
+julia&gt; using StaticArrays: SVector
+
+julia&gt; @assert push!!(Empty(SVector), 1) === SVector(1)</code></pre><p><code>Empty(T)</code> object is an iterable with length 0 and element type <code>Union{}</code>:</p><pre><code class="language-julia-repl hljs">julia&gt; collect(Empty(Vector))
+Union{}[]
+
+julia&gt; length(Empty(Vector))
+0
+
+julia&gt; eltype(typeof(Empty(Vector)))
+Union{}
+
+julia&gt; Base.IteratorSize(Empty)
+Base.HasLength()
+
+julia&gt; Base.IteratorEltype(Empty)
+Base.HasEltype()</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/NoBang/emptycontainers.jl#LL1-L64">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.NoBang.singletonof-Union{Tuple{T}, Tuple{Type{T}, Any}} where T" href="#BangBang.NoBang.singletonof-Union{Tuple{T}, Tuple{Type{T}, Any}} where T"><code>BangBang.NoBang.singletonof</code></a> — <span class="docstring-category">Method</span></header><section><div><pre><code class="language-julia hljs">singletonof(::Type{T}, x) :: T
+singletonof(::T, x) :: T</code></pre><p>Create a singleton container of type <code>T</code>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; @assert singletonof(Vector, 1) == [1]
+
+julia&gt; @assert singletonof(Dict, :a =&gt; 1) == Dict(:a =&gt; 1)
+
+julia&gt; @assert singletonof(Set, 1) == Set([1])
+
+julia&gt; using StructArrays: StructVector
+
+julia&gt; @assert singletonof(StructVector, (a=1, b=2)) == StructVector(a=[1], b=[2])
+
+julia&gt; using TypedTables: Table
+
+julia&gt; @assert singletonof(Table, (a=1, b=2)) == Table(a=[1], b=[2])
+
+julia&gt; using StaticArrays: SArray, SVector
+
+julia&gt; @assert singletonof(SArray, 1) === SVector(1)
+
+julia&gt; @assert singletonof(SVector, 1) === SVector(1)</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/NoBang/singletonof.jl#LL1-L31">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.SetfieldImpl.prefermutation" href="#BangBang.SetfieldImpl.prefermutation"><code>BangBang.SetfieldImpl.prefermutation</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">prefermutation(lens::Lens) :: Lens</code></pre><p>See also <a href="#BangBang.SetfieldImpl.@set!!"><code>@set!!</code></a>.</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/setfield.jl#LL37-L41">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.SetfieldImpl.@set!!" href="#BangBang.SetfieldImpl.@set!!"><code>BangBang.SetfieldImpl.@set!!</code></a> — <span class="docstring-category">Macro</span></header><section><div><pre><code class="language-julia hljs">@set!! assignment</code></pre><p>Like <code>Setfield.@set</code>, but prefer mutation if possible.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang
+
+julia&gt; mutable struct Mutable
+           a
+           b
+       end
+
+julia&gt; x = orig = Mutable((x=Mutable(1, 2), y=3), 4);
+
+julia&gt; @set!! x.a.x.a = 10;
+
+julia&gt; @assert x.a.x.a == orig.a.x.a == 10</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/setfield.jl#LL45-L65">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.Extras" href="#BangBang.Extras"><code>BangBang.Extras</code></a> — <span class="docstring-category">Module</span></header><section><div><pre><code class="language-julia hljs">BangBang.Extras</code></pre><p><code>BangBang</code> APIs that have no counterparts in <code>Base</code>.</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/extras.jl#LL1-L5">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="BangBang.Extras.modify!!" href="#BangBang.Extras.modify!!"><code>BangBang.Extras.modify!!</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">modify!!(f, dictlike, key) -&gt; (dictlike′, ret)</code></pre><p>Lookup and then update, insert or delete in one go.  If supported (e.g., when <code>dictlike isa Dict</code>), it is done without re-computing the hash.  Immutable containers like <code>NamedTuple</code> is also supported.</p><p>The callable <code>f</code> must accept a single argument of type <code>Union{Some{valtype(dictlike)}, Nothing}</code>.  The value <code>Some(dictlike[key])</code> is passed to <code>f</code> if <code>haskey(dictlike, key)</code>; otherwise <code>nothing</code> is passed.</p><p>If <code>f</code> returns <code>nothing</code>, corresponding entry in the dictionary <code>dictlike</code> is removed.  If <code>f</code> returns non-<code>nothing</code> value <code>x</code>, <code>key =&gt; something(x)</code> is inserted to <code>dictlike</code> (equivalent to <code>dictlike[key] = something(x)</code> but more efficient).</p><p><code>modify!!</code> returns a 2-tuple <code>(dictlike′, ret)</code> where <code>dictlike′</code> is an updated version of <code>dictlike</code> (which may be identical to <code>dictlike</code>) and <code>ret</code> is the returned value of <code>f</code>.</p><p>This API is inspired by <a href="http://hackage.haskell.org/package/lens-4.17.1/docs/Control-Lens-At.html"><code>Control.Lens.At</code></a> of Haskell&#39;s lens library.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using BangBang.Extras: modify!!
+
+julia&gt; dict = Dict(&quot;a&quot; =&gt; 1);
+
+julia&gt; dict′, ret = modify!!(dict, &quot;a&quot;) do val
+           Some(something(val, 0) + 1)
+       end;
+
+julia&gt; ret
+Some(2)
+
+julia&gt; dict === dict′
+true
+
+julia&gt; dict
+Dict{String, Int64} with 1 entry:
+  &quot;a&quot; =&gt; 2
+
+julia&gt; dict = Dict();
+
+julia&gt; modify!!(dict, &quot;a&quot;) do val
+           Some(something(val, 0) + 1)
+       end;
+
+julia&gt; dict
+Dict{Any, Any} with 1 entry:
+  &quot;a&quot; =&gt; 1
+
+julia&gt; modify!!(_ -&gt; nothing, dict, &quot;a&quot;);
+
+julia&gt; dict
+Dict{Any, Any}()</code></pre><p><strong>Discussion</strong></p><ul><li><a href="https://github.com/JuliaLang/julia/pull/33758">Add modify! function for lookup/update/insert/delete in one go by tkf · Pull Request #33758 · JuliaLang/julia</a></li><li><a href="https://github.com/jw3126/Setfield.jl/issues/65">Support adding to named tuples? · Issue #65 · jw3126/Setfield.jl</a></li></ul></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaFolds/BangBang.jl/blob/03cd756046dda8f1a5a23f7b00bc4086ddc716a1/src/extras.jl#LL12-L77">source</a></section></article></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="internals/">Internals »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.10 on <span class="colophon-date" title="Saturday 26 February 2022 07:53">Saturday 26 February 2022</span>. Using Julia version 1.6.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
