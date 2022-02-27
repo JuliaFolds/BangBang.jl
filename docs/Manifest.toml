@@ -21,7 +21,7 @@ uuid = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
 deps = ["Compat", "ConstructionBase", "Future", "InitialValues", "LinearAlgebra", "Requires", "Setfield", "Tables", "ZygoteRules"]
 path = ".."
 uuid = "198e06fe-97b7-11e9-32a5-e1d131e6ad66"
-version = "0.3.36-DEV"
+version = "0.3.37-DEV"
 
 [[Base64]]
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
