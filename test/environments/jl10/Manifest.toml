@@ -50,9 +50,9 @@ version = "0.5.10"
 
 [[CategoricalArrays]]
 deps = ["DataAPI", "Future", "Missings", "Printf", "Requires", "Statistics", "Unicode"]
-git-tree-sha1 = "c308f209870fdbd84cb20332b6dfaf14bf3387f8"
+git-tree-sha1 = "3b60064cb48efe986179359e08ffb568a6d510a2"
 uuid = "324d7699-5711-5eae-9e2f-1d82baa6b597"
-version = "0.10.2"
+version = "0.10.3"
 
 [[ChainRules]]
 deps = ["ChainRulesCore", "LinearAlgebra", "Reexport", "Requires", "Statistics"]
