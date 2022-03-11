@@ -323,9 +323,9 @@ version = "1.4.0"
 
 [[Preferences]]
 deps = ["TOML"]
-git-tree-sha1 = "de893592a221142f3db370f48290e3a2ef39998f"
+git-tree-sha1 = "d3538e7f8a790dc8903519090857ef8e1283eecd"
 uuid = "21216c6a-2e73-6563-6e65-726566657250"
-version = "1.2.4"
+version = "1.2.5"
 
 [[PrettyTables]]
 deps = ["Crayons", "Formatting", "Markdown", "Reexport", "Tables"]
@@ -456,9 +456,9 @@ uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
 
 [[Zygote]]
 deps = ["AbstractFFTs", "ChainRules", "ChainRulesCore", "DiffRules", "Distributed", "FillArrays", "ForwardDiff", "IRTools", "InteractiveUtils", "LinearAlgebra", "MacroTools", "NaNMath", "Random", "Requires", "SparseArrays", "SpecialFunctions", "Statistics", "ZygoteRules"]
-git-tree-sha1 = "93285d2877f1f1b09b2a2b029f90e9db10127022"
+git-tree-sha1 = "bf526aa30677f1dde58febc67cb9021aab5eb396"
 uuid = "e88e6eb3-aa80-5325-afca-941959d7151f"
-version = "0.6.35"
+version = "0.6.36"
 
 [[ZygoteRules]]
 deps = ["MacroTools"]
