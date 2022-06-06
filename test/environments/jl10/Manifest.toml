@@ -17,9 +17,9 @@ version = "3.0.0"
 
 [[Aqua]]
 deps = ["Compat", "Pkg", "Test"]
-git-tree-sha1 = "ad36b54d55c1f8494baae1cea53f08fa387a7b58"
+git-tree-sha1 = "81ba3aaf28af90fcd3e6ead8450747e418e45a7b"
 uuid = "4c88cf16-eb10-579e-8560-4a9242c79595"
-version = "0.5.4"
+version = "0.5.5"
 
 [[ArrayLayouts]]
 deps = ["FillArrays", "LinearAlgebra"]
@@ -149,9 +149,9 @@ version = "0.8.6"
 
 [[Documenter]]
 deps = ["ANSIColoredPrinters", "Base64", "Dates", "DocStringExtensions", "IOCapture", "InteractiveUtils", "JSON", "LibGit2", "Logging", "Markdown", "REPL", "Test", "Unicode"]
-git-tree-sha1 = "3eb46f2549b52a79206469cdc03ae2518ded8d31"
+git-tree-sha1 = "f7809f532671564e48cd81627ddcfb1ba670f87d"
 uuid = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
-version = "0.27.18"
+version = "0.27.19"
 
 [[FillArrays]]
 deps = ["LinearAlgebra", "Random", "SparseArrays"]
