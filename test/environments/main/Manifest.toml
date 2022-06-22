@@ -46,9 +46,9 @@ version = "0.10.6"
 
 [[ChainRules]]
 deps = ["ChainRulesCore", "Compat", "IrrationalConstants", "LinearAlgebra", "Random", "RealDot", "SparseArrays", "Statistics"]
-git-tree-sha1 = "68938888dad80c4da1db4e7e3c4405c13d0afd13"
+git-tree-sha1 = "97fd0a3b7703948a847265156a41079730805c77"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "1.35.3"
+version = "1.36.0"
 
 [[ChainRulesCore]]
 deps = ["Compat", "LinearAlgebra", "SparseArrays"]
