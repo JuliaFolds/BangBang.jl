@@ -1,4 +1,4 @@
 # https://fluxml.ai/Zygote.jl/dev/adjoints/#Gradient-Reflection-1
 
 # Treat everything immutable during differentiation:
-@adjoint possible(_args...) = false, _ -> nothing
+ChainRulesCore.rrule(::typeof(possible), _...) = false, _ -> ChainRulesCore.NoTangent()

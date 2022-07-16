@@ -49,7 +49,7 @@ using InitialValues
 using LinearAlgebra
 using Requires
 using Tables: Tables
-using ZygoteRules: @adjoint
+using ChainRulesCore: ChainRulesCore
 
 include("utils.jl")
 
@@ -70,7 +70,7 @@ include("collectors.jl")
 include("initials.jl")
 include("macro.jl")
 include("dataframes_impl.jl")
-include("zygote.jl")
+include("chainrules.jl")
 
 include("setfield.jl")
 using .SetfieldImpl: @set!!, prefermutation
