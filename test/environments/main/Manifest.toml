@@ -51,9 +51,9 @@ version = "0.10.6"
 
 [[ChainRules]]
 deps = ["Adapt", "ChainRulesCore", "Compat", "Distributed", "GPUArraysCore", "IrrationalConstants", "LinearAlgebra", "Random", "RealDot", "SparseArrays", "Statistics", "StructArrays"]
-git-tree-sha1 = "650415ad4c2a007b17f577cb081d9376cc908b6f"
+git-tree-sha1 = "76a4fae57a1c564a63c6f2d0a3dd5538525852ff"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "1.44.2"
+version = "1.44.3"
 
 [[ChainRulesCore]]
 deps = ["Compat", "LinearAlgebra", "SparseArrays"]
@@ -85,9 +85,9 @@ uuid = "e66e0078-7015-5450-92f7-15fbd957f2ae"
 
 [[ConstructionBase]]
 deps = ["LinearAlgebra"]
-git-tree-sha1 = "59d00b3139a9de4eb961057eabb65ac6522be954"
+git-tree-sha1 = "fb21ddd70a051d882a1686a5a550990bbe371a95"
 uuid = "187b0558-2788-49d3-abe0-74a17ed4e7c9"
-version = "1.4.0"
+version = "1.4.1"
 
 [[Crayons]]
 git-tree-sha1 = "249fe38abf76d48563e2f4556bebd215aa317e15"
@@ -466,9 +466,9 @@ uuid = "90137ffa-7385-5640-81b9-e52037218182"
 version = "0.12.5"
 
 [[StaticArraysCore]]
-git-tree-sha1 = "5b413a57dd3cea38497d745ce088ac8592fbb5be"
+git-tree-sha1 = "d7021266223876ca197deb1897ceeda0e29e7dfd"
 uuid = "1e83bf80-4336-4d27-bf5d-d5a4f845583c"
-version = "1.1.0"
+version = "1.2.0"
 
 [[Statistics]]
 deps = ["LinearAlgebra", "SparseArrays"]
