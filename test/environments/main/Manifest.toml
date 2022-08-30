@@ -523,9 +523,9 @@ uuid = "83775a58-1f1d-513f-b197-d71354ab007a"
 
 [[Zygote]]
 deps = ["AbstractFFTs", "ChainRules", "ChainRulesCore", "DiffRules", "Distributed", "FillArrays", "ForwardDiff", "GPUArrays", "GPUArraysCore", "IRTools", "InteractiveUtils", "LinearAlgebra", "LogExpFunctions", "MacroTools", "NaNMath", "Random", "Requires", "SparseArrays", "SpecialFunctions", "Statistics", "ZygoteRules"]
-git-tree-sha1 = "b02f2f7feda60d40aa7c24291ee865b50b33c9bc"
+git-tree-sha1 = "85cbfcf5c25eddeb83c7dc25c22b52ba221735af"
 uuid = "e88e6eb3-aa80-5325-afca-941959d7151f"
-version = "0.6.45"
+version = "0.6.46"
 
 [[ZygoteRules]]
 deps = ["MacroTools"]
