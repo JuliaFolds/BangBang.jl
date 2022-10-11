@@ -51,9 +51,9 @@ version = "0.10.7"
 
 [[ChainRules]]
 deps = ["Adapt", "ChainRulesCore", "Compat", "Distributed", "GPUArraysCore", "IrrationalConstants", "LinearAlgebra", "Random", "RealDot", "SparseArrays", "Statistics", "StructArrays"]
-git-tree-sha1 = "a5fd229d3569a6600ae47abe8cd48cbeb972e173"
+git-tree-sha1 = "d7d816527558cb8373e8f7a746d88eb8a167b023"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "1.44.6"
+version = "1.44.7"
 
 [[ChainRulesCore]]
 deps = ["Compat", "LinearAlgebra", "SparseArrays"]
@@ -200,9 +200,9 @@ version = "0.2.2"
 
 [[IRTools]]
 deps = ["InteractiveUtils", "MacroTools", "Test"]
-git-tree-sha1 = "af14a478780ca78d5eb9908b263023096c2b9d64"
+git-tree-sha1 = "2e99184fca5eb6f075944b04c22edec29beb4778"
 uuid = "7869d1d1-7146-5819-86e3-90919afe41df"
-version = "0.4.6"
+version = "0.4.7"
 
 [[Indexing]]
 git-tree-sha1 = "ce1566720fd6b19ff3411404d4b977acd4814f9f"
