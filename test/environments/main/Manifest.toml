@@ -63,9 +63,9 @@ version = "1.15.7"
 
 [[ChangesOfVariables]]
 deps = ["ChainRulesCore", "LinearAlgebra", "Test"]
-git-tree-sha1 = "38f7a08f19d8810338d4f5085211c7dfa5d5bdd8"
+git-tree-sha1 = "844b061c104c408b24537482469400af6075aae4"
 uuid = "9e997f8a-9a97-42d5-a9f1-ce6bfc15e2c0"
-version = "0.1.4"
+version = "0.1.5"
 
 [[CommonSubexpressions]]
 deps = ["MacroTools", "Test"]
@@ -160,9 +160,9 @@ uuid = "f43a241f-c20a-4ad4-852c-f6b1247861c6"
 
 [[FillArrays]]
 deps = ["LinearAlgebra", "Random", "SparseArrays", "Statistics"]
-git-tree-sha1 = "9a0472ec2f5409db243160a8b030f94c380167a3"
+git-tree-sha1 = "d3ba08ab64bdfd27234d3f61956c966266757fe6"
 uuid = "1a297f60-69ca-5386-bcde-b61e274b549b"
-version = "0.13.6"
+version = "0.13.7"
 
 [[Formatting]]
 deps = ["Printf"]
@@ -182,9 +182,9 @@ uuid = "9fa8497b-333b-5362-9e8d-4d0656e87820"
 
 [[GPUArrays]]
 deps = ["Adapt", "GPUArraysCore", "LLVM", "LinearAlgebra", "Printf", "Random", "Reexport", "Serialization", "Statistics"]
-git-tree-sha1 = "5ae0f2ab6f6d99d558cb588763f76311106c71b1"
+git-tree-sha1 = "494f1e456000c00c93dde79b38094e023f639dac"
 uuid = "0c68f7d7-f131-5f86-a1c3-88cf8149b2d7"
-version = "8.6.0"
+version = "8.6.1"
 
 [[GPUArraysCore]]
 deps = ["Adapt"]
