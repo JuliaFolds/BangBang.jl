@@ -200,9 +200,9 @@ version = "0.2.2"
 
 [[IRTools]]
 deps = ["InteractiveUtils", "MacroTools", "Test"]
-git-tree-sha1 = "2e99184fca5eb6f075944b04c22edec29beb4778"
+git-tree-sha1 = "2af2fe19f0d5799311a6491267a14817ad9fbd20"
 uuid = "7869d1d1-7146-5819-86e3-90919afe41df"
-version = "0.4.7"
+version = "0.4.8"
 
 [[Indexing]]
 git-tree-sha1 = "ce1566720fd6b19ff3411404d4b977acd4814f9f"
@@ -362,9 +362,9 @@ version = "1.4.1"
 
 [[Parsers]]
 deps = ["Dates", "SnoopPrecompile"]
-git-tree-sha1 = "946b56b2135c6c10bbb93efad8a78b699b6383ab"
+git-tree-sha1 = "6f4fbcd1ad45905a5dee3f4256fabb49aa2110c6"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "2.5.6"
+version = "2.5.7"
 
 [[PerformanceTestTools]]
 deps = ["Test"]
