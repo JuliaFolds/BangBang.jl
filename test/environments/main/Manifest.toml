@@ -392,9 +392,9 @@ version = "1.3.0"
 
 [[PrettyTables]]
 deps = ["Crayons", "Formatting", "LaTeXStrings", "Markdown", "Reexport", "StringManipulation", "Tables"]
-git-tree-sha1 = "96f6db03ab535bdb901300f88335257b0018689d"
+git-tree-sha1 = "548793c7859e28ef026dba514752275ee871169f"
 uuid = "08abe8d2-0d0c-5749-adfa-8a2ac140af0d"
-version = "2.2.2"
+version = "2.2.3"
 
 [[Printf]]
 deps = ["Unicode"]
@@ -543,9 +543,9 @@ uuid = "83775a58-1f1d-513f-b197-d71354ab007a"
 
 [[Zygote]]
 deps = ["AbstractFFTs", "ChainRules", "ChainRulesCore", "DiffRules", "Distributed", "FillArrays", "ForwardDiff", "GPUArrays", "GPUArraysCore", "IRTools", "InteractiveUtils", "LinearAlgebra", "LogExpFunctions", "MacroTools", "NaNMath", "Random", "Requires", "SnoopPrecompile", "SparseArrays", "SpecialFunctions", "Statistics", "ZygoteRules"]
-git-tree-sha1 = "88668b09e66eafc34d6d40a21ecfcb2101c845f9"
+git-tree-sha1 = "7903a4db8019d6549fc4246d22cadef8574581fe"
 uuid = "e88e6eb3-aa80-5325-afca-941959d7151f"
-version = "0.6.57"
+version = "0.6.58"
 
 [[ZygoteRules]]
 deps = ["MacroTools"]
