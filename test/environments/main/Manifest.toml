@@ -160,9 +160,9 @@ uuid = "f43a241f-c20a-4ad4-852c-f6b1247861c6"
 
 [[FillArrays]]
 deps = ["LinearAlgebra", "Random", "SparseArrays", "Statistics"]
-git-tree-sha1 = "3b245d1e50466ca0c9529e2033a3c92387c59c2f"
+git-tree-sha1 = "0ba171480d51567ba337e5eea4e68a8231b7a2c3"
 uuid = "1a297f60-69ca-5386-bcde-b61e274b549b"
-version = "0.13.9"
+version = "0.13.10"
 
 [[Formatting]]
 deps = ["Printf"]
@@ -259,15 +259,15 @@ version = "0.21.3"
 
 [[LLVM]]
 deps = ["CEnum", "LLVMExtra_jll", "Libdl", "Printf", "Unicode"]
-git-tree-sha1 = "1c614dfbecbaee4897b506bba2b432bf0d21f2ed"
+git-tree-sha1 = "f044a2796a9e18e0531b9b3072b0019a61f264bc"
 uuid = "929cbde3-209d-540e-8aea-75f648917ca0"
-version = "4.17.0"
+version = "4.17.1"
 
 [[LLVMExtra_jll]]
 deps = ["Artifacts", "JLLWrappers", "LazyArtifacts", "Libdl", "TOML"]
-git-tree-sha1 = "e46e3a40daddcbe851f86db0ec4a4a3d4badf800"
+git-tree-sha1 = "070e4b5b65827f82c16ae0916376cb47377aa1b5"
 uuid = "dad2f222-ce93-54a1-a47d-0025e8a3acab"
-version = "0.0.19+0"
+version = "0.0.18+0"
 
 [[LaTeXStrings]]
 git-tree-sha1 = "f2355693d6778a178ade15952b7ac47a4ff97996"
