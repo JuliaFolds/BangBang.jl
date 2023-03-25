@@ -183,9 +183,9 @@ version = "0.2.2"
 
 [[IRTools]]
 deps = ["InteractiveUtils", "MacroTools", "Test"]
-git-tree-sha1 = "2af2fe19f0d5799311a6491267a14817ad9fbd20"
+git-tree-sha1 = "0ade27f0c49cebd8db2523c4eeccf779407cf12c"
 uuid = "7869d1d1-7146-5819-86e3-90919afe41df"
-version = "0.4.8"
+version = "0.4.9"
 
 [[Indexing]]
 git-tree-sha1 = "ce1566720fd6b19ff3411404d4b977acd4814f9f"
