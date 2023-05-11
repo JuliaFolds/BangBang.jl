@@ -14,7 +14,8 @@ jobs:
       matrix:
         julia-version:
           - '1.6'
-        envname: "jl_1_6"
+          - '1.7'
+        envname: ["jl_1_6"]
         include:
           - julia-version: '1.8'
             envname: "jl_1_8"
