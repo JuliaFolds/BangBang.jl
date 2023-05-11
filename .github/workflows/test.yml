@@ -33,6 +33,7 @@ jobs:
       # Use `JULIA_PKG_SERVER` mitigation implemented in julia-buildpkg:
       - uses: julia-actions/julia-buildpkg@v1
       - run: julia -e 'using Pkg; pkg"add Run@0.1"'
+      - run: julia -e 'using Pkg; pkg"activate ${{ matrix.envname }}"; pkg"instantiate"'
       - run: julia -e 'using Run; Run.prepare("test/environments/${{ matrix.envname }}")'
       - run: julia -e 'using Run; Run.test(project="test/environments/${{ matrix.envname }}")'
       - uses: julia-actions/julia-processcoverage@v1
