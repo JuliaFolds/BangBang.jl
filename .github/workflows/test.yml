@@ -19,7 +19,7 @@ jobs:
         include:
           - julia-version: '1.8'
             envname: "jl_1_8"
-           - julia-version: '1.9'
+          - julia-version: '1.8'
             envname: "jl_1_9"
           - julia-version: 'nightly'
             envname: "jl_1_10"
