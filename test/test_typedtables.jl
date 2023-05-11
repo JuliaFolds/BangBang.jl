@@ -44,8 +44,14 @@ end
 @testset "append!!" begin
     if versionof(TypedTables) >= v"1.2.4" && VERSION >= v"1.4" # could be older
         tints = Table(a = [1], b = [2])
-        @test append!!(tints, [(a = 3, b = 4)]) === tints
-        @test tints == Table(a = [1, 3], b = [2, 4])
+        if VERSION > v"1.10-"
+            @info "spipping this test due to https://github.com/JuliaLang/julia/issues/49748"
+            @test_skip append!!(tints, [(a = 3, b = 4)]) === tints
+            @test_skip tints == Table(a = [1, 3], b = [2, 4])
+        else
+            @test append!!(tints, [(a = 3, b = 4)]) === tints
+            @test tints == Table(a = [1, 3], b = [2, 4])
+        end
     end
 end
 

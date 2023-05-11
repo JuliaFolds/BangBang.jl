@@ -13,19 +13,15 @@ jobs:
     strategy:
       matrix:
         julia-version:
-          - '1.7'
           - '1.6'
-          - 'nightly'
-        envname: ["main"]
+        envname: ["jl_1_6"]
         include:
-          - julia-version: '1.5'
-            envname: "jl14"
-          - julia-version: '1.4'
-            envname: "jl14"
-          - julia-version: '1.0'
-            envname: "jl10"
-          - julia-version: '1.0'
-            envname: "old"
+          - julia-version: '1.8'
+            envname: "jl_1_8"
+           - julia-version: '1.9'
+            envname: "jl_1_9"
+          - julia-version: 'nightly'
+            envname: "jl_1_10"
       fail-fast: false
     name: Test Julia ${{ matrix.julia-version }}
     steps:

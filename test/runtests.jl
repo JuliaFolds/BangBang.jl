@@ -26,7 +26,7 @@ using Test
             # https://travis-ci.com/JuliaFolds/BangBang.jl/builds/134791701
             # https://travis-ci.com/JuliaFolds/BangBang.jl/builds/134795161
             continue
-        elseif VERSION >= v"1.8-"
+        elseif VERSION >= v"1.10-"
             @info "Skip $file for Julia $VERSION"
             # For example:
             continue
