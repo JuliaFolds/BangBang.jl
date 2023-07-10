@@ -488,6 +488,23 @@ possible(::typeof(_setindex!), ::C, ::V, ::K) where {C <: AbstractDict, V, K} =
     promote_type(keytype(C), K) <: keytype(C) &&
     promote_type(valtype(C), V) <: valtype(C)
 
+# Also need to handle cases where we're setting slices of arrays.
+_index_dimension(index) = 0
+_index_dimension(::Colon) = 1
+_index_dimension(::AbstractUnitRange) = 1
+_index_dimension(indices::Tuple) = sum(map(_index_dimension, indices))
+
+function possible(
+    ::typeof(_setindex!),
+    ::C,
+    ::T,
+    indices::Vararg
+) where {N, M, C <: AbstractArray{<:Any,N}, T <: AbstractArray{<:Any,M}}
+    return implements(setindex!, C) &&
+        promote_type(eltype(C), eltype(T)) <: eltype(C) &&
+        _index_dimension(indices) == M
+end
+
 """
     resize!!(vector::AbstractVector, n::Integer) -> vector′
 """

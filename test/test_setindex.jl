@@ -21,4 +21,18 @@ end
     end
 end
 
+@testset "slices" begin
+    x = randn(2, 3)
+    @test @inferred(setindex!!(x, x[:, 1], Base.OneTo(2), 1)) === x
+    @test @inferred(setindex!!(x, x[:, 1], :, 1)) === x
+    @test @inferred(setindex!!(x, x[:], :)) === x
+
+    X = randn(2, 3, 4)
+    @test @inferred(setindex!!(X, X[:, 1, :], :, 1, :)) === X
+    @test @inferred(setindex!!(X, X[:, 1, :], Base.OneTo(2), 1, :)) === X
+    @test @inferred(setindex!!(X, X[:, 1, :], Base.OneTo(2), 1, Base.OneTo(4))) === X
+    @test @inferred(setindex!!(X, X[:, 1, 1], :, 1, 1)) === X
+    @test @inferred(setindex!!(X, X[:], :)) === X
+end
+
 end  # module
