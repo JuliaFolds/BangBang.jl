@@ -290,9 +290,9 @@ uuid = "90137ffa-7385-5640-81b9-e52037218182"
 version = "0.12.6"
 
 [[StaticArraysCore]]
-git-tree-sha1 = "6b7ba252635a5eff6a0b0664a41ee140a1c9e72a"
+git-tree-sha1 = "1d5708d926c76a505052d0d24a846d5da08bc3a4"
 uuid = "1e83bf80-4336-4d27-bf5d-d5a4f845583c"
-version = "1.4.0"
+version = "1.4.1"
 
 [[Statistics]]
 deps = ["LinearAlgebra", "SparseArrays"]
