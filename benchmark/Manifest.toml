@@ -16,9 +16,9 @@ uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
 
 [[BenchmarkTools]]
 deps = ["JSON", "Logging", "Printf", "Profile", "Statistics", "UUIDs"]
-git-tree-sha1 = "d9a9701b899b30332bbcb3e1679c41cce81fb0e8"
+git-tree-sha1 = "f1f03a9fa24271160ed7e73051fba3c1a759b53f"
 uuid = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
-version = "1.3.2"
+version = "1.4.0"
 
 [[CategoricalArrays]]
 deps = ["DataAPI", "Future", "Missings", "Printf", "Requires", "Statistics", "Unicode"]
