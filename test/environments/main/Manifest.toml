@@ -593,9 +593,9 @@ uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [[TypedTables]]
 deps = ["Adapt", "Dictionaries", "Indexing", "SplitApplyCombine", "Tables", "Unicode"]
-git-tree-sha1 = "d911ae4e642cf7d56b1165d29ef0a96ba3444ca9"
+git-tree-sha1 = "3ba40ce4a0f52e654aca9e3a86603768cea9cbfb"
 uuid = "9d95f2ec-7b3d-5a63-8d20-e2491e220bb9"
-version = "1.4.3"
+version = "1.4.4"
 
 [[UUIDs]]
 deps = ["Random", "SHA"]
