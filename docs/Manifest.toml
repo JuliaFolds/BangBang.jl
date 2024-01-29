@@ -82,9 +82,9 @@ uuid = "ade2ca70-3891-5945-98fb-dc099432e06a"
 
 [[Dictionaries]]
 deps = ["Indexing", "Random", "Serialization"]
-git-tree-sha1 = "5bde104a45593207307e1481a58e0339d4643fca"
+git-tree-sha1 = "079b1f4b4f53e75c47d450afaca8c9424adce199"
 uuid = "85a47980-9c8c-11e8-2b9f-f7ca1fa99fb4"
-version = "0.3.26"
+version = "0.3.27"
 
 [[DocStringExtensions]]
 deps = ["LibGit2"]
