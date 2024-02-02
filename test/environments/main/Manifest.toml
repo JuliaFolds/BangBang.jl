@@ -56,9 +56,9 @@ version = "0.10.8"
 
 [[ChainRules]]
 deps = ["Adapt", "ChainRulesCore", "Compat", "Distributed", "GPUArraysCore", "IrrationalConstants", "LinearAlgebra", "Random", "RealDot", "SparseArrays", "SparseInverseSubset", "Statistics", "StructArrays", "SuiteSparse"]
-git-tree-sha1 = "b308c249f38637cc5022c079fe5e19701a160395"
+git-tree-sha1 = "213f001d1233fd3b8ef007f50c8cab29061917d8"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "1.60.0"
+version = "1.61.0"
 
 [[ChainRulesCore]]
 deps = ["Compat", "LinearAlgebra", "SparseArrays"]
@@ -593,9 +593,9 @@ uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [[TypedTables]]
 deps = ["Adapt", "Dictionaries", "Indexing", "SplitApplyCombine", "Tables", "Unicode"]
-git-tree-sha1 = "0c310c0843bd635a283ae3d9cc74cad580fe31b0"
+git-tree-sha1 = "84fd7dadde577e01eb4323b7e7b9cb51c62c60d4"
 uuid = "9d95f2ec-7b3d-5a63-8d20-e2491e220bb9"
-version = "1.4.5"
+version = "1.4.6"
 
 [[UUIDs]]
 deps = ["Random", "SHA"]
