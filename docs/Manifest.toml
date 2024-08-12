@@ -39,9 +39,9 @@ version = "1.24.0"
 
 [[CodecZlib]]
 deps = ["TranscodingStreams", "Zlib_jll"]
-git-tree-sha1 = "b8fe8546d52ca154ac556809e10c75e6e7430ac8"
+git-tree-sha1 = "bce6804e5e6044c6daab27bb533d1295e4a2e759"
 uuid = "944b1d66-785c-5afd-91f1-9de20f533193"
-version = "0.7.5"
+version = "0.7.6"
 
 [[Compat]]
 deps = ["Dates", "LinearAlgebra", "TOML", "UUIDs"]
