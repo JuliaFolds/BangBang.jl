@@ -58,15 +58,15 @@ version = "1.12.2"
 
 [[ChangesOfVariables]]
 deps = ["InverseFunctions", "LinearAlgebra", "Test"]
-git-tree-sha1 = "2fba81a302a7be671aefe194f0525ef231104e7f"
+git-tree-sha1 = "799b25ca3a8a24936ae7b5c52ad194685fc3e6ef"
 uuid = "9e997f8a-9a97-42d5-a9f1-ce6bfc15e2c0"
-version = "0.1.8"
+version = "0.1.9"
 
 [[CommonSubexpressions]]
-deps = ["MacroTools", "Test"]
-git-tree-sha1 = "7b8a93dba8af7e3b42fecabf646260105ac373f7"
+deps = ["MacroTools"]
+git-tree-sha1 = "cda2cfaebb4be89c9084adaca7dd7333369715c5"
 uuid = "bbf7d656-a473-5ed7-a52c-81e309532950"
-version = "0.3.0"
+version = "0.3.1"
 
 [[Compat]]
 deps = ["Base64", "Dates", "DelimitedFiles", "Distributed", "InteractiveUtils", "LibGit2", "Libdl", "LinearAlgebra", "Markdown", "Mmap", "Pkg", "Printf", "REPL", "Random", "SHA", "Serialization", "SharedArrays", "Sockets", "SparseArrays", "Statistics", "Test", "UUIDs", "Unicode"]
