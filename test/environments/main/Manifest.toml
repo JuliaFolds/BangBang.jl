@@ -56,9 +56,9 @@ version = "0.10.8"
 
 [[ChainRules]]
 deps = ["Adapt", "ChainRulesCore", "Compat", "Distributed", "GPUArraysCore", "IrrationalConstants", "LinearAlgebra", "Random", "RealDot", "SparseArrays", "SparseInverseSubset", "Statistics", "StructArrays", "SuiteSparse"]
-git-tree-sha1 = "bcffdcaed50d3453673b852f3522404a94b50fad"
+git-tree-sha1 = "4312d7869590fab4a4f789e97bd82f0a04eaaa05"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "1.72.1"
+version = "1.72.2"
 
 [[ChainRulesCore]]
 deps = ["Compat", "LinearAlgebra", "SparseArrays"]
@@ -621,9 +621,9 @@ uuid = "83775a58-1f1d-513f-b197-d71354ab007a"
 
 [[Zygote]]
 deps = ["AbstractFFTs", "ChainRules", "ChainRulesCore", "DiffRules", "Distributed", "FillArrays", "ForwardDiff", "GPUArrays", "GPUArraysCore", "IRTools", "InteractiveUtils", "LinearAlgebra", "LogExpFunctions", "MacroTools", "NaNMath", "PrecompileTools", "Random", "Requires", "SparseArrays", "SpecialFunctions", "Statistics", "ZygoteRules"]
-git-tree-sha1 = "60269397d29dabf2ad08ec658e7f0d680c15f13c"
+git-tree-sha1 = "0b3c944f5d2d8b466c5d20a84c229c17c528f49e"
 uuid = "e88e6eb3-aa80-5325-afca-941959d7151f"
-version = "0.6.74"
+version = "0.6.75"
 
 [[ZygoteRules]]
 deps = ["ChainRulesCore", "MacroTools"]
