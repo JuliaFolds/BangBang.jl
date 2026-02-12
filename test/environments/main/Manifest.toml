@@ -56,9 +56,9 @@ version = "1.0.2"
 
 [[ChainRules]]
 deps = ["Adapt", "ChainRulesCore", "Compat", "Distributed", "GPUArraysCore", "IrrationalConstants", "LinearAlgebra", "Random", "RealDot", "SparseArrays", "SparseInverseSubset", "Statistics", "StructArrays", "SuiteSparse"]
-git-tree-sha1 = "3b704353e517a957323bd3ac70fa7b669b5f48d4"
+git-tree-sha1 = "3c190c570fb3108c09f838607386d10c71701789"
 uuid = "082447d4-558c-5d27-93f4-14fc19e9eca2"
-version = "1.72.6"
+version = "1.73.0"
 
 [[ChainRulesCore]]
 deps = ["Compat", "LinearAlgebra", "SparseArrays"]
