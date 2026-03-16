@@ -50,9 +50,9 @@ version = "0.4.2"
 
 [[CategoricalArrays]]
 deps = ["Compat", "DataAPI", "Future", "Missings", "Printf", "Requires", "Statistics", "Unicode"]
-git-tree-sha1 = "73acb4ed51b1855e1b5ce5c610334363a98d13f1"
+git-tree-sha1 = "a6f644eb7bbc0171286f0f3ad1ffde8f04be7b83"
 uuid = "324d7699-5711-5eae-9e2f-1d82baa6b597"
-version = "1.0.2"
+version = "1.1.0"
 
 [[ChainRules]]
 deps = ["Adapt", "ChainRulesCore", "Compat", "Distributed", "GPUArraysCore", "IrrationalConstants", "LinearAlgebra", "Random", "RealDot", "SparseArrays", "SparseInverseSubset", "Statistics", "StructArrays", "SuiteSparse"]
